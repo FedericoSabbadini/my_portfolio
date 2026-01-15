@@ -1,0 +1,96 @@
+{
+  "featured": [
+    {
+      "title": "F1 Pit Strategy Predictor LSTM",
+      "period": "Nov 2025 - Present",
+      "description": "Deep learning system to predict Formula 1 pit stop strategies using real telemetry data. The system predicts when a driver will pit and which tyre compound they will mount, achieving AUC 0.93 for pit timing and 78% accuracy for compound selection.",
+      "tags": ["Python", "TensorFlow", "LSTM", "F1 API"],
+      "url": "https://github.com/FedericoSabbadini",
+      "type": "featured",
+      "badge": "AI/ML"
+    },
+    {
+      "title": "Network Hardening Planner (AI-Based)",
+      "period": "Nov 2025 - Present",
+      "description": "Automated planning system for network security hardening using AI techniques. Models network infrastructure and generates optimal action plans to close insecure ports while minimizing operational impact.",
+      "tags": ["Python", "AI Planning", "Network Security"],
+      "url": "https://github.com/FedericoSabbadini",
+      "type": "featured",
+      "badge": "Security"
+    },
+    {
+      "title": "OpenID Connect & Digital Identity",
+      "period": "Jun 2024 - Oct 2024",
+      "description": "Bachelor's thesis on authentication and authorization in OpenID Connect and OAuth 2.0, focusing on security mechanisms, token management, and enterprise integration.",
+      "tags": ["OpenID", "OAuth 2.0", "Security", "Identity Management"],
+      "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8",
+      "type": "featured",
+      "badge": "Thesis"
+    }
+  ],
+  "all": [
+    {
+      "title": "TalentScope AI",
+      "period": "May 2025 - Jun 2025",
+      "description": "Machine learning classification pipeline using ensemble models with advanced feature engineering and hyperparameter tuning for FIFA 2022 player potential prediction.",
+      "tags": ["Python", "ML", "Scikit-learn", "Ensemble"],
+      "url": "https://github.com/FedericoSabbadini/TalentScope_AI"
+    },
+    {
+      "title": "Oracool Web Platform",
+      "period": "Apr 2025 - Jul 2025",
+      "description": "Full-stack web application for sports predictions with Laravel backend, MySQL database, and responsive Bootstrap frontend following Agile methodology.",
+      "tags": ["Laravel", "PHP", "MySQL", "Bootstrap"],
+      "url": "https://github.com/FedericoSabbadini/Oracool_Project"
+    },
+    {
+      "title": "Data Hiding",
+      "period": "Oct 2024 - Mar 2025",
+      "description": "Exploration of steganography techniques using CNNs and GANs for robust hidden information in multimedia files.",
+      "tags": ["Steganography", "CNN", "GAN", "Python"],
+      "url": "https://drive.google.com/drive/folders/1-2rBrcF9CzBdbvVcxDoxeiMTZej-5eDK"
+    },
+    {
+      "title": "Grid Pathfinding Algorithms",
+      "period": "May 2025 - Jul 2025",
+      "description": "Implementation of efficient pathfinding algorithms for obstacle-based path computation on grid systems.",
+      "tags": ["Algorithms", "Graph Theory", "Python"],
+      "url": "https://github.com/FedericoSabbadini/CamminiPRJ"
+    },
+    {
+      "title": "Work Performance Trading",
+      "period": "Jan 2024 - Jun 2024",
+      "description": "Java application for automated resource exchange with modular architecture following SOLID principles.",
+      "tags": ["Java", "GUI", "Design Patterns", "SOLID"],
+      "url": "https://github.com/FedericoSabbadini/Software_Engineering"
+    },
+    {
+      "title": "Electromagnetic Field Analysis",
+      "period": "Apr 2024 - Jul 2024",
+      "description": "MATLAB project for quantitative analysis of electromagnetic field exposure from HF antennas and eLF power lines.",
+      "tags": ["MATLAB", "Physics", "Analysis"],
+      "url": "https://github.com/FedericoSabbadini/Elettrosmog"
+    },
+    {
+      "title": "Gurobi Optimization",
+      "period": "Jan 2023 - Jun 2023",
+      "description": "Mathematical optimization using Gurobi solver for complex constraint satisfaction and linear programming.",
+      "tags": ["Optimization", "Operations Research", "Java"],
+      "url": "https://github.com/FedericoSabbadini/Gurobi_Optimization"
+    },
+    {
+      "title": "University Record Book GUI",
+      "period": "Apr 2023 - Jun 2023",
+      "description": "Desktop application in Java to manage academic records with Swing-based GUI and JSON data storage.",
+      "tags": ["Java", "Swing", "GUI", "JSON"],
+      "url": "https://github.com/FedericoSabbadini"
+    },
+    {
+      "title": "Social Media Marketing Project",
+      "period": "Apr 2023 - Jun 2023",
+      "description": "Created and managed a social media channel applying marketing strategies and content optimization.",
+      "tags": ["Marketing", "Social Media", "Analytics"],
+      "url": "#"
+    }
+  ]
+}
