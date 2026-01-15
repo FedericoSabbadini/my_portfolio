@@ -1,58 +1,60 @@
 /**
- * Data Loader
- * Loads JSON data files for dynamic content
+ * Data Loader Module
+ * Handles loading JSON data files with caching
  */
 
 class DataLoader {
     constructor() {
         this.cache = {};
+        this.basePath = 'data/';
     }
 
     /**
-     * Load data from JSON file
+     * Load data from a JSON file
      * @param {string} filename - JSON filename (without .json extension)
-     * @param {boolean} useCache - Use cached data if available
+     * @param {boolean} useCache - Whether to use cached data
+     * @returns {Promise<Object|null>}
      */
     async load(filename, useCache = true) {
-        // Check cache
         if (useCache && this.cache[filename]) {
             return this.cache[filename];
         }
 
         try {
-            const response = await fetch(`data/${filename}.json`);
+            const response = await fetch(`${this.basePath}${filename}.json`);
             if (!response.ok) {
-                throw new Error(`Data file ${filename}.json not found`);
+                throw new Error(`Failed to load ${filename}.json`);
             }
             
             const data = await response.json();
             this.cache[filename] = data;
             return data;
         } catch (error) {
-            console.error(`Error loading data ${filename}:`, error);
+            console.error(`DataLoader Error [${filename}]:`, error);
             return null;
         }
     }
 
     /**
-     * Load multiple data files
-     * @param {Array} filenames - Array of filenames
+     * Load multiple data files at once
+     * @param {Array<string>} filenames - Array of filenames
+     * @returns {Promise<Object>}
      */
     async loadMultiple(filenames) {
-        const promises = filenames.map(f => this.load(f));
-        const results = await Promise.all(promises);
+        const results = await Promise.all(
+            filenames.map(f => this.load(f))
+        );
         
-        // Return as object with filename keys
         const data = {};
-        filenames.forEach((name, i) => {
-            data[name] = results[i];
+        filenames.forEach((name, index) => {
+            data[name] = results[index];
         });
         return data;
     }
 
     /**
      * Clear cache
-     * @param {string} filename - Optional specific file to clear
+     * @param {string|null} filename - Specific file to clear, or null for all
      */
     clearCache(filename = null) {
         if (filename) {
@@ -63,8 +65,9 @@ class DataLoader {
     }
 
     /**
-     * Get cached data
-     * @param {string} filename - Filename to get from cache
+     * Get cached data without fetching
+     * @param {string} filename
+     * @returns {Object|null}
      */
     getCached(filename) {
         return this.cache[filename] || null;

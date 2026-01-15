@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "siteName": "Federico Sabbadini",
+    "siteTitle": "Computer Engineering Student",
+    "language": "en"
+  },
+  "navigation": [
+    { "label": "Home", "page": "index", "href": "index.html" },
+    { "label": "News & Updates", "page": "news", "href": "news.html" },
+    { "label": "Courses", "page": "courses", "href": "courses.html" },
+    { "label": "Resources", "page": "resources", "href": "resources.html" },
+    { "label": "About & Contacts", "page": "about", "href": "about.html" }
+  ],
+  "cta": {
+    "title": "Looking for My First Professional Role",
+    "description": "After completing my Master's degree in Computer Engineering (October 2026), I'm seeking opportunities in cybersecurity or systems administration at companies where I can grow, learn, and contribute to meaningful projects.",
+    "primaryButton": { "text": "Get in Touch", "href": "about.html" },
+    "secondaryButton": { "text": "LinkedIn Profile", "href": "https://linkedin.com/in/federicosabbadini", "external": true }
+  }
+}

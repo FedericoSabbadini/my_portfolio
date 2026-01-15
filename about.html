@@ -33,23 +33,11 @@
     <section class="section">
         <div class="container">
             <div class="bio-section">
-                <img src="assets/images/profile.jpeg" alt="Federico Sabbadini" style="width: 200px; height: 200px; border-radius: 50%; margin-bottom: 2rem; border: 4px solid var(--accent);">
-                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Federico Sabbadini</h2>
-                <p class="bio-text">
-                    Born in 2002 and based in the province of Brescia, Italy. I completed my scientific high school 
-                    education at Istituto Salesiano Don Bosco in Chiari (BS) and earned a Bachelor's degree in 
-                    Computer Engineering from the University of Brescia.
-                </p>
-                <p class="bio-text">
-                    I am currently pursuing a Master's degree in Computer Engineering, expected to be completed in 
-                    Autumn 2026. I'm a curious and determined person with a strong interest in technology and 
-                    problem-solving. I approach challenges with commitment and consistency, aiming to continuously 
-                    improve both my technical and analytical skills.
-                </p>
-                <p class="bio-text">
-                    My top skills include: <strong>Problem solving</strong>, <strong>Cybersecurity</strong>, 
-                    <strong>Machine learning</strong>, and <strong>Time management</strong>.
-                </p>
+                <img id="about-image" src="assets/images/profile.jpeg" alt="Federico Sabbadini">
+                <h2 id="about-name">Federico Sabbadini</h2>
+                <div id="about-bio" data-dynamic>
+                    <!-- Bio rendered dynamically -->
+                </div>
             </div>
         </div>
     </section>
@@ -60,50 +48,8 @@
             <div class="section-header">
                 <h2>Education Journey</h2>
             </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Sep 2024 - Oct 2026 (Expected)</span>
-                        <span class="badge badge-success" style="margin-bottom: 0.5rem;">Current</span>
-                        <h3 class="timeline-title">M.Sc. in Computer Engineering</h3>
-                        <p class="timeline-subtitle">University of Brescia • Current GPA: 106/110</p>
-                        <p style="color: var(--text-secondary); line-height: 1.7;">
-                            Specializing in cybersecurity, systems administration, artificial intelligence, and advanced 
-                            software engineering. Focusing on network security, machine learning applications, and 
-                            enterprise system architecture.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Sep 2021 - Oct 2024</span>
-                        <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Completed</span>
-                        <h3 class="timeline-title">B.Sc. in Computer Engineering</h3>
-                        <p class="timeline-subtitle">University of Brescia • Final Grade: 104/110</p>
-                        <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
-                            Focused on computer systems, networks, software development, and security fundamentals. 
-                            Completed thesis on OpenID Connect and Digital Identity Management.
-                        </p>
-                        <a href="https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8" target="_blank" class="link">View Bachelor's Thesis →</a>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Sep 2016 - Sep 2021</span>
-                        <h3 class="timeline-title">Scientific High School Diploma</h3>
-                        <p class="timeline-subtitle">Salesiani San Bernardino, Chiari (BS) • Final Grade: 100/100</p>
-                        <p style="color: var(--text-secondary); line-height: 1.7;">
-                            Scientific curriculum with focus on mathematics, physics, and sciences. 
-                            Participated in study abroad program at Pitzer College, USA (Jul-Aug 2019).
-                        </p>
-                    </div>
-                </div>
+            <div class="timeline" id="education-timeline" data-dynamic>
+                <!-- Education rendered dynamically -->
             </div>
         </div>
     </section>
@@ -114,33 +60,8 @@
             <div class="section-header">
                 <h2>Languages</h2>
             </div>
-
-            <div class="grid-3" style="max-width: 900px; margin: 0 auto;">
-                <div class="card">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">🇮🇹 Italiano</h3>
-                    <p style="color: var(--text-light); margin-bottom: 1rem;">Native Speaker</p>
-                    <div class="language-bar">
-                        <div class="language-fill" style="width: 100%;"></div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">🇬🇧 English</h3>
-                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">B1-B2 Intermediate</p>
-                    <p style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 1rem;">Reading & Writing: B2 • Speaking: B1</p>
-                    <div class="language-bar">
-                        <div class="language-fill" style="width: 70%;"></div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">🇩🇪 Deutsch</h3>
-                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">A1 Basic</p>
-                    <p style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 1rem;">Study abroad: Germany 2016</p>
-                    <div class="language-bar">
-                        <div class="language-fill" style="width: 20%;"></div>
-                    </div>
-                </div>
+            <div class="grid-3" id="languages-container" style="max-width: 900px; margin: 0 auto;" data-dynamic>
+                <!-- Languages rendered dynamically -->
             </div>
         </div>
     </section>
@@ -151,34 +72,8 @@
             <div class="section-header">
                 <h2>Interests & Hobbies</h2>
             </div>
-
-            <div class="interest-grid">
-                <div class="interest-card card">
-                    <div class="interest-icon">🏊</div>
-                    <h3 class="interest-title">Sports</h3>
-                    <p class="interest-description">
-                        Swimming, skiing, tennis, soccer, and karate. These activities have helped me develop 
-                        discipline, determination, and teamwork skills.
-                    </p>
-                </div>
-
-                <div class="interest-card card">
-                    <div class="interest-icon">📚</div>
-                    <h3 class="interest-title">Continuous Learning</h3>
-                    <p class="interest-description">
-                        Passionate about reading, technology trends, and staying updated with the latest developments 
-                        in cybersecurity and AI.
-                    </p>
-                </div>
-
-                <div class="interest-card card">
-                    <div class="interest-icon">🌍</div>
-                    <h3 class="interest-title">Travel & Culture</h3>
-                    <p class="interest-description">
-                        Study abroad experiences in Germany and USA have broadened my cultural perspective and 
-                        language skills.
-                    </p>
-                </div>
+            <div class="interest-grid" id="interests-container" data-dynamic>
+                <!-- Interests rendered dynamically -->
             </div>
         </div>
     </section>
@@ -190,56 +85,30 @@
                 <h2>Get in Touch</h2>
                 <p>Feel free to reach out for opportunities or collaborations</p>
             </div>
-
-            <div class="grid-3" style="max-width: 900px; margin: 0 auto;">
-                <a href="/cdn-cgi/l/email-protection#21474445445348424e524043434045484f486148424d4e54450f424e4c" class="card" style="text-decoration: none; text-align: center; transition: var(--transition);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--primary);">Email</h3>
-                    <p style="color: var(--accent); font-weight: 600;"><span class="__cf_email__" data-cfemail="791f1c1d1c0b101a160a181b1b181d10171039101a15160c1d571a1614">[email&#160;protected]</span></p>
-                </a>
-
-                <a href="https://linkedin.com/in/federicosabbadini" target="_blank" class="card" style="text-decoration: none; text-align: center; transition: var(--transition);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">💼</div>
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--primary);">LinkedIn</h3>
-                    <p style="color: var(--accent); font-weight: 600;">@federicosabbadini</p>
-                </a>
-
-                <a href="https://github.com/FedericoSabbadini" target="_blank" class="card" style="text-decoration: none; text-align: center; transition: var(--transition);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
-                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--primary);">GitHub</h3>
-                    <p style="color: var(--accent); font-weight: 600;">@FedericoSabbadini</p>
-                </a>
+            <div class="grid-3" id="contact-cards" style="max-width: 900px; margin: 0 auto;" data-dynamic>
+                <!-- Contact cards rendered dynamically -->
             </div>
-
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--bg-secondary); border-radius: var(--radius-lg);">
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">📍 Location</h3>
-                <p style="font-size: 1.125rem; color: var(--text-secondary);">Cologne (BS), Brescia, Italy</p>
+            <div class="location-box">
+                <h3>📍 Location</h3>
+                <p id="location-text">Loading...</p>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
     <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Looking for My First Professional Role</h2>
-                <p>
-                    After completing my Master's degree in Computer Engineering (October 2026), I'm seeking 
-                    opportunities in cybersecurity or systems administration at companies where I can grow, 
-                    learn, and contribute to meaningful projects.
-                </p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-                    <a href="/cdn-cgi/l/email-protection#7214171617001b111d0113101013161b1c1b321b111e1d07165c111d1f" class="btn btn-white">Send Email</a>
-                    <a href="https://linkedin.com/in/federicosabbadini" target="_blank" class="btn btn-secondary" style="background: transparent; border: 2px solid white; color: white;">LinkedIn Profile</a>
-                </div>
-            </div>
+        <div class="container" id="cta-container">
+            <!-- CTA rendered dynamically -->
         </div>
     </section>
 
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
-    <script src="js/component-loader.js"></script>
     <script src="js/data-loader.js"></script>
+    <script src="js/template-renderer.js"></script>
+    <script src="js/component-loader.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
