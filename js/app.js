@@ -70,11 +70,9 @@ class PortfolioApp {
     async loadComponents() {
         const components = [];
         
-        if (document.getElementById('navbar-placeholder')) {
-            components.push({ name: 'navbar', targetId: 'navbar-placeholder' });
-        }
-        
-        if (document.getElementById('footer-placeholder')) {
+        // Navbar is now static in HTML to prevent flash
+        // Only load footer dynamically
+        if (document.getElementById('footer-placeholder') && !document.getElementById('footer-placeholder').hasChildNodes()) {
             components.push({ name: 'footer', targetId: 'footer-placeholder' });
         }
 

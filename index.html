@@ -23,8 +23,26 @@
         <div class="page-loader-spinner"></div>
     </div>
 
-    <!-- Navigation -->
-    <div id="navbar-placeholder"></div>
+    <!-- Navigation (Static to prevent flash) -->
+    <div id="navbar-placeholder">
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">Federico Sabbadini</a>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link" data-page="index">Home</a>
+                    <a href="news.html" class="nav-link" data-page="news">News & Updates</a>
+                    <a href="courses.html" class="nav-link" data-page="courses">Courses</a>
+                    <a href="resources.html" class="nav-link" data-page="resources">Resources</a>
+                    <a href="about.html" class="nav-link" data-page="about">About & Contacts</a>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">

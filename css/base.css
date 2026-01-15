@@ -70,18 +70,33 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hide body until loaded */
+/* Hide everything except loader during loading */
 body.loading {
     overflow: hidden;
 }
 
-body.loading > *:not(#page-loader) {
-    opacity: 0;
+body.loading #navbar-placeholder,
+body.loading #footer-placeholder,
+body.loading main,
+body.loading section,
+body.loading .hero,
+body.loading .page-header {
+    visibility: hidden;
 }
 
-body:not(.loading) > * {
-    opacity: 1;
-    transition: opacity 0.3s ease;
+body:not(.loading) #navbar-placeholder,
+body:not(.loading) #footer-placeholder,
+body:not(.loading) main,
+body:not(.loading) section,
+body:not(.loading) .hero,
+body:not(.loading) .page-header {
+    visibility: visible;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Page Loader Overlay */
@@ -102,6 +117,7 @@ body:not(.loading) > * {
 #page-loader.hidden {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .page-loader-spinner {

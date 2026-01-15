@@ -2,6 +2,12 @@
  * Navigation Styles
  */
 
+/* Navbar placeholder - prevent layout shift */
+#navbar-placeholder {
+    min-height: 60px;
+    background: var(--bg-primary);
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -9,7 +15,7 @@
     right: 0;
     background: var(--bg-primary);
     z-index: 1000;
-    transition: var(--transition);
+    transition: box-shadow 0.2s ease;
     border-bottom: 1px solid var(--border);
 }
 
