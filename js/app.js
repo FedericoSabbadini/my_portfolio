@@ -27,9 +27,6 @@ class PortfolioApp {
      */
     async init() {
         try {
-            // Show loading state
-            this.showLoading();
-
             // Load components (navbar, footer)
             await this.loadComponents();
             
@@ -45,34 +42,26 @@ class PortfolioApp {
             // Initialize animations
             this.initAnimations();
 
-            // Hide loading state
-            this.hideLoading();
+            // Hide page loader and show content
+            this.showPage();
             
             console.log('✅ Portfolio initialized successfully');
         } catch (error) {
             console.error('❌ Portfolio initialization error:', error);
-            this.hideLoading();
+            this.showPage(); // Show page anyway on error
         }
     }
 
     /**
-     * Show loading state
+     * Show page after loading
      */
-    showLoading() {
-        const containers = document.querySelectorAll('[data-dynamic]');
-        containers.forEach(container => {
-            if (!container.innerHTML.trim()) {
-                container.innerHTML = '<div class="loading"></div>';
-            }
-        });
-    }
-
-    /**
-     * Hide loading state
-     */
-    hideLoading() {
-        const loaders = document.querySelectorAll('.loading');
-        loaders.forEach(loader => loader.remove());
+    showPage() {
+        const loader = document.getElementById('page-loader');
+        if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(() => loader.remove(), 300);
+        }
+        document.body.classList.remove('loading');
     }
 
     /**
