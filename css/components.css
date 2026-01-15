@@ -567,10 +567,45 @@
     background: linear-gradient(180deg, var(--accent) 0%, var(--border) 100%);
 }
 
+/* Year Marker on Timeline */
+.news-year-marker {
+    position: relative;
+    padding-left: 2.5rem;
+    padding-bottom: 1.5rem;
+    padding-top: 0.5rem;
+}
+
+.news-year-marker:first-child {
+    padding-top: 0;
+}
+
+.news-year-dot {
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 4px solid var(--bg-primary);
+    box-shadow: 0 0 0 3px var(--accent);
+}
+
+.news-year-label {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--accent);
+    background: var(--bg-primary);
+    padding: 0.25rem 0;
+}
+
+/* News Item */
 .news-item {
     position: relative;
     padding-left: 2.5rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
 }
 
 .news-item:last-child {
@@ -579,25 +614,13 @@
 
 .news-marker {
     position: absolute;
-    left: -6px;
-    top: 0;
-    width: 14px;
-    height: 14px;
-    background: var(--accent);
+    left: -5px;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--bg-primary);
+    border: 3px solid var(--accent);
     border-radius: 50%;
-    border: 3px solid var(--bg-primary);
-    box-shadow: 0 0 0 2px var(--accent);
-}
-
-.news-year-badge {
-    display: inline-block;
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: white;
-    background: var(--accent);
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius);
-    margin-bottom: 0.75rem;
 }
 
 .news-content {
@@ -630,12 +653,17 @@
         left: 6px;
     }
     
-    .news-marker {
-        left: 0;
+    .news-year-dot {
+        left: -2px;
     }
     
-    .news-item {
-        padding-left: 2rem;
+    .news-marker {
+        left: 1px;
+    }
+    
+    .news-item,
+    .news-year-marker {
+        padding-left: 2.5rem;
     }
 }
 

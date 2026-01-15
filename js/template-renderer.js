@@ -199,10 +199,15 @@ class TemplateRenderer {
      */
     renderNews(news) {
         return news.map(item => `
+            ${item.showYear ? `
+                <div class="news-year-marker">
+                    <div class="news-year-dot"></div>
+                    <span class="news-year-label">${item.year}</span>
+                </div>
+            ` : ''}
             <div class="news-item">
                 <div class="news-marker"></div>
                 <div class="news-content">
-                    ${item.showYear ? `<span class="news-year-badge">${item.year}</span>` : ''}
                     <h3 class="news-title">${item.icon} ${item.title}</h3>
                     <p class="news-description">${item.description}</p>
                     <div class="tags">
