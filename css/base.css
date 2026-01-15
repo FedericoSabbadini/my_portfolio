@@ -75,22 +75,25 @@ body.loading {
     overflow: hidden;
 }
 
-body.loading #navbar-placeholder,
-body.loading #footer-placeholder,
-body.loading main,
-body.loading section,
-body.loading .hero,
-body.loading .page-header {
-    visibility: hidden;
+/* Keep navbar and page-header visible immediately to prevent flash */
+body.loading .navbar,
+body.loading .page-header,
+body.loading .hero {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
-body:not(.loading) #navbar-placeholder,
-body:not(.loading) #footer-placeholder,
-body:not(.loading) main,
-body:not(.loading) section,
-body:not(.loading) .hero,
-body:not(.loading) .page-header {
+/* Hide dynamic content during loading */
+body.loading [data-dynamic],
+body.loading #footer-placeholder {
+    visibility: hidden;
+    opacity: 0;
+}
+
+body:not(.loading) [data-dynamic],
+body:not(.loading) #footer-placeholder {
     visibility: visible;
+    opacity: 1;
     animation: fadeIn 0.3s ease;
 }
 
