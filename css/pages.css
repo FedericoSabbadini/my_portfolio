@@ -518,6 +518,7 @@
 .interest-card {
     text-align: center;
     padding: var(--space-xl);
+    background-color: transparent; /* sfondo trasparente */
 }
 
 .interest-icon {
