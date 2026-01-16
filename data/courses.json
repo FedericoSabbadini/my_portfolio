@@ -8,42 +8,54 @@
         "name": "Network Security",
         "grade": "30L/30",
         "description": "Advanced network security protocols, cryptography, firewalls, VPNs, intrusion detection systems, and security architecture design.",
-        "tags": ["Cryptography", "Firewalls", "IDS/IPS"]
+        "tags": ["Cryptography", "Firewalls", "IDS/IPS"],
+        "featured": true,
+        "url": ""
       },
       {
         "id": "machine-learning",
         "name": "Machine Learning",
         "grade": "29/30",
         "description": "Supervised and unsupervised learning, neural networks, deep learning, ensemble methods, and practical ML applications.",
-        "tags": ["Neural Networks", "Deep Learning", "Python"]
+        "tags": ["Neural Networks", "Deep Learning", "Python"],
+        "featured": true,
+        "url": ""
       },
       {
         "id": "sys-admin",
         "name": "Systems Administration",
         "grade": "28/30",
         "description": "Linux/Unix system administration, server management, automation, monitoring, and enterprise infrastructure.",
-        "tags": ["Linux", "Automation", "DevOps"]
+        "tags": ["Linux", "Automation", "DevOps"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "ai",
         "name": "Artificial Intelligence",
         "grade": "27/30",
         "description": "AI fundamentals, search algorithms, knowledge representation, planning, reasoning under uncertainty, and intelligent agents.",
-        "tags": ["Planning", "Search", "Agents"]
+        "tags": ["Planning", "Search", "Agents"],
+        "featured": true,
+        "url": ""
       },
       {
         "id": "advanced-db",
         "name": "Advanced Databases",
         "grade": "30/30",
         "description": "NoSQL databases, distributed databases, query optimization, indexing strategies, and database performance tuning.",
-        "tags": ["NoSQL", "MongoDB", "Optimization"]
+        "tags": ["NoSQL", "MongoDB", "Optimization"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "se2",
         "name": "Software Engineering II",
         "grade": "28/30",
         "description": "Advanced software design patterns, architecture, testing strategies, agile methodologies, and project management.",
-        "tags": ["Design Patterns", "Agile", "Testing"]
+        "tags": ["Design Patterns", "Agile", "Testing"],
+        "featured": false,
+        "url": ""
       }
     ]
   },
@@ -56,70 +68,90 @@
         "name": "Computer Networks",
         "grade": "30/30",
         "description": "TCP/IP protocols, network architectures, routing, switching, and network programming.",
-        "tags": ["TCP/IP", "Routing"]
+        "tags": ["TCP/IP", "Routing"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "databases",
         "name": "Databases",
         "grade": "29/30",
         "description": "Relational database design, SQL, normalization, transactions, and DBMS architecture.",
-        "tags": ["SQL", "Design"]
+        "tags": ["SQL", "Design"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "os",
         "name": "Operating Systems",
         "grade": "28/30",
         "description": "Process management, memory management, file systems, and concurrency.",
-        "tags": ["Linux", "Processes"]
+        "tags": ["Linux", "Processes"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "algo",
         "name": "Algorithms & Data Structures",
         "grade": "30/30",
         "description": "Algorithm analysis, sorting, searching, graphs, trees, and complexity theory.",
-        "tags": ["Complexity", "Graphs"]
+        "tags": ["Complexity", "Graphs"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "web",
         "name": "Web Technologies",
         "grade": "27/30",
         "description": "HTML/CSS, JavaScript, PHP, web architecture, and responsive design.",
-        "tags": ["HTML/CSS", "JavaScript"]
+        "tags": ["HTML/CSS", "JavaScript"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "se1",
         "name": "Software Engineering I",
         "grade": "29/30",
         "description": "Software lifecycle, UML modeling, requirements engineering, and testing fundamentals.",
-        "tags": ["UML", "Testing"]
+        "tags": ["UML", "Testing"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "crypto",
         "name": "Cryptography",
         "grade": "28/30",
         "description": "Symmetric and asymmetric encryption, hash functions, digital signatures, and protocols.",
-        "tags": ["Encryption", "Protocols"]
+        "tags": ["Encryption", "Protocols"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "electronics",
         "name": "Digital Electronics",
         "grade": "27/30",
         "description": "Logic gates, circuits, sequential systems, and hardware description languages.",
-        "tags": ["Logic", "Hardware"]
+        "tags": ["Logic", "Hardware"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "programming",
         "name": "Java & C Programming",
         "grade": "30/30",
         "description": "Object-oriented programming in Java, systems programming in C, and best practices.",
-        "tags": ["Java", "C"]
+        "tags": ["Java", "C"],
+        "featured": false,
+        "url": ""
       },
       {
         "id": "info-sys",
         "name": "Information Systems",
         "grade": "28/30",
         "description": "Enterprise systems, ERP, business process modeling, and IT management.",
-        "tags": ["ERP", "BPM"]
+        "tags": ["ERP", "BPM"],
+        "featured": false,
+        "url": ""
       }
     ]
   }

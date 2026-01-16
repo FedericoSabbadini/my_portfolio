@@ -9,7 +9,8 @@
       "certId": "440746",
       "description": "Comprehensive certification covering cybersecurity fundamentals, network security, application security, and security operations.",
       "tags": ["Cybersecurity", "Professional"],
-      "featured": true
+      "featured": true,
+      "url": ""
     },
     {
       "id": "metasploit",
@@ -20,7 +21,8 @@
       "certId": "448767",
       "description": "Advanced penetration testing using Metasploit Framework, vulnerability assessment, and exploitation techniques.",
       "tags": ["Pentesting", "Metasploit"],
-      "featured": true
+      "featured": true,
+      "url": ""
     },
     {
       "id": "wireshark",
@@ -31,7 +33,8 @@
       "certId": "447142",
       "description": "Network analysis and troubleshooting using Wireshark, packet capture, and protocol analysis.",
       "tags": ["Networking", "Analysis"],
-      "featured": false
+      "featured": true,
+      "url": ""
     },
     {
       "id": "sustainability",
@@ -41,7 +44,8 @@
       "date": "September 2025",
       "description": "Sustainable development, green IT, and the role of digital technologies in environmental protection.",
       "tags": ["Sustainability", "Green IT"],
-      "featured": false
+      "featured": false,
+      "url": ""
     },
     {
       "id": "blockchain",
@@ -51,7 +55,8 @@
       "date": "September 2023",
       "description": "Blockchain technology, cryptocurrencies, smart contracts, and distributed ledger systems.",
       "tags": ["Blockchain", "Crypto"],
-      "featured": false
+      "featured": false,
+      "url": ""
     },
     {
       "id": "smm",
@@ -61,7 +66,8 @@
       "date": "November 2022",
       "description": "Social media strategy, content creation, analytics, and digital marketing campaigns.",
       "tags": ["Marketing", "Social Media"],
-      "featured": false
+      "featured": false,
+      "url": ""
     },
     {
       "id": "english",
@@ -71,7 +77,8 @@
       "date": "November 2022",
       "description": "Intermediate English language proficiency certification for academic and professional contexts.",
       "tags": ["Language", "English"],
-      "featured": false
+      "featured": false,
+      "url": ""
     },
     {
       "id": "agile",
@@ -81,7 +88,8 @@
       "date": "2023",
       "description": "Agile methodologies, Scrum framework, sprint planning, and iterative development practices.",
       "tags": ["Agile", "Scrum"],
-      "featured": false
+      "featured": false,
+      "url": ""
     }
   ]
 }

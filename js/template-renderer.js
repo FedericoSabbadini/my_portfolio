@@ -156,6 +156,11 @@ class TemplateRenderer {
                 <div class="tags">
                     ${course.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
+                ${course.url ? `
+                    <div class="course-footer">
+                        <a href="${course.url}" target="_blank" class="link">View Details →</a>
+                    </div>
+                ` : ''}
             </div>
         `).join('');
     }
@@ -175,6 +180,11 @@ class TemplateRenderer {
                 <div class="tags">
                     ${cert.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
+                ${cert.url ? `
+                    <div class="cert-footer">
+                        <a href="${cert.url}" target="_blank" class="link">View Certificate →</a>
+                    </div>
+                ` : ''}
             </div>
         `).join('');
     }

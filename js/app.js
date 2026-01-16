@@ -202,7 +202,10 @@ class PortfolioApp {
         const personal = this.data.personal?.personal;
         const social = this.data.personal?.social;
         const stats = this.data.personal?.stats;
-        const projects = this.data.projects?.featured;
+        const allProjects = this.data.projects?.projects || [];
+        
+        // Filter only featured projects
+        const featuredProjects = allProjects.filter(p => p.featured === true);
 
         // Render hero
         if (personal && social) {
@@ -221,8 +224,8 @@ class PortfolioApp {
 
         // Render featured projects
         const projectsContainer = document.getElementById('featured-projects');
-        if (projectsContainer && projects) {
-            projectsContainer.innerHTML = this.renderer.renderProjects(projects, true);
+        if (projectsContainer && featuredProjects.length > 0) {
+            projectsContainer.innerHTML = this.renderer.renderProjects(featuredProjects, true);
         }
     }
 
@@ -325,9 +328,7 @@ class PortfolioApp {
      * Render resources page
      */
     renderResourcesPage() {
-        const featured = this.data.projects?.featured || [];
-        const all = this.data.projects?.all || [];
-        const allProjects = [...featured, ...all];
+        const allProjects = this.data.projects?.projects || [];
 
         const projectsContainer = document.getElementById('all-projects');
         if (projectsContainer && allProjects.length > 0) {
