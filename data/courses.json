@@ -8,7 +8,11 @@
         "name": "Network Security",
         "grade": "30L/30",
         "description": "Symmetric & public-key encryption (RSA, DH, CHACHA20, RC4, DES, 3DES, IDEA, AES, Blowfish), hash functions (MD5, SHA, HMAC, DS), cryptographic protocols (IPSec, SSL/TLS), network authentication (EAP, WEP, WPA, GSM, UMTS, LTE, 5G), PKI, VPN.",
-        "tags": ["Cryptography", "Firewalls", "IDS/IPS"],
+        "tags": [
+          "Cryptography",
+          "Firewalls",
+          "IDS/IPS"
+        ],
         "featured": true,
         "url": ""
       },
@@ -17,8 +21,12 @@
         "name": "Algebra for Codes",
         "grade": "30L/30",
         "description": "Algebraic structures for error-correcting codes, coding theory fundamentals, and cryptographic applications.",
-        "tags": ["Coding Theory", "Algebra", "Cryptography"],
-        "featured": true,
+        "tags": [
+          "Coding Theory",
+          "Algebra",
+          "Cryptography"
+        ],
+        "featured": false,
         "url": ""
       },
       {
@@ -26,7 +34,11 @@
         "name": "Business Strategy",
         "grade": "30/30",
         "description": "Mission definition, competitive and operational environment analysis, business and corporate strategies, marketing fundamentals.",
-        "tags": ["Strategy", "Marketing", "Business Analysis"],
+        "tags": [
+          "Strategy",
+          "Marketing",
+          "Business Analysis"
+        ],
         "featured": false,
         "url": ""
       },
@@ -35,7 +47,10 @@
         "name": "Information Systems & Web Project",
         "grade": "29/30",
         "description": "IT technologies, SIO (OLTP, ERP, CRM), SID (OLAP, BI, KPIs, CSFs). Web programming: client/server scripting, HTTP, HTML/CSS, XML, JSON, JS, JQuery, PHP/MySQL, AJAX, Web Services, Laravel, Eloquent ORM, API & SOA.",
-        "tags": ["ERP", "BPM"],
+        "tags": [
+          "ERP",
+          "BPM"
+        ],
         "featured": false,
         "url": ""
       },
@@ -44,7 +59,11 @@
         "name": "Systems Administration",
         "grade": "28/30",
         "description": "System management across Windows, Apple, and Linux. Server services: BIND, Active Directory, Kerberos, Apache, Sendmail. Virtualization, cloud computing, and high-availability systems.",
-        "tags": ["Linux", "Automation", "DevOps"],
+        "tags": [
+          "Linux",
+          "Automation",
+          "DevOps"
+        ],
         "featured": false,
         "url": ""
       },
@@ -53,7 +72,11 @@
         "name": "Machine Learning & Data Mining",
         "grade": "27/30",
         "description": "Data mining and analysis, supervised algorithms (logic, structural, probabilistic, neural, geometric, ensemble methods), unsupervised learning (DBSCAN, K-means), NLP, Python applications.",
-        "tags": ["Neural Networks", "Deep Learning", "Python"],
+        "tags": [
+          "Neural Networks",
+          "Deep Learning",
+          "Python"
+        ],
         "featured": false,
         "url": ""
       },
@@ -62,7 +85,11 @@
         "name": "Modeling and Simulation",
         "grade": "27/30",
         "description": "Linearization & feedback linearization, system modeling, analysis & validation, grey-box/black-box/ARX models. Simulink and MATLAB applications.",
-        "tags": ["MATLAB", "Simulink", "System Modeling"],
+        "tags": [
+          "MATLAB",
+          "Simulink",
+          "System Modeling"
+        ],
         "featured": false,
         "url": ""
       },
@@ -71,7 +98,11 @@
         "name": "Scientific Computing",
         "grade": "26/30",
         "description": "Solving linear and nonlinear systems, approximation, interpolation, quadrature formulas, derivative approximation, solving ODEs. MATLAB implementation.",
-        "tags": ["Numerical Methods", "MATLAB", "ODEs"],
+        "tags": [
+          "Numerical Methods",
+          "MATLAB",
+          "ODEs"
+        ],
         "featured": false,
         "url": ""
       },
@@ -80,7 +111,10 @@
         "name": "Algorithms & Data Structures",
         "grade": "22/30",
         "description": "Asymptotic analysis, recurrence solving, sorting (comparison-based & linear-time), selection, heaps, hashing, trees, graphs (BFS/DFS, shortest paths), dynamic programming, Turing machines, undecidability, P vs NP, NP-completeness.",
-        "tags": ["Complexity", "Graphs"],
+        "tags": [
+          "Complexity",
+          "Graphs"
+        ],
         "featured": false,
         "url": ""
       }
@@ -95,180 +129,265 @@
         "name": "Algebra and Geometry",
         "grade": "30L/30",
         "description": "Correspondences, vector spaces, matrices, eigenvalues, bilinear, cubic and quadratic forms.",
-        "tags": ["Linear Algebra", "Matrices", "Vector Spaces"],
-        "featured": true,
-        "url": ""
+        "tags": [
+          "Linear Algebra",
+          "Matrices",
+          "Vector Spaces"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98438_8338/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "electronics",
         "name": "General Electronics",
         "grade": "30L/30",
         "description": "Diodes, BJT, MOS transistors, amplifiers, comparators, switches, bipolar and MOS logic families, logical design.",
-        "tags": ["Logic", "Hardware"],
-        "featured": true,
-        "url": ""
+        "tags": [
+          "Logic",
+          "Hardware"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109913_10903/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "os-systems",
         "name": "Operating Systems & Computer Systems",
         "grade": "30L/30",
         "description": "Mode switching, architecture, peripheral management, threads, scheduling, shared memory, deadlock, memory & file systems, block devices. Multiprocessors, UMA/NUMA/COMA architectures, client/server, middleware, clusters, storage, performance.",
-        "tags": ["Linux", "Processes"],
-        "featured": true,
-        "url": ""
+        "tags": [
+          "Linux",
+          "Processes"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109908_2776/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "economy",
         "name": "Engineering Economics",
         "grade": "30L/30",
         "description": "Business fundamentals, external accounting & financial statements, internal accounting & break-even analysis, ratios, financial instruments.",
-        "tags": ["Accounting", "Finance", "Business"],
-        "featured": true,
-        "url": ""
+        "tags": [
+          "Accounting",
+          "Finance",
+          "Business"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106033_815/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "networks",
         "name": "Telecommunications Networks",
         "grade": "30L/30",
         "description": "TCP/IP architecture; Layer 2 (Ethernet, PPP, Wi-Fi), Layer 3 (IP, ICMP, DHCP, ARP), Layer 4 (UDP, TCP, RTO), Layer 7 (DNS, HTTP, FTP, email).",
-        "tags": ["TCP/IP", "Routing"],
+        "tags": [
+          "TCP/IP",
+          "Routing"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106050_10949/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "probability-stats",
         "name": "Probability and Statistics",
         "grade": "30/30",
         "description": "Conditional probability, discrete and continuous distributions, expectation, estimation theory.",
-        "tags": ["Probability", "Statistics", "Distributions"],
+        "tags": [
+          "Probability",
+          "Statistics",
+          "Distributions"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98353_122/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "physics2",
         "name": "Physics II",
         "grade": "30/30",
         "description": "Electrostatics, magnetostatics, electromagnetic waves, and related phenomena.",
-        "tags": ["Electromagnetism", "Waves"],
+        "tags": [
+          "Electromagnetism",
+          "Waves"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106068_21495/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "telecom-regulations",
         "name": "Telecommunications Regulations",
         "grade": "30/30",
         "description": "Broadcasting, telecommunications law, data communications regulations, standards, and patents.",
-        "tags": ["Law", "Standards", "Patents"],
+        "tags": [
+          "Law",
+          "Standards",
+          "Patents"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109905_516/2011/7617_2514?schemaid=2514"
+      },
+      {
+        "id": "electrical-circuits",
+        "name": "Electrical Circuits",
+        "grade": "30/30",
+        "description": "Kirchhoff’s laws, resistive multipoles, circuit analysis methods, dynamic components, 1st‑ and 2nd‑order circuits, AC, filters, three‑phase circuits, PSpice simulation",
+        "tags": [
+          "Laws",
+          "Power",
+          "Electrical"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106044_10895/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "prog-languages-db",
         "name": "Programming Languages and Databases",
         "grade": "28/30",
         "description": "Programming languages: lexical analysis, BNF, operational & denotational semantics, Scheme, Haskell, Prolog. Databases: ER model, relational model, normalization, relational algebra, SQL, transactions, physical design.",
-        "tags": ["SQL", "Design"],
+        "tags": [
+          "SQL",
+          "Design"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109910_2778/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "language-tech",
         "name": "Artificial Language Technologies",
         "grade": "28/30",
         "description": "Compilers & Interpreters: lexical analysis, Lex, syntax analysis, Yacc, semantic analysis, intermediate code generation, P-code, code generation.",
-        "tags": ["Compilers", "Lex/Yacc", "Code Generation"],
+        "tags": [
+          "Compilers",
+          "Lex/Yacc",
+          "Code Generation"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109932_21535/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "biology",
         "name": "Elements of Biology",
         "grade": "28/30",
         "description": "Biochemistry, biology, pathology, physiology, biological interfaces, biosensors, microscopy, harmonic oscillator, optical tweezers.",
-        "tags": ["Biochemistry", "Biosensors", "Physiology"],
+        "tags": [
+          "Biochemistry",
+          "Biosensors",
+          "Physiology"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109931_18407/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "computer-architecture",
         "name": "Computer Architecture",
         "grade": "28/30",
         "description": "Decoders, multiplexers, MIPS ISA, registers, Assembly programming, ALU, register file, CPU and memory operations.",
-        "tags": ["MIPS", "Assembly", "CPU Architecture"],
+        "tags": [
+          "MIPS",
+          "Assembly",
+          "CPU Architecture"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106034_2767/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "software-engineering",
         "name": "Software Engineering",
         "grade": "27/30",
         "description": "Process models, finite-state machines, Petri nets, UML, use case analysis, design, testing/debugging, refactoring, design patterns.",
-        "tags": ["UML", "Testing"],
+        "tags": [
+          "UML",
+          "Testing"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109903_511/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "advanced-programming",
         "name": "Advanced Java & C Programming",
         "grade": "26/30",
         "description": "Java: MVC architecture, GUI development, threads, network architecture. C: stack management, dynamic memory allocation.",
-        "tags": ["Java", "C"],
+        "tags": [
+          "Java",
+          "C"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106029_502/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "cs-fundamentals",
         "name": "Computer Science Fundamentals",
         "grade": "27/30",
         "description": "C and Java programming, memory management, CPU architecture, peripherals.",
-        "tags": ["C", "Java", "Programming Basics"],
+        "tags": [
+          "C",
+          "Java",
+          "Programming Basics"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98448_10889/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "analysis1",
         "name": "Mathematical Analysis I",
         "grade": "24/30",
         "description": "Continuity, differentiability, integration, function study, limits, series.",
-        "tags": ["Calculus", "Analysis"],
+        "tags": [
+          "Calculus",
+          "Analysis"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98365_166/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "analysis2-or",
         "name": "Mathematical Analysis II & Operations Research",
         "grade": "23/30",
         "description": "Metric spaces, differential calculus, double integrals, calculus of variations. Linear programming, integer LP, graph theory, Gurobi optimization.",
-        "tags": ["Multivariable Calculus", "Linear Programming", "Optimization"],
+        "tags": [
+          "Multivariable Calculus",
+          "Linear Programming",
+          "Optimization"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106035_2770/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "physics1",
         "name": "Physics I",
         "grade": "23/30",
         "description": "Kinematics, dynamics, fluid dynamics, gravitation, thermodynamics, waves & oscillations.",
-        "tags": ["Mechanics", "Thermodynamics", "Waves"],
+        "tags": [
+          "Mechanics",
+          "Thermodynamics",
+          "Waves"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98380_442/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "automatic-control",
         "name": "Automatic Control",
         "grade": "22/30",
         "description": "Systems theory, stability analysis, transfer functions, Bode and Nyquist plots, control systems analysis & synthesis.",
-        "tags": ["Control Systems", "Bode Plots", "Stability"],
+        "tags": [
+          "Control Systems",
+          "Bode Plots",
+          "Stability"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106026_449/2011/7617_2514?schemaid=2514"
       },
       {
         "id": "chemistry",
         "name": "Chemistry",
         "grade": "21/30",
         "description": "Chemical bonds, reactions, states of matter, equilibrium, thermodynamics, chemical kinetics.",
-        "tags": ["Chemical Bonds", "Thermodynamics", "Kinetics"],
+        "tags": [
+          "Chemical Bonds",
+          "Thermodynamics",
+          "Kinetics"
+        ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98374_169/2011/7617_2514?schemaid=2514"
       }
     ]
   }
