@@ -284,7 +284,6 @@
 .featured-description {
     color: var(--text-secondary);
     line-height: 1.7;
-    flex: 1; /* Riempie lo spazio disponibile */
     overflow: hidden;
 }
 

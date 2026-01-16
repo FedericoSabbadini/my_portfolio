@@ -73,11 +73,12 @@
 
 /* Page Header */
 .page-header {
-    padding: 10rem 0 4rem;
+    padding: 6rem 0 4rem;
+    padding-top: calc(80px + 3rem); /* navbar height + spacing */
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--bg-secondary) 100%);
     text-align: center;
     position: relative;
-    min-height: 280px; /* Altezza aumentata */
+    min-height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,6 +87,7 @@
 .page-header .container {
     position: relative;
     z-index: 1;
+    padding-bottom: 1rem; /* Compensa il gradient in basso */
 }
 
 .page-header::after {
