@@ -86,9 +86,9 @@
     {
       "id": "agile",
       "title": "Agile Project Management",
-      "issuer": "Udemy",
-      "issuerIcon": "udemy",
-      "date": "2023",
+      "issuer": "Politecnico di Milano",
+      "issuerIcon": "polimi",
+      "date": "September 2025",
       "description": "Agile methodologies, Scrum framework, sprint planning, and iterative development practices.",
       "tags": ["Agile", "Scrum"],
       "featured": false,
