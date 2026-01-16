@@ -27,6 +27,11 @@
     "email": {
       "address": "federicosabbadini@icloud.com",
       "icon": "📧"
+    },
+    "cv": {
+      "label": "CV",
+      "file": "/asset/CV/Federico_Sabbadini_CV.pdf",
+      "icon": "📄"
     }
   },
   "stats": [
