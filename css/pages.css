@@ -116,7 +116,7 @@
 /* Hero Section */
 .hero {
     padding: 8rem 0 4rem;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    background: linear-gradient(135deg, var(--border) 0%, var(--bg-secondary) 100%);
     min-height: 500px; /* Prevent layout shift */
 }
 

@@ -24,7 +24,7 @@
       "statusBadge": "badge-primary",
       "gpa": "104/110",
       "description": "Focused on computer systems, networks, software development, and security fundamentals. Completed thesis on OpenID Connect and Digital Identity Management.",
-      "tags": ["C/Java", "Computer Networks", "Databases", "Algorithms"],
+      "tags": ["Problem Solving", "Computer Architectures", "Networks", "Algorithms"],
       "thesis": {
         "title": "Gestione interoperabile di identità: lo Standard OpenID",
         "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8"
