@@ -202,7 +202,33 @@ class TemplateRenderer {
     }
 
     /**
-     * Render featured courses (for home page)
+     * Render featured projects (for home page - unified structure)
+     * @param {Array} projects - Projects array
+     * @returns {string}
+     */
+    renderFeaturedProjects(projects) {
+        return projects.map(project => `
+            <div class="featured-card featured-project">
+                <div class="featured-badge">
+                    <span class="badge ${project.badgeClass || 'badge-primary'}">${project.badge || 'Project'}</span>
+                </div>
+                <h3 class="featured-title">${project.title}</h3>
+                <p class="featured-subtitle">${project.period}</p>
+                <p class="featured-description">${project.description}</p>
+                <div class="tags">
+                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+                ${project.url ? `
+                    <div class="featured-footer">
+                        <a href="${project.url}" target="_blank" class="link">${project.urlLabel || 'View on GitHub →'}</a>
+                    </div>
+                ` : ''}
+            </div>
+        `).join('');
+    }
+
+    /**
+     * Render featured courses (for home page - unified structure)
      * @param {Array} courses - Courses array
      * @returns {string}
      */
@@ -212,10 +238,8 @@ class TemplateRenderer {
                 <div class="featured-badge">
                     <span class="badge badge-success">Course</span>
                 </div>
-                <div class="featured-header">
-                    <h3>${course.name}</h3>
-                    <span class="course-grade">${course.grade}</span>
-                </div>
+                <h3 class="featured-title">${course.name}</h3>
+                <p class="featured-subtitle">Grade: ${course.grade}</p>
                 <p class="featured-description">${course.description}</p>
                 <div class="tags">
                     ${course.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
@@ -230,7 +254,7 @@ class TemplateRenderer {
     }
 
     /**
-     * Render featured certifications (for home page)
+     * Render featured certifications (for home page - unified structure)
      * @param {Array} certifications - Certifications array
      * @returns {string}
      */
@@ -240,10 +264,8 @@ class TemplateRenderer {
                 <div class="featured-badge">
                     <span class="badge badge-warning">Certification</span>
                 </div>
-                <div class="featured-header">
-                    <h3>${cert.title}</h3>
-                </div>
-                <p class="featured-issuer">${cert.issuer} • ${cert.date}</p>
+                <h3 class="featured-title">${cert.title}</h3>
+                <p class="featured-subtitle">${cert.issuer} • ${cert.date}</p>
                 <p class="featured-description">${cert.description}</p>
                 <div class="tags">
                     ${cert.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
@@ -253,6 +275,58 @@ class TemplateRenderer {
                         <a href="${cert.url}" target="_blank" class="link">View Certificate →</a>
                     </div>
                 ` : ''}
+            </div>
+        `).join('');
+    }
+
+    /**
+     * Render featured education (for home page - unified structure)
+     * @param {Array} education - Education array
+     * @returns {string}
+     */
+    renderFeaturedEducation(education) {
+        return education.map(edu => `
+            <div class="featured-card featured-education">
+                <div class="featured-badge">
+                    <span class="badge ${edu.statusBadge || 'badge-primary'}">${edu.statusLabel || 'Education'}</span>
+                </div>
+                <h3 class="featured-title">${edu.degree}</h3>
+                <p class="featured-subtitle">${edu.institution} • ${edu.period}</p>
+                <p class="featured-description">${edu.description}</p>
+                ${edu.tags ? `
+                    <div class="tags">
+                        ${edu.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                ` : ''}
+                <div class="featured-footer">
+                    <a href="journey.html" class="link">View Journey →</a>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    /**
+     * Render featured work (for home page - unified structure)
+     * @param {Array} work - Work array
+     * @returns {string}
+     */
+    renderFeaturedWork(work) {
+        return work.map(job => `
+            <div class="featured-card featured-work ${job.status === 'upcoming' ? 'featured-upcoming' : ''}">
+                <div class="featured-badge">
+                    <span class="badge ${job.status === 'upcoming' ? 'badge-warning' : 'badge-accent'}">${job.status === 'upcoming' ? 'Upcoming' : 'Work'}</span>
+                </div>
+                <h3 class="featured-title">${job.title}</h3>
+                <p class="featured-subtitle">${job.company} • ${job.period}</p>
+                <p class="featured-description">${job.description}</p>
+                ${job.tags && job.tags.length > 0 ? `
+                    <div class="tags">
+                        ${job.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                ` : ''}
+                <div class="featured-footer">
+                    <a href="journey.html" class="link">View Journey →</a>
+                </div>
             </div>
         `).join('');
     }

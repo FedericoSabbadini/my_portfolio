@@ -10,7 +10,9 @@
       "statusBadge": "badge-success",
       "gpa": "106/110",
       "description": "Specializing in cybersecurity, systems administration, artificial intelligence, and advanced software engineering. Focusing on network security, machine learning applications, and enterprise system architecture.",
-      "tags": ["Cybersecurity", "Machine Learning", "Network Security", "Systems Administration"]
+      "tags": ["Cybersecurity", "Machine Learning", "Network Security", "Systems Administration"],
+      "featured": true,
+      "news": false
     },
     {
       "id": "bachelors",
@@ -26,7 +28,9 @@
       "thesis": {
         "title": "Gestione interoperabile di identità: lo Standard OpenID",
         "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8"
-      }
+      },
+      "featured": false,
+      "news": false
     },
     {
       "id": "highschool",
@@ -37,7 +41,9 @@
       "statusLabel": "Completed",
       "statusBadge": "badge-primary",
       "gpa": "100/100",
-      "description": "Scientific curriculum with focus on mathematics, physics, and sciences. Participated in study abroad program at Pitzer College, USA (Jul-Aug 2019)."
+      "description": "Scientific curriculum with focus on mathematics, physics, and sciences. Participated in study abroad program at Pitzer College, USA (Jul-Aug 2019).",
+      "featured": false,
+      "news": false
     }
   ]
 }

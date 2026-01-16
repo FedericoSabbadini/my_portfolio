@@ -11,7 +11,9 @@
             "description": "Curricular internship as part of the Master's degree program in Computer Science and Cybersecurity.",
             "responsibilities": [],
             "technologies": [],
-            "tags": ["Cybersecurity", "Internship"]
+            "tags": ["Cybersecurity", "Internship"],
+            "featured": false,
+            "news": false
         }
     ]
 }

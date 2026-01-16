@@ -207,3 +207,15 @@ body:not(.loading) #footer-placeholder {
 .mb-4 { margin-bottom: var(--space-xl); }
 
 .hidden { display: none !important; }
+
+/* Background utilities */
+.bg-secondary {
+    background-color: var(--bg-secondary);
+}
+
+/* Text utilities */
+.text-muted {
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem;
+}

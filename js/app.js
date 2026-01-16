@@ -90,12 +90,11 @@ class PortfolioApp {
         
         // Page-specific data
         const pageDataMap = {
-            'index': ['projects', 'courses', 'certifications'],
+            'index': ['projects', 'courses', 'certifications', 'education', 'work'],
             'about': [],
             'contacts': [],
             'courses': ['courses', 'certifications'],
             'resources': ['projects'],
-            'news': ['news'],
             'journey': ['education', 'work']
         };
 
@@ -183,7 +182,6 @@ class PortfolioApp {
             'contacts': () => this.renderContactsPage(),
             'courses': () => this.renderCoursesPage(),
             'resources': () => this.renderResourcesPage(),
-            'news': () => this.renderNewsPage(),
             'journey': () => this.renderJourneyPage()
         };
 
@@ -220,38 +218,72 @@ class PortfolioApp {
             statsContainer.innerHTML = this.renderer.renderStats(stats);
         }
 
-        // Render featured section (projects, courses, certifications)
+        // Get all data
+        const allProjects = this.data.projects?.projects || [];
+        const mastersCourses = this.data.courses?.masters?.courses || [];
+        const bachelorsCourses = this.data.courses?.bachelors?.courses || [];
+        const allCertifications = this.data.certifications?.certifications || [];
+        const allEducation = this.data.education?.education || [];
+        const allWork = this.data.work?.work || [];
+
+        // Render featured section
         const featuredContainer = document.getElementById('featured-container');
         if (featuredContainer) {
-            const allProjects = this.data.projects?.projects || [];
-            const mastersCourses = this.data.courses?.masters?.courses || [];
-            const bachelorsCourses = this.data.courses?.bachelors?.courses || [];
-            const allCertifications = this.data.certifications?.certifications || [];
-
-            // Filter featured items
             const featuredProjects = allProjects.filter(p => p.featured === true);
             const featuredCourses = [...mastersCourses, ...bachelorsCourses].filter(c => c.featured === true);
             const featuredCerts = allCertifications.filter(c => c.featured === true);
+            const featuredEducation = allEducation.filter(e => e.featured === true);
+            const featuredWork = allWork.filter(w => w.featured === true);
 
-            // Render all featured items
             let html = '';
             
-            // Featured Projects
             if (featuredProjects.length > 0) {
-                html += this.renderer.renderProjects(featuredProjects, true);
+                html += this.renderer.renderFeaturedProjects(featuredProjects);
             }
-            
-            // Featured Courses
             if (featuredCourses.length > 0) {
                 html += this.renderer.renderFeaturedCourses(featuredCourses);
             }
-            
-            // Featured Certifications
             if (featuredCerts.length > 0) {
                 html += this.renderer.renderFeaturedCertifications(featuredCerts);
             }
+            if (featuredEducation.length > 0) {
+                html += this.renderer.renderFeaturedEducation(featuredEducation);
+            }
+            if (featuredWork.length > 0) {
+                html += this.renderer.renderFeaturedWork(featuredWork);
+            }
 
-            featuredContainer.innerHTML = html;
+            featuredContainer.innerHTML = html || '<p class="text-muted">No featured items yet.</p>';
+        }
+
+        // Render news section
+        const newsContainer = document.getElementById('news-container');
+        if (newsContainer) {
+            const newsProjects = allProjects.filter(p => p.news === true);
+            const newsCourses = [...mastersCourses, ...bachelorsCourses].filter(c => c.news === true);
+            const newsCerts = allCertifications.filter(c => c.news === true);
+            const newsEducation = allEducation.filter(e => e.news === true);
+            const newsWork = allWork.filter(w => w.news === true);
+
+            let html = '';
+            
+            if (newsProjects.length > 0) {
+                html += this.renderer.renderFeaturedProjects(newsProjects);
+            }
+            if (newsCourses.length > 0) {
+                html += this.renderer.renderFeaturedCourses(newsCourses);
+            }
+            if (newsCerts.length > 0) {
+                html += this.renderer.renderFeaturedCertifications(newsCerts);
+            }
+            if (newsEducation.length > 0) {
+                html += this.renderer.renderFeaturedEducation(newsEducation);
+            }
+            if (newsWork.length > 0) {
+                html += this.renderer.renderFeaturedWork(newsWork);
+            }
+
+            newsContainer.innerHTML = html || '<p class="text-muted">No news updates yet.</p>';
         }
     }
 
@@ -374,18 +406,6 @@ class PortfolioApp {
         const projectsContainer = document.getElementById('all-projects');
         if (projectsContainer && allProjects.length > 0) {
             projectsContainer.innerHTML = this.renderer.renderProjects(allProjects, true);
-        }
-    }
-
-    /**
-     * Render news page
-     */
-    renderNewsPage() {
-        const news = this.data.news?.news;
-
-        const newsContainer = document.getElementById('news-container');
-        if (newsContainer && news) {
-            newsContainer.innerHTML = this.renderer.renderNews(news);
         }
     }
 
