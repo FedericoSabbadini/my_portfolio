@@ -2,7 +2,7 @@
   "education": [
     {
       "id": "masters",
-      "degree": "M.Sc. in Computer Engineering",
+      "degree": "Master's degree in Computer Engineering",
       "institution": "University of Brescia",
       "period": "Sep 2024 - Oct 2026 (Expected)",
       "status": "current",
@@ -14,7 +14,7 @@
     },
     {
       "id": "bachelors",
-      "degree": "B.Sc. in Computer Engineering",
+      "degree": "Bachelor's degree in Computer Engineering",
       "institution": "University of Brescia",
       "period": "Sep 2021 - Oct 2024",
       "status": "completed",
@@ -34,6 +34,8 @@
       "institution": "Salesiani San Bernardino, Chiari (BS)",
       "period": "Sep 2016 - Sep 2021",
       "status": "completed",
+      "statusLabel": "Completed",
+      "statusBadge": "badge-primary",
       "gpa": "100/100",
       "description": "Scientific curriculum with focus on mathematics, physics, and sciences. Participated in study abroad program at Pitzer College, USA (Jul-Aug 2019)."
     }
