@@ -14,7 +14,7 @@
           "IDS/IPS"
         ],
         "featured": true,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121907_807/2011/8595_3260?schemaid=3260"
       },
       {
         "id": "algebra-codes",
@@ -27,7 +27,7 @@
           "Cryptography"
         ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121884_495/2011/8595_3260?schemaid=3260"
       },
       {
         "id": "business-strategy",
@@ -40,19 +40,31 @@
           "Business Analysis"
         ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_123188_26413/2011/8595_3260?schemaid=3260"
       },
       {
-        "id": "info-systems-web",
-        "name": "Information Systems & Web Project",
+        "id": "info-systems",
+        "name": "Information Systems",
         "grade": "29/30",
-        "description": "IT technologies, SIO (OLTP, ERP, CRM), SID (OLAP, BI, KPIs, CSFs). Web programming: client/server scripting, HTTP, HTML/CSS, XML, JSON, JS, JQuery, PHP/MySQL, AJAX, Web Services, Laravel, Eloquent ORM, API & SOA.",
+        "description": "IT technologies, SIO (OLTP, ERP, CRM), SID (OLAP, BI, KPIs, CSFs).",
         "tags": [
           "ERP",
-          "BPM"
+          "KPI"
         ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131012_21477/2011/8595_3260?schemaid=3260"
+      },
+      {
+        "id": "web",
+        "name": "Web Agile Programming",
+        "grade": "29/30",
+        "description": "Client/server scripting, HTTP, HTML/CSS, XML, JSON, JS, JQuery, PHP/MySQL, AJAX, Web Services, Laravel, Eloquent ORM, API & SOA.",
+        "tags": [
+          "Web",
+          "AJAX"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131008_21479/2011/8595_3260?schemaid=3260"
       },
       {
         "id": "sys-admin",
@@ -61,11 +73,11 @@
         "description": "System management across Windows, Apple, and Linux. Server services: BIND, Active Directory, Kerberos, Apache, Sendmail. Virtualization, cloud computing, and high-availability systems.",
         "tags": [
           "Linux",
-          "Automation",
-          "DevOps"
+          "iOS/MacOS",
+          "Windows Server"
         ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131007_781/2011/8595_3260?schemaid=3260"
       },
       {
         "id": "machine-learning",
@@ -78,7 +90,7 @@
           "Python"
         ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121888_10729/2011/8595_3260?schemaid=3260"
       },
       {
         "id": "modeling-simulation",
@@ -91,7 +103,7 @@
           "System Modeling"
         ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121913_772/2011/8595_3260?schemaid=3260"
       },
       {
         "id": "scientific-computing",
@@ -104,7 +116,7 @@
           "ODEs"
         ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131010_10569/2011/8595_3260?schemaid=3260"
       },
       {
         "id": "algorithms-ds",
@@ -116,7 +128,7 @@
           "Graphs"
         ],
         "featured": false,
-        "url": ""
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131011_10749/2011/8595_3260?schemaid=3260"
       }
     ]
   },
@@ -135,7 +147,7 @@
           "Vector Spaces"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98438_8338/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/A000017-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=A000017"
       },
       {
         "id": "electronics",
@@ -147,19 +159,44 @@
           "Hardware"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109913_10903/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109914_10905/2011/7617?coorte=2021&schemaid=2514"
+      },
+      {
+        "id": "electronics-systems",
+        "name": "Digital Electronics Systems",
+        "grade": "30L/30",
+        "description": "Dynamic models, Schmidt triggers, delay generators, open collector, three-state, transceivers, combinational & sequential devices, embedded systems, programmable devices, VHDL programming",
+        "tags": [
+          "Arduino",
+          "Embeeded"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109915_10907/2011/7617?coorte=2021&schemaid=2514"
       },
       {
         "id": "os-systems",
-        "name": "Operating Systems & Computer Systems",
+        "name": "Operating Systems",
         "grade": "30L/30",
-        "description": "Mode switching, architecture, peripheral management, threads, scheduling, shared memory, deadlock, memory & file systems, block devices. Multiprocessors, UMA/NUMA/COMA architectures, client/server, middleware, clusters, storage, performance.",
+        "description": "Mode switching, architecture, peripheral management, threads, scheduling, shared memory, deadlock, memory & file systems, block devices. Shell programming.",
         "tags": [
           "Linux",
-          "Processes"
+          "Memory",
+          "CPU"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109908_2776/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109906_2774/2011/7617?coorte=2021&schemaid=2514"
+      },
+      {
+        "id": "ii-systems",
+        "name": "Computer Systems",
+        "grade": "30L/30",
+        "description": "Multiprocessors, UMA/NUMA/COMA architectures, client/server, middleware, clusters, storage, performance, backups.",
+        "tags": [
+          "Modern Architectures",
+          "Best practice"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109909_2777/2011/7617?coorte=2021&schemaid=2514"
       },
       {
         "id": "economy",
@@ -184,7 +221,19 @@
           "Routing"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106050_10949/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106051_10951/2011/7617?coorte=2021&schemaid=2514"
+      },
+      {
+        "id": "networks-complements",
+        "name": "Networks Protocols",
+        "grade": "30L/30",
+        "description": "RIP, OSPF, BGP, Dijkstra, Routing Multicast, MPLS, VPN. GNS3 Implementations",
+        "tags": [
+          "Practical Lab",
+          "Routing"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106052_10953/2011/7617?coorte=2021&schemaid=2514"
       },
       {
         "id": "probability-stats",
@@ -197,7 +246,7 @@
           "Distributions"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98353_122/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/703157-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=703157"
       },
       {
         "id": "physics2",
@@ -238,16 +287,28 @@
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106044_10895/2011/7617_2514?schemaid=2514"
       },
       {
-        "id": "prog-languages-db",
-        "name": "Programming Languages and Databases",
+        "id": "prog-languages",
+        "name": "Programming Languages",
         "grade": "28/30",
-        "description": "Programming languages: lexical analysis, BNF, operational & denotational semantics, Scheme, Haskell, Prolog. Databases: ER model, relational model, normalization, relational algebra, SQL, transactions, physical design.",
+        "description": "Lexical analysis, BNF, operational & denotational semantics, Scheme, Haskell, Prolog",
+        "tags": [
+          "Programming",
+          "Low Level"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109911_2779/2011/7617?coorte=2021&schemaid=2514"
+      },
+      {
+        "id": "databases",
+        "name": "Databases",
+        "grade": "28/30",
+        "description": "ER model, relational model, normalization, relational algebra, SQL, transactions, physical design.",
         "tags": [
           "SQL",
           "Design"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109910_2778/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109907_2775/2011/7617?coorte=2021&schemaid=2514"
       },
       {
         "id": "language-tech",
@@ -335,11 +396,11 @@
           "Analysis"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98365_166/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/703789-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=703789"
       },
       {
         "id": "analysis2-or",
-        "name": "Mathematical Analysis II & Operations Research",
+        "name": "Mathematical Analysis II",
         "grade": "23/30",
         "description": "Metric spaces, differential calculus, double integrals, calculus of variations. Linear programming, integer LP, graph theory, Gurobi optimization.",
         "tags": [
@@ -348,7 +409,20 @@
           "Optimization"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106035_2770/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106036_2772/2011/7617?coorte=2021&schemaid=2514"
+      },
+      {
+        "id": "operative-research",
+        "name": "Operative Research",
+        "grade": "23/30",
+        "description": "",
+        "tags": [
+          "Multivariable Calculus",
+          "Linear Programming",
+          "Optimization"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106024_131/2011/7617?coorte=2021&schemaid=2514"
       },
       {
         "id": "physics1",
