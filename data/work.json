@@ -1,0 +1,17 @@
+{
+    "work": [
+        {
+            "id": "stage-upcoming",
+            "title": "Cybersecurity Internship",
+            "company": "To be determined",
+            "location": "Italy",
+            "period": "2026 (Upcoming)",
+            "type": "Internship",
+            "status": "upcoming",
+            "description": "Curricular internship as part of the Master's degree program in Computer Science and Cybersecurity.",
+            "responsibilities": [],
+            "technologies": [],
+            "tags": ["Cybersecurity", "Internship"]
+        }
+    ]
+}

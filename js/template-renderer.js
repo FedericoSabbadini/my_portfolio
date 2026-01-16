@@ -107,6 +107,40 @@ class TemplateRenderer {
     }
 
     /**
+     * Render work experience timeline
+     * @param {Array} work - Work experience array
+     * @returns {string}
+     */
+    renderWorkTimeline(work) {
+        return work.map(job => `
+            <div class="timeline-item ${job.status === 'upcoming' ? 'timeline-upcoming' : ''}">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">${job.period}</span>
+                    ${job.status === 'upcoming' ? `
+                        <span class="badge badge-warning" style="margin-bottom: 0.5rem;">Upcoming</span>
+                    ` : ''}
+                    <h3 class="timeline-title">${job.title}</h3>
+                    <p class="timeline-subtitle">${job.company}${job.location ? ` • ${job.location}` : ''}</p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: ${job.responsibilities && job.responsibilities.length > 0 ? '1rem' : '0'}">
+                        ${job.description}
+                    </p>
+                    ${job.responsibilities && job.responsibilities.length > 0 ? `
+                        <ul class="work-responsibilities">
+                            ${job.responsibilities.map(r => `<li>${r}</li>`).join('')}
+                        </ul>
+                    ` : ''}
+                    ${job.technologies && job.technologies.length > 0 ? `
+                        <div class="tags" style="margin-top: 1rem;">
+                            ${job.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    /**
      * Render languages
      * @param {Array} languages - Languages array
      * @returns {string}
@@ -168,33 +202,7 @@ class TemplateRenderer {
     }
 
     /**
-     * Render featured projects (for home page - unified structure)
-     * @param {Array} projects - Projects array
-     * @returns {string}
-     */
-    renderFeaturedProjects(projects) {
-        return projects.map(project => `
-            <div class="featured-card featured-project">
-                <div class="featured-badge">
-                    <span class="badge ${project.badgeClass || 'badge-primary'}">${project.badge || 'Project'}</span>
-                </div>
-                <h3 class="featured-title">${project.title}</h3>
-                <p class="featured-subtitle">${project.period}</p>
-                <p class="featured-description">${project.description}</p>
-                <div class="tags">
-                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                </div>
-                ${project.url ? `
-                    <div class="featured-footer">
-                        <a href="${project.url}" target="_blank" class="link">${project.urlLabel || 'View on GitHub →'}</a>
-                    </div>
-                ` : ''}
-            </div>
-        `).join('');
-    }
-
-    /**
-     * Render featured courses (for home page - unified structure)
+     * Render featured courses (for home page)
      * @param {Array} courses - Courses array
      * @returns {string}
      */
@@ -204,8 +212,10 @@ class TemplateRenderer {
                 <div class="featured-badge">
                     <span class="badge badge-success">Course</span>
                 </div>
-                <h3 class="featured-title">${course.name}</h3>
-                <p class="featured-subtitle">Grade: ${course.grade}</p>
+                <div class="featured-header">
+                    <h3>${course.name}</h3>
+                    <span class="course-grade">${course.grade}</span>
+                </div>
                 <p class="featured-description">${course.description}</p>
                 <div class="tags">
                     ${course.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
@@ -220,7 +230,7 @@ class TemplateRenderer {
     }
 
     /**
-     * Render featured certifications (for home page - unified structure)
+     * Render featured certifications (for home page)
      * @param {Array} certifications - Certifications array
      * @returns {string}
      */
@@ -230,8 +240,10 @@ class TemplateRenderer {
                 <div class="featured-badge">
                     <span class="badge badge-warning">Certification</span>
                 </div>
-                <h3 class="featured-title">${cert.title}</h3>
-                <p class="featured-subtitle">${cert.issuer} • ${cert.date}</p>
+                <div class="featured-header">
+                    <h3>${cert.title}</h3>
+                </div>
+                <p class="featured-issuer">${cert.issuer} • ${cert.date}</p>
                 <p class="featured-description">${cert.description}</p>
                 <div class="tags">
                     ${cert.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}

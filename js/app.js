@@ -91,11 +91,12 @@ class PortfolioApp {
         // Page-specific data
         const pageDataMap = {
             'index': ['projects', 'courses', 'certifications'],
-            'about': ['education'],
+            'about': [],
             'contacts': [],
             'courses': ['courses', 'certifications'],
             'resources': ['projects'],
-            'news': ['news']
+            'news': ['news'],
+            'journey': ['education', 'work']
         };
 
         const pageFiles = pageDataMap[this.currentPage] || [];
@@ -182,7 +183,8 @@ class PortfolioApp {
             'contacts': () => this.renderContactsPage(),
             'courses': () => this.renderCoursesPage(),
             'resources': () => this.renderResourcesPage(),
-            'news': () => this.renderNewsPage()
+            'news': () => this.renderNewsPage(),
+            'journey': () => this.renderJourneyPage()
         };
 
         const renderer = pageRenderers[this.currentPage];
@@ -236,7 +238,7 @@ class PortfolioApp {
             
             // Featured Projects
             if (featuredProjects.length > 0) {
-                html += this.renderer.renderFeaturedProjects(featuredProjects);
+                html += this.renderer.renderProjects(featuredProjects, true);
             }
             
             // Featured Courses
@@ -260,7 +262,6 @@ class PortfolioApp {
         const personal = this.data.personal?.personal;
         const languages = this.data.personal?.languages;
         const interests = this.data.personal?.interests;
-        const education = this.data.education?.education;
 
         // Render bio
         if (personal) {
@@ -271,14 +272,7 @@ class PortfolioApp {
                 bioContainer.innerHTML = personal.bio.map(p => 
                     `<p class="bio-text">${p}</p>`
                 ).join('');
-                // Top skills rimosso
             }
-        }
-
-        // Render education timeline
-        const educationContainer = document.getElementById('education-timeline');
-        if (educationContainer && education) {
-            educationContainer.innerHTML = this.renderer.renderEducationTimeline(education);
         }
 
         // Render languages
@@ -291,6 +285,30 @@ class PortfolioApp {
         const interestsContainer = document.getElementById('interests-container');
         if (interestsContainer && interests) {
             interestsContainer.innerHTML = this.renderer.renderInterests(interests);
+        }
+    }
+
+    /**
+     * Render journey page
+     */
+    renderJourneyPage() {
+        const education = this.data.education?.education;
+        const work = this.data.work?.work;
+
+        // Render work timeline
+        const workContainer = document.getElementById('work-timeline');
+        if (workContainer) {
+            if (work && work.length > 0) {
+                workContainer.innerHTML = this.renderer.renderWorkTimeline(work);
+            } else {
+                workContainer.innerHTML = '<p class="text-muted">Work experience coming soon...</p>';
+            }
+        }
+
+        // Render education timeline
+        const educationContainer = document.getElementById('education-timeline');
+        if (educationContainer && education) {
+            educationContainer.innerHTML = this.renderer.renderEducationTimeline(education);
         }
     }
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journey - Federico Sabbadini</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>My Journey</h1>
+            <p>Education and professional experiences</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Work Experience Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Work Experience</h2>
+                <div class="timeline" id="work-timeline">
+                    <!-- Work experience will be loaded dynamically -->
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section bg-secondary">
+            <div class="container">
+                <h2 class="section-title">Educational Journey</h2>
+                <div class="timeline" id="education-timeline">
+                    <!-- Education will be loaded dynamically -->
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/component-loader.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script src="js/template-renderer.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = new PortfolioApp();
+            app.init();
+        });
+    </script>
+</body>
+</html>

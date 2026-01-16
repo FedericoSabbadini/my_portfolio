@@ -231,9 +231,9 @@
     padding: var(--space-lg);
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem; /* Distanza minima tra elementi */
     transition: var(--transition);
-    min-height: 320px;
+    min-height: 340px; /* Altezza aumentata */
 }
 
 .featured-card:hover {
@@ -241,44 +241,54 @@
     transform: translateY(-2px);
 }
 
-/* Bordi colorati per tipo - tutti con lo stesso stile */
-.featured-card.featured-project {
-    border-left: 4px solid var(--accent);
-}
-
 .featured-card.featured-course {
     border-left: 4px solid var(--success);
+}
+
+.featured-card.featured-course:hover {
+    border-color: var(--success);
 }
 
 .featured-card.featured-cert {
     border-left: 4px solid var(--warning);
 }
 
-.featured-badge {
-    margin-bottom: 0.25rem;
+.featured-card.featured-cert:hover {
+    border-color: var(--warning);
 }
 
-/* Struttura uniforme per tutti i tipi */
-.featured-title {
+.featured-badge {
+    margin-bottom: 0.75rem;
+}
+
+.featured-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+}
+
+.featured-header h3 {
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--primary);
-    line-height: 1.3;
 }
 
-.featured-subtitle {
+.featured-issuer {
     font-size: 0.875rem;
     color: var(--text-light);
+    margin-bottom: 0.75rem;
 }
 
 .featured-description {
     color: var(--text-secondary);
-    line-height: 1.6;
-    font-size: 0.9375rem;
+    line-height: 1.7;
+    overflow: hidden;
 }
 
 .featured-footer {
-    margin-top: auto;
+    margin-top: auto; /* Ancorato in fondo */
     padding-top: 1rem;
     border-top: 1px solid var(--border);
 }
@@ -289,7 +299,7 @@
 
 @media (max-width: 640px) {
     .featured-grid { grid-template-columns: 1fr; }
-    .featured-card { min-height: auto; }
+    .featured-card { min-height: auto; } /* Su mobile altezza automatica */
 }
 
 /* Project Card - con altezza fissa e footer ancorato */
@@ -417,6 +427,45 @@
     color: var(--text-secondary);
     font-weight: 500;
     margin-bottom: 0.5rem;
+}
+
+/* Timeline upcoming state */
+.timeline-item.timeline-upcoming .timeline-marker {
+    background: var(--warning);
+    border-color: var(--bg-primary);
+}
+
+.timeline-item.timeline-upcoming .timeline-content {
+    border-style: dashed;
+    border-color: var(--warning);
+    opacity: 0.9;
+}
+
+/* Work responsibilities */
+.work-responsibilities {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.work-responsibilities li {
+    position: relative;
+    padding-left: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.work-responsibilities li:last-child {
+    margin-bottom: 0;
+}
+
+.work-responsibilities li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
 }
 
 /* Language Cards - con barra ancorata in basso */
@@ -795,7 +844,7 @@
 .footer-content {
     display: flex;
     justify-content: flex-end; /* Allineato a destra */
-    align-items: bottom;
+    align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
 }
