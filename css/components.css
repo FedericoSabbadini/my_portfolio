@@ -795,7 +795,7 @@
 .footer-content {
     display: flex;
     justify-content: flex-end; /* Allineato a destra */
-    align-items: center;
+    align-items: bottom;
     flex-wrap: wrap;
     gap: 1rem;
 }
