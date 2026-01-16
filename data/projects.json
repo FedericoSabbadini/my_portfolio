@@ -6,7 +6,7 @@
       "period": "Nov 2025 - Present",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
-      "description": "Deep learning system predicting Formula 1 pit stop strategies using real telemetry data. Achieves AUC 0.93 for pit timing and 78% accuracy for compound selection using Bidirectional LSTM with Multi-Head Attention.",
+      "description": "Deep learning system predicting Formula 1 pit strategies using real telemetry data. Achieves AUC 0.93 for pit timing and 78% accuracy for compound selection using Bidirectional LSTM with Attention.",
       "tags": ["Python", "TensorFlow", "LSTM", "FastF1 API"],
       "url": "https://github.com/FedericoSabbadini",
       "featured": true
@@ -28,10 +28,10 @@
       "period": "Jun 2024 - Oct 2024",
       "badge": "Research",
       "badgeClass": "badge-primary",
-      "description": "Bachelor's thesis on authentication and authorization standards including OpenID Connect and OAuth 2.0. Explored practical applications and security implications.",
-      "tags": ["OpenID", "OAuth 2.0", "Security", "Identity Management"],
+      "description": "Bachelor's thesis on authentication and authorization standards including OpenID Connect and OAuth 2.0.",
+      "tags": ["OpenID", "OAuth 2.0", "Security"],
       "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8",
-      "urlLabel": "View Thesis",
+      "urlLabel": "View Research",
       "featured": false
     },
     {
@@ -41,7 +41,7 @@
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "Machine learning classification pipeline using ensemble models with advanced feature engineering and hyperparameter tuning for FIFA 2022 player potential prediction.",
-      "tags": ["Python", "Machine Learning", "Scikit-learn", "Ensemble Methods"],
+      "tags": ["Python", "Machine Learning", "Scikit-learn"],
       "url": "https://github.com/FedericoSabbadini/TalentScope_AI",
       "featured": false
     },
@@ -75,7 +75,7 @@
       "badge": "Opt",
       "badgeClass": "badge-danger",
       "description": "Implementation of efficient pathfinding algorithms for obstacle-based path computation on grid systems using advanced graph theory techniques.",
-      "tags": ["Algorithms", "Graph Theory", "Python"],
+      "tags": ["Algorithms", "Graph Theory"],
       "url": "https://github.com/FedericoSabbadini/CamminiPRJ",
       "featured": false
     },
@@ -108,7 +108,7 @@
       "badge": "Opt",
       "badgeClass": "badge-danger",
       "description": "Mathematical optimization using Gurobi solver for complex constraint satisfaction and linear programming problems.",
-      "tags": ["Optimization", "Operations Research", "Java"],
+      "tags": ["Operations Research", "ILP"],
       "url": "https://github.com/FedericoSabbadini/Gurobi_Optimization",
       "featured": false
     }
