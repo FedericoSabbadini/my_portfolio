@@ -217,6 +217,89 @@
     gap: var(--space-lg);
 }
 
+/* Featured Grid (Home Page) */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+
+.featured-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.featured-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.featured-card.featured-course {
+    border-left: 4px solid var(--success);
+}
+
+.featured-card.featured-course:hover {
+    border-color: var(--success);
+}
+
+.featured-card.featured-cert {
+    border-left: 4px solid var(--warning);
+}
+
+.featured-card.featured-cert:hover {
+    border-color: var(--warning);
+}
+
+.featured-badge {
+    margin-bottom: 0.75rem;
+}
+
+.featured-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+}
+
+.featured-header h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.featured-issuer {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+}
+
+.featured-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.featured-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+@media (max-width: 1024px) {
+    .featured-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .featured-grid { grid-template-columns: 1fr; }
+}
+
 .project-card {
     background: var(--bg-primary);
     border-radius: var(--radius-lg);

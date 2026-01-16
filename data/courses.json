@@ -10,7 +10,7 @@
         "description": "Advanced network security protocols, cryptography, firewalls, VPNs, intrusion detection systems, and security architecture design.",
         "tags": ["Cryptography", "Firewalls", "IDS/IPS"],
         "featured": true,
-        "url": "https://unibs-public.prod.up.cineca.it"
+        "url": ""
       },
       {
         "id": "machine-learning",

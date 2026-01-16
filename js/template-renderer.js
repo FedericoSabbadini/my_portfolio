@@ -166,6 +166,62 @@ class TemplateRenderer {
     }
 
     /**
+     * Render featured courses (for home page)
+     * @param {Array} courses - Courses array
+     * @returns {string}
+     */
+    renderFeaturedCourses(courses) {
+        return courses.map(course => `
+            <div class="featured-card featured-course">
+                <div class="featured-badge">
+                    <span class="badge badge-success">Course</span>
+                </div>
+                <div class="featured-header">
+                    <h3>${course.name}</h3>
+                    <span class="course-grade">${course.grade}</span>
+                </div>
+                <p class="featured-description">${course.description}</p>
+                <div class="tags">
+                    ${course.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+                ${course.url ? `
+                    <div class="featured-footer">
+                        <a href="${course.url}" target="_blank" class="link">View Details →</a>
+                    </div>
+                ` : ''}
+            </div>
+        `).join('');
+    }
+
+    /**
+     * Render featured certifications (for home page)
+     * @param {Array} certifications - Certifications array
+     * @returns {string}
+     */
+    renderFeaturedCertifications(certifications) {
+        return certifications.map(cert => `
+            <div class="featured-card featured-cert">
+                <div class="featured-badge">
+                    <span class="badge badge-warning">Certification</span>
+                </div>
+                <div class="featured-header">
+                    <h3>${cert.title}</h3>
+                </div>
+                <p class="featured-issuer">${cert.issuer} • ${cert.date}</p>
+                <p class="featured-description">${cert.description}</p>
+                <div class="tags">
+                    ${cert.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+                ${cert.url ? `
+                    <div class="featured-footer">
+                        <a href="${cert.url}" target="_blank" class="link">View Certificate →</a>
+                    </div>
+                ` : ''}
+            </div>
+        `).join('');
+    }
+
+    /**
      * Render certifications
      * @param {Array} certifications - Certifications array
      * @returns {string}

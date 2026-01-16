@@ -90,7 +90,7 @@ class PortfolioApp {
         
         // Page-specific data
         const pageDataMap = {
-            'index': ['projects'],
+            'index': ['projects', 'courses', 'certifications'],
             'about': ['education'],
             'contacts': [],
             'courses': ['courses', 'certifications'],
@@ -202,10 +202,6 @@ class PortfolioApp {
         const personal = this.data.personal?.personal;
         const social = this.data.personal?.social;
         const stats = this.data.personal?.stats;
-        const allProjects = this.data.projects?.projects || [];
-        
-        // Filter only featured projects
-        const featuredProjects = allProjects.filter(p => p.featured === true);
 
         // Render hero
         if (personal && social) {
@@ -222,10 +218,38 @@ class PortfolioApp {
             statsContainer.innerHTML = this.renderer.renderStats(stats);
         }
 
-        // Render featured projects
-        const projectsContainer = document.getElementById('featured-projects');
-        if (projectsContainer && featuredProjects.length > 0) {
-            projectsContainer.innerHTML = this.renderer.renderProjects(featuredProjects, true);
+        // Render featured section (projects, courses, certifications)
+        const featuredContainer = document.getElementById('featured-container');
+        if (featuredContainer) {
+            const allProjects = this.data.projects?.projects || [];
+            const mastersCourses = this.data.courses?.masters?.courses || [];
+            const bachelorsCourses = this.data.courses?.bachelors?.courses || [];
+            const allCertifications = this.data.certifications?.certifications || [];
+
+            // Filter featured items
+            const featuredProjects = allProjects.filter(p => p.featured === true);
+            const featuredCourses = [...mastersCourses, ...bachelorsCourses].filter(c => c.featured === true);
+            const featuredCerts = allCertifications.filter(c => c.featured === true);
+
+            // Render all featured items
+            let html = '';
+            
+            // Featured Projects
+            if (featuredProjects.length > 0) {
+                html += this.renderer.renderProjects(featuredProjects, true);
+            }
+            
+            // Featured Courses
+            if (featuredCourses.length > 0) {
+                html += this.renderer.renderFeaturedCourses(featuredCourses);
+            }
+            
+            // Featured Certifications
+            if (featuredCerts.length > 0) {
+                html += this.renderer.renderFeaturedCertifications(featuredCerts);
+            }
+
+            featuredContainer.innerHTML = html;
         }
     }
 
