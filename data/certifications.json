@@ -10,7 +10,7 @@
       "description": "Comprehensive certification covering cybersecurity fundamentals, network security, application security, and security operations.",
       "tags": ["Cybersecurity", "Professional"],
       "featured": false,
-      "url": ""
+      "url": "https://learn.eccouncil.org/certificate/f70bfdc3-cbef-4ce3-8a2b-86c5a07d000f?logged=false"
     },
     {
       "id": "metasploit",
@@ -22,7 +22,7 @@
       "description": "Advanced penetration testing using Metasploit Framework, vulnerability assessment, and exploitation techniques.",
       "tags": ["Pentesting", "Metasploit"],
       "featured": true,
-      "url": ""
+      "url": "https://learn.eccouncil.org/certificate/3cc4db0f-8853-4802-8f8b-f3349d989abc?logged=false"
     },
     {
       "id": "wireshark",
@@ -34,7 +34,7 @@
       "description": "Network analysis and troubleshooting using Wireshark, packet capture, and protocol analysis.",
       "tags": ["Networking", "Analysis"],
       "featured": false,
-      "url": ""
+      "url": "https://learn.eccouncil.org/certificate/ceddc3d6-739c-4483-88f8-bd2689a5a928?logged=false"
     },
     {
       "id": "sustainability",
@@ -45,7 +45,7 @@
       "description": "Sustainable development, green IT, and the role of digital technologies in environmental protection.",
       "tags": ["Sustainability", "Green IT"],
       "featured": false,
-      "url": ""
+      "url": "https://app.myopenbadge.com/receive/shared/dqhYAngJT-af5110b6fa7a07f5be5e628f6229d366-aSKG-5/public"
     },
     {
       "id": "blockchain",
@@ -53,10 +53,11 @@
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "September 2023",
+      "certId": "UC-e34daeb8-8deb-421b-945f-93f26139d648ID",
       "description": "Blockchain technology, cryptocurrencies, smart contracts, and distributed ledger systems.",
       "tags": ["Blockchain", "Crypto"],
       "featured": false,
-      "url": ""
+      "url": "https://www.udemy.com/certificate/UC-e34daeb8-8deb-421b-945f-93f26139d648/"
     },
     {
       "id": "smm",
@@ -64,10 +65,11 @@
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "November 2022",
+      "certId": "UC-6ecfe171-ce58-4fff-9f6e-ee8e1adfff09ID",
       "description": "Social media strategy, content creation, analytics, and digital marketing campaigns.",
       "tags": ["Marketing", "Social Media"],
       "featured": false,
-      "url": ""
+      "url": "https://www.udemy.com/certificate/UC-6ecfe171-ce58-4fff-9f6e-ee8e1adfff09/"
     },
     {
       "id": "english",
@@ -75,10 +77,11 @@
       "issuer": "CLA Test, Università di Brescia",
       "issuerIcon": "unibs",
       "date": "November 2022",
+      "certId": "UC-Me1OpE9VRNuhrL5DsQqTUQID-8deb-421b-945f-93f26139d648ID",
       "description": "Intermediate English language proficiency certification for academic and professional contexts.",
       "tags": ["Language", "English"],
       "featured": false,
-      "url": ""
+      "url": "https://bestr.it/award/show/Me1OpE9VRNuhrL5DsQqTUQ"
     },
     {
       "id": "agile",
@@ -89,7 +92,7 @@
       "description": "Agile methodologies, Scrum framework, sprint planning, and iterative development practices.",
       "tags": ["Agile", "Scrum"],
       "featured": false,
-      "url": ""
+      "url": "https://app.myopenbadge.com/receive/CAdLUyg-5507eb013c32ee84b94e253a62d92b13-3v74W5CyqQ-11757932261/yrealG-4dc01cbdd6b77b40065b2368cf337283-Z1XsLPT-6/public"
     }
   ]
 }
