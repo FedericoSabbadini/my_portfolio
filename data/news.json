@@ -3,11 +3,11 @@
     {
       "id": "master-completed",
       "year": "2026",
-      "showYear": false,
+      "showYear": true,
       "icon": "📚",
-      "title": "Master's Program Started",
+      "title": "Master's Degree",
       "description": "Final year of my Master of Science in Computer Engineering degree at University of Brescia. Specializing in cybersecurity, systems administration, and AI.",
-      "tags": ["Education", "Master's"]
+      "tags": ["Education", "Specialization"]
     },
     {
       "id": "bachelor-completed",
@@ -16,7 +16,7 @@
       "icon": "🎓",
       "title": "Bachelor's Degree Completed",
       "description": "Graduated with Bachelor of Science in Computer Engineering from University of Brescia. Final grade: 104/110. Thesis: \"Standard OpenID\"",
-      "tags": ["Education", "Milestone"]
+      "tags": ["Education", "Problem Solving"]
     },
     {
       "id": "english-cert",
@@ -25,16 +25,16 @@
       "icon": "🌐",
       "title": "English B1 Certification",
       "description": "Achieved B1 English language certification from CLA Test, Università di Brescia (November 2022).",
-      "tags": ["Language", "Certification"]
+      "tags": ["Language"]
     },
     {
       "id": "highschool",
       "year": "2021",
       "showYear": true,
       "icon": "🎓",
-      "title": "Scientific High School completed",
+      "title": "Scientific High School Completed",
       "description": "Scientific curriculum with focus on mathematics, physics, and sciences. Participated in study abroad program at Pitzer College, USA (Jul-Aug 2019).",
-      "tags": ["Education", "Diploma"]
+      "tags": ["Communication", "Curiosity", "Diploma"]
     }
   ]
 }
