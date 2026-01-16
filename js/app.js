@@ -236,7 +236,7 @@ class PortfolioApp {
             
             // Featured Projects
             if (featuredProjects.length > 0) {
-                html += this.renderer.renderProjects(featuredProjects, true);
+                html += this.renderer.renderFeaturedProjects(featuredProjects);
             }
             
             // Featured Courses
