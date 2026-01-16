@@ -271,8 +271,7 @@ class PortfolioApp {
                 bioContainer.innerHTML = personal.bio.map(p => 
                     `<p class="bio-text">${p}</p>`
                 ).join('');
-                // Add skills
-                bioContainer.innerHTML += `<p class="bio-text">My top skills include: <strong>${personal.topSkills.join('</strong>, <strong>')}</strong>.</p>`;
+                // Top skills rimosso
             }
         }
 

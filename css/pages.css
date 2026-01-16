@@ -73,11 +73,19 @@
 
 /* Page Header */
 .page-header {
-    padding: 6rem 0 3rem;
+    padding: 10rem 0 4rem;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--bg-secondary) 100%);
     text-align: center;
     position: relative;
-    min-height: 220px; /* Prevent layout shift */
+    min-height: 280px; /* Altezza aumentata */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 1;
 }
 
 .page-header::after {
@@ -160,6 +168,43 @@
     margin: 0 auto;
 }
 
+/* Bio con immagine float a destra */
+.bio-section.bio-with-image {
+    text-align: left;
+    max-width: 900px;
+}
+
+.bio-section.bio-with-image h2 {
+    text-align: left;
+}
+
+.bio-image-float {
+    float: right;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin: 0 0 1.5rem 2rem;
+    border: 4px solid var(--accent);
+    object-fit: cover;
+    shape-outside: circle(50%);
+}
+
+@media (max-width: 640px) {
+    .bio-section.bio-with-image {
+        text-align: center;
+    }
+    
+    .bio-section.bio-with-image h2 {
+        text-align: center;
+    }
+    
+    .bio-image-float {
+        float: none;
+        display: block;
+        margin: 0 auto 2rem auto;
+    }
+}
+
 .bio-section img {
     width: 200px;
     height: 200px;
@@ -216,6 +261,9 @@
     padding: 2rem;
     background: var(--bg-secondary);
     border-radius: var(--radius-lg);
+    max-width: 900px; /* Stessa larghezza della grid-2 */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .location-box h3 {

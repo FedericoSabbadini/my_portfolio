@@ -113,10 +113,12 @@ class TemplateRenderer {
      */
     renderLanguages(languages) {
         return languages.map(lang => `
-            <div class="card">
-                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">${lang.flag} ${lang.name}</h3>
-                <p style="color: var(--text-light); margin-bottom: ${lang.detail ? '0.5rem' : '1rem'};">${lang.level}</p>
-                ${lang.detail ? `<p style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 1rem;">${lang.detail}</p>` : ''}
+            <div class="card language-card">
+                <div class="language-content">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">${lang.flag} ${lang.name}</h3>
+                    <p style="color: var(--text-light); margin-bottom: ${lang.detail ? '0.5rem' : '0'};">${lang.level}</p>
+                    ${lang.detail ? `<p style="font-size: 0.875rem; color: var(--text-light);">${lang.detail}</p>` : ''}
+                </div>
                 <div class="language-bar">
                     <div class="language-fill" style="width: ${lang.percentage}%;"></div>
                 </div>
@@ -228,8 +230,10 @@ class TemplateRenderer {
      */
     renderCertifications(certifications) {
         return certifications.map(cert => `
-            <div class="cert-card ${cert.featured ? 'featured' : ''}">
-                <div class="cert-icon ${cert.issuerIcon}">${this.getIssuerInitials(cert.issuer)}</div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <img src="assets/CA/${cert.issuerIcon}.png" alt="${cert.issuer}" onerror="this.style.display='none'; this.parentElement.classList.add('${cert.issuerIcon}'); this.parentElement.textContent='${this.getIssuerInitials(cert.issuer)}';">
+                </div>
                 <h3>${cert.title}</h3>
                 <p class="cert-issuer">${cert.issuer} • ${cert.date}${cert.certId ? ` • ID: ${cert.certId}` : ''}</p>
                 <p class="cert-description">${cert.description}</p>
@@ -246,7 +250,7 @@ class TemplateRenderer {
     }
 
     /**
-     * Get issuer initials for icon
+     * Get issuer initials for icon (fallback)
      * @param {string} issuer
      * @returns {string}
      */
