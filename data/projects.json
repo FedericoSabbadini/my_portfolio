@@ -7,7 +7,7 @@
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "Deep learning system predicting Formula 1 pit strategies using real telemetry data. Achieves AUC 0.93 for pit timing and 78% accuracy for compound selection using Bidirectional LSTM with Attention.",
-      "tags": ["Python", "TensorFlow", "LSTM", "FastF1 API"],
+      "tags": ["LSTM", "FastF1 API"],
       "url": "https://github.com/FedericoSabbadini",
       "featured": true
     },
@@ -40,7 +40,7 @@
       "period": "May 2025 - Jun 2025",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
-      "description": "Machine learning classification pipeline using ensemble models with advanced feature engineering and hyperparameter tuning for FIFA 2022 player potential prediction.",
+      "description": "Machine learning classification pipeline using ensemble models with advanced feature engineering and tuning for FIFA 2022 player potential prediction.",
       "tags": ["Python", "Machine Learning", "Scikit-learn"],
       "url": "https://github.com/FedericoSabbadini/TalentScope_AI",
       "featured": false
@@ -96,7 +96,7 @@
       "period": "Apr 2024 - Jul 2024",
       "badge": "Research",
       "badgeClass": "badge-primary",
-      "description": "MATLAB project for quantitative analysis of electromagnetic field exposure from HF antennas and eLF power lines with visualization tools.",
+      "description": "MATLAB project for quantitative analysis of electromagnetic field exposure from HF antennas and eLF power lines with visualization.",
       "tags": ["MATLAB", "Physics", "Analysis"],
       "url": "https://github.com/FedericoSabbadini/Elettrosmog",
       "featured": false
@@ -108,7 +108,7 @@
       "badge": "Opt",
       "badgeClass": "badge-danger",
       "description": "Mathematical optimization using Gurobi solver for complex constraint satisfaction and linear programming problems.",
-      "tags": ["Operations Research", "ILP"],
+      "tags": ["Operations Research", "ILP", "Gurobi"],
       "url": "https://github.com/FedericoSabbadini/Gurobi_Optimization",
       "featured": false
     }
