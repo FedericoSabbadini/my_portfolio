@@ -1,0 +1,87 @@
+{
+  "certifications": [
+    {
+      "id": "cct",
+      "title": "C|CT Certified Cybersecurity Technician",
+      "issuer": "EC-Council",
+      "issuerIcon": "ec-council",
+      "date": "October 2025",
+      "certId": "440746",
+      "description": "Comprehensive certification covering cybersecurity fundamentals, network security, application security, and security operations.",
+      "tags": ["Cybersecurity", "Professional"],
+      "featured": true
+    },
+    {
+      "id": "metasploit",
+      "title": "Metasploit Penetration Testing",
+      "issuer": "EC-Council",
+      "issuerIcon": "ec-council",
+      "date": "November 2025",
+      "certId": "448767",
+      "description": "Advanced penetration testing using Metasploit Framework, vulnerability assessment, and exploitation techniques.",
+      "tags": ["Pentesting", "Metasploit"],
+      "featured": true
+    },
+    {
+      "id": "wireshark",
+      "title": "Wireshark Network Troubleshooting",
+      "issuer": "EC-Council",
+      "issuerIcon": "ec-council",
+      "date": "August 2025",
+      "certId": "447142",
+      "description": "Network analysis and troubleshooting using Wireshark, packet capture, and protocol analysis.",
+      "tags": ["Networking", "Analysis"],
+      "featured": false
+    },
+    {
+      "id": "sustainability",
+      "title": "Environmental Sustainability & Digital Technologies",
+      "issuer": "Politecnico di Milano",
+      "issuerIcon": "polimi",
+      "date": "September 2025",
+      "description": "Sustainable development, green IT, and the role of digital technologies in environmental protection.",
+      "tags": ["Sustainability", "Green IT"],
+      "featured": false
+    },
+    {
+      "id": "blockchain",
+      "title": "Blockchain Fundamentals",
+      "issuer": "Udemy",
+      "issuerIcon": "udemy",
+      "date": "September 2023",
+      "description": "Blockchain technology, cryptocurrencies, smart contracts, and distributed ledger systems.",
+      "tags": ["Blockchain", "Crypto"],
+      "featured": false
+    },
+    {
+      "id": "smm",
+      "title": "Social Media Marketing",
+      "issuer": "Udemy",
+      "issuerIcon": "udemy",
+      "date": "November 2022",
+      "description": "Social media strategy, content creation, analytics, and digital marketing campaigns.",
+      "tags": ["Marketing", "Social Media"],
+      "featured": false
+    },
+    {
+      "id": "english",
+      "title": "English Language B1 Certification",
+      "issuer": "CLA Test, Università di Brescia",
+      "issuerIcon": "unibs",
+      "date": "November 2022",
+      "description": "Intermediate English language proficiency certification for academic and professional contexts.",
+      "tags": ["Language", "English"],
+      "featured": false
+    },
+    {
+      "id": "agile",
+      "title": "Agile Project Management",
+      "issuer": "Udemy",
+      "issuerIcon": "udemy",
+      "date": "2023",
+      "description": "Agile methodologies, Scrum framework, sprint planning, and iterative development practices.",
+      "tags": ["Agile", "Scrum"],
+      "featured": false
+    }
+  ]
+}

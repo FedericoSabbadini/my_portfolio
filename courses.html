@@ -17,9 +17,33 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
 </head>
-<body>
-    <!-- Navigation -->
-    <div id="navbar-placeholder"></div>
+<body class="loading">
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <div class="page-loader-spinner"></div>
+    </div>
+
+    <!-- Navigation (Static to prevent flash) -->
+    <div id="navbar-placeholder">
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">Federico Sabbadini</a>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link" data-page="index">Home</a>
+                    <a href="news.html" class="nav-link" data-page="news">News & Updates</a>
+                    <a href="courses.html" class="nav-link" data-page="courses">Courses</a>
+                    <a href="resources.html" class="nav-link" data-page="resources">Resources</a>
+                    <a href="about.html" class="nav-link" data-page="about">About</a>
+                    <a href="contacts.html" class="nav-link" data-page="contacts">Contacts</a>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -33,11 +57,11 @@
     <section class="section">
         <div class="container">
             <div class="courses-header">
-                <h2>Master's Degree Courses</h2>
-                <p class="courses-subtitle">University of Brescia • 2024-2026 • Current GPA: 106/110</p>
+                <h2 id="masters-title">Master's Degree Courses</h2>
+                <p class="courses-subtitle" id="masters-subtitle">Loading...</p>
             </div>
-            <div class="courses-grid" id="masters-grid">
-                <!-- Loaded dynamically from courses.json -->
+            <div class="courses-grid" id="masters-courses" data-dynamic>
+                <!-- Master's courses rendered dynamically -->
             </div>
         </div>
     </section>
@@ -46,11 +70,11 @@
     <section class="section section-alt">
         <div class="container">
             <div class="courses-header">
-                <h2>Bachelor's Degree Courses</h2>
-                <p class="courses-subtitle">University of Brescia • 2021-2024 • Final Grade: 104/110</p>
+                <h2 id="bachelors-title">Bachelor's Degree Courses</h2>
+                <p class="courses-subtitle" id="bachelors-subtitle">Loading...</p>
             </div>
-            <div class="courses-grid" id="bachelors-grid">
-                <!-- Loaded dynamically from courses.json -->
+            <div class="courses-grid" id="bachelors-courses" data-dynamic>
+                <!-- Bachelor's courses rendered dynamically -->
             </div>
         </div>
     </section>
@@ -62,8 +86,8 @@
                 <h2>Professional Certifications</h2>
                 <p>Industry-recognized certifications and professional development</p>
             </div>
-            <div class="certification-grid" id="certifications-grid">
-                <!-- Loaded dynamically from courses.json -->
+            <div class="certification-grid" id="certifications-container" data-dynamic>
+                <!-- Certifications rendered dynamically -->
             </div>
         </div>
     </section>
@@ -72,9 +96,9 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
-    <script src="js/component-loader.js"></script>
     <script src="js/data-loader.js"></script>
+    <script src="js/template-renderer.js"></script>
+    <script src="js/component-loader.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/courses-loader.js"></script>
 </body>
 </html>

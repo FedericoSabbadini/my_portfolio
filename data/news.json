@@ -1,0 +1,130 @@
+{
+  "news": [
+    {
+      "id": "metasploit-cert",
+      "year": "2025",
+      "showYear": true,
+      "icon": "🏆",
+      "title": "Metasploit Penetration Testing Certification",
+      "description": "Earned EC-Council Metasploit Pentesting certification (November 2025, ID: 448767). Advanced skills in vulnerability assessment and exploitation frameworks.",
+      "tags": ["Certification", "EC-Council", "Pentesting"]
+    },
+    {
+      "id": "f1-project",
+      "year": "2025",
+      "showYear": false,
+      "icon": "🚀",
+      "title": "F1 Pit Strategy Predictor Project",
+      "description": "Started development of deep learning system for Formula 1 pit stop prediction using Bidirectional LSTM with Multi-Head Attention. Achieving 93% AUC and 78% accuracy.",
+      "tags": ["AI/ML", "Python", "TensorFlow"]
+    },
+    {
+      "id": "hardening-project",
+      "year": "2025",
+      "showYear": false,
+      "icon": "🔒",
+      "title": "Network Hardening Planner Development",
+      "description": "Launched AI-based automated planning system for network security hardening. Uses Unified Planning Library and Fast-Downward solver for optimal port management.",
+      "tags": ["Cybersecurity", "AI Planning"]
+    },
+    {
+      "id": "cct-cert",
+      "year": "2025",
+      "showYear": false,
+      "icon": "🎓",
+      "title": "C|CT Certified Cybersecurity Technician",
+      "description": "Achieved EC-Council C|CT certification (October 2025, ID: 440746). Demonstrating comprehensive knowledge in cybersecurity fundamentals and practices.",
+      "tags": ["Certification", "EC-Council"]
+    },
+    {
+      "id": "sustainability-cert",
+      "year": "2025",
+      "showYear": false,
+      "icon": "🌱",
+      "title": "Environmental Sustainability Certification",
+      "description": "Completed Environmental Sustainability and Digital Technologies course at Politecnico di Milano (September 2025).",
+      "tags": ["Sustainability", "Polimi"]
+    },
+    {
+      "id": "wireshark-cert",
+      "year": "2025",
+      "showYear": false,
+      "icon": "🔍",
+      "title": "Wireshark Network Troubleshooting",
+      "description": "Earned Wireshark Network Troubleshooting certification from EC-Council (August 2025, ID: 447142).",
+      "tags": ["Certification", "Networking"]
+    },
+    {
+      "id": "oracool-launch",
+      "year": "2025",
+      "showYear": false,
+      "icon": "🌐",
+      "title": "Oracool Web Platform Launch",
+      "description": "Completed full-stack sports prediction platform using Laravel, PHP, MySQL, and Bootstrap. Applied Agile methodology throughout development (April-July 2025).",
+      "tags": ["Web Development", "Laravel"]
+    },
+    {
+      "id": "talentscope",
+      "year": "2025",
+      "showYear": false,
+      "icon": "⚽",
+      "title": "TalentScope AI Project",
+      "description": "Developed machine learning classification system for FIFA 2022 player potential prediction using ensemble models (May-June 2025).",
+      "tags": ["Machine Learning", "Python"]
+    },
+    {
+      "id": "bachelor-completed",
+      "year": "2024",
+      "showYear": true,
+      "icon": "🎓",
+      "title": "Bachelor's Degree Completed",
+      "description": "Graduated with Bachelor of Science in Computer Engineering from University of Brescia. Final grade: 104/110. Thesis: \"Gestione interoperabile di identità: lo Standard OpenID\"",
+      "tags": ["Education", "Milestone"]
+    },
+    {
+      "id": "master-started",
+      "year": "2024",
+      "showYear": false,
+      "icon": "📚",
+      "title": "Master's Program Started",
+      "description": "Began Master of Science in Computer Engineering at University of Brescia. Specializing in cybersecurity, systems administration, and AI.",
+      "tags": ["Education", "Master's"]
+    },
+    {
+      "id": "data-hiding",
+      "year": "2024",
+      "showYear": false,
+      "icon": "🔬",
+      "title": "Data Hiding Research",
+      "description": "Completed research project on steganography techniques using CNNs and GANs (October 2024 - March 2025).",
+      "tags": ["Research", "Steganography"]
+    },
+    {
+      "id": "blockchain-cert",
+      "year": "2023",
+      "showYear": true,
+      "icon": "⛓️",
+      "title": "Blockchain Fundamentals Certification",
+      "description": "Completed Blockchain Fundamentals certification course on Udemy (September 2023).",
+      "tags": ["Certification", "Blockchain"]
+    },
+    {
+      "id": "english-cert",
+      "year": "2022",
+      "showYear": true,
+      "icon": "🌐",
+      "title": "English B1 Certification",
+      "description": "Achieved B1 English language certification from CLA Test, Università di Brescia (November 2022).",
+      "tags": ["Language", "Certification"]
+    },
+    {
+      "id": "smm-cert",
+      "year": "2022",
+      "showYear": false,
+      "icon": "📱",
+      "title": "Social Media Marketing Certification",
+      "description": "Completed Social Media Marketing certification on Udemy (November 2022).",
+      "tags": ["Marketing", "Digital"]
+    }
+  ]
+}

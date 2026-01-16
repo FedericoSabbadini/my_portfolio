@@ -1,222 +1,126 @@
 {
-  "masters": [
-    {
-      "title": "Network Security",
-      "grade": "30L/30",
-      "description": "Advanced network security protocols, cryptography, firewalls, VPNs, intrusion detection systems, and security architecture design.",
-      "tags": ["Cryptography", "Firewalls", "IDS/IPS"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea-magistrale/ingegneria-informatica"
-    },
-    {
-      "title": "Machine Learning",
-      "grade": "29/30",
-      "description": "Supervised and unsupervised learning, neural networks, deep learning, ensemble methods, and practical ML applications.",
-      "tags": ["Neural Networks", "Deep Learning", "Python"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea-magistrale/ingegneria-informatica"
-    },
-    {
-      "title": "Systems Administration",
-      "grade": "28/30",
-      "description": "Linux/Unix system administration, server management, automation, monitoring, and enterprise infrastructure.",
-      "tags": ["Linux", "Automation", "DevOps"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea-magistrale/ingegneria-informatica"
-    },
-    {
-      "title": "Artificial Intelligence",
-      "grade": "27/30",
-      "description": "AI fundamentals, search algorithms, knowledge representation, planning, reasoning under uncertainty, and intelligent agents.",
-      "tags": ["Planning", "Search", "Agents"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea-magistrale/ingegneria-informatica"
-    },
-    {
-      "title": "Advanced Databases",
-      "grade": "30/30",
-      "description": "NoSQL databases, distributed databases, query optimization, indexing strategies, and database performance tuning.",
-      "tags": ["NoSQL", "MongoDB", "Optimization"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea-magistrale/ingegneria-informatica"
-    },
-    {
-      "title": "Software Engineering II",
-      "grade": "28/30",
-      "description": "Advanced software design patterns, architecture, testing strategies, agile methodologies, and project management.",
-      "tags": ["Design Patterns", "Agile", "Testing"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea-magistrale/ingegneria-informatica"
-    }
-  ],
-  "bachelors": [
-    {
-      "title": "Computer Networks",
-      "grade": "30/30",
-      "description": "TCP/IP protocols, network architectures, routing, switching, and network programming.",
-      "tags": ["TCP/IP", "Routing"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Databases",
-      "grade": "29/30",
-      "description": "Relational database design, SQL, normalization, transactions, and DBMS architecture.",
-      "tags": ["SQL", "Design"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Operating Systems",
-      "grade": "28/30",
-      "description": "Process management, memory management, file systems, concurrency, and OS internals.",
-      "tags": ["Linux", "Concurrency"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Algorithms",
-      "grade": "30/30",
-      "description": "Algorithm design and analysis, data structures, complexity theory, and optimization.",
-      "tags": ["Complexity", "Optimization"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Programming Languages",
-      "grade": "27/30",
-      "description": "Programming paradigms, compilers, interpreters, and language design principles.",
-      "tags": ["Compilers", "Paradigms"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Web Programming",
-      "grade": "30L/30",
-      "description": "HTML, CSS, JavaScript, PHP, frameworks, and full-stack web development.",
-      "tags": ["JavaScript", "PHP"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Software Engineering",
-      "grade": "28/30",
-      "description": "Software lifecycle, requirements engineering, design, testing, and maintenance.",
-      "tags": ["UML", "Design"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Computer Architecture",
-      "grade": "26/30",
-      "description": "CPU design, memory hierarchy, I/O systems, and performance optimization.",
-      "tags": ["CPU", "Memory"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Cryptography",
-      "grade": "29/30",
-      "description": "Symmetric and asymmetric encryption, hash functions, digital signatures, and protocols.",
-      "tags": ["Encryption", "Protocols"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Digital Electronics",
-      "grade": "27/30",
-      "description": "Logic gates, circuits, sequential systems, and hardware description languages.",
-      "tags": ["Logic", "Hardware"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Java & C Programming",
-      "grade": "30/30",
-      "description": "Object-oriented programming in Java, systems programming in C, and best practices.",
-      "tags": ["Java", "C"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    },
-    {
-      "title": "Information Systems",
-      "grade": "28/30",
-      "description": "Enterprise systems, ERP, business process modeling, and IT management.",
-      "tags": ["ERP", "BPM"],
-      "link": "https://www.unibs.it/it/corsi/corsi-di-laurea/ingegneria-informatica"
-    }
-  ],
-  "certifications": [
-    {
-      "title": "C|CT Certified Cybersecurity Technician",
-      "issuer": "EC-Council",
-      "date": "October 2025",
-      "id": "440746",
-      "description": "Comprehensive certification covering cybersecurity fundamentals, network security, application security, and security operations.",
-      "tags": ["Cybersecurity", "Professional"],
-      "icon": "ec-council",
-      "featured": true,
-      "link": "https://www.eccouncil.org/train-certify/certified-cybersecurity-technician-cct/"
-    },
-    {
-      "title": "Metasploit Penetration Testing",
-      "issuer": "EC-Council",
-      "date": "November 2025",
-      "id": "448767",
-      "description": "Advanced penetration testing using Metasploit Framework, vulnerability assessment, and exploitation techniques.",
-      "tags": ["Pentesting", "Metasploit"],
-      "icon": "ec-council",
-      "featured": true,
-      "link": "https://codered.eccouncil.org/course/metasploit-essentials-penetration-testing"
-    },
-    {
-      "title": "Wireshark Network Troubleshooting",
-      "issuer": "EC-Council",
-      "date": "August 2025",
-      "id": "447142",
-      "description": "Network analysis and troubleshooting using Wireshark, packet capture, and protocol analysis.",
-      "tags": ["Networking", "Analysis"],
-      "icon": "ec-council",
-      "featured": false,
-      "link": "https://codered.eccouncil.org/course/network-defense-essentials"
-    },
-    {
-      "title": "Environmental Sustainability & Digital Technologies",
-      "issuer": "Politecnico di Milano",
-      "date": "September 2025",
-      "id": null,
-      "description": "Sustainable development, green IT, and the role of digital technologies in environmental protection.",
-      "tags": ["Sustainability", "Green IT"],
-      "icon": "polimi",
-      "featured": false,
-      "link": "https://www.pok.polimi.it/"
-    },
-    {
-      "title": "Blockchain Fundamentals",
-      "issuer": "Udemy",
-      "date": "September 2023",
-      "id": null,
-      "description": "Blockchain technology, cryptocurrencies, smart contracts, and distributed ledger systems.",
-      "tags": ["Blockchain", "Crypto"],
-      "icon": "udemy",
-      "featured": false,
-      "link": "https://www.udemy.com/topic/blockchain/"
-    },
-    {
-      "title": "Social Media Marketing",
-      "issuer": "Udemy",
-      "date": "November 2022",
-      "id": null,
-      "description": "Social media strategy, content creation, analytics, and digital marketing campaigns.",
-      "tags": ["Marketing", "Social Media"],
-      "icon": "udemy",
-      "featured": false,
-      "link": "https://www.udemy.com/topic/social-media-marketing/"
-    },
-    {
-      "title": "English Language B1 Certification",
-      "issuer": "CLA Test, Università di Brescia",
-      "date": "November 2022",
-      "id": null,
-      "description": "Intermediate English language proficiency certification for academic and professional contexts.",
-      "tags": ["Language", "English"],
-      "icon": "unibs",
-      "featured": false,
-      "link": "https://www.unibs.it/it"
-    },
-    {
-      "title": "Agile Project Management",
-      "issuer": "Udemy",
-      "date": "2023",
-      "id": null,
-      "description": "Agile methodologies, Scrum framework, sprint planning, and iterative development practices.",
-      "tags": ["Agile", "Scrum"],
-      "icon": "udemy",
-      "featured": false,
-      "link": "https://www.udemy.com/topic/agile/"
-    }
-  ]
+  "masters": {
+    "title": "Master's Degree Courses",
+    "subtitle": "University of Brescia • 2024-2026 • Current GPA: 106/110",
+    "courses": [
+      {
+        "id": "network-security",
+        "name": "Network Security",
+        "grade": "30L/30",
+        "description": "Advanced network security protocols, cryptography, firewalls, VPNs, intrusion detection systems, and security architecture design.",
+        "tags": ["Cryptography", "Firewalls", "IDS/IPS"]
+      },
+      {
+        "id": "machine-learning",
+        "name": "Machine Learning",
+        "grade": "29/30",
+        "description": "Supervised and unsupervised learning, neural networks, deep learning, ensemble methods, and practical ML applications.",
+        "tags": ["Neural Networks", "Deep Learning", "Python"]
+      },
+      {
+        "id": "sys-admin",
+        "name": "Systems Administration",
+        "grade": "28/30",
+        "description": "Linux/Unix system administration, server management, automation, monitoring, and enterprise infrastructure.",
+        "tags": ["Linux", "Automation", "DevOps"]
+      },
+      {
+        "id": "ai",
+        "name": "Artificial Intelligence",
+        "grade": "27/30",
+        "description": "AI fundamentals, search algorithms, knowledge representation, planning, reasoning under uncertainty, and intelligent agents.",
+        "tags": ["Planning", "Search", "Agents"]
+      },
+      {
+        "id": "advanced-db",
+        "name": "Advanced Databases",
+        "grade": "30/30",
+        "description": "NoSQL databases, distributed databases, query optimization, indexing strategies, and database performance tuning.",
+        "tags": ["NoSQL", "MongoDB", "Optimization"]
+      },
+      {
+        "id": "se2",
+        "name": "Software Engineering II",
+        "grade": "28/30",
+        "description": "Advanced software design patterns, architecture, testing strategies, agile methodologies, and project management.",
+        "tags": ["Design Patterns", "Agile", "Testing"]
+      }
+    ]
+  },
+  "bachelors": {
+    "title": "Bachelor's Degree Courses",
+    "subtitle": "University of Brescia • 2021-2024 • Final Grade: 104/110",
+    "courses": [
+      {
+        "id": "networks",
+        "name": "Computer Networks",
+        "grade": "30/30",
+        "description": "TCP/IP protocols, network architectures, routing, switching, and network programming.",
+        "tags": ["TCP/IP", "Routing"]
+      },
+      {
+        "id": "databases",
+        "name": "Databases",
+        "grade": "29/30",
+        "description": "Relational database design, SQL, normalization, transactions, and DBMS architecture.",
+        "tags": ["SQL", "Design"]
+      },
+      {
+        "id": "os",
+        "name": "Operating Systems",
+        "grade": "28/30",
+        "description": "Process management, memory management, file systems, and concurrency.",
+        "tags": ["Linux", "Processes"]
+      },
+      {
+        "id": "algo",
+        "name": "Algorithms & Data Structures",
+        "grade": "30/30",
+        "description": "Algorithm analysis, sorting, searching, graphs, trees, and complexity theory.",
+        "tags": ["Complexity", "Graphs"]
+      },
+      {
+        "id": "web",
+        "name": "Web Technologies",
+        "grade": "27/30",
+        "description": "HTML/CSS, JavaScript, PHP, web architecture, and responsive design.",
+        "tags": ["HTML/CSS", "JavaScript"]
+      },
+      {
+        "id": "se1",
+        "name": "Software Engineering I",
+        "grade": "29/30",
+        "description": "Software lifecycle, UML modeling, requirements engineering, and testing fundamentals.",
+        "tags": ["UML", "Testing"]
+      },
+      {
+        "id": "crypto",
+        "name": "Cryptography",
+        "grade": "28/30",
+        "description": "Symmetric and asymmetric encryption, hash functions, digital signatures, and protocols.",
+        "tags": ["Encryption", "Protocols"]
+      },
+      {
+        "id": "electronics",
+        "name": "Digital Electronics",
+        "grade": "27/30",
+        "description": "Logic gates, circuits, sequential systems, and hardware description languages.",
+        "tags": ["Logic", "Hardware"]
+      },
+      {
+        "id": "programming",
+        "name": "Java & C Programming",
+        "grade": "30/30",
+        "description": "Object-oriented programming in Java, systems programming in C, and best practices.",
+        "tags": ["Java", "C"]
+      },
+      {
+        "id": "info-sys",
+        "name": "Information Systems",
+        "grade": "28/30",
+        "description": "Enterprise systems, ERP, business process modeling, and IT management.",
+        "tags": ["ERP", "BPM"]
+      }
+    ]
+  }
 }
