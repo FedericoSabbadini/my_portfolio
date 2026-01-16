@@ -289,6 +289,7 @@
 }
 
 .featured-footer {
+    margin-top: auto; /* Ancorato in fondo */
     padding-top: 1rem;
     border-top: 1px solid var(--border);
 }
@@ -321,10 +322,6 @@
     transform: translateY(-2px);
 }
 
-.project-header {
-    /* gap gestisce la distanza */
-}
-
 .project-badge {
     margin-bottom: 0.75rem;
 }
@@ -350,11 +347,11 @@
     line-height: 1.7;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* Massimo 4 righe */
     -webkit-box-orient: vertical;
 }
 
 .project-footer {
+    margin-top: auto; /* Ancorato in fondo */
     padding-top: 1rem;
     border-top: 1px solid var(--border);
 }
@@ -559,6 +556,7 @@
 }
 
 .course-footer {
+    margin-top: auto; /* Ancorato in fondo */
     padding-top: 0.75rem;
     border-top: 1px solid var(--border);
 }
@@ -652,6 +650,7 @@
 }
 
 .cert-footer {
+    margin-top: auto; /* Ancorato in fondo */
     padding-top: 0.75rem;
     border-top: 1px solid var(--border);
 }
