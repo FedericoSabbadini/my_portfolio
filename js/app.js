@@ -92,6 +92,7 @@ class PortfolioApp {
         const pageDataMap = {
             'index': ['projects'],
             'about': ['education'],
+            'contacts': [],
             'courses': ['courses', 'certifications'],
             'resources': ['projects'],
             'news': ['news']
@@ -178,6 +179,7 @@ class PortfolioApp {
         const pageRenderers = {
             'index': () => this.renderHomePage(),
             'about': () => this.renderAboutPage(),
+            'contacts': () => this.renderContactsPage(),
             'courses': () => this.renderCoursesPage(),
             'resources': () => this.renderResourcesPage(),
             'news': () => this.renderNewsPage()
@@ -229,7 +231,6 @@ class PortfolioApp {
      */
     renderAboutPage() {
         const personal = this.data.personal?.personal;
-        const social = this.data.personal?.social;
         const languages = this.data.personal?.languages;
         const interests = this.data.personal?.interests;
         const education = this.data.education?.education;
@@ -265,6 +266,14 @@ class PortfolioApp {
         if (interestsContainer && interests) {
             interestsContainer.innerHTML = this.renderer.renderInterests(interests);
         }
+    }
+
+    /**
+     * Render contacts page
+     */
+    renderContactsPage() {
+        const personal = this.data.personal?.personal;
+        const social = this.data.personal?.social;
 
         // Render contact cards
         const contactContainer = document.getElementById('contact-cards');

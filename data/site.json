@@ -14,7 +14,7 @@
   "cta": {
     "title": "Looking for My First Professional Role",
     "description": "After completing my Master's degree in Computer Engineering (October 2026), I'm seeking opportunities in cybersecurity or systems administration at companies where I can grow, learn, and contribute to meaningful projects.",
-    "primaryButton": { "text": "Get in Touch", "href": "about.html" },
+    "primaryButton": { "text": "Get in Touch", "href": "contacts.html" },
     "secondaryButton": { "text": "LinkedIn Profile", "href": "https://linkedin.com/in/federicosabbadini", "external": true }
   }
 }
