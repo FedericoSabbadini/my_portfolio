@@ -2,17 +2,17 @@
     "work": [
         {
             "id": "stage-upcoming",
-            "title": "Cybersecurity Internship",
+            "title": "Internship",
             "company": "To be determined",
             "location": "Italy",
-            "period": "2026 (Upcoming)",
+            "period": "April 2026",
             "type": "Internship",
             "status": "upcoming",
-            "description": "Curricular internship as part of the Master's degree program in Computer Science and Cybersecurity.",
+            "description": "Curricular internship as part of the Master's degree program in Computer Science, IA and Cybersecurity.",
             "responsibilities": [],
             "technologies": [],
-            "tags": ["Cybersecurity", "Internship"],
-            "featured": false,
+            "tags": ["Cybersecurity", "IA", "Data"],
+            "featured": true,
             "news": false
         }
     ]
