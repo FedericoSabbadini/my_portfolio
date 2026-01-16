@@ -306,6 +306,11 @@ class TemplateRenderer {
                 <h3>GitHub</h3>
                 <p>@${social.github.username}</p>
             </a>
+            <a href="${social.cv.url}" target="_blank" class="card contact-card" download>
+                <div class="contact-icon">${social.cv.icon}</div>
+                <h3>CV</h3>
+                <p>Download CV</p>
+            </a>
         `;
     }
 
