@@ -99,7 +99,9 @@
       "description": "MATLAB project for quantitative analysis of electromagnetic field exposure from HF antennas and eLF power lines with visualization.",
       "tags": ["MATLAB", "Physics", "Analysis"],
       "url": "https://github.com/FedericoSabbadini/Elettrosmog",
-      "featured": false
+      "featured": false,
+      "news": true
+
     },
     {
       "id": "gurobi",

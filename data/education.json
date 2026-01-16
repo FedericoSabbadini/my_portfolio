@@ -11,7 +11,7 @@
       "gpa": "106/110",
       "description": "Specializing in cybersecurity, systems administration, artificial intelligence, and advanced software engineering. Focusing on network security, machine learning applications, and enterprise system architecture.",
       "tags": ["Cybersecurity", "Machine Learning", "Network Security", "Systems Administration"],
-      "featured": true,
+      "featured": false,
       "news": false
     },
     {
@@ -29,7 +29,7 @@
         "title": "Gestione interoperabile di identità: lo Standard OpenID",
         "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8"
       },
-      "featured": false,
+      "featured": true,
       "news": false
     },
     {

@@ -10,7 +10,8 @@
       "description": "Comprehensive certification covering cybersecurity fundamentals, network security, application security, and security operations.",
       "tags": ["Cybersecurity", "Practical Lab"],
       "featured": false,
-      "url": "https://learn.eccouncil.org/certificate/f70bfdc3-cbef-4ce3-8a2b-86c5a07d000f?logged=false"
+      "url": "https://learn.eccouncil.org/certificate/f70bfdc3-cbef-4ce3-8a2b-86c5a07d000f?logged=false",
+      "news": true
     },
     {
       "id": "metasploit",
@@ -21,7 +22,7 @@
       "certId": "448767",
       "description": "Advanced penetration testing using Metasploit Framework, vulnerability assessment, and exploitation techniques.",
       "tags": ["Pentesting", "Practical Lab"],
-      "featured": true,
+      "featured": false,
       "url": "https://learn.eccouncil.org/certificate/3cc4db0f-8853-4802-8f8b-f3349d989abc?logged=false"
     },
     {
