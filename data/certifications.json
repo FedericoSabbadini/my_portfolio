@@ -9,9 +9,9 @@
       "certId": "440746",
       "description": "Comprehensive certification covering cybersecurity fundamentals, network security, application security, and security operations.",
       "tags": ["Cybersecurity", "Practical Lab"],
-      "featured": false,
+      "featured": true,
       "url": "https://learn.eccouncil.org/certificate/f70bfdc3-cbef-4ce3-8a2b-86c5a07d000f?logged=false",
-      "news": true
+      "news": false
     },
     {
       "id": "metasploit",

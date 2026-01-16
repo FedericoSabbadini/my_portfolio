@@ -4,7 +4,7 @@
             "id": "professional-upcoming",
             "title": "Professional Role",
             "company": "To be determined",
-            "location": "Italy",
+            "location": "EU",
             "period": "September 2026",
             "type": "Work",
             "status": "upcoming",
@@ -27,8 +27,8 @@
             "responsibilities": [],
             "technologies": [],
             "tags": ["Cybersecurity", "IA", "Computer Science", "Data"],
-            "featured": true,
-            "news": false
+            "featured": false,
+            "news": true
         }
     ]
 }
