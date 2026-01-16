@@ -30,7 +30,7 @@
     },
     "cv": {
       "label": "CV",
-      "file": "/assets/CV/Federico_Sabbadini_CV.pdf",
+      "url": "/assets/CV/Federico_Sabbadini_CV.pdf",
       "icon": "📄"
     }
   },
