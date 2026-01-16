@@ -73,7 +73,7 @@
 
 /* Page Header */
 .page-header {
-    padding: 8rem 0 3rem;
+    padding: 6rem 0 3rem;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--bg-secondary) 100%);
     text-align: center;
     position: relative;
