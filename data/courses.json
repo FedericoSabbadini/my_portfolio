@@ -7,11 +7,12 @@
         "id": "network-security",
         "name": "Network Security",
         "grade": "30L/30",
-        "description": "Symmetric & public-key encryption (RSA, DH, CHACHA20, RC4, DES, 3DES, IDEA, AES, Blowfish), hash functions (MD5, SHA, HMAC, DS), cryptographic protocols (IPSec, SSL/TLS), network authentication (EAP, WEP, WPA, GSM, UMTS, LTE, 5G), PKI, VPN.",
+        "description": "Advanced cryptography and network defense course covering symmetric encryption (AES, ChaCha20, 3DES), asymmetric systems (RSA, Diffie-Hellman), hash functions (SHA, HMAC), and digital signatures. Deep dive into IPSec/VPN architectures, SSL/TLS protocols, PKI infrastructure, and wireless security (WEP/WPA/WPA2/WPA3) including mobile network authentication (GSM, UMTS, LTE, 5G).",
         "tags": [
           "Cryptography",
-          "Firewalls",
-          "IDS/IPS"
+          "VPN/IPSec",
+          "PKI",
+          "Wireless Security"
         ],
         "news": true,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121907_807/2011/8595_3260?schemaid=3260"
@@ -20,10 +21,10 @@
         "id": "algebra-codes",
         "name": "Algebra for Codes",
         "grade": "30L/30",
-        "description": "Algebraic structures for error-correcting codes, coding theory fundamentals, and cryptographic applications.",
+        "description": "Mathematical foundations for error-correcting codes and cryptographic systems. Studied algebraic structures (groups, rings, fields), finite field arithmetic (GF), linear codes, and coding theory applications. Explored Reed-Solomon codes, BCH codes, and their role in modern communication systems and data integrity verification.",
         "tags": [
           "Coding Theory",
-          "Algebra",
+          "Finite Fields",
           "Cryptography"
         ],
         "featured": false,
@@ -33,11 +34,11 @@
         "id": "business-strategy",
         "name": "Business Strategy",
         "grade": "30/30",
-        "description": "Mission definition, competitive and operational environment analysis, business and corporate strategies, marketing fundamentals.",
+        "description": "Strategic management course covering competitive analysis frameworks (Porter's Five Forces, SWOT, PESTEL), corporate and business-level strategy formulation, market positioning, and value chain analysis. Studied case studies in strategic decision-making, M&A strategies, and sustainable competitive advantage development.",
         "tags": [
-          "Strategy",
-          "Marketing",
-          "Business Analysis"
+          "Strategic Analysis",
+          "Porter's Model",
+          "Competitive Advantage"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_123188_26413/2011/8595_3260?schemaid=3260"
@@ -46,10 +47,11 @@
         "id": "info-systems",
         "name": "Information Systems",
         "grade": "29/30",
-        "description": "IT technologies, SIO (OLTP, ERP, CRM), SID (OLAP, BI, KPIs, CSFs).",
+        "description": "Enterprise information systems architecture covering operational systems (OLTP, ERP, CRM) and decision support systems (OLAP, Business Intelligence). Analyzed KPI definition, Critical Success Factors identification, data warehouse design, and digital transformation strategies for modern organizations.",
         "tags": [
-          "ERP",
-          "KPI"
+          "ERP/CRM",
+          "Business Intelligence",
+          "Digital Transformation"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131012_21477/2011/8595_3260?schemaid=3260"
@@ -58,10 +60,11 @@
         "id": "web",
         "name": "Web Agile Programming",
         "grade": "29/30",
-        "description": "Client/server scripting, HTTP, HTML/CSS, XML, JSON, JS, JQuery, PHP/MySQL, AJAX, Web Services, Laravel, Eloquent ORM, API & SOA.",
+        "description": "Full-stack web development using modern frameworks and Agile methodologies. Mastered client-side technologies (HTML5, CSS3, JavaScript, jQuery, AJAX), server-side development with PHP/Laravel and Eloquent ORM, RESTful API design, and SOA principles. Hands-on experience with MVC architecture, database integration, and responsive design.",
         "tags": [
-          "Web",
-          "AJAX"
+          "Laravel",
+          "REST API",
+          "Full Stack"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131008_21479/2011/8595_3260?schemaid=3260"
@@ -70,11 +73,11 @@
         "id": "sys-admin",
         "name": "Systems Administration",
         "grade": "28/30",
-        "description": "System management across Windows, Apple, and Linux. Server services: BIND, Active Directory, Kerberos, Apache, Sendmail. Virtualization, cloud computing, and high-availability systems.",
+        "description": "Cross-platform systems administration covering Windows Server (Active Directory, Group Policy, Kerberos), Linux (BIND, Apache, Sendmail), and macOS environments. Explored virtualization technologies, cloud computing architectures, high-availability clustering, backup strategies, and enterprise infrastructure management best practices.",
         "tags": [
-          "Linux",
-          "iOS/MacOS",
-          "Windows Server"
+          "Linux Admin",
+          "Active Directory",
+          "Cloud/Virtualization"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131007_781/2011/8595_3260?schemaid=3260"
@@ -83,11 +86,11 @@
         "id": "machine-learning",
         "name": "Machine Learning & Data Mining",
         "grade": "27/30",
-        "description": "Data mining and analysis, supervised algorithms (logic, structural, probabilistic, neural, geometric, ensemble methods), unsupervised learning (DBSCAN, K-means), NLP, Python applications.",
+        "description": "Comprehensive machine learning course covering supervised learning (decision trees, SVM, neural networks, ensemble methods), unsupervised learning (K-means, DBSCAN, hierarchical clustering), and NLP fundamentals. Hands-on Python implementation with scikit-learn, feature engineering, model evaluation, and real-world data mining applications.",
         "tags": [
           "Neural Networks",
-          "Deep Learning",
-          "Python"
+          "Scikit-learn",
+          "NLP"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121888_10729/2011/8595_3260?schemaid=3260"
@@ -96,11 +99,11 @@
         "id": "modeling-simulation",
         "name": "Modeling and Simulation",
         "grade": "27/30",
-        "description": "Linearization & feedback linearization, system modeling, analysis & validation, grey-box/black-box/ARX models. Simulink and MATLAB applications.",
+        "description": "System dynamics and control engineering course covering linearization techniques, system identification, and model validation. Developed expertise in MATLAB/Simulink for simulating grey-box, black-box, and ARX models. Applied feedback linearization and state-space representations to real-world control system problems.",
         "tags": [
-          "MATLAB",
-          "Simulink",
-          "System Modeling"
+          "MATLAB/Simulink",
+          "System Identification",
+          "Control Theory"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121913_772/2011/8595_3260?schemaid=3260"
@@ -109,11 +112,11 @@
         "id": "scientific-computing",
         "name": "Scientific Computing",
         "grade": "26/30",
-        "description": "Solving linear and nonlinear systems, approximation, interpolation, quadrature formulas, derivative approximation, solving ODEs. MATLAB implementation.",
+        "description": "Numerical methods for scientific computing including iterative solvers for linear/nonlinear systems, polynomial interpolation, numerical quadrature, finite differences, and ODE solvers (Euler, Runge-Kutta). MATLAB implementation of algorithms with focus on numerical stability, convergence analysis, and computational efficiency.",
         "tags": [
           "Numerical Methods",
           "MATLAB",
-          "ODEs"
+          "ODE Solvers"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131010_10569/2011/8595_3260?schemaid=3260"
@@ -122,10 +125,11 @@
         "id": "algorithms-ds",
         "name": "Algorithms & Data Structures",
         "grade": "22/30",
-        "description": "Asymptotic analysis, recurrence solving, sorting (comparison-based & linear-time), selection, heaps, hashing, trees, graphs (BFS/DFS, shortest paths), dynamic programming, Turing machines, undecidability, P vs NP, NP-completeness.",
+        "description": "Advanced algorithms course covering complexity analysis (Big-O, recurrence relations), sorting algorithms, graph algorithms (BFS, DFS, Dijkstra, Bellman-Ford), dynamic programming, and computational complexity theory. Studied P vs NP, NP-completeness, Turing machines, and reduction techniques for algorithmic problem solving.",
         "tags": [
-          "Complexity",
-          "Graphs"
+          "Graph Algorithms",
+          "Dynamic Programming",
+          "Complexity Theory"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131011_10749/2011/8595_3260?schemaid=3260"
@@ -140,10 +144,10 @@
         "id": "algebra-geometry",
         "name": "Algebra and Geometry",
         "grade": "30L/30",
-        "description": "Correspondences, vector spaces, matrices, eigenvalues, bilinear, cubic and quadratic forms.",
+        "description": "Linear algebra fundamentals including vector spaces, linear transformations, matrix operations, eigenvalue decomposition, and quadratic forms. Applied concepts to solve systems of linear equations, geometric transformations, and optimization problems in engineering contexts.",
         "tags": [
           "Linear Algebra",
-          "Matrices",
+          "Eigenvalues",
           "Vector Spaces"
         ],
         "featured": false,
@@ -153,10 +157,11 @@
         "id": "electronics",
         "name": "General Electronics",
         "grade": "30L/30",
-        "description": "Diodes, BJT, MOS transistors, amplifiers, comparators, switches, bipolar and MOS logic families, logical design.",
+        "description": "Semiconductor device physics and analog circuit design covering diodes, BJT and MOSFET transistors, operational amplifiers, comparators, and switching circuits. Analyzed bipolar and CMOS logic families with focus on digital IC design principles and signal conditioning.",
         "tags": [
-          "Logic",
-          "Hardware"
+          "Analog Design",
+          "CMOS/BJT",
+          "Op-Amps"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109914_10905/2011/7617?coorte=2021&schemaid=2514"
@@ -165,10 +170,11 @@
         "id": "electronics-systems",
         "name": "Digital Electronics Systems",
         "grade": "30L/30",
-        "description": "Dynamic models, Schmidt triggers, delay generators, open collector, three-state, transceivers, combinational & sequential devices, embedded systems, programmable devices, VHDL programming",
+        "description": "Digital system design covering combinational and sequential logic, finite state machines, programmable logic devices (FPGA, CPLD), and embedded systems development. Hands-on VHDL programming, timing analysis, and Arduino-based prototyping for real-time applications.",
         "tags": [
+          "VHDL/FPGA",
           "Arduino",
-          "Embeeded"
+          "FSM Design"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109915_10907/2011/7617?coorte=2021&schemaid=2514"
@@ -177,11 +183,11 @@
         "id": "os-systems",
         "name": "Operating Systems",
         "grade": "30L/30",
-        "description": "Mode switching, architecture, peripheral management, threads, scheduling, shared memory, deadlock, memory & file systems, block devices. Shell programming.",
+        "description": "Operating system internals covering process management, thread synchronization, CPU scheduling algorithms, memory management (paging, segmentation), file systems, and I/O subsystems. Practical Linux shell programming and system call implementation for resource management.",
         "tags": [
-          "Linux",
-          "Memory",
-          "CPU"
+          "Linux/Unix",
+          "Process Mgmt",
+          "Shell Scripting"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109906_2774/2011/7617?coorte=2021&schemaid=2514"
@@ -190,85 +196,50 @@
         "id": "ii-systems",
         "name": "Computer Systems",
         "grade": "30L/30",
-        "description": "Multiprocessors, UMA/NUMA/COMA architectures, client/server, middleware, clusters, storage, performance, backups.",
+        "description": "Advanced computer architecture covering multiprocessor systems (UMA/NUMA/COMA), client-server architectures, middleware platforms, clustering technologies, and storage systems. Analyzed performance metrics, backup strategies, and enterprise computing infrastructure design.",
         "tags": [
-          "Modern Architectures",
-          "Best practice"
+          "Distributed Systems",
+          "Multiprocessor",
+          "Enterprise IT"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109909_2777/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109904_507/2011/7617?coorte=2021&schemaid=2514"
       },
       {
-        "id": "economy",
-        "name": "Engineering Economics",
+        "id": "telecom",
+        "name": "Telecommunications",
         "grade": "30L/30",
-        "description": "Business fundamentals, external accounting & financial statements, internal accounting & break-even analysis, ratios, financial instruments.",
+        "description": "Signal processing and communication systems fundamentals including Fourier analysis, modulation techniques (AM, FM, QAM), channel coding, and network protocols. Studied Shannon's theorem, bandwidth optimization, and modern telecommunication system architectures.",
         "tags": [
-          "Accounting",
-          "Finance",
-          "Business"
+          "Signal Processing",
+          "Modulation",
+          "Network Protocols"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106033_815/2011/7617_2514?schemaid=2514"
-      },
-      {
-        "id": "networks",
-        "name": "Telecommunications Networks",
-        "grade": "30L/30",
-        "description": "TCP/IP architecture; Layer 2 (Ethernet, PPP, Wi-Fi), Layer 3 (IP, ICMP, DHCP, ARP), Layer 4 (UDP, TCP, RTO), Layer 7 (DNS, HTTP, FTP, email).",
-        "tags": [
-          "TCP/IP",
-          "Routing"
-        ],
-        "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106051_10951/2011/7617?coorte=2021&schemaid=2514"
-      },
-      {
-        "id": "networks-complements",
-        "name": "Networks Protocols",
-        "grade": "30L/30",
-        "description": "RIP, OSPF, BGP, Dijkstra, Routing Multicast, MPLS, VPN. GNS3 Implementations",
-        "tags": [
-          "Practical Lab",
-          "Routing"
-        ],
-        "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106052_10953/2011/7617?coorte=2021&schemaid=2514"
-      },
-      {
-        "id": "probability-stats",
-        "name": "Probability and Statistics",
-        "grade": "30/30",
-        "description": "Conditional probability, discrete and continuous distributions, expectation, estimation theory.",
-        "tags": [
-          "Probability",
-          "Statistics",
-          "Distributions"
-        ],
-        "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/703157-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=703157"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109916_4553/2011/7617?coorte=2021&schemaid=2514"
       },
       {
         "id": "physics2",
         "name": "Physics II",
-        "grade": "30/30",
-        "description": "Electrostatics, magnetostatics, electromagnetic waves, and related phenomena.",
+        "grade": "30L/30",
+        "description": "Electromagnetism course covering electrostatics, magnetostatics, Maxwell's equations, electromagnetic wave propagation, and optics. Applied theoretical concepts to engineering problems in antenna design, electromagnetic compatibility, and signal transmission.",
         "tags": [
           "Electromagnetism",
-          "Waves"
+          "Maxwell's Equations",
+          "Wave Optics"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106068_21495/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnaments/2022/7617_106023_444/2011/7617?coorte=2021&schemaid=2514"
       },
       {
-        "id": "telecom-regulations",
-        "name": "Telecommunications Regulations",
+        "id": "computer-networks",
+        "name": "Computer Networks",
         "grade": "30/30",
-        "description": "Broadcasting, telecommunications law, data communications regulations, standards, and patents.",
+        "description": "Network engineering course covering OSI/TCP-IP models, routing protocols (RIP, OSPF, BGP), switching technologies, and network security fundamentals. Hands-on configuration of enterprise network infrastructure including VLANs, firewalls, and load balancers.",
         "tags": [
-          "Law",
-          "Standards",
-          "Patents"
+          "TCP/IP",
+          "Routing/Switching",
+          "Network Design"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109905_516/2011/7617_2514?schemaid=2514"
@@ -277,11 +248,11 @@
         "id": "electrical-circuits",
         "name": "Electrical Circuits",
         "grade": "30/30",
-        "description": "Kirchhoff’s laws, resistive multipoles, circuit analysis methods, dynamic components, 1st‑ and 2nd‑order circuits, AC, filters, three‑phase circuits, PSpice simulation",
+        "description": "Circuit analysis fundamentals including Kirchhoff's laws, nodal and mesh analysis, transient response of RC/RL/RLC circuits, AC steady-state analysis, and three-phase power systems. PSpice simulation for circuit design verification and frequency response analysis.",
         "tags": [
-          "Laws",
-          "Power",
-          "Electrical"
+          "Circuit Analysis",
+          "AC/DC Systems",
+          "PSpice"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106044_10895/2011/7617_2514?schemaid=2514"
@@ -290,10 +261,11 @@
         "id": "prog-languages",
         "name": "Programming Languages",
         "grade": "28/30",
-        "description": "Lexical analysis, BNF, operational & denotational semantics, Scheme, Haskell, Prolog",
+        "description": "Comparative study of programming paradigms including functional (Scheme, Haskell), logic (Prolog), and imperative languages. Covered formal language theory (BNF, grammars), operational/denotational semantics, lexical analysis, and interpreter implementation.",
         "tags": [
-          "Programming",
-          "Low Level"
+          "Functional Programming",
+          "Prolog",
+          "Language Theory"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109911_2779/2011/7617?coorte=2021&schemaid=2514"
@@ -302,10 +274,11 @@
         "id": "databases",
         "name": "Databases",
         "grade": "28/30",
-        "description": "ER model, relational model, normalization, relational algebra, SQL, transactions, physical design.",
+        "description": "Database systems engineering covering conceptual modeling (ER diagrams), relational model theory, normalization (1NF-BCNF), SQL programming, transaction management (ACID), and physical database design. Query optimization and indexing strategies for performance tuning.",
         "tags": [
           "SQL",
-          "Design"
+          "ER Modeling",
+          "Query Optimization"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109907_2775/2011/7617?coorte=2021&schemaid=2514"
@@ -314,7 +287,7 @@
         "id": "language-tech",
         "name": "Artificial Language Technologies",
         "grade": "28/30",
-        "description": "Compilers & Interpreters: lexical analysis, Lex, syntax analysis, Yacc, semantic analysis, intermediate code generation, P-code, code generation.",
+        "description": "Compiler construction course covering lexical analysis (Lex), syntax analysis (Yacc), semantic analysis, intermediate code generation (P-code), and machine code generation. Built complete compiler pipeline for custom programming language with optimization phases.",
         "tags": [
           "Compilers",
           "Lex/Yacc",
@@ -327,11 +300,11 @@
         "id": "biology",
         "name": "Elements of Biology",
         "grade": "28/30",
-        "description": "Biochemistry, biology, pathology, physiology, biological interfaces, biosensors, microscopy, harmonic oscillator, optical tweezers.",
+        "description": "Biomedical engineering fundamentals covering cell biology, biochemistry, human physiology, and biological interfaces. Studied biosensor technologies, microscopy techniques, and biophysical phenomena relevant to medical device design and biomedical signal processing.",
         "tags": [
-          "Biochemistry",
           "Biosensors",
-          "Physiology"
+          "Biophysics",
+          "Medical Devices"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109931_18407/2011/7617_2514?schemaid=2514"
@@ -340,11 +313,11 @@
         "id": "computer-architecture",
         "name": "Computer Architecture",
         "grade": "28/30",
-        "description": "Decoders, multiplexers, MIPS ISA, registers, Assembly programming, ALU, register file, CPU and memory operations.",
+        "description": "Processor design fundamentals covering MIPS instruction set architecture, assembly programming, datapath design, pipelining, and memory hierarchy. Implemented ALU, register files, and control units with focus on performance optimization and hazard handling.",
         "tags": [
-          "MIPS",
-          "Assembly",
-          "CPU Architecture"
+          "MIPS Assembly",
+          "CPU Design",
+          "Pipelining"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106034_2767/2011/7617_2514?schemaid=2514"
@@ -353,10 +326,11 @@
         "id": "software-engineering",
         "name": "Software Engineering",
         "grade": "27/30",
-        "description": "Process models, finite-state machines, Petri nets, UML, use case analysis, design, testing/debugging, refactoring, design patterns.",
+        "description": "Software development lifecycle management covering requirements engineering, UML modeling (use cases, class/sequence diagrams), design patterns, testing methodologies, and Agile practices. Applied Petri nets for process modeling and refactoring techniques for code quality improvement.",
         "tags": [
           "UML",
-          "Testing"
+          "Design Patterns",
+          "Testing/QA"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109903_511/2011/7617_2514?schemaid=2514"
@@ -365,10 +339,11 @@
         "id": "advanced-programming",
         "name": "Advanced Java & C Programming",
         "grade": "26/30",
-        "description": "Java: MVC architecture, GUI development, threads, network architecture. C: stack management, dynamic memory allocation.",
+        "description": "Advanced programming course covering Java (multithreading, networking, GUI development with Swing, MVC architecture) and C (memory management, pointers, dynamic allocation, system programming). Built networked applications and low-level system utilities.",
         "tags": [
           "Java",
-          "C"
+          "C",
+          "Multithreading"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106029_502/2011/7617_2514?schemaid=2514"
@@ -377,10 +352,10 @@
         "id": "cs-fundamentals",
         "name": "Computer Science Fundamentals",
         "grade": "27/30",
-        "description": "C and Java programming, memory management, CPU architecture, peripherals.",
+        "description": "Introduction to programming and computer organization covering C and Java languages, data structures, memory models, CPU architecture, and peripheral interfaces. Built foundation for algorithmic thinking and software development practices.",
         "tags": [
-          "C",
-          "Java",
+          "C/Java",
+          "Data Structures",
           "Programming Basics"
         ],
         "featured": false,
@@ -390,10 +365,11 @@
         "id": "analysis1",
         "name": "Mathematical Analysis I",
         "grade": "24/30",
-        "description": "Continuity, differentiability, integration, function study, limits, series.",
+        "description": "Single-variable calculus covering limits, continuity, differentiation, integration techniques, series convergence, and function analysis. Applied mathematical rigor to engineering problem-solving including optimization and rate-of-change applications.",
         "tags": [
           "Calculus",
-          "Analysis"
+          "Series",
+          "Differential Equations"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/703789-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=703789"
@@ -402,11 +378,11 @@
         "id": "analysis2-or",
         "name": "Mathematical Analysis II",
         "grade": "23/30",
-        "description": "Metric spaces, differential calculus, double integrals, calculus of variations. Linear programming, integer LP, graph theory, Gurobi optimization.",
+        "description": "Multivariable calculus and optimization covering metric spaces, partial derivatives, multiple integrals, vector calculus, and calculus of variations. Combined with operations research fundamentals including linear programming and graph theory applications.",
         "tags": [
           "Multivariable Calculus",
-          "Linear Programming",
-          "Optimization"
+          "Optimization",
+          "Vector Analysis"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106036_2772/2011/7617?coorte=2021&schemaid=2514"
@@ -415,11 +391,11 @@
         "id": "operative-research",
         "name": "Operative Research",
         "grade": "23/30",
-        "description": "",
+        "description": "Operations research methods covering linear programming (simplex method), integer programming, network optimization, and decision theory. Applied Gurobi solver for real-world optimization problems in scheduling, logistics, and resource allocation.",
         "tags": [
-          "Multivariable Calculus",
           "Linear Programming",
-          "Optimization"
+          "Simplex Method",
+          "Gurobi"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106024_131/2011/7617?coorte=2021&schemaid=2514"
@@ -428,11 +404,11 @@
         "id": "physics1",
         "name": "Physics I",
         "grade": "23/30",
-        "description": "Kinematics, dynamics, fluid dynamics, gravitation, thermodynamics, waves & oscillations.",
+        "description": "Classical mechanics course covering kinematics, Newtonian dynamics, work-energy principles, fluid mechanics, gravitational systems, thermodynamics, and wave phenomena. Applied physics principles to engineering analysis and problem-solving.",
         "tags": [
           "Mechanics",
           "Thermodynamics",
-          "Waves"
+          "Wave Physics"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98380_442/2011/7617_2514?schemaid=2514"
@@ -441,11 +417,11 @@
         "id": "automatic-control",
         "name": "Automatic Control",
         "grade": "22/30",
-        "description": "Systems theory, stability analysis, transfer functions, Bode and Nyquist plots, control systems analysis & synthesis.",
+        "description": "Control systems engineering covering system modeling, transfer functions, stability analysis (Routh-Hurwitz, Nyquist), frequency domain methods (Bode plots), and controller design (PID tuning). Applied MATLAB for control system simulation and analysis.",
         "tags": [
-          "Control Systems",
-          "Bode Plots",
-          "Stability"
+          "PID Control",
+          "Bode/Nyquist",
+          "MATLAB"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106026_449/2011/7617_2514?schemaid=2514"
@@ -454,11 +430,11 @@
         "id": "chemistry",
         "name": "Chemistry",
         "grade": "21/30",
-        "description": "Chemical bonds, reactions, states of matter, equilibrium, thermodynamics, chemical kinetics.",
+        "description": "General chemistry covering atomic structure, chemical bonding, reaction stoichiometry, thermodynamics, equilibrium, and kinetics. Applied chemistry principles to material science and engineering process understanding.",
         "tags": [
           "Chemical Bonds",
           "Thermodynamics",
-          "Kinetics"
+          "Reaction Kinetics"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98374_169/2011/7617_2514?schemaid=2514"
