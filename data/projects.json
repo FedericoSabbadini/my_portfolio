@@ -20,7 +20,7 @@
       "description": "AI-based automated planning system for network security hardening. Generates optimal action plans to close insecure ports while minimizing operational impact.",
       "tags": ["Python", "AI Planning", "Security", "Automation"],
       "url": "https://github.com/FedericoSabbadini",
-      "featured": true
+      "featured": false
     },
     {
       "id": "openid-thesis",
@@ -32,7 +32,7 @@
       "tags": ["OpenID", "OAuth 2.0", "Security", "Identity Management"],
       "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8",
       "urlLabel": "View Thesis",
-      "featured": true
+      "featured": false
     },
     {
       "id": "talentscope",

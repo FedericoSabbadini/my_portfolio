@@ -9,7 +9,7 @@
       "certId": "440746",
       "description": "Comprehensive certification covering cybersecurity fundamentals, network security, application security, and security operations.",
       "tags": ["Cybersecurity", "Professional"],
-      "featured": true,
+      "featured": false,
       "url": ""
     },
     {
@@ -33,7 +33,7 @@
       "certId": "447142",
       "description": "Network analysis and troubleshooting using Wireshark, packet capture, and protocol analysis.",
       "tags": ["Networking", "Analysis"],
-      "featured": true,
+      "featured": false,
       "url": ""
     },
     {

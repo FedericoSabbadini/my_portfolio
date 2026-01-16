@@ -18,7 +18,7 @@
         "grade": "29/30",
         "description": "Supervised and unsupervised learning, neural networks, deep learning, ensemble methods, and practical ML applications.",
         "tags": ["Neural Networks", "Deep Learning", "Python"],
-        "featured": true,
+        "featured": false,
         "url": ""
       },
       {
@@ -36,7 +36,7 @@
         "grade": "27/30",
         "description": "AI fundamentals, search algorithms, knowledge representation, planning, reasoning under uncertainty, and intelligent agents.",
         "tags": ["Planning", "Search", "Agents"],
-        "featured": true,
+        "featured": false,
         "url": ""
       },
       {
