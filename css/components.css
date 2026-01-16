@@ -232,6 +232,7 @@
     display: flex;
     flex-direction: column;
     transition: var(--transition);
+    min-height: 320px; /* Altezza fissa per featured cards */
 }
 
 .featured-card:hover {
@@ -283,11 +284,12 @@
     color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: 1rem;
-    flex: 1;
+    flex: 1; /* Riempie lo spazio disponibile */
+    overflow: hidden;
 }
 
 .featured-footer {
-    margin-top: auto;
+    margin-top: auto; /* Sempre in fondo */
     padding-top: 1rem;
     border-top: 1px solid var(--border);
 }
@@ -298,8 +300,10 @@
 
 @media (max-width: 640px) {
     .featured-grid { grid-template-columns: 1fr; }
+    .featured-card { min-height: auto; } /* Su mobile altezza automatica */
 }
 
+/* Project Card - con altezza fissa e footer ancorato */
 .project-card {
     background: var(--bg-primary);
     border-radius: var(--radius-lg);
@@ -308,6 +312,7 @@
     display: flex;
     flex-direction: column;
     transition: var(--transition);
+    min-height: 420px; /* Altezza fissa */
 }
 
 .project-card:hover {
@@ -337,17 +342,20 @@
 }
 
 .project-body {
-    flex: 1;
+    flex: 1; /* Riempie lo spazio disponibile */
 }
 
 .project-description {
     color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: 1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 .project-footer {
-    margin-top: auto;
+    margin-top: auto; /* Sempre in fondo */
     padding-top: 1rem;
     border-top: 1px solid var(--border);
 }
@@ -358,6 +366,7 @@
 
 @media (max-width: 640px) {
     .project-grid { grid-template-columns: 1fr; }
+    .project-card { min-height: auto; } /* Su mobile altezza automatica */
 }
 
 /* Timeline */
@@ -472,7 +481,7 @@
     .interest-grid { grid-template-columns: 1fr; }
 }
 
-/* Course Cards */
+/* Course Cards - con altezza fissa e footer ancorato */
 .courses-header {
     margin-bottom: var(--space-xl);
 }
@@ -502,6 +511,9 @@
     border: 1px solid var(--border);
     transition: var(--transition);
     border-left: 4px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    min-height: 280px; /* Altezza fissa */
 }
 
 .course-card.master {
@@ -537,16 +549,19 @@
     padding: 0.25rem 0.75rem;
     border-radius: var(--radius);
     font-size: 0.875rem;
+    flex-shrink: 0; /* Non si restringe */
 }
 
 .course-description {
     color: var(--text-secondary);
     font-size: 0.9375rem;
     line-height: 1.6;
+    flex: 1; /* Riempie lo spazio disponibile */
+    overflow: hidden;
 }
 
 .course-footer {
-    margin-top: 1rem;
+    margin-top: auto; /* Sempre in fondo */
     padding-top: 0.75rem;
     border-top: 1px solid var(--border);
 }
@@ -557,9 +572,10 @@
 
 @media (max-width: 640px) {
     .courses-grid { grid-template-columns: 1fr; }
+    .course-card { min-height: auto; } /* Su mobile altezza automatica */
 }
 
-/* Certification Cards */
+/* Certification Cards - con altezza fissa e footer ancorato */
 .certification-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -572,6 +588,9 @@
     padding: var(--space-lg);
     border: 1px solid var(--border);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    min-height: 340px; /* Altezza fissa */
 }
 
 .cert-card.featured {
@@ -594,6 +613,7 @@
     font-weight: 700;
     font-size: 1rem;
     margin-bottom: 1rem;
+    flex-shrink: 0; /* Non si restringe */
 }
 
 .cert-icon.ec-council {
@@ -633,16 +653,19 @@
     color: var(--text-secondary);
     font-size: 0.9375rem;
     line-height: 1.6;
+    flex: 1; /* Riempie lo spazio disponibile */
+    overflow: hidden;
 }
 
 .cert-footer {
-    margin-top: 1rem;
+    margin-top: auto; /* Sempre in fondo */
     padding-top: 0.75rem;
     border-top: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
     .certification-grid { grid-template-columns: 1fr; }
+    .cert-card { min-height: auto; } /* Su mobile altezza automatica */
 }
 
 /* News Timeline */
