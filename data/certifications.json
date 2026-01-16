@@ -8,7 +8,7 @@
       "date": "October 2025",
       "certId": "440746",
       "description": "Comprehensive certification covering cybersecurity fundamentals, network security, application security, and security operations.",
-      "tags": ["Cybersecurity", "Professional"],
+      "tags": ["Cybersecurity", "Practical Lab"],
       "featured": false,
       "url": "https://learn.eccouncil.org/certificate/f70bfdc3-cbef-4ce3-8a2b-86c5a07d000f?logged=false"
     },
@@ -20,7 +20,7 @@
       "date": "November 2025",
       "certId": "448767",
       "description": "Advanced penetration testing using Metasploit Framework, vulnerability assessment, and exploitation techniques.",
-      "tags": ["Pentesting", "Metasploit"],
+      "tags": ["Pentesting", "Practical Lab"],
       "featured": true,
       "url": "https://learn.eccouncil.org/certificate/3cc4db0f-8853-4802-8f8b-f3349d989abc?logged=false"
     },
@@ -32,7 +32,7 @@
       "date": "August 2025",
       "certId": "447142",
       "description": "Network analysis and troubleshooting using Wireshark, packet capture, and protocol analysis.",
-      "tags": ["Networking", "Analysis"],
+      "tags": ["Networking", "Practical Lab"],
       "featured": false,
       "url": "https://learn.eccouncil.org/certificate/ceddc3d6-739c-4483-88f8-bd2689a5a928?logged=false"
     },
@@ -79,7 +79,6 @@
       "date": "November 2022",
       "certId": "UC-Me1OpE9VRNuhrL5DsQqTUQID-8deb-421b-945f-93f26139d648ID",
       "description": "Intermediate English language proficiency certification for academic and professional contexts.",
-      "tags": ["Language", "English"],
       "featured": false,
       "url": "https://bestr.it/award/show/Me1OpE9VRNuhrL5DsQqTUQ"
     },
