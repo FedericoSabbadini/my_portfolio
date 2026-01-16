@@ -17,51 +17,29 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
 </head>
-<body class="loading">
-    <!-- Page Loader -->
-    <div id="page-loader">
-        <div class="page-loader-spinner"></div>
-    </div>
-
-    <!-- Navigation (Static to prevent flash) -->
-    <div id="navbar-placeholder">
-        <nav class="navbar" id="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo">Federico Sabbadini</a>
-                <div class="nav-menu" id="navMenu">
-                    <a href="index.html" class="nav-link" data-page="index">Home</a>
-                    <a href="news.html" class="nav-link" data-page="news">News & Updates</a>
-                    <a href="courses.html" class="nav-link" data-page="courses">Courses</a>
-                    <a href="resources.html" class="nav-link" data-page="resources">Resources</a>
-                    <a href="about.html" class="nav-link" data-page="about">About</a>
-                    <a href="contacts.html" class="nav-link" data-page="contacts">Contacts</a>
-                </div>
-                <div class="nav-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </div>
+<body>
+    <!-- Navigation -->
+    <div id="navbar-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title" id="hero-name">Federico Sabbadini</h1>
-                    <p class="hero-subtitle" id="hero-title">Master's Student in Computer Engineering</p>
-                    <p class="hero-description" id="hero-description">
-                        Loading...
+                    <h1 class="hero-title">Federico Sabbadini</h1>
+                    <p class="hero-subtitle">Master's Student in Computer Engineering</p>
+                    <p class="hero-description">
+                        Curious and determined person with a strong interest in technology and problem-solving. 
+                        I approach challenges with commitment and consistency, aiming to continuously improve 
+                        both my technical and analytical skills.
                     </p>
                     <div class="hero-actions">
-                        <a href="contacts.html" class="btn btn-primary">Get in Touch</a>
-                        <a href="#" id="hero-github" target="_blank" class="btn btn-secondary">View GitHub</a>
+                        <a href="about.html" class="btn btn-primary">Get in Touch</a>
+                        <a href="https://github.com/FedericoSabbadini" target="_blank" class="btn btn-secondary">View GitHub</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img id="hero-image" src="assets/images/profile.jpeg" alt="Federico Sabbadini">
+                    <img src="assets/images/profile.jpeg" alt="Federico Sabbadini">
                 </div>
             </div>
         </div>
@@ -70,8 +48,27 @@
     <!-- Stats Section -->
     <section class="section">
         <div class="container">
-            <div class="stats-grid" id="stats-container" data-dynamic>
-                <!-- Stats rendered dynamically -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">106</span>
+                    <span class="stat-label">Current GPA</span>
+                    <span class="stat-sublabel">/110 Master's</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">EC-Council</span>
+                    <span class="stat-sublabel">Certifications</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Projects</span>
+                    <span class="stat-sublabel">Completed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Academic</span>
+                    <span class="stat-sublabel">Scholarships</span>
+                </div>
             </div>
         </div>
     </section>
@@ -83,16 +80,87 @@
                 <h2>Featured Projects</h2>
                 <p>Recent work in AI, cybersecurity, and software development</p>
             </div>
-            <div class="project-grid" id="featured-projects" data-dynamic>
-                <!-- Projects rendered dynamically -->
+
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-badge">
+                            <span class="badge badge-info">AI/ML</span>
+                        </div>
+                        <h3 class="project-title">F1 Pit Strategy Predictor LSTM</h3>
+                        <span class="project-period">Nov 2025 - Present</span>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Deep learning system predicting Formula 1 pit stop strategies using real telemetry data. 
+                            Achieves AUC 0.93 for pit timing and 78% accuracy for compound selection.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">LSTM</span>
+                            <span class="tag">FastF1 API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-badge">
+                            <span class="badge badge-warning">Security</span>
+                        </div>
+                        <h3 class="project-title">Network Hardening Planner</h3>
+                        <span class="project-period">Nov 2025 - Present</span>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            AI-based automated planning system for network security hardening. 
+                            Generates optimal action plans to close insecure ports.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">AI Planning</span>
+                            <span class="tag">Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-badge">
+                            <span class="badge badge-primary">Thesis</span>
+                        </div>
+                        <h3 class="project-title">OpenID Connect & Digital Identity</h3>
+                        <span class="project-period">Jun 2024 - Oct 2024</span>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Bachelor's thesis on authentication and authorization standards including 
+                            OpenID Connect and OAuth 2.0.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">OpenID</span>
+                            <span class="tag">OAuth 2.0</span>
+                            <span class="tag">Security</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8" target="_blank" class="link">View Thesis</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <div class="container" id="cta-container">
-            <!-- CTA rendered dynamically -->
+        <div class="container">
+            <div class="cta-content">
+                <h2>Looking for My First Professional Role</h2>
+                <p>After completing my Master's degree in Computer Engineering (October 2026), I'm seeking 
+                   opportunities in cybersecurity or systems administration.</p>
+                <a href="about.html" class="btn btn-white">Get in Touch</a>
+            </div>
         </div>
     </section>
 
@@ -100,9 +168,8 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
-    <script src="js/data-loader.js"></script>
-    <script src="js/template-renderer.js"></script>
     <script src="js/component-loader.js"></script>
+    <script src="js/data-loader.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

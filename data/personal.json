@@ -3,37 +3,21 @@
     "name": "Federico Sabbadini",
     "title": "Master's Student in Computer Engineering",
     "tagline": "Curious and determined person with a strong interest in technology and problem-solving. I approach challenges with commitment and consistency, aiming to continuously improve both my technical and analytical skills.",
-    "bio": [
-      "Born in 2002 and based in the province of Brescia, Italy. I completed my scientific high school education at Istituto Salesiano Don Bosco in Chiari (BS) and earned a Bachelor's degree in Computer Engineering from the University of Brescia.",
-      "I am currently pursuing a Master's degree in Computer Engineering, expected to be completed in Autumn 2026. I'm a curious and determined person with a strong interest in technology and problem-solving. I approach challenges with commitment and consistency, aiming to continuously improve both my technical and analytical skills."
-    ],
+    "bio": "Born in 2002 and based in the province of Brescia, Italy. I completed my scientific high school education at Istituto Salesiano Don Bosco in Chiari (BS) and earned a Bachelor's degree in Computer Engineering from the University of Brescia. I am currently pursuing a Master's degree in Computer Engineering, expected to be completed in Autumn 2026.",
     "email": "federicosabbadini@icloud.com",
-    "location": "Cologne (BS), Brescia, Italy",
+    "location": "Cologne (BS), Italy",
+    "locationFull": "Province of Brescia, Italy",
     "birthYear": 2002,
+    "github": "FedericoSabbadini",
+    "linkedin": "federicosabbadini",
     "profileImage": "assets/images/profile.jpeg",
     "topSkills": ["Problem solving", "Cybersecurity", "Machine learning", "Time management"]
-  },
-  "social": {
-    "github": {
-      "username": "FedericoSabbadini",
-      "url": "https://github.com/FedericoSabbadini",
-      "icon": "💻"
-    },
-    "linkedin": {
-      "username": "federicosabbadini",
-      "url": "https://linkedin.com/in/federicosabbadini",
-      "icon": "💼"
-    },
-    "email": {
-      "address": "federicosabbadini@icloud.com",
-      "icon": "📧"
-    }
   },
   "stats": [
     {
       "number": "106",
       "label": "Current GPA",
-      "sublabel": "/110 Master's"
+      "sublabel": "/110"
     },
     {
       "number": "3",
@@ -41,7 +25,7 @@
       "sublabel": "Certifications"
     },
     {
-      "number": "10+",
+      "number": "7+",
       "label": "Projects",
       "sublabel": "Completed"
     },
@@ -51,26 +35,59 @@
       "sublabel": "Scholarships"
     }
   ],
+  "education": [
+    {
+      "degree": "M.Sc. in Computer Engineering",
+      "institution": "University of Brescia",
+      "period": "2024 - 2026",
+      "status": "Present",
+      "gpa": "106/110",
+      "description": "Specializing in cybersecurity, systems administration, artificial intelligence, and advanced software engineering.",
+      "logo": "https://upload.wikimedia.org/wikipedia/it/thumb/3/39/Logo_Università_degli_Studi_di_Brescia.svg/200px-Logo_Università_degli_Studi_di_Brescia.svg.png",
+      "tags": ["Cybersecurity", "Machine Learning", "Network Security", "Systems Administration"]
+    },
+    {
+      "degree": "B.Sc. in Computer Engineering",
+      "institution": "University of Brescia",
+      "period": "2021 - 2024",
+      "status": "Completed",
+      "gpa": "104/110",
+      "description": "Focused on computer systems, networks, software development, and security fundamentals.",
+      "logo": "https://upload.wikimedia.org/wikipedia/it/thumb/3/39/Logo_Università_degli_Studi_di_Brescia.svg/200px-Logo_Università_degli_Studi_di_Brescia.svg.png",
+      "tags": ["C/Java", "Computer Networks", "Databases", "Algorithms"],
+      "thesis": {
+        "title": "Gestione interoperabile di identità: lo Standard OpenID",
+        "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8"
+      }
+    },
+    {
+      "degree": "Scientific High School",
+      "institution": "Salesiani San Bernardino",
+      "location": "Chiari (BS)",
+      "period": "2015 - 2020",
+      "status": "Completed",
+      "gpa": "100/100",
+      "description": "Scientific curriculum with focus on mathematics, physics, and sciences.",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Stemma_dei_Salesiani_di_Don_Bosco.svg/200px-Stemma_dei_Salesiani_di_Don_Bosco.svg.png"
+    }
+  ],
   "languages": [
     {
       "name": "Italiano",
-      "flag": "🇮🇹",
-      "level": "Native Speaker",
+      "level": "Native",
       "percentage": 100
     },
     {
       "name": "English",
-      "flag": "🇬🇧",
-      "level": "B1-B2 Intermediate",
-      "detail": "Reading & Writing: B2 • Speaking: B1",
-      "percentage": 70
+      "level": "B1-B2 (Intermediate)",
+      "percentage": 70,
+      "detail": "Reading & Writing: B2 • Speaking: B1"
     },
     {
       "name": "Deutsch",
-      "flag": "🇩🇪",
-      "level": "A1 Basic",
-      "detail": "Study abroad: Germany 2016",
-      "percentage": 20
+      "level": "A1 (Basic)",
+      "percentage": 20,
+      "detail": "Study abroad experience in Germany (2016)"
     }
   ],
   "interests": [
@@ -78,6 +95,11 @@
       "icon": "🏊",
       "title": "Sports",
       "description": "Swimming, skiing, tennis, soccer, and karate. These activities have helped me develop discipline, determination, and teamwork skills."
+    },
+    {
+      "icon": "🎸",
+      "title": "Music",
+      "description": "Classical guitar player. Music has enhanced my artistic sensitivity and attention to detail."
     },
     {
       "icon": "📚",
