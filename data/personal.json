@@ -1,6 +1,7 @@
 {
   "personal": {
     "name": "Federico Sabbadini",
+    "nameOnly": "Federico",
     "title": "Master's Student in Computer Engineering",
     "tagline": "Curious and determined person with a strong interest in technology and problem-solving. I approach challenges with commitment and consistency, aiming to continuously improve both my technical and analytical skills.",
     "bio": [
@@ -11,6 +12,7 @@
     "location": "Cologne (BS), Brescia, Italy",
     "birthYear": 2002,
     "profileImage": "assets/images/profile.jpeg",
+    "profileImageOld": "assets/images/profileOld.jpeg",
     "topSkills": ["Problem solving", "Cybersecurity", "Machine learning", "Time management"]
   },
   "social": {

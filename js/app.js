@@ -297,8 +297,8 @@ class PortfolioApp {
 
         // Render bio
         if (personal) {
-            this.updateAttribute('about-image', 'src', personal.profileImage);
-            this.updateElement('about-name', personal.name);
+            this.updateAttribute('about-image', 'src', personal.profileImageOld);
+            this.updateElement('about-name', personal.nameOnly);
             const bioContainer = document.getElementById('about-bio');
             if (bioContainer && personal.bio) {
                 bioContainer.innerHTML = personal.bio.map(p => 
