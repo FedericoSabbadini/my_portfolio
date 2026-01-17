@@ -7,7 +7,7 @@
         "id": "network-security",
         "name": "Network Security",
         "grade": "30L/30",
-        "description": "Advanced cryptography and network defense course covering symmetric encryption (AES, ChaCha20, 3DES), asymmetric systems (RSA, Diffie-Hellman), hash functions (SHA, HMAC), and digital signatures. Deep dive into IPSec/VPN architectures, SSL/TLS protocols, PKI infrastructure, and wireless security (WEP/WPA/WPA2/WPA3) including mobile network authentication (GSM, UMTS, LTE, 5G).",
+        "description": "Advanced cryptography and network defense course covering symmetric encryption (AES, ChaCha20, 3DES), asymmetric systems (RSA, Diffie-Hellman), hash functions (SHA, HMAC), and digital signatures. Deep dive into IPSec/VPN architectures, SSL/TLS protocols, PKI infrastructure, and wireless security, including mobile network authentication.",
         "tags": [
           "Cryptography",
           "VPN/IPSec",
