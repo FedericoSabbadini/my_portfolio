@@ -109,6 +109,14 @@
     margin-top: 1rem;
 }
 
+/* Tags inside cards - override margin */
+.project-card .tags,
+.course-card .tags,
+.cert-card .tags,
+.featured-card .tags {
+    margin-top: 0;
+}
+
 .tag {
     padding: 0.25rem 0.75rem;
     background: var(--bg-tertiary);
@@ -288,6 +296,14 @@
     color: var(--text-secondary);
     line-height: 1.6;
     font-size: 0.9375rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.featured-body {
+    flex: 1;
 }
 
 .featured-footer {
@@ -350,6 +366,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
 }
 
 .project-footer {
@@ -608,6 +625,13 @@
     font-size: 0.9375rem;
     line-height: 1.6;
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.course-body {
+    flex: 1;
 }
 
 .course-footer {
@@ -707,6 +731,13 @@
     font-size: 0.9375rem;
     line-height: 1.6;
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.cert-body {
+    flex: 1;
 }
 
 .cert-footer {

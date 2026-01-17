@@ -66,9 +66,9 @@ class TemplateRenderer {
                 </div>
                 <div class="project-body">
                     <p class="project-description">${project.description}</p>
-                    <div class="tags">
-                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                    </div>
+                </div>
+                <div class="tags">
+                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
                 ${project.url ? `
                     <div class="project-footer">
@@ -188,7 +188,9 @@ class TemplateRenderer {
                     <h3>${course.name}</h3>
                     <span class="course-grade">${course.grade}</span>
                 </div>
-                <p class="course-description">${course.description}</p>
+                <div class="course-body">
+                    <p class="course-description">${course.description}</p>
+                </div>
                 <div class="tags">
                     ${course.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
@@ -214,7 +216,9 @@ class TemplateRenderer {
                 </div>
                 <h3 class="featured-title">${project.title}</h3>
                 <p class="featured-subtitle">${project.period}</p>
-                <p class="featured-description">${project.description}</p>
+                <div class="featured-body">
+                    <p class="featured-description">${project.description}</p>
+                </div>
                 <div class="tags">
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
@@ -240,7 +244,9 @@ class TemplateRenderer {
                 </div>
                 <h3 class="featured-title">${course.name}</h3>
                 <p class="featured-subtitle">Grade: ${course.grade}</p>
-                <p class="featured-description">${course.description}</p>
+                <div class="featured-body">
+                    <p class="featured-description">${course.description}</p>
+                </div>
                 <div class="tags">
                     ${course.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
@@ -266,7 +272,9 @@ class TemplateRenderer {
                 </div>
                 <h3 class="featured-title">${cert.title}</h3>
                 <p class="featured-subtitle">${cert.issuer} • ${cert.date}</p>
-                <p class="featured-description">${cert.description}</p>
+                <div class="featured-body">
+                    <p class="featured-description">${cert.description}</p>
+                </div>
                 <div class="tags">
                     ${cert.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
@@ -292,7 +300,9 @@ class TemplateRenderer {
                 </div>
                 <h3 class="featured-title">${edu.degree}</h3>
                 <p class="featured-subtitle">${edu.institution} • ${edu.period}</p>
-                <p class="featured-description">${edu.description}</p>
+                <div class="featured-body">
+                    <p class="featured-description">${edu.description}</p>
+                </div>
                 ${edu.tags ? `
                     <div class="tags">
                         ${edu.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
@@ -318,7 +328,9 @@ class TemplateRenderer {
                 </div>
                 <h3 class="featured-title">${job.title}</h3>
                 <p class="featured-subtitle">${job.company} • ${job.period}</p>
-                <p class="featured-description">${job.description}</p>
+                <div class="featured-body">
+                    <p class="featured-description">${job.description}</p>
+                </div>
                 ${job.tags && job.tags.length > 0 ? `
                     <div class="tags">
                         ${job.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
@@ -344,7 +356,9 @@ class TemplateRenderer {
                 </div>
                 <h3>${cert.title}</h3>
                 <p class="cert-issuer">${cert.issuer} • ${cert.date}${cert.certId ? ` • ID: ${cert.certId}` : ''}</p>
-                <p class="cert-description">${cert.description}</p>
+                <div class="cert-body">
+                    <p class="cert-description">${cert.description}</p>
+                </div>
                 <div class="tags">
                     ${cert.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
