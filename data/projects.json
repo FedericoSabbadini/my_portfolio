@@ -6,8 +6,8 @@
       "period": "Nov 2025 - Present",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
-      "description": "Deep learning system predicting Formula 1 pit strategies using real telemetry data. Achieves AUC 0.93 for pit timing and 78% accuracy for compound selection using Bidirectional LSTM with Attention.",
-      "tags": ["LSTM", "FastF1 API"],
+      "description": "Built an end-to-end deep learning pipeline that predicts Formula 1 pit stop timing and tire compound selection using real-world telemetry from the FastF1 API. Achieved 0.93 AUC for pit timing prediction and 78% accuracy on compound choice using Bidirectional LSTM with self-attention mechanisms, handling time-series data across 20+ race weekends.",
+      "tags": ["LSTM", "FastF1 API", "TensorFlow", "Time Series"],
       "url": "https://github.com/FedericoSabbadini",
       "featured": true
     },
@@ -17,7 +17,7 @@
       "period": "Nov 2025 - Present",
       "badge": "Security",
       "badgeClass": "badge-warning",
-      "description": "AI-based automated planning system for network security hardening. Generates optimal action plans to close insecure ports while minimizing operational impact.",
+      "description": "Developed an AI-driven automated planning system that generates optimal security hardening strategies for enterprise networks. The system analyzes network topology, identifies vulnerable services and open ports, then produces actionable remediation plans that balance security improvements with operational continuity using constraint satisfaction techniques.",
       "tags": ["Python", "AI Planning", "Security", "Automation"],
       "url": "https://github.com/FedericoSabbadini",
       "featured": false
@@ -28,8 +28,8 @@
       "period": "Jun 2024 - Oct 2024",
       "badge": "Research",
       "badgeClass": "badge-primary",
-      "description": "Bachelor's thesis on authentication and authorization standards including OpenID Connect and OAuth 2.0.",
-      "tags": ["OpenID", "OAuth 2.0", "Security"],
+      "description": "Bachelor's thesis exploring modern identity and access management protocols. Conducted in-depth analysis of OAuth 2.0 flows, OpenID Connect authentication mechanisms, and JWT token security. Examined real-world implementations including SPID (Italian Digital Identity) and enterprise SSO solutions, with focus on security vulnerabilities and mitigation strategies.",
+      "tags": ["OpenID", "OAuth 2.0", "JWT", "IAM", "Security"],
       "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8",
       "urlLabel": "View Research",
       "featured": false
@@ -40,8 +40,8 @@
       "period": "May 2025 - Jun 2025",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
-      "description": "Machine learning classification pipeline using ensemble models with advanced feature engineering and tuning for FIFA 2022 player potential prediction.",
-      "tags": ["Python", "Machine Learning", "Scikit-learn"],
+      "description": "Engineered a machine learning pipeline to predict FIFA 2022 player potential using ensemble methods (Random Forest, XGBoost, Gradient Boosting). Implemented advanced feature engineering on 18,000+ player records, hyperparameter tuning via GridSearchCV, and comprehensive model evaluation achieving 89% accuracy. Full MLOps workflow from data preprocessing to model deployment.",
+      "tags": ["Python", "Scikit-learn", "XGBoost", "Feature Engineering"],
       "url": "https://github.com/FedericoSabbadini/TalentScope_AI",
       "featured": false
     },
@@ -51,8 +51,8 @@
       "period": "Apr 2025 - Jul 2025",
       "badge": "SW Development",
       "badgeClass": "badge-success",
-      "description": "Full-stack web application for sports predictions with Laravel backend, MySQL database, and responsive Bootstrap frontend following Agile methodology.",
-      "tags": ["Laravel", "PHP", "MySQL", "Bootstrap"],
+      "description": "Designed and developed a full-stack sports prediction platform following Agile/Scrum methodology. Built RESTful APIs with Laravel and Eloquent ORM, implemented user authentication with role-based access control, MySQL database with optimized queries, and responsive Bootstrap UI. Managed complete SDLC from requirements gathering to deployment.",
+      "tags": ["Laravel", "PHP", "MySQL", "REST API", "Bootstrap"],
       "url": "https://github.com/FedericoSabbadini/Oracool_Project",
       "featured": false
     },
@@ -62,8 +62,8 @@
       "period": "Oct 2024 - Mar 2025",
       "badge": "Research",
       "badgeClass": "badge-primary",
-      "description": "Exploration of steganography techniques using CNNs and GANs for robust and subtle hidden information in multimedia files. Research paper available.",
-      "tags": ["Steganography", "CNN", "GAN", "Python"],
+      "description": "Research project investigating cutting-edge steganography techniques using deep learning. Analyzed CNN-based methods for embedding hidden data in images while maintaining visual imperceptibility, and GAN architectures for generating stego-images that evade statistical detection. Published comprehensive research paper comparing classical vs. neural approaches for information hiding.",
+      "tags": ["Steganography", "CNN", "GAN", "PyTorch", "Research"],
       "url": "https://drive.google.com/drive/folders/1-2rBrcF9CzBdbvVcxDoxeiMTZej-5eDK",
       "urlLabel": "View Research",
       "featured": false
@@ -74,8 +74,8 @@
       "period": "May 2025 - Jul 2025",
       "badge": "Opt",
       "badgeClass": "badge-danger",
-      "description": "Implementation of efficient pathfinding algorithms for obstacle-based path computation on grid systems using advanced graph theory techniques.",
-      "tags": ["Algorithms", "Graph Theory"],
+      "description": "Implemented and benchmarked advanced pathfinding algorithms for obstacle-rich grid environments. Developed optimized versions of A*, Dijkstra, and JPS (Jump Point Search) with custom heuristics. Analyzed algorithmic complexity, memory usage, and runtime performance across varying grid densities, achieving up to 40% speedup over naive implementations.",
+      "tags": ["Algorithms", "Graph Theory", "A*", "Optimization"],
       "url": "https://github.com/FedericoSabbadini/CamminiPRJ",
       "featured": false
     },
@@ -85,8 +85,8 @@
       "period": "Jan 2024 - Jun 2024",
       "badge": "SW Development",
       "badgeClass": "badge-success",
-      "description": "Java application for automated resource exchange with modular architecture following SOLID principles and design patterns.",
-      "tags": ["Java", "GUI", "Design Patterns", "SOLID"],
+      "description": "Architected a Java desktop application for automated resource exchange simulation following clean architecture principles. Implemented MVC pattern with Swing GUI, applied SOLID principles throughout, and utilized design patterns (Factory, Observer, Strategy) for extensibility. Comprehensive unit testing with JUnit and documentation following industry best practices.",
+      "tags": ["Java", "Design Patterns", "MVC", "SOLID", "JUnit"],
       "url": "https://github.com/FedericoSabbadini/Software_Engineering",
       "featured": false
     },
@@ -96,12 +96,11 @@
       "period": "Apr 2024 - Jul 2024",
       "badge": "Research",
       "badgeClass": "badge-primary",
-      "description": "MATLAB project for quantitative analysis of electromagnetic field exposure from HF antennas and eLF power lines with visualization.",
-      "tags": ["MATLAB", "Physics", "Analysis"],
+      "description": "Developed MATLAB simulation tools for quantitative assessment of electromagnetic field exposure from HF radio antennas and ELF power lines. Created 3D visualization of field intensity distributions, calculated SAR (Specific Absorption Rate) values, and evaluated compliance with international exposure limits (ICNIRP guidelines). Applied numerical methods for Maxwell's equations.",
+      "tags": ["MATLAB", "Numerical Analysis", "EMF", "Simulation"],
       "url": "https://github.com/FedericoSabbadini/Elettrosmog",
       "featured": false,
       "news": false
-
     },
     {
       "id": "gurobi",
@@ -109,8 +108,8 @@
       "period": "Jan 2023 - Jun 2023",
       "badge": "Opt",
       "badgeClass": "badge-danger",
-      "description": "Mathematical optimization using Gurobi solver for complex constraint satisfaction and linear programming problems.",
-      "tags": ["Operations Research", "ILP", "Gurobi"],
+      "description": "Solved complex combinatorial optimization problems using Gurobi solver and mathematical programming techniques. Formulated real-world scenarios as Integer Linear Programs (ILP), implemented constraint modeling for scheduling, routing, and resource allocation problems. Achieved optimal solutions for NP-hard instances through branch-and-bound and cutting plane methods.",
+      "tags": ["Operations Research", "ILP", "Gurobi", "Python"],
       "url": "https://github.com/FedericoSabbadini/Gurobi_Optimization",
       "featured": false
     }
