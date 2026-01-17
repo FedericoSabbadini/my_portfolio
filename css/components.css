@@ -299,6 +299,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
 }
 
 .featured-body {
@@ -365,6 +366,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
 }
 
 .project-footer {
@@ -625,6 +627,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
 }
 
 .course-body {
@@ -730,6 +733,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
 }
 
 .cert-body {
