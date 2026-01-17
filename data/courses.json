@@ -7,7 +7,7 @@
         "id": "neural-network-architectures",
         "name": "Neural Network Architectures",
         "grade": "--/30",
-        "description": "Advanced neural architectures for representation learning and generative modeling. Covers Transformer-based models for NLP (BERT, GPT, Large Language Models), autoencoders and variational autoencoders, GANs and diffusion models for image generation, and Graph Neural Networks with message-passing. Includes practical implementation in PyTorch and use of pretrained Transformer models.",
+        "description": "Advanced neural architectures for representation learning and generative modeling. Covers Transformer-based models for NLP (BERT, GPT, Large Language Models), autoencoders and variational autoencoders, GANs and diffusion models for image generation, and Graph Neural Networks with message-passing.",
         "tags": [
           "Neural Architectures",
           "Transformers",
@@ -20,7 +20,7 @@
         "id": "deep-learning",
         "name": "Deep Learning",
         "grade": "--/30",
-        "description": "Course focused on deep neural network models and training techniques. Covers gradient-based learning and backpropagation, regularization and optimization strategies, convolutional and recurrent neural networks with attention mechanisms. Includes practical implementation using TensorFlow/Keras and PyTorch for computer vision and NLP tasks.",
+        "description": "Course focused on deep neural network models and training techniques. Covers gradient-based learning and backpropagation, regularization and optimization strategies, convolutional and recurrent neural networks with attention mechanisms. Includes practical implementation for computer vision and NLP.",
         "tags": [
           "Deep Learning",
           "Neural Networks",
