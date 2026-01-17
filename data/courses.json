@@ -4,6 +4,58 @@
     "subtitle": "University of Brescia • 2024-2026 • Current Weighted Average: 27.52/30 (63 CFU)",
     "courses": [
       {
+        "id": "neural-network-architectures",
+        "name": "Neural Network Architectures",
+        "grade": "--/30",
+        "description": "Advanced neural architectures for representation learning and generative modeling. Covers Transformer-based models for NLP (BERT, GPT, Large Language Models), autoencoders and variational autoencoders, GANs and diffusion models for image generation, and Graph Neural Networks with message-passing. Includes practical implementation in PyTorch and use of pretrained Transformer models.",
+        "tags": [
+          "Neural Architectures",
+          "Transformers",
+          "Generative Models"
+        ],
+        "news": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131043_28250/2011/8595_3260?schemaid=3260"
+      },
+      {
+        "id": "deep-learning",
+        "name": "Deep Learning",
+        "grade": "--/30",
+        "description": "Course focused on deep neural network models and training techniques. Covers gradient-based learning and backpropagation, regularization and optimization strategies, convolutional and recurrent neural networks with attention mechanisms. Includes practical implementation using TensorFlow/Keras and PyTorch for computer vision and NLP tasks.",
+        "tags": [
+          "Deep Learning",
+          "Neural Networks",
+          "Computer Vision"
+        ],
+        "news": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131057_23755/2011/8595_3260?schemaid=3260"
+      },
+      {
+        "id": "advanced-information-systems-big-data",
+        "name": "Advanced Information Systems and Big Data",
+        "grade": "--/30",
+        "description": "Modern data architectures and enterprise information systems. Covers design methodologies for data architectures, MES, CPPS for Industry 4.0, Digital Thread and Internet of Production. Big Data technologies include distributed processing with Hadoop, MapReduce, Spark, and many NoSQL databases.",
+        "tags": [
+          "Big Data",
+          "Data Architectures",
+          "Distributed Systems"
+        ],
+        "news": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131044_21557/2011/8595_3260?schemaid=3260"
+      },
+      {
+        "id": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "grade": "--/30",
+        "description": "Technical AI course focused on state-space search algorithms (BFS, DFS, A*, IDA*, local search), heuristic design, propositional and FOL with resolution and unification, CSP (backtracking, arc-consistency), automated planning using STRIPS/ADL/PDDL and Graphplan and probabilistic reasoning with Bayesian Networks.",
+        "tags": [
+          "AI Algorithms",
+          "Automated Reasoning",
+          "Planning"
+        ],
+        "news": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2022/86/insegnamenti/2023/8097_114632_799/2011/8097_2528?schemaid=2528"
+      },
+      {
         "id": "network-security",
         "name": "Network Security",
         "grade": "30L/30",
