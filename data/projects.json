@@ -1,6 +1,17 @@
 {
   "projects": [
     {
+      "id": "data-nexus",
+      "title": "dataNexus Big Data Engineering",
+      "period": "Dec 2025 - Present",
+      "badge": "AI/ML",
+      "badgeClass": "badge-info",
+      "description": "A hands-on Big Data project showcasing how different database models and distributed computing paradigms are applied to real-world datasets, such as Amazon Food Reviews, LAPD Crime Data and arXiv publications. The repository demonstrates querying, modeling, analytics, and performance comparisons across modern big data technologies.",
+      "tags": ["MongoDB", "InfluxDB", "Neo4J", "Map-reduce"],
+      "url": "https://github.com/FedericoSabbadini/dataNexus",
+      "featured": true
+    },
+    {
       "id": "f1-lstm",
       "title": "F1 Pit Strategy Predictor LSTM",
       "period": "Nov 2025 - Present",
@@ -8,7 +19,7 @@
       "badgeClass": "badge-info",
       "description": "Built an end-to-end deep learning pipeline that predicts Formula 1 pit stop timing and tire compound selection using real-world telemetry from the FastF1 API. Achieved 0.93 AUC for pit timing prediction and 78% accuracy on compound choice using Bidirectional LSTM with self-attention mechanisms, handling time-series data across 20+ race weekends.",
       "tags": ["LSTM", "FastF1 API", "TensorFlow", "Time Series"],
-      "url": "https://github.com/FedericoSabbadini",
+      "url": "https://github.com/FedericoSabbadini/f1-strategy-predictor",
       "featured": true
     },
     {
@@ -19,7 +30,7 @@
       "badgeClass": "badge-warning",
       "description": "Developed an AI-driven automated planning system that generates optimal security hardening strategies for enterprise networks. The system analyzes network topology, identifies vulnerable services and open ports, then produces actionable remediation plans that balance security improvements with operational continuity using constraint satisfaction techniques.",
       "tags": ["Python", "AI Planning", "Security", "Automation"],
-      "url": "https://github.com/FedericoSabbadini",
+      "url": "https://github.com/FedericoSabbadini/network-hardening-planner",
       "featured": false
     },
     {
