@@ -13,7 +13,7 @@
     "birthYear": 2002,
     "profileImage": "assets/images/profile.jpeg",
     "profileImageOld": "assets/images/profileOld.jpeg",
-    "topSkills": ["Problem solving", "Cybersecurity", "Machine learning", "Time management"]
+    "topSkills": ["Data Science", "Cybersecurity", "Machine learning", "Cloud & OS"]
   },
   "social": {
     "github": {

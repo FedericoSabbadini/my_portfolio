@@ -73,8 +73,7 @@
 
 /* Page Header */
 .page-header {
-    padding: 6rem 0 4rem;
-    padding-top: calc(80px + 3rem); /* navbar height + spacing */
+    padding: calc(80px + 2rem) 0 4rem; /* reduced top padding */
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--bg-secondary) 100%);
     text-align: center;
     position: relative;
