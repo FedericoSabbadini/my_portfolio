@@ -73,11 +73,12 @@
 
 /* Page Header */
 .page-header {
-    padding: calc(80px + 2rem) 0 4rem; /* reduced top padding */
+    padding-top: calc(80px + 1.5rem); /* navbar + poco spazio */
+    padding-bottom: 3rem;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--bg-secondary) 100%);
     text-align: center;
     position: relative;
-    min-height: 280px;
+    min-height: 220px; /* leggermente più basso */
     display: flex;
     align-items: center;
     justify-content: center;
