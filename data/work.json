@@ -8,13 +8,13 @@
             "period": "January 2027",
             "type": "Work",
             "status": "upcoming",
-            "description": "Entry-level professional position following the completion of the Master's degree, focused on applied work in Artificial Intelligence, Cybersecurity, or Data Engineering within a structured technical team.",
+            "description": "Entry-level professional position following the completion of the Master's degree, focused on applied work in Artificial Intelligence, Cybersecurity, or Data Science within a structured technical team.",
             "responsibilities": [
                 "Participation in production-level projects",
                 "Design and implementation of technical solutions",
                 "Collaboration with senior engineers and cross-functional teams"
             ],
-            "technologies": ["Cybersecurity", "AI", "Cloud", "Systems", "Software"],
+            "technologies": ["Cybersecurity", "AI", "Cloud", "Data", "Software"],
             "featured": false,
             "news": false
         },
@@ -26,16 +26,16 @@
             "period": "August 2026 - December 2026",
             "type": "Academic",
             "status": "upcoming",
-            "description": "Master's thesis project developed in collaboration with an academic supervisor and, where applicable, an external organization, focused on a research or applied topic in Artificial Intelligence or Cybersecurity.",
+            "description": "Master's thesis project developed in collaboration with an academic supervisor and, where applicable, an external organization, focused on a research or applied topic in Artificial Intelligence, Data Science or Cybersecurity.",
             "responsibilities": [
                 "Definition of research objectives",
                 "Literature review and state-of-the-art analysis",
                 "Design, implementation, and evaluation of the proposed solution",
                 "Thesis writing and final defense"
             ],
-            "technologies": ["Thesis", "Research", "Cybersecurity", "AI"],
+            "technologies": ["Thesis", "Data", "Cybersecurity", "AI", "Cloud"],
             "featured": false,
-            "news": false
+            "news": true
         },
         {
             "id": "stage-upcoming",
@@ -45,9 +45,9 @@
             "period": "April 2026 - May 2026",
             "type": "Internship",
             "status": "upcoming",
-            "description": "Curricular internship as part of the Master's degree program in Computer Science, IA and Cybersecurity.",
+            "description": "Curricular internship as part of the Master's degree program in Data Science, IA or Cybersecurity.",
             "responsibilities": [],
-            "technologies": ["Cybersecurity"],
+            "technologies": ["Data", "Cybersecurity", "AI", "Cloud"],
             "featured": false,
             "news": true
         }

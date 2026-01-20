@@ -9,7 +9,7 @@
       "certId": "440746",
       "description": "Industry-recognized entry-level cybersecurity certification from EC-Council, creators of CEH. Validated hands-on skills across network defense, ethical hacking, digital forensics, and security operations through 85+ practical labs on live cyber ranges. Covers incident response, threat intelligence, cryptography, and risk management aligned with NIST NICE Framework.",
       "tags": ["Cybersecurity", "Practical Lab", "ANSI Accredited"],
-      "featured": true,
+      "featured": false,
       "url": "https://learn.eccouncil.org/certificate/f70bfdc3-cbef-4ce3-8a2b-86c5a07d000f?logged=false",
       "news": false
     },
