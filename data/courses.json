@@ -32,14 +32,14 @@
       {
         "id": "advanced-information-systems-big-data",
         "name": "Advanced Information Systems and Big Data",
-        "grade": "--/30",
+        "grade": "29/30",
         "description": "Modern data architectures and enterprise information systems. Covers design methodologies for data architectures, MES, CPPS for Industry 4.0, Digital Thread and Internet of Production. Big Data technologies include distributed processing with Hadoop, MapReduce, Spark, and many NoSQL databases.",
         "tags": [
-          "Big Data",
+          "NoSQL",
           "Data Architectures",
           "Distributed Systems"
         ],
-        "news": false,
+        "news": true,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131044_21557/2011/8595_3260?schemaid=3260"
       },
       {
@@ -66,7 +66,7 @@
           "PKI",
           "Wireless Security"
         ],
-        "news": true,
+        "news": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121907_807/2011/8595_3260?schemaid=3260"
       },
       {

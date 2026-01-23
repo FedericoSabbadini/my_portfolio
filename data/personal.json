@@ -38,9 +38,9 @@
   },
   "stats": [
     {
-      "number": "106",
+      "number": "27.7",
       "label": "Current GPA",
-      "sublabel": "/110 Master's"
+      "sublabel": "/30 Master's"
     },
     {
       "number": "3",
@@ -69,7 +69,7 @@
       "name": "English",
       "flag": "🇬🇧",
       "level": "B1-B2 Intermediate",
-      "detail": "Reading & Writing: B2 • Speaking: B1",
+      "detail": "Reading & Writing: B2 • Speaking & Listening: B1",
       "percentage": 70
     },
     {

@@ -3,7 +3,7 @@
     {
       "id": "data-nexus",
       "title": "dataNexus Big Data Engineering",
-      "period": "Dec 2025 - Present",
+      "period": "Dec 2025 - Jan 2026",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "A hands-on Big Data project showcasing how different database models and distributed computing paradigms are applied to real-world datasets, such as Amazon Food Reviews, LAPD Crime Data and arXiv publications. The repository demonstrates querying, modeling, analytics, and performance comparisons across modern big data technologies.",
