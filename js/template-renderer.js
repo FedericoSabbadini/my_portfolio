@@ -101,6 +101,11 @@ class TemplateRenderer {
                     ${edu.thesis ? `
                         <a href="${edu.thesis.url}" target="_blank" class="link">View Bachelor's Thesis →</a>
                     ` : ''}
+                    ${edu.url ? `
+                        <div class="course-footer">
+                            <a href="${edu.url}" target="_blank" class="link">View Details →</a>
+                        </div>
+                    ` : ''}
                 </div>
             </div>
         `).join('');
@@ -133,6 +138,11 @@ class TemplateRenderer {
                     ${job.technologies && job.technologies.length > 0 ? `
                         <div class="tags" style="margin-top: 1rem;">
                             ${job.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                    ${job.url ? `
+                        <div class="course-footer">
+                            <a href="${job.url}" target="_blank" class="link">View Details →</a>
                         </div>
                     ` : ''}
                 </div>
