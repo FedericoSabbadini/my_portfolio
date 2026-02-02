@@ -12,7 +12,8 @@
       "description": "Specializing in cybersecurity, systems administration, artificial intelligence, and advanced software engineering. Focusing on network security, machine learning applications, and enterprise system architecture.",
       "tags": ["Cybersecurity", "Machine Learning", "Network Security", "Systems Administration"],
       "featured": false,
-      "news": false
+      "news": false,
+      "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/1479?codicione=0170107303300004"
     },
     {
       "id": "bachelors",
@@ -30,7 +31,8 @@
         "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8"
       },
       "featured": true,
-      "news": false
+      "news": false,
+      "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/1476?codicione=0170106200800004"
     },
     {
       "id": "highschool",
@@ -43,7 +45,8 @@
       "gpa": "100/100",
       "description": "Scientific curriculum with focus on mathematics, physics, and sciences. Participated in study abroad program at Pitzer College, USA (Jul-Aug 2019).",
       "featured": false,
-      "news": false
+      "news": false,
+      "url": "https://salesianichiari.it/scuole/licei/liceo-scientifico/"
     }
   ]
 }
