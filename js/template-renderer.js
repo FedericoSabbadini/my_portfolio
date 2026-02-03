@@ -95,9 +95,14 @@ class TemplateRenderer {
                     ` : ''}
                     <h3 class="timeline-title">${edu.degree}</h3>
                     <p class="timeline-subtitle">${edu.institution}${edu.gpa ? ` • ${edu.status === 'current' ? 'Current GPA' : 'Final Grade'}: ${edu.gpa}` : ''}</p>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: ${edu.thesis ? '1rem' : '0'}">
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: ${edu.thesis ? '1rem' : '1rem'}">
                         ${edu.description}
                     </p>
+                    ${edu.thesis ? `
+                        <div class="course-footer">
+                            <a href="${edu.thesis.url}" target="_blank" class="link">View Thesis →</a>
+                        </div>
+                    ` : ''}
                     ${edu.url ? `
                         <div class="course-footer">
                             <a href="${edu.url}" target="_blank" class="link">View Details →</a>
