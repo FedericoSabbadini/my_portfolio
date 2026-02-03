@@ -26,10 +26,6 @@
       "gpa": "104/110",
       "description": "Focused on computer systems, networks, software development, and security fundamentals. Completed thesis on OpenID Connect and Digital Identity Management.",
       "tags": ["Problem Solving", "Computer Architectures", "Networks", "Algorithms"],
-      "thesis": {
-        "title": "",
-        "url": ""
-      },
       "featured": true,
       "news": false,
       "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/1476?codicione=0170106200800004"
