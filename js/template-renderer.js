@@ -70,9 +70,9 @@ class TemplateRenderer {
                 <div class="tags">
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
-                ${project.url ? `
-                    <div class="project-footer">
-                        <a href="${project.url}" target="_blank" class="link">${project.urlLabel || 'View on GitHub'}</a>
+                ${edu.url ? `
+                    <div class="course-footer">
+                        <a href="${edu.url}" target="_blank" class="link">View Details →</a>
                     </div>
                 ` : ''}
             </div>
@@ -98,11 +98,6 @@ class TemplateRenderer {
                     <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: ${edu.thesis ? '1rem' : '0'}">
                         ${edu.description}
                     </p>
-                    ${edu.thesis ? `
-                        <div class="course-footer">
-                            <a href="${edu.thesis.url}" target="_blank" class="link">View Bachelor's Thesis →</a>
-                        </div>
-                    ` : ''}
                     ${edu.url ? `
                         <div class="course-footer">
                             <a href="${edu.url}" target="_blank" class="link">View Details →</a>
