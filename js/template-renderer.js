@@ -99,7 +99,9 @@ class TemplateRenderer {
                         ${edu.description}
                     </p>
                     ${edu.thesis ? `
-                        <a href="${edu.thesis.url}" target="_blank" class="link">View Bachelor's Thesis →</a>
+                        <div class="course-footer">
+                            <a href="${edu.thesis.url}" target="_blank" class="link">View Bachelor's Thesis →</a>
+                        </div>
                     ` : ''}
                     ${edu.url ? `
                         <div class="course-footer">
