@@ -90,22 +90,32 @@ class TemplateRenderer {
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <span class="timeline-date">${edu.period}</span>
+    
                     ${edu.statusLabel ? `
-                        <span class="badge ${edu.statusBadge || 'badge-primary'}" style="margin-bottom: 0.5rem;">${edu.statusLabel}</span>
+                        <span class="badge ${edu.statusBadge || 'badge-primary'}" style="margin-bottom: 0.5rem;">
+                            ${edu.statusLabel}
+                        </span>
                     ` : ''}
+    
                     <h3 class="timeline-title">${edu.degree}</h3>
-                    <p class="timeline-subtitle">${edu.institution}${edu.gpa ? ` • ${edu.status === 'current' ? 'Current GPA' : 'Final Grade'}: ${edu.gpa}` : ''}</p>
-                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: ${edu.thesis ? '1rem' : '1rem'}">
+    
+                    <p class="timeline-subtitle">
+                        ${edu.institution}
+                        ${edu.gpa ? ` • ${edu.status === 'current' ? 'Current GPA' : 'Final Grade'}: ${edu.gpa}` : ''}
+                    </p>
+    
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem">
                         ${edu.description}
                     </p>
-                    ${edu.thesis ? `
+    
+                    ${(edu.thesis || edu.url) ? `
                         <div class="course-footer">
-                            <a href="${edu.thesis.url}" target="_blank" class="link">View Thesis →</a>
-                        </div>
-                    ` : ''}
-                    ${edu.url ? `
-                        <div class="course-footer">
-                            <a href="${edu.url}" target="_blank" class="link">View Details →</a>
+                            ${edu.thesis ? `
+                                <a href="${edu.thesis.url}" target="_blank" class="link">View Thesis →</a>
+                            ` : ''}
+                            ${edu.url ? `
+                                <a href="${edu.url}" target="_blank" class="link">View Details →</a>
+                            ` : ''}
                         </div>
                     ` : ''}
                 </div>
