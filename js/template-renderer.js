@@ -70,9 +70,9 @@ class TemplateRenderer {
                 <div class="tags">
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
-                ${edu.url ? `
-                    <div class="course-footer">
-                        <a href="${edu.url}" target="_blank" class="link">View Details →</a>
+                ${project.url ? `
+                    <div class="project-footer">
+                        <a href="${project.url}" target="_blank" class="link">${project.urlLabel || 'View on GitHub'}</a>
                     </div>
                 ` : ''}
             </div>
