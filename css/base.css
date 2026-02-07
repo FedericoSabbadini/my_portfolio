@@ -1,29 +1,69 @@
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
+/* Modern, clean design inspired by minimalist portfolios */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #1f2833; /* Dark blue/slate color */
-    color: #c5c6c7; /* Light grey for text */
-    line-height: 1.6;
-    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    color: #171717;
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #66fcf1; /* Cyan accents */
+    color: #171717;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.5rem;
 }
 
 p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    color: #525252;
+    font-size: 1.05rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.7;
 }
 
 .header {
-    background-color: #0b0c10;
+    background-color: #ffffff;
     padding: 2rem 0;
     text-align: center;
+    border-bottom: 1px solid #f5f5f5;
 }
 
 .header h1 {
@@ -31,25 +71,24 @@ p {
     margin: 0;
 }
 
-.menu {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    padding: 0;
-}
-
-.menu li {
-    margin: 0 15px;
-}
-
 .footer {
-    background-color: #0b0c10;
-    padding: 2rem 0;
+    background-color: #fafafa;
+    padding: 4rem 0 2rem;
     text-align: center;
+    border-top: 1px solid #f5f5f5;
+    margin-top: 6rem;
 }
 
 @media (max-width: 768px) {
-    .menu {
-        flex-direction: column;
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 1.5rem;
     }
 }

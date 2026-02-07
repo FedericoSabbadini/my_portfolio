@@ -1,26 +1,99 @@
+/* Modern, minimal navigation */
 .navbar {
-    background-color: #333;
-    overflow: hidden;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
-.navbar a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #171717;
     text-decoration: none;
-    transition: background-color 0.3s;
 }
 
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
 }
 
-@media screen and (max-width: 600px) {
-    .navbar a {
-        float: none;
+.nav-link {
+    color: #525252;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #171717;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #171717;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background-color: #171717;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #ffffff;
         width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+        gap: 1.5rem;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-container {
+        padding: 0 1.5rem;
     }
 }
