@@ -2,7 +2,7 @@
  * Template Renderer Module
  * Renders dynamic content from JSON data
  */
-
+ 
 class TemplateRenderer {
     constructor() {
         this.templates = {};
