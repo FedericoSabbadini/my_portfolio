@@ -35,7 +35,7 @@
             ],
             "technologies": ["Thesis", "Machine Learning", "AI", "Data Science"],
             "featured": false,
-            "news": true
+            "news": false
         },
         {
             "id": "stage-upcoming",
