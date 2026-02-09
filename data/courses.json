@@ -19,14 +19,14 @@
       {
         "id": "deep-learning",
         "name": "Deep Learning",
-        "grade": "--/30",
+        "grade": "29/30",
         "description": "Course focused on deep neural network models and training techniques. Covers gradient-based learning and backpropagation, regularization and optimization strategies, convolutional and recurrent neural networks with attention mechanisms. Includes practical implementation for computer vision and NLP.",
         "tags": [
           "Deep Learning",
           "Neural Networks",
-          "Computer Vision"
+          "Keras"
         ],
-        "news": false,
+        "news": true,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131057_23755/2011/8595_3260?schemaid=3260"
       },
       {
