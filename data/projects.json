@@ -14,10 +14,10 @@
     {
       "id": "f1-lstm",
       "title": "F1 Pit Strategy Predictor LSTM",
-      "period": "Nov 2025 - Present",
+      "period": "Dec 2025 - Feb 26",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
-      "description": "Built an end-to-end deep learning pipeline that predicts Formula 1 pit stop timing and tire compound selection using real-world telemetry from the FastF1 API. Achieved 0.93 AUC for pit timing prediction and 78% accuracy on compound choice using Bidirectional LSTM with self-attention mechanisms, handling time-series data across 20+ race weekends.",
+      "description": "Built an end-to-end deep learning pipeline that predicts Formula 1 pit stop timing and tire compound selection using real-world telemetry from the FastF1 API. Achieved 0.78 AUC for pit timing prediction and 78% accuracy on compound choice using Unidirectional LSTMs with self-attention mechanisms, handling time-series data across 20+ race weekends.",
       "tags": ["LSTM", "FastF1 API", "TensorFlow", "Time Series"],
       "url": "https://github.com/FedericoSabbadini/f1-strategy-predictor",
       "featured": true
