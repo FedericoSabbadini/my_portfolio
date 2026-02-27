@@ -6,14 +6,14 @@
       {
         "id": "neural-network-architectures",
         "name": "Neural Network Architectures",
-        "grade": "--/30",
+        "grade": "30L/30",
         "description": "Advanced neural architectures for representation learning and generative modeling. Covers Transformer-based models for NLP (BERT, GPT, Large Language Models), autoencoders and variational autoencoders, GANs and diffusion models for image generation, and Graph Neural Networks with message-passing.",
         "tags": [
           "Neural Architectures",
           "Transformers",
           "Generative Models"
         ],
-        "news": false,
+        "news": true,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131043_28250/2011/8595_3260?schemaid=3260"
       },
       {
@@ -26,7 +26,7 @@
           "Neural Networks",
           "Keras"
         ],
-        "news": true,
+        "news": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131057_23755/2011/8595_3260?schemaid=3260"
       },
       {
