@@ -4,6 +4,45 @@
     "subtitle": "University of Brescia • 2024-2026 • Current Weighted Average: 27.85/30 (78 CFU)",
     "courses": [
       {
+        "id": "generative-ai-for-media",
+        "name": "Generative AI for Media",
+        "grade": "--/30",
+        "description": "This course introduces the theoretical and practical foundations of generative artificial intelligence for multimedia. It covers signal teory, including Fourier analysis, and the generation of audio, images and videos using generative models.",
+        "tags": [
+          "Signal Theory",
+          "Fourier Analysis",
+          "Generative Models"
+        ],
+        "news": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/1399/insegnamenti/2025/8597_139622_29610/2023/8597?coorte=2024"
+      },      
+      {
+        "id": "reinforcement-learning",
+        "name": "Reinforcement Learning",
+        "grade": "--/30",
+        "description": "Advanced reinforcement learning techniques for decision-making in dynamic environments. Covers Q-learning, policy gradients, actor-critic methods, and multi-agent systems. Implemented with Python and reinforcement learning frameworks like Gymnasium and Stable Baselines3.",
+        "tags": [
+          "Reinforcement Learning",
+          "Multi-agent Systems",
+          "Deep Reinforcement Learning"
+        ],
+        "news": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_139627_29560/2011/8595?coorte=2024"     
+      },      
+      {
+        "id": "digital-transformation",
+        "name": "Digital Transformation",
+        "grade": "--/30",
+        "description": "The use of Large Language Models (LLMs) and methodologies such as Retrieval-Augmented Generation (RAG) for handling unstructured knowledge is examined, together with advanced machine learning techniques including reinforcement learning and LLM-based decision making.",
+        "tags": [
+          "LLMs",
+          "RAG",
+          "Agentic AI"
+        ],
+        "news": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131028_28209/2011/8595?schemaid=3260"
+      },
+      {
         "id": "neural-network-architectures",
         "name": "Neural Network Architectures",
         "grade": "30L/30",
