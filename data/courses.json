@@ -43,6 +43,19 @@
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131028_28209/2011/8595?schemaid=3260"
       },
       {
+        "id": "artificial-intelligence",
+        "name": "Artificial Intelligence",
+        "grade": "--/30",
+        "description": "Technical AI course focused on state-space search algorithms (BFS, DFS, A*, IDA*, local search), heuristic design, propositional and FOL with resolution and unification, CSP (backtracking, arc-consistency), automated planning using STRIPS/ADL/PDDL and Graphplan and probabilistic reasoning with Bayesian Networks.",
+        "tags": [
+          "AI Algorithms",
+          "Automated Reasoning",
+          "Planning"
+        ],
+        "news": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2022/86/insegnamenti/2023/8097_114632_799/2011/8097_2528?schemaid=2528"
+      },
+      {
         "id": "neural-network-architectures",
         "name": "Neural Network Architectures",
         "grade": "30L/30",
@@ -80,19 +93,6 @@
         ],
         "news": true,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131044_21557/2011/8595_3260?schemaid=3260"
-      },
-      {
-        "id": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "grade": "--/30",
-        "description": "Technical AI course focused on state-space search algorithms (BFS, DFS, A*, IDA*, local search), heuristic design, propositional and FOL with resolution and unification, CSP (backtracking, arc-consistency), automated planning using STRIPS/ADL/PDDL and Graphplan and probabilistic reasoning with Bayesian Networks.",
-        "tags": [
-          "AI Algorithms",
-          "Automated Reasoning",
-          "Planning"
-        ],
-        "news": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2022/86/insegnamenti/2023/8097_114632_799/2011/8097_2528?schemaid=2528"
       },
       {
         "id": "network-security",
