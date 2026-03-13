@@ -233,6 +233,25 @@
     margin-bottom: 0;
 }
 
+/* Fix bio-text alignment in the bio-with-image layout so it aligns with the heading.
+   Overrides the global max-width: 68ch + margin: auto centering from base.css
+   which would otherwise offset the paragraph from the left-aligned h2 heading. */
+.bio-section.bio-with-image .bio-text {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Section titles for journey page - align with the 800px timeline */
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: -0.02em;
+}
+
 /* Contact Cards */
 .contact-card {
     text-align: center;
@@ -302,9 +321,13 @@
 
 /* ---------- Modern hero/header refinements (2026 refresh) ---------- */
 
-/* Make hero a bit more "editorial" */
+/* Hero title consistent with subtitle */
 .hero-title {
-    letter-spacing: -0.05em;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    letter-spacing: -0.01em;
 }
 
 .hero-description {
@@ -315,7 +338,7 @@
 .page-header {
     background:
         radial-gradient(900px 420px at 15% 10%, rgba(59, 130, 246, 0.35), transparent 60%),
-        radial-gradient(900px 420px at 85% 20%, rgba(16, 185, 129, 0.22), transparent 60%),
+        radial-gradient(900px 420px at 85% 20%, rgba(16, 185, 129, 0.07), transparent 60%),
         linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 55%, var(--bg-secondary) 120%);
 }
 

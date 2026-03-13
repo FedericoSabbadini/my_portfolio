@@ -226,7 +226,7 @@ body:not(.loading) #footer-placeholder {
 body {
     background:
         radial-gradient(1200px 700px at 15% -10%, rgba(59, 130, 246, 0.12), transparent 60%),
-        radial-gradient(900px 600px at 90% 10%, rgba(16, 185, 129, 0.09), transparent 55%),
+        radial-gradient(900px 600px at 90% 10%, rgba(16, 185, 129, 0.04), transparent 55%),
         radial-gradient(1000px 700px at 50% 110%, rgba(245, 158, 11, 0.06), transparent 60%),
         var(--bg-primary);
 }
