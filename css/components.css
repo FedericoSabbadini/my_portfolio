@@ -909,3 +909,64 @@
         text-align: center;
     }
 }
+
+/* ---------- Modern cards & controls (2026 refresh) ---------- */
+
+/* Buttons: slightly more premium + consistent hover */
+.btn {
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.20);
+}
+
+.btn-secondary {
+    background: rgba(248, 250, 252, 0.75);
+    backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+/* "Glass" surface for all major cards (keeps structure, just looks modern) */
+.card,
+.stat-card,
+.featured-card,
+.project-card,
+.course-card,
+.cert-card,
+.timeline-content,
+.news-content,
+.location-box {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+/* Nicer hover: lift + softer shadow + subtle accent ring */
+.featured-card:hover,
+.project-card:hover,
+.course-card:hover,
+.cert-card:hover,
+.stat-card:hover,
+.timeline-content:hover,
+.news-content:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+    border-color: rgba(59, 130, 246, 0.35);
+}
+
+/* Make tags a touch more "pill" and airy */
+.tag {
+    background: rgba(241, 245, 249, 0.9);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 9999px;
+}

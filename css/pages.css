@@ -299,3 +299,27 @@
 .empty-state p {
     font-size: 1.125rem;
 }
+
+/* ---------- Modern hero/header refinements (2026 refresh) ---------- */
+
+/* Make hero a bit more "editorial" */
+.hero-title {
+    letter-spacing: -0.05em;
+}
+
+.hero-description {
+    color: rgba(51, 65, 85, 0.95);
+}
+
+/* Page header: more modern gradient + subtle radial highlights */
+.page-header {
+    background:
+        radial-gradient(900px 420px at 15% 10%, rgba(59, 130, 246, 0.35), transparent 60%),
+        radial-gradient(900px 420px at 85% 20%, rgba(16, 185, 129, 0.22), transparent 60%),
+        linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 55%, var(--bg-secondary) 120%);
+}
+
+/* CTA: a little more depth */
+.cta-section {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
