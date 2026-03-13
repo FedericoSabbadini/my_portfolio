@@ -219,3 +219,60 @@ body:not(.loading) #footer-placeholder {
     text-align: center;
     padding: 2rem;
 }
+
+/* ---------- Modern aesthetic layer (2026 refresh) ---------- */
+
+/* Softer, more premium page background (still minimal) */
+body {
+    background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(59, 130, 246, 0.12), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(16, 185, 129, 0.09), transparent 55%),
+        radial-gradient(1000px 700px at 50% 110%, rgba(245, 158, 11, 0.06), transparent 60%),
+        var(--bg-primary);
+}
+
+/* Subtle grain overlay (no external assets) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+}
+
+/* Slightly better type hierarchy */
+h1, h2, h3 {
+    letter-spacing: -0.02em;
+}
+
+.section-header h2 {
+    letter-spacing: -0.03em;
+}
+
+/* Improve readability on large screens */
+.section-header p,
+.bio-text,
+.hero-description {
+    max-width: 68ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Accessible focus ring (nice + modern) */
+:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.55);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
