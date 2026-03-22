@@ -457,7 +457,7 @@ class TemplateRenderer {
             <a href="tel:${social.phone.number}" class="card contact-card">
                 <div class="contact-icon">${social.phone.icon}</div>
                 <h3>Phone</h3>
-                <p>Call me on ${social.phone.number}</p>
+                <p>Call me</p>
             </a>
             <a href="${social.cv.url}" target="_blank" class="card contact-card" download>
                 <div class="contact-icon">${social.cv.icon}</div>
