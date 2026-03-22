@@ -32,7 +32,12 @@
     },
     "cv": {
       "label": "CV",
-      "url": "assets/Federico_Sabbadini_CV.pdf",
+      "url": "assets/CV/Federico_Sabbadini_CV.pdf",
+      "icon": "📄"
+    },
+    "europass": {
+      "label": "Europass",
+      "url": "assets/CV/Federico_Sabbadini_CVEU.pdf",
       "icon": "📄"
     }
   },
