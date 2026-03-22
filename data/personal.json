@@ -26,8 +26,14 @@
       "url": "https://linkedin.com/in/federicosabbadini",
       "icon": "💼"
     },
+    "phone": {
+      "label": "Phone",
+      "number": "+393342030281",
+      "icon": "📞"
+    },
     "email": {
-      "address": "@icloud.com",
+      "label": "Email",
+      "address": "federicosabbadini@icloud.com",
       "icon": "📧"
     },
     "cv": {

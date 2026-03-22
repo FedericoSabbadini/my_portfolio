@@ -442,7 +442,7 @@ class TemplateRenderer {
             <a href="mailto:${social.email.address}" class="card contact-card">
                 <div class="contact-icon">${social.email.icon}</div>
                 <h3>Email</h3>
-                <p>${social.email.address}</p>
+                <p>@icloud.com</p>
             </a>
             <a href="${social.linkedin.url}" target="_blank" class="card contact-card">
                 <div class="contact-icon">${social.linkedin.icon}</div>
@@ -454,15 +454,20 @@ class TemplateRenderer {
                 <h3>GitHub</h3>
                 <p>@${social.github.username}</p>
             </a>
+            <a href="tel:${social.phone.number}" class="card contact-card">
+                <div class="contact-icon">${social.phone.icon}</div>
+                <h3>Phone</h3>
+                <p>Call me on ${social.phone.number}</p>
+            </a>
             <a href="${social.cv.url}" target="_blank" class="card contact-card" download>
                 <div class="contact-icon">${social.cv.icon}</div>
                 <h3>CV</h3>
-                <p>Download CV</p>
+                <p>Download</p>
             </a>
             <a href="${social.europass.url}" target="_blank" class="card contact-card" download>
                 <div class="contact-icon">${social.cv.icon}</div>
                 <h3>Europass</h3>
-                <p>Download Europass</p>
+                <p>Download</p>
             </a>
         `;
     }
