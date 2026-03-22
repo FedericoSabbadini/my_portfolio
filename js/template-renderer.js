@@ -460,7 +460,7 @@ class TemplateRenderer {
                 <p>Download CV</p>
             </a>
             <a href="${social.europass.url}" target="_blank" class="card contact-card" download>
-                <div class="contact-icon">${social.europass.icon}</div>
+                <div class="contact-icon">${social.cv.icon}</div>
                 <h3>Europass</h3>
                 <p>Download Europass</p>
             </a>
