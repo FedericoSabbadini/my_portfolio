@@ -6,7 +6,7 @@
       {
         "id": "generative-ai-for-media",
         "name": "Generative AI for Media",
-        "grade": "--/30",
+        "grade": "current",
         "description": "This course introduces the theoretical and practical foundations of generative artificial intelligence for multimedia. It covers signal teory, including Fourier analysis, and the generation of audio, images and videos using generative models.",
         "tags": [
           "Signal Theory",
@@ -19,7 +19,7 @@
       {
         "id": "reinforcement-learning",
         "name": "Reinforcement Learning",
-        "grade": "--/30",
+        "grade": "current",
         "description": "Advanced reinforcement learning techniques for decision-making in dynamic environments. Covers Q-learning, policy gradients, actor-critic methods, and multi-agent systems. Implemented with Python and reinforcement learning frameworks like Gymnasium and Stable Baselines3.",
         "tags": [
           "Reinforcement Learning",
@@ -32,7 +32,7 @@
       {
         "id": "digital-transformation",
         "name": "Digital Transformation",
-        "grade": "--/30",
+        "grade": "current",
         "description": "The use of Large Language Models (LLMs) and methodologies such as Retrieval-Augmented Generation (RAG) for handling unstructured knowledge is examined, together with advanced machine learning techniques including reinforcement learning and LLM-based decision making.",
         "tags": [
           "LLMs",
@@ -45,7 +45,7 @@
       {
         "id": "artificial-intelligence",
         "name": "Artificial Intelligence",
-        "grade": "--/30",
+        "grade": "current",
         "description": "Technical AI course focused on state-space search algorithms (BFS, DFS, A*, IDA*, local search), heuristic design, propositional and FOL with resolution and unification, CSP (backtracking, arc-consistency), automated planning using STRIPS/ADL/PDDL and Graphplan and probabilistic reasoning with Bayesian Networks.",
         "tags": [
           "AI Algorithms",
