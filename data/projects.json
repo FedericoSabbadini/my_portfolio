@@ -28,8 +28,8 @@
       "period": "Feb 2025 - Present",
       "badge": "Security",
       "badgeClass": "badge-warning",
-      "description": "Developed an AI-driven automated planning system that generates optimal security hardening strategies for enterprise networks. The system analyzes network topology, identifies vulnerable services and open ports, then produces actionable remediation plans that balance security improvements with operational continuity using constraint satisfaction techniques.",
-      "tags": ["Python", "AI Planning", "Security", "Automation"],
+      "description": "Developed an automated planning system using Unified Planning and Fast Downward that models network hardening as a classical planning problem. The system encodes hosts, services and ports with actions like migration and shutdown, then computes cost-optimal remediation plans that enforce security policies while preserving operational continuity constraints.",
+      "tags": ["AI Planning", "Unified Planning", "FastDownward"],
       "url": "https://github.com/FedericoSabbadini/network-hardening-planner",
       "featured": false
     },
