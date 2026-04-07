@@ -20,7 +20,7 @@
       "description": "A hands-on Big Data project showcasing how different database models and distributed computing paradigms are applied to real-world datasets, such as Amazon Food Reviews, LAPD Crime Data and arXiv publications. The repository demonstrates querying, modeling, analytics, and performance comparisons across modern big data technologies.",
       "tags": ["MongoDB", "InfluxDB", "Neo4J", "Map-reduce"],
       "url": "https://github.com/FedericoSabbadini/dataNexus",
-      "featured": true
+      "featured": false
     },
     {
       "id": "f1-deepL",
