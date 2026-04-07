@@ -1,6 +1,17 @@
 {
   "projects": [
     {
+      "id": "network-hardening",
+      "title": "Network Hardening Planner",
+      "period": "Feb 2026 - Apr 2026",
+      "badge": "Security",
+      "badgeClass": "badge-warning",
+      "description": "Developed an automated planning system using Unified Planning and Fast Downward that models network hardening as a classical planning problem. The system encodes hosts, services and ports with actions like migration and shutdown, then computes cost-optimal remediation plans that enforce security policies while preserving operational continuity constraints.",
+      "tags": ["AI Planning", "Unified Planning", "FastDownward"],
+      "url": "https://github.com/FedericoSabbadini/network-hardening-planner",
+      "featured": true
+    },
+    {
       "id": "data-nexus",
       "title": "dataNexus Big Data Engineering",
       "period": "Dec 2025 - Jan 2026",
@@ -20,17 +31,6 @@
       "description": "Built an end-to-end deep learning pipeline that predicts Formula 1 pit stop timing and tire compound selection using real-world telemetry from the FastF1 API. Achieved 0.78 AUC for pit timing prediction and 78% accuracy on compound choice using Transformers with self-attention mechanisms, handling time-series data across 20+ race weekends.",
       "tags": ["LSTM", "FastF1 API", "Transformers", "Time Series"],
       "url": "https://github.com/FedericoSabbadini/f1-strategy-predictor",
-      "featured": true
-    },
-    {
-      "id": "network-hardening",
-      "title": "Network Hardening Planner",
-      "period": "Feb 2026 - Apr 2026",
-      "badge": "Security",
-      "badgeClass": "badge-warning",
-      "description": "Developed an automated planning system using Unified Planning and Fast Downward that models network hardening as a classical planning problem. The system encodes hosts, services and ports with actions like migration and shutdown, then computes cost-optimal remediation plans that enforce security policies while preserving operational continuity constraints.",
-      "tags": ["AI Planning", "Unified Planning", "FastDownward"],
-      "url": "https://github.com/FedericoSabbadini/network-hardening-planner",
       "featured": true
     },
     {
