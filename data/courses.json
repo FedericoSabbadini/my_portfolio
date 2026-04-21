@@ -15,7 +15,7 @@
         ],
         "news": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/1399/insegnamenti/2025/8597_139622_29610/2023/8597?coorte=2024"
-      },      
+      },
       {
         "id": "reinforcement-learning",
         "name": "Reinforcement Learning",
@@ -27,8 +27,8 @@
           "Deep Reinforcement Learning"
         ],
         "news": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_139627_29560/2011/8595?coorte=2024"     
-      },      
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_139627_29560/2011/8595?coorte=2024"
+      },
       {
         "id": "digital-transformation",
         "name": "Digital Transformation",
@@ -43,16 +43,17 @@
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131028_28209/2011/8595?schemaid=3260"
       },
       {
-        "id": "artificial-intelligence",
-        "name": "Artificial Intelligence",
-        "grade": "current",
+        "id": "symbolic-ai",
+        "name": "Symbolic AI",
+        "grade": "29/30",
         "description": "Technical AI course focused on state-space search algorithms (BFS, DFS, A*, IDA*, local search), heuristic design, propositional and FOL with resolution and unification, CSP (backtracking, arc-consistency), automated planning using STRIPS/ADL/PDDL and Graphplan and probabilistic reasoning with Bayesian Networks.",
         "tags": [
-          "AI Algorithms",
+          "FOL",
+          "CSPs",
           "Automated Reasoning",
           "Planning"
         ],
-        "news": false,
+        "news": true,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2022/86/insegnamenti/2023/8097_114632_799/2011/8097_2528?schemaid=2528"
       },
       {
@@ -69,7 +70,7 @@
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131043_28250/2011/8595_3260?schemaid=3260"
       },
       {
-        "id": "deep-learning", 
+        "id": "deep-learning",
         "name": "Deep Learning",
         "grade": "29/30",
         "description": "Course focused on deep neural network models and training techniques. Covers gradient-based learning and backpropagation, regularization and optimization strategies, convolutional and recurrent neural networks with attention mechanisms. Includes practical implementation for computer vision and NLP.",
@@ -91,7 +92,7 @@
           "Data Architectures",
           "Distributed Systems"
         ],
-        "news": true,
+        "news": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131044_21557/2011/8595_3260?schemaid=3260"
       },
       {
