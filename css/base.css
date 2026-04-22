@@ -150,6 +150,7 @@ body:not(.loading) #footer-placeholder {
 
 .section-alt {
     background: var(--bg-secondary);
+    padding: var(--space-2xl) 0;
 }
 
 .section-header {
