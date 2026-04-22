@@ -53,6 +53,10 @@
         text-align: center;
     }
     
+    .hero-subtitle {
+        display: none;
+    }
+
     .hero-image {
         order: -1;
     }
@@ -426,7 +430,6 @@
     font-size: 1.125rem;
 }
 
-/* ---------- Modern hero/header refinements (2026 refresh) ---------- */
 
 /* Hero title consistent with subtitle */
 .hero-title {

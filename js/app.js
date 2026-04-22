@@ -207,9 +207,7 @@ class PortfolioApp {
         if (personal && social) {
             this.updateElement('hero-name', personal.name);
             this.updateElement('hero-title', personal.title + ' · University of Brescia');
-            // Use a specific, concrete description instead of the generic tagline
-            const heroDesc = `Master's student focused on machine learning, cybersecurity and cloud systems. Available for collaborations and internships from autumn 2026.`;
-            this.updateElement('hero-description', heroDesc);
+            this.updateElement('hero-description', personal.tagline);
             this.updateAttribute('hero-image', 'src', personal.profileImage);
             this.updateAttribute('hero-github', 'href', social.github.url);
         }
