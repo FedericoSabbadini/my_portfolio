@@ -207,7 +207,7 @@ class PortfolioApp {
         if (personal && social) {
             this.updateElement('hero-name', personal.name);
             this.updateElement('hero-title', personal.title + ' · University of Brescia');
-            this.updateElement('hero-description', personal.tagline);
+            this.updateElement('hero-subtitle', personal.tagline);
             this.updateAttribute('hero-image', 'src', personal.profileImage);
             this.updateAttribute('hero-github', 'href', social.github.url);
         }
