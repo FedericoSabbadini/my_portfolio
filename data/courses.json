@@ -454,6 +454,20 @@
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98448_10889/2011/7617_2514?schemaid=2514"
       },
       {
+        "id": "philosophy-refresher-2",
+        "name": "Philosophy II",
+        "grade": "30/30",
+        "description": "From rationalism to contemporary thought: Descartes, Spinoza, Kant, Fichte, Schelling, Hegel, Schopenhauer, Kierkegaard, Marx, Nietzsche, Bergson, Freud. Knowledge, history, existence, psyche.",
+        "tags": [
+          "Modern Philosophy",
+          "Contemporary Philosophy",
+          "Epistemology",
+          "Political Philosophy"
+        ],
+        "news": false,
+        "url": "https://huggingface.co/datasets/federicosabbadini/philosophy"
+      },
+      {
         "id": "analysis1",
         "name": "Mathematical Analysis I",
         "grade": "24/30",
@@ -543,21 +557,7 @@
           "Ethics"
         ],
         "news": false,
-        "url": "https://huggingface.co/datasets/federicosabbadini/Philosophy"
-      },
-      {
-        "id": "philosophy-refresher-2",
-        "name": "Philosophy II",
-        "grade": "30/30",
-        "description": "From rationalism to contemporary thought: Descartes, Spinoza, Kant, Fichte, Schelling, Hegel, Schopenhauer, Kierkegaard, Marx, Nietzsche, Bergson, Freud. Knowledge, history, existence, psyche.",
-        "tags": [
-          "Modern Philosophy",
-          "Contemporary Philosophy",
-          "Epistemology",
-          "Political Philosophy"
-        ],
-        "news": false,
-        "url": "https://huggingface.co/datasets/federicosabbadini/Philosophy"
+        "url": "https://huggingface.co/datasets/federicosabbadini/philosophy"
       }
     ]
   }
