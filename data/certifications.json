@@ -14,6 +14,17 @@
       "news": false
     },
     {
+  			"id": "python-pro",
+  			"title": "Python Pro - Guida Completa alla Programmazione",
+  			"issuer": "Udemy",
+  			"issuerIcon": "udemy",
+  			"date": "Semptember 2025",
+  			"description": "Comprehensive Python course covering fundamentals to advanced topics. Includes data structures, control flow, and strong focus on object-oriented programming (classes, inheritance, MRO). Features practical exercises, file handling, virtual environments, and real-world projects with MongoDB and RabbitMQ. Also covers OpenAI API integration for building conversational applications.",
+  			"tags": ["Python", "OOP", "Software Development", "APIs", "Databases"],
+  			"featured": false,
+  			"url": ""
+		}
+    {
       "id": "metasploit",
       "title": "Metasploit Penetration Testing",
       "issuer": "EC-Council",
