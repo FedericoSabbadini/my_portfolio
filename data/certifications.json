@@ -29,7 +29,7 @@
       "title": "Metasploit Penetration Testing",
       "issuer": "EC-Council",
       "issuerIcon": "ec-council",
-      "date": "November 2025",
+      "date": "November 2025 ",
       "certId": "448767",
       "description": "Specialized certification in offensive security using the Metasploit Framework. Mastered vulnerability assessment workflows, exploit development, payload generation, and post-exploitation techniques. Hands-on experience with msfconsole, auxiliary modules, and automated attack automation for enterprise penetration testing scenarios.",
       "tags": ["Pentesting", "Metasploit", "Exploit Development"],
