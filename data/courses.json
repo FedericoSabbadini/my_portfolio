@@ -288,7 +288,7 @@
         "id": "ii-systems",
         "name": "Computer Systems",
         "grade": "30L/30",
-        "description": "Advanced computer architecture covering multiprocessor systems (UMA/NUMA/COMA), client-server architectures, middleware platforms, clustering technologies, and storage systems. Analyzed performance metrics, backup strategies, and enterprise computing infrastructure design.",
+        "description": "Advanced computer architecture covering multiprocessor systems (UMA/NUMA/COMA), client-server architectures, middleware platforms, clustering technologies, and storage systems. Analyzed performance metrics, backup strategies, and enterprise computing infrastructure design. C/S implementation in RabbitMQ (Pika)",
         "tags": [
           "Distributed Systems",
           "Multiprocessor",
