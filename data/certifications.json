@@ -59,6 +59,7 @@
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "September 2025",
+      "certId": "UC-b68fafc5-e4e1-4222-bcbf-4c66dae5fa3f",
       "description": "Comprehensive Python course covering fundamentals to advanced topics. Includes data structures, control flow, and strong focus on object-oriented programming (classes, inheritance, MRO). Features practical exercises, file handling, virtual environments, and real-world projects with MongoDB and RabbitMQ. Also covers OpenAI API integration for building conversational applications.",
       "tags": [
         "Python",
