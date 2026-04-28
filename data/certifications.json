@@ -41,7 +41,7 @@
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "December 2025",
-      "certId": "N/A",
+      "certId": "UC-e444b893-baa1-4f06-b75d-3688c79a47b2",
       "description": "Practical data science course using Python focused on real-world retail/e-commerce datasets. Covers full workflow from data cleaning and exploratory data analysis to predictive modeling. Includes NumPy, Pandas, Matplotlib, Seaborn, feature engineering, and machine learning with scikit-learn to build sales forecasting models and extract actionable business insights.",
       "tags": [
         "Data Science",
@@ -50,7 +50,7 @@
         "Analytics"
       ],
       "featured": false,
-      "url": ""
+      "url": "https://www.udemy.com/certificate/UC-e444b893-baa1-4f06-b75d-3688c79a47b2/"
     },
     {
       "id": "python-pro",
