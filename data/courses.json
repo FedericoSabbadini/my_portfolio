@@ -176,13 +176,13 @@
       },
       {
         "id": "machine-learning",
-        "name": "Machine Learning & Data Mining",
+        "name": "Machine Learning",
         "grade": "27/30",
-        "description": "Comprehensive machine learning course covering supervised learning (decision trees, SVM, neural networks, ensemble methods), unsupervised learning (K-means, DBSCAN, hierarchical clustering), and NLP fundamentals. Hands-on Python implementation with scikit-learn, feature engineering, model evaluation, and real-world data mining applications.",
+        "description": "Comprehensive machine learning course covering supervised learning (decision trees, SVM, neural networks, ensemble methods) and unsupervised learning (K-means, DBSCAN, hierarchical clustering). Hands-on Python implementation with scikit-learn, feature engineering, model evaluation, and real-world applications.",
         "tags": [
-          "Neural Networks",
+          "Random Forests",
           "Scikit-learn",
-          "NLP"
+          "Unsupervised"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121888_10729/2011/8595_3260?schemaid=3260"
