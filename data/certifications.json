@@ -19,24 +19,6 @@
       "url": ""
     },
     {
-      "id": "python-data-science-sales",
-      "title": "Data Science with Python: Data, Insight and Sell Predictions",
-      "issuer": "Udemy",
-      "issuerIcon": "udemy",
-      "date": "February 2026",
-      "certId": "N/A",
-      "description": "Practical data science course using Python focused on real-world retail/e-commerce datasets. Covers full workflow from data cleaning and exploratory data analysis to predictive modeling. Includes NumPy, Pandas, Matplotlib, Seaborn, feature engineering, and machine learning with scikit-learn to build sales forecasting models and extract actionable business insights.",
-      "tags": [
-        "Data Science",
-        "Python",
-        "Pandas",
-        "Machine Learning",
-        "Analytics"
-      ],
-      "featured": false,
-      "url": ""
-    },
-    {
       "id": "cct",
       "title": "C|CT Certified Cybersecurity Technician",
       "issuer": "EC-Council",
@@ -52,6 +34,23 @@
       "featured": false,
       "url": "https://learn.eccouncil.org/certificate/f70bfdc3-cbef-4ce3-8a2b-86c5a07d000f?logged=false",
       "news": false
+    },
+    {
+      "id": "python-data-science-sales",
+      "title": "Data Science with Python: Data, Insight and Sell Predictions",
+      "issuer": "Udemy",
+      "issuerIcon": "udemy",
+      "date": "December 2025",
+      "certId": "N/A",
+      "description": "Practical data science course using Python focused on real-world retail/e-commerce datasets. Covers full workflow from data cleaning and exploratory data analysis to predictive modeling. Includes NumPy, Pandas, Matplotlib, Seaborn, feature engineering, and machine learning with scikit-learn to build sales forecasting models and extract actionable business insights.",
+      "tags": [
+        "Data Science",
+        "Numpy",
+        "Pandas",
+        "Analytics"
+      ],
+      "featured": false,
+      "url": ""
     },
     {
       "id": "python-pro",
