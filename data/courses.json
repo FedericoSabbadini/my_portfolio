@@ -33,7 +33,7 @@
         "id": "digital-transformation",
         "name": "Digital Transformation",
         "grade": "N/A",
-        "description": "The use of Large Language Models (LLMs) and methodologies such as Retrieval-Augmented Generation (RAG) for handling unstructured knowledge is examined, together with advanced machine learning techniques including reinforcement learning and LLM-based decision making.",
+        "description": "The use of Large Language Models (LLMs) and methodologies such as Retrieval-Augmented Generation (RAG) for handling unstructured knowledge is examined, together with advanced machine learning techniques including reinforcement learning and LLM-based decision making. Learn how to do research and realize technical relations.",
         "tags": [
           "LLMs",
           "RAG",
