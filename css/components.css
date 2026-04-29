@@ -995,6 +995,6 @@
 
 .nav-home-icon {
     height: auto;   
-    width: auto;
+    width: clamp(18px, 1.5vw, 24px);    
     display: block;
 }
