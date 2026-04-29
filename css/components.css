@@ -981,6 +981,7 @@
     align-items: center;
 }
 .hf-link:hover {
+    text-decoration: none;
     transform: scale(1.2);
     opacity: 0.8;
 }
