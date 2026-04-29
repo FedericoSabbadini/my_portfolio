@@ -539,33 +539,32 @@
     "subtitle": "Salesiani San Bernardino, Chiari (BS) • 2016-2021 • Final Grade: 100/100",
     "courses": [
       {
-        "id": "philosophy-refresher-2",
-        "name": "Philosophy II",
+        "id": "philosophy-contemporary",
+        "name": "Philosophy III — Modern & Contemporary Thought",
         "grade": "10/10",
-        "description": "From rationalism to contemporary thought: Descartes, Spinoza, Kant, Fichte, Schelling, Hegel, Schopenhauer, Kierkegaard, Marx, Nietzsche, Bergson, Freud. Knowledge, history, existence, psyche.",
-        "tags": [
-          "Modern Philosophy",
-          "Contemporary Philosophy",
-          "Epistemology",
-          "Political Philosophy"
-        ],
+        "description": "Kant, German Idealism, Marx, Schopenhauer, Nietzsche, Kierkegaard, positivism, existentialism, and Freud.",
+        "tags": ["German Idealism", "Existentialism", "Psychoanalysis"],
         "news": false,
         "hfUrl": "https://huggingface.co/datasets/federicosabbadini/highSchool/tree/main/Anno%20V/Filosofia"
       },
       {
-        "id": "philosophy-1",
-        "name": "Philosophy I",
+        "id": "philosophy-modern",
+        "name": "Philosophy II — Early Modern Philosophy",
         "grade": "10/10",
-        "description": "From Presocratics to late Middle Ages: Socrates, Plato, Aristotle, Sophists, Parmenides, Augustine, Thomas Aquinas, Ockham. Foundations of metaphysics, logic, ethics, and faith–reason.",
-        "tags": [
-          "Ancient Philosophy",
-          "Medieval Philosophy",
-          "Metaphysics",
-          "Ethics"
-        ],
+        "description": "Rationalism and empiricism from Descartes to Hume, including Locke, Hobbes, and the Scientific Revolution.",
+        "tags": ["Rationalism", "Empiricism", "Political Philosophy"],
         "news": false,
         "hfUrl": "https://huggingface.co/datasets/federicosabbadini/highSchool/tree/main/Anno%20IV/Filosofia"
-      }
+      },
+      {
+        "id": "philosophy-ancient",
+        "name": "Philosophy I — Ancient & Medieval Thought",
+        "grade": "10/10",
+        "description": "Presocratic philosophy, Plato, Aristotle, Hellenistic schools, Patristics, and Scholastic philosophy including Aquinas and Ockham.",
+        "tags": ["Ancient Philosophy", "Medieval Philosophy", "Metaphysics"],
+        "news": false,
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/highSchool/tree/main/Anno%20III/Filosofia"
+      },
     ]
   }
 }
