@@ -203,7 +203,7 @@ class TemplateRenderer {
     /**
      * Render courses
      * @param {Array} courses - Courses array
-     * @param {string} type - 'master' or 'bachelor'
+     * @param {string} type - 'master' or 'bachelor' or 'high school'
      * @returns {string}
      */
     renderCourses(courses, type = 'master') {
