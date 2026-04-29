@@ -973,7 +973,7 @@
 
 /* Hugging Face material link icon */
 .hf-link {
-    margin-left: auto; /* Allinea l'icona a destra */
+    margin-right: 0rem;
     font-size: 1.1rem;
     text-decoration: none;
     transition: transform 0.2s ease, opacity 0.2s ease;
@@ -983,4 +983,5 @@
 .hf-link:hover {
     transform: scale(1.2);
     opacity: 0.8;
+    text-decoration: none;
 }
