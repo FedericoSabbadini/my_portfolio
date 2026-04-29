@@ -395,6 +395,16 @@ class PortfolioApp {
         if (certsContainer && certifications) {
             certsContainer.innerHTML = this.renderer.renderCertifications(certifications);
         }
+
+        // Render high school's courses
+        if (coursesData?.highschools) {
+            this.updateElement('highschools-title', coursesData.highschools.title);
+            this.updateElement('highschools-subtitle', coursesData.highschools.subtitle);
+            const highschoolsContainer = document.getElementById('highschools-courses');
+            if (highschoolsContainer) {
+                highschoolsContainer.innerHTML = this.renderer.renderCourses(coursesData.highschools.courses, 'high school');
+            }
+        }
     }
 
     /**

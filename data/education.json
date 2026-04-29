@@ -43,7 +43,7 @@
       "hfUrl": ""
     },
     {
-      "id": "highschool",
+      "id": "highschools",
       "degree": "Scientific High School Diploma",
       "institution": "Salesiani San Bernardino, Chiari (BS)",
       "period": "Sep 2016 - Sep 2021",
@@ -51,7 +51,7 @@
       "statusLabel": "Completed",
       "statusBadge": "badge-primary",
       "gpa": "100/100",
-      "description": "Scientific curriculum with focus on mathematics, physics, and sciences. Participated in study abroad program at Pitzer College, USA (Jul-Aug 2019).",
+      "description": "Scientific curriculum with focus on mathematic, art, history, physic, and sciences. Participated in study abroad program at Pitzer College, USA (Jul-Aug 2019).",
       "featured": false,
       "news": false,
       "url": "https://salesianichiari.it/scuole/licei/liceo-scientifico/",
