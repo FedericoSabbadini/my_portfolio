@@ -94,7 +94,7 @@ class PortfolioApp {
             'about': [],
             'contacts': [],
             'courses': ['courses'],
-            'certs': ['certs'],
+            'certs': ['certifications'],            
             'resources': ['projects'],
             'journey': ['education', 'work']
         };
@@ -182,7 +182,7 @@ class PortfolioApp {
             'about': () => this.renderAboutPage(),
             'contacts': () => this.renderContactsPage(),
             'courses': () => this.renderCoursesPage(),
-            'certs': () => this.renderCertsPagePage(),
+            'certs': () => this.renderCertsPage(),
             'resources': () => this.renderResourcesPage(),
             'journey': () => this.renderJourneyPage()
         };
