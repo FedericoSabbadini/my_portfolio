@@ -93,7 +93,8 @@ class PortfolioApp {
             'index': ['projects', 'courses', 'certifications', 'education', 'work'],
             'about': [],
             'contacts': [],
-            'courses': ['courses', 'certifications'],
+            'courses': ['courses'],
+            'certs': ['certs'],
             'resources': ['projects'],
             'journey': ['education', 'work']
         };
@@ -181,6 +182,7 @@ class PortfolioApp {
             'about': () => this.renderAboutPage(),
             'contacts': () => this.renderContactsPage(),
             'courses': () => this.renderCoursesPage(),
+            'certs': () => this.renderCertsPagePage(),
             'resources': () => this.renderResourcesPage(),
             'journey': () => this.renderJourneyPage()
         };
@@ -368,7 +370,6 @@ class PortfolioApp {
      */
     renderCoursesPage() {
         const coursesData = this.data.courses;
-        const certifications = this.data.certifications?.certifications;
 
         // Render master's courses
         if (coursesData?.masters) {
@@ -390,12 +391,6 @@ class PortfolioApp {
             }
         }
 
-        // Render certifications
-        const certsContainer = document.getElementById('certifications-container');
-        if (certsContainer && certifications) {
-            certsContainer.innerHTML = this.renderer.renderCertifications(certifications);
-        }
-
         // Render high school's courses
         if (coursesData?.highschools) {
             this.updateElement('highschools-title', coursesData.highschools.title);
@@ -404,6 +399,19 @@ class PortfolioApp {
             if (highschoolsContainer) {
                 highschoolsContainer.innerHTML = this.renderer.renderCourses(coursesData.highschools.courses, 'high school');
             }
+        }
+    }
+
+    /**
+     * Render courses page
+     */
+    renderCertsPage() {
+        const certifications = this.data.certifications?.certifications;
+
+        // Render certifications
+        const certsContainer = document.getElementById('certifications-container');
+        if (certsContainer && certifications) {
+            certsContainer.innerHTML = this.renderer.renderCertifications(certifications);
         }
     }
 
