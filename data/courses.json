@@ -198,7 +198,8 @@
           "Control Theory"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121913_772/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121913_772/2011/8595_3260?schemaid=3260",
+        "hfUrl": ""
       },
       {
         "id": "scientific-computing",
@@ -465,7 +466,8 @@
           "Political Philosophy"
         ],
         "news": false,
-        "url": "https://huggingface.co/datasets/federicosabbadini/philosophy"
+        "url": "https://huggingface.co/datasets/federicosabbadini/philosophy",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/philosophy"
       },
       {
         "id": "analysis1",

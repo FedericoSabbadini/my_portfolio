@@ -108,7 +108,7 @@ class TemplateRenderer {
                         ${edu.description}
                     </p>
     
-                    ${(edu.thesis || edu.url) ? `
+                    ${(edu.thesis || edu.url || edu.hfUrl) ? `
                         <div class="course-footer">
                             ${edu.thesis ? `
                                 <a href="${edu.thesis.url}" target="_blank" class="link">View Thesis →</a>
@@ -116,6 +116,10 @@ class TemplateRenderer {
                             ${edu.url ? `
                                 <a href="${edu.url}" target="_blank" class="link">View Details →</a>
                             ` : ''}
+                            ${edu.hfUrl
+                                ? `<a href="${edu.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>`
+                                : `<span class="hf-placeholder" title="No material linked" style="opacity:0.35;cursor:default;">📂</span>`
+                            }
                         </div>
                     ` : ''}
                 </div>
@@ -216,9 +220,13 @@ class TemplateRenderer {
                 <div class="tags">
                     ${course.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
-                ${course.url ? `
+                ${(course.url || course.hfUrl) ? `
                     <div class="course-footer">
-                        <a href="${course.url}" target="_blank" class="link">View Details →</a>
+                        ${course.url ? `<a href="${course.url}" target="_blank" class="link">View Details →</a>` : ''}
+                        ${course.hfUrl
+                            ? `<a href="${course.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>`
+                            : `<span class="hf-placeholder" title="No material linked" style="opacity:0.35;cursor:default;">📂</span>`
+                        }
                     </div>
                 ` : ''}
             </div>
@@ -272,9 +280,13 @@ class TemplateRenderer {
                 <div class="tags">
                     ${course.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
-                ${course.url ? `
+                ${(course.url || course.hfUrl) ? `
                     <div class="featured-footer">
-                        <a href="${course.url}" target="_blank" class="link">View Details →</a>
+                        ${course.url ? `<a href="${course.url}" target="_blank" class="link">View Details →</a>` : ''}
+                        ${course.hfUrl
+                            ? `<a href="${course.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>`
+                            : `<span class="hf-placeholder" title="No material linked" style="opacity:0.35;cursor:default;">📂</span>`
+                        }
                     </div>
                 ` : ''}
             </div>
@@ -300,9 +312,13 @@ class TemplateRenderer {
                 <div class="tags">
                     ${cert.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
-                ${cert.url ? `
+                ${(cert.url || cert.hfUrl) ? `
                     <div class="featured-footer">
-                        <a href="${cert.url}" target="_blank" class="link">View Certificate →</a>
+                        ${cert.url ? `<a href="${cert.url}" target="_blank" class="link">View Certificate →</a>` : ''}
+                        ${cert.hfUrl
+                            ? `<a href="${cert.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>`
+                            : `<span class="hf-placeholder" title="No material linked" style="opacity:0.35;cursor:default;">📂</span>`
+                        }
                     </div>
                 ` : ''}
             </div>
@@ -384,9 +400,13 @@ class TemplateRenderer {
                 <div class="tags">
                     ${cert.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
-                ${cert.url ? `
+                ${(cert.url || cert.hfUrl) ? `
                     <div class="cert-footer">
-                        <a href="${cert.url}" target="_blank" class="link">View Certificate →</a>
+                        ${cert.url ? `<a href="${cert.url}" target="_blank" class="link">View Certificate →</a>` : ''}
+                        ${cert.hfUrl
+                            ? `<a href="${cert.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>`
+                            : `<span class="hf-placeholder" title="No material linked" style="opacity:0.35;cursor:default;">📂</span>`
+                        }
                     </div>
                 ` : ''}
             </div>

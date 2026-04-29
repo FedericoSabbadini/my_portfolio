@@ -10,10 +10,16 @@
       "statusBadge": "badge-success",
       "gpa": "N/A",
       "description": "Specializing in cybersecurity, systems administration, artificial intelligence, and advanced software engineering. Focusing on network security, machine learning applications, and enterprise system architecture.",
-      "tags": ["Cybersecurity", "Machine Learning", "Network Security", "Systems Administration"],
+      "tags": [
+        "Cybersecurity",
+        "Machine Learning",
+        "Network Security",
+        "Systems Administration"
+      ],
       "featured": false,
       "news": false,
-      "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/1479?codicione=0170107303300004"
+      "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/1479?codicione=0170107303300004",
+      "hfUrl": ""
     },
     {
       "id": "bachelors",
@@ -25,10 +31,16 @@
       "statusBadge": "badge-primary",
       "gpa": "104/110",
       "description": "Focused on computer systems, networks, software development, and security fundamentals. Completed thesis on OpenID Connect and Digital Identity Management.",
-      "tags": ["Problem Solving", "Computer Architectures", "Networks", "Algorithms"],
+      "tags": [
+        "Problem Solving",
+        "Computer Architectures",
+        "Networks",
+        "Algorithms"
+      ],
       "featured": true,
       "news": false,
-      "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/1476?codicione=0170106200800004"
+      "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/1476?codicione=0170106200800004",
+      "hfUrl": ""
     },
     {
       "id": "highschool",
@@ -42,7 +54,8 @@
       "description": "Scientific curriculum with focus on mathematics, physics, and sciences. Participated in study abroad program at Pitzer College, USA (Jul-Aug 2019).",
       "featured": false,
       "news": false,
-      "url": "https://salesianichiari.it/scuole/licei/liceo-scientifico/"
+      "url": "https://salesianichiari.it/scuole/licei/liceo-scientifico/",
+      "hfUrl": ""
     }
   ]
 }

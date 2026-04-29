@@ -16,7 +16,8 @@
         "APIs"
       ],
       "featured": false,
-      "url": ""
+      "url": "",
+      "hfUrl": ""
     },
     {
       "id": "cct",
@@ -33,7 +34,8 @@
       ],
       "featured": false,
       "url": "https://learn.eccouncil.org/certificate/f70bfdc3-cbef-4ce3-8a2b-86c5a07d000f?logged=false",
-      "news": false
+      "news": false,
+      "hfUrl": ""
     },
     {
       "id": "python-data-science-sales",
@@ -50,7 +52,8 @@
         "Analytics"
       ],
       "featured": false,
-      "url": "https://www.udemy.com/certificate/UC-e444b893-baa1-4f06-b75d-3688c79a47b2/"
+      "url": "https://www.udemy.com/certificate/UC-e444b893-baa1-4f06-b75d-3688c79a47b2/",
+      "hfUrl": ""
     },
     {
       "id": "python-pro",
@@ -68,7 +71,8 @@
         "Databases"
       ],
       "featured": false,
-      "url": "https://www.udemy.com/certificate/UC-b68fafc5-e4e1-4222-bcbf-4c66dae5fa3f/"
+      "url": "https://www.udemy.com/certificate/UC-b68fafc5-e4e1-4222-bcbf-4c66dae5fa3f/",
+      "hfUrl": ""
     },
     {
       "id": "metasploit",
@@ -84,7 +88,8 @@
         "Exploit Development"
       ],
       "featured": false,
-      "url": "https://learn.eccouncil.org/certificate/3cc4db0f-8853-4802-8f8b-f3349d989abc?logged=false"
+      "url": "https://learn.eccouncil.org/certificate/3cc4db0f-8853-4802-8f8b-f3349d989abc?logged=false",
+      "hfUrl": ""
     },
     {
       "id": "wireshark",
@@ -100,7 +105,8 @@
         "Protocol Analysis"
       ],
       "featured": false,
-      "url": "https://learn.eccouncil.org/certificate/ceddc3d6-739c-4483-88f8-bd2689a5a928?logged=false"
+      "url": "https://learn.eccouncil.org/certificate/ceddc3d6-739c-4483-88f8-bd2689a5a928?logged=false",
+      "hfUrl": ""
     },
     {
       "id": "sustainability",
@@ -116,7 +122,8 @@
         "Green IT"
       ],
       "featured": false,
-      "url": "https://app.myopenbadge.com/receive/shared/dqhYAngJT-af5110b6fa7a07f5be5e628f6229d366-aSKG-5/public"
+      "url": "https://app.myopenbadge.com/receive/shared/dqhYAngJT-af5110b6fa7a07f5be5e628f6229d366-aSKG-5/public",
+      "hfUrl": ""
     },
     {
       "id": "blockchain",
@@ -132,7 +139,8 @@
         "DLT"
       ],
       "featured": false,
-      "url": "https://www.udemy.com/certificate/UC-e34daeb8-8deb-421b-945f-93f26139d648/"
+      "url": "https://www.udemy.com/certificate/UC-e34daeb8-8deb-421b-945f-93f26139d648/",
+      "hfUrl": ""
     },
     {
       "id": "smm",
@@ -148,7 +156,8 @@
         "Content Strategy"
       ],
       "featured": false,
-      "url": "https://www.udemy.com/certificate/UC-6ecfe171-ce58-4fff-9f6e-ee8e1adfff09/"
+      "url": "https://www.udemy.com/certificate/UC-6ecfe171-ce58-4fff-9f6e-ee8e1adfff09/",
+      "hfUrl": ""
     },
     {
       "id": "english",
@@ -164,7 +173,8 @@
         "Professional"
       ],
       "featured": false,
-      "url": "https://bestr.it/award/show/Me1OpE9VRNuhrL5DsQqTUQ"
+      "url": "https://bestr.it/award/show/Me1OpE9VRNuhrL5DsQqTUQ",
+      "hfUrl": ""
     },
     {
       "id": "agile",
@@ -180,7 +190,8 @@
         "Project Management"
       ],
       "featured": false,
-      "url": "https://app.myopenbadge.com/receive/CAdLUyg-5507eb013c32ee84b94e253a62d92b13-3v74W5CyqQ-11757932261/yrealG-4dc01cbdd6b77b40065b2368cf337283-Z1XsLPT-6/public"
+      "url": "https://app.myopenbadge.com/receive/CAdLUyg-5507eb013c32ee84b94e253a62d92b13-3v74W5CyqQ-11757932261/yrealG-4dc01cbdd6b77b40065b2368cf337283-Z1XsLPT-6/public",
+      "hfUrl": ""
     }
   ]
 }

@@ -970,3 +970,20 @@
     border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: 9999px;
 }
+/* Hugging Face material link icon */
+.hf-link {
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+.hf-link:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+.hf-placeholder {
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+}
