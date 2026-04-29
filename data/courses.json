@@ -455,21 +455,6 @@
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98448_10889/2011/7617_2514?schemaid=2514"
       },
       {
-        "id": "philosophy-refresher-2",
-        "name": "Philosophy II",
-        "grade": "30/30",
-        "description": "From rationalism to contemporary thought: Descartes, Spinoza, Kant, Fichte, Schelling, Hegel, Schopenhauer, Kierkegaard, Marx, Nietzsche, Bergson, Freud. Knowledge, history, existence, psyche.",
-        "tags": [
-          "Modern Philosophy",
-          "Contemporary Philosophy",
-          "Epistemology",
-          "Political Philosophy"
-        ],
-        "news": false,
-        "url": "https://huggingface.co/datasets/federicosabbadini/philosophy",
-        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/philosophy"
-      },
-      {
         "id": "analysis1",
         "name": "Mathematical Analysis I",
         "grade": "24/30",
@@ -546,11 +531,31 @@
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98374_169/2011/7617_2514?schemaid=2514"
+      }
+    ]
+  },
+  "highschool": {
+    "title": "Relevant High School Courses",
+    "subtitle": "Salesiani San Bernardino, Chiari (BS) • 2016-2021 • Final Grade: 100/100",
+    "courses": [
+      {
+        "id": "philosophy-refresher-2",
+        "name": "Philosophy II",
+        "grade": "10/10",
+        "description": "From rationalism to contemporary thought: Descartes, Spinoza, Kant, Fichte, Schelling, Hegel, Schopenhauer, Kierkegaard, Marx, Nietzsche, Bergson, Freud. Knowledge, history, existence, psyche.",
+        "tags": [
+          "Modern Philosophy",
+          "Contemporary Philosophy",
+          "Epistemology",
+          "Political Philosophy"
+        ],
+        "news": false,
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/highSchool/tree/main/Anno%20V/Filosofia"
       },
       {
-        "id": "philosophy-refresher-1",
+        "id": "philosophy-1",
         "name": "Philosophy I",
-        "grade": "30/30",
+        "grade": "10/10",
         "description": "From Presocratics to late Middle Ages: Socrates, Plato, Aristotle, Sophists, Parmenides, Augustine, Thomas Aquinas, Ockham. Foundations of metaphysics, logic, ethics, and faith–reason.",
         "tags": [
           "Ancient Philosophy",
@@ -559,7 +564,7 @@
           "Ethics"
         ],
         "news": false,
-        "url": "https://huggingface.co/datasets/federicosabbadini/philosophy"
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/highSchool/tree/main/Anno%20IV/Filosofia"
       }
     ]
   }
