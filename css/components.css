@@ -973,7 +973,7 @@
 
 /* Hugging Face material link icon */
 .hf-link {
-    margin-right: 0rem;
+    margin-left: auto;
     font-size: 1.1rem;
     text-decoration: none;
     transition: transform 0.2s ease, opacity 0.2s ease;
@@ -983,5 +983,10 @@
 .hf-link:hover {
     transform: scale(1.2);
     opacity: 0.8;
-    text-decoration: none;
+}
+.course-footer,
+.cert-footer,
+.featured-footer {
+    display: flex;
+    align-items: center;
 }
