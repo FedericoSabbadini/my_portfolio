@@ -564,7 +564,7 @@
         "tags": ["Ancient Philosophy", "Medieval Philosophy", "Metaphysics"],
         "news": false,
         "hfUrl": "https://huggingface.co/datasets/federicosabbadini/highSchool/tree/main/Anno%20III/Filosofia"
-      },
+      }
     ]
   }
 }
