@@ -222,7 +222,7 @@ class TemplateRenderer {
                 ${(course.url || course.hfUrl) ? `
                     <div class="course-footer">
                         ${course.url ? `<a href="${course.url}" target="_blank" class="link">View Details →</a>` : ''}
-                        ${edu.hfUrl ? ` <a href="${edu.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>` : ''}
+                        ${edu.hfUrl ? ` <a href="${course.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>` : ''}
                     </div>
                 ` : ''}
             </div>
@@ -279,7 +279,7 @@ class TemplateRenderer {
                 ${(course.url || course.hfUrl) ? `
                     <div class="featured-footer">
                         ${course.url ? `<a href="${course.url}" target="_blank" class="link">View Details →</a>` : ''}
-                        ${edu.hfUrl ? ` <a href="${edu.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>` : ''}
+                        ${edu.hfUrl ? ` <a href="${course.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>` : ''}
                     </div>
                 ` : ''}
             </div>
@@ -308,7 +308,7 @@ class TemplateRenderer {
                 ${(cert.url || cert.hfUrl) ? `
                     <div class="featured-footer">
                         ${cert.url ? `<a href="${cert.url}" target="_blank" class="link">View Certificate →</a>` : ''}
-                        ${edu.hfUrl ? ` <a href="${edu.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>` : ''}
+                        ${edu.hfUrl ? ` <a href="${cert.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>` : ''}
                     </div>
                 ` : ''}
             </div>
@@ -393,7 +393,7 @@ class TemplateRenderer {
                 ${(cert.url || cert.hfUrl) ? `
                     <div class="cert-footer">
                         ${cert.url ? `<a href="${cert.url}" target="_blank" class="link">View Certificate →</a>` : ''}
-                        ${edu.hfUrl ? ` <a href="${edu.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>` : ''}
+                        ${edu.hfUrl ? ` <a href="${cert.hfUrl}" target="_blank" class="link hf-link" title="View material on Hugging Face">📂</a>` : ''}
                     </div>
                 ` : ''}
             </div>
