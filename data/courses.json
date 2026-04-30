@@ -14,7 +14,8 @@
           "Generative Models"
         ],
         "news": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/1399/insegnamenti/2025/8597_139622_29610/2023/8597?coorte=2024"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/1399/insegnamenti/2025/8597_139622_29610/2023/8597?coorte=2024",
+        "hfUrl": ""
       },
       {
         "id": "reinforcement-learning",
@@ -27,7 +28,8 @@
           "Deep Reinforcement Learning"
         ],
         "news": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_139627_29560/2011/8595?coorte=2024"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_139627_29560/2011/8595?coorte=2024",
+        "hfUrl": ""
       },
       {
         "id": "digital-transformation",
@@ -40,7 +42,8 @@
           "Agentic AI"
         ],
         "news": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131028_28209/2011/8595?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131028_28209/2011/8595?schemaid=3260",
+        "hfUrl": ""
       },
       {
         "id": "symbolic-ai",
@@ -54,7 +57,8 @@
           "Planning"
         ],
         "news": true,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2022/86/insegnamenti/2023/8097_114632_799/2011/8097_2528?schemaid=2528"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2022/86/insegnamenti/2023/8097_114632_799/2011/8097_2528?schemaid=2528",
+        "hfUrl": ""
       },
       {
         "id": "neural-network-architectures",
@@ -67,7 +71,8 @@
           "Generative Models"
         ],
         "news": true,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131043_28250/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131043_28250/2011/8595_3260?schemaid=3260",
+        "hfUrl": ""
       },
       {
         "id": "deep-learning",
@@ -80,7 +85,8 @@
           "Keras"
         ],
         "news": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131057_23755/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131057_23755/2011/8595_3260?schemaid=3260",
+        "hfUrl": ""
       },
       {
         "id": "advanced-information-systems-big-data",
@@ -93,7 +99,8 @@
           "Distributed Systems"
         ],
         "news": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131044_21557/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131044_21557/2011/8595_3260?schemaid=3260",
+        "hfUrl": ""
       },
       {
         "id": "network-security",
@@ -107,20 +114,8 @@
           "Wireless Security"
         ],
         "news": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121907_807/2011/8595_3260?schemaid=3260"
-      },
-      {
-        "id": "algebra-codes",
-        "name": "Algebra for Codes",
-        "grade": "30L/30",
-        "description": "Mathematical foundations for error-correcting codes and cryptographic systems. Studied algebraic structures (groups, rings, fields), finite field arithmetic (GF), linear codes, and coding theory applications. Explored Reed-Solomon codes, BCH codes, and their role in modern communication systems and data integrity verification.",
-        "tags": [
-          "Coding Theory",
-          "Finite Fields",
-          "Cryptography"
-        ],
-        "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121884_495/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121907_807/2011/8595_3260?schemaid=3260",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20IV/Network%20Security"
       },
       {
         "id": "business-strategy",
@@ -133,7 +128,8 @@
           "Competitive Advantage"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_123188_26413/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_123188_26413/2011/8595_3260?schemaid=3260",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20IV/Strategia%20Aziendale"
       },
       {
         "id": "info-systems",
@@ -146,7 +142,8 @@
           "Digital Transformation"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131012_21477/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131012_21477/2011/8595_3260?schemaid=3260",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20IV/Sistemi%20Informativi"
       },
       {
         "id": "web",
@@ -159,7 +156,8 @@
           "Full Stack"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131008_21479/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131008_21479/2011/8595_3260?schemaid=3260",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20IV/Programmazione%20Web%20e%20Servizi%20Digitali"
       },
       {
         "id": "sys-admin",
@@ -172,7 +170,8 @@
           "Cloud/Virtualization"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131007_781/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131007_781/2011/8595_3260?schemaid=3260",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20IV/Amministrazione%20Di%20Sistema"
       },
       {
         "id": "machine-learning",
@@ -185,7 +184,8 @@
           "Unsupervised"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121888_10729/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121888_10729/2011/8595_3260?schemaid=3260",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20IV/Machine%20Learning"
       },
       {
         "id": "modeling-simulation",
@@ -199,7 +199,7 @@
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121913_772/2011/8595_3260?schemaid=3260",
-        "hfUrl": ""
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20IV/Modellistica%20E%20Simulazione"
       },
       {
         "id": "scientific-computing",
@@ -212,7 +212,8 @@
           "ODE Solvers"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131010_10569/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131010_10569/2011/8595_3260?schemaid=3260",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20IV/Calcolo%20Scientifico"
       },
       {
         "id": "algorithms-ds",
@@ -225,7 +226,8 @@
           "Complexity Theory"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131011_10749/2011/8595_3260?schemaid=3260"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131011_10749/2011/8595_3260?schemaid=3260",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20IV/Algoritmi%20e%20Strutture%20Dati"
       }
     ]
   },
@@ -244,7 +246,8 @@
           "Vector Spaces"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/A000017-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=A000017"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/A000017-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=A000017",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20I/Algebra%20E%20Geometria"
       },
       {
         "id": "electronics",
@@ -257,7 +260,8 @@
           "Op-Amps"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109914_10905/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109914_10905/2011/7617?coorte=2021&schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20III/Elettronica%20Generale"
       },
       {
         "id": "electronics-systems",
@@ -270,7 +274,8 @@
           "FSM Design"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109915_10907/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109915_10907/2011/7617?coorte=2021&schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20III/Sistemi%20Di%20Elettronica%20Digitale"
       },
       {
         "id": "os-systems",
@@ -283,7 +288,8 @@
           "Shell Scripting"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109906_2774/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109906_2774/2011/7617?coorte=2021&schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20III/Sistemi%20Operativi"
       },
       {
         "id": "ii-systems",
@@ -296,7 +302,8 @@
           "Enterprise IT"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109904_507/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109904_507/2011/7617?coorte=2021&schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20III/Impianti%20Informatici"
       },
       {
         "id": "telecom",
@@ -309,7 +316,8 @@
           "Network Protocols"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109916_4553/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109916_4553/2011/7617?coorte=2021&schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20II/Reti%20Di%20Telecomunicazione"
       },
       {
         "id": "physics2",
@@ -322,20 +330,22 @@
           "Wave Optics"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnaments/2022/7617_106023_444/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnaments/2022/7617_106023_444/2011/7617?coorte=2021&schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20II/Fisica%20Elettromagnetica"
       },
       {
-        "id": "computer-networks",
-        "name": "Computer Networks",
+        "id": "normativa-tlc",
+        "name": "TLC normatives and regulamentation",
         "grade": "30/30",
-        "description": "Network engineering course covering OSI/TCP-IP models, routing protocols (RIP, OSPF, BGP), switching technologies, and network security fundamentals. Hands-on configuration of enterprise network infrastructure including VLANs, firewalls, and load balancers.",
+        "description": "Course on telecommunications regulation covering European and Italian legal frameworks for electronic communications, liberalization processes, universal service, and regulatory authorities. Topics include intellectual property, copyright, standardization bodies (ISO, ITU, IEEE), privacy regulations, and ethical/legal aspects of AI. Includes electromagnetic compatibility, workplace safety legislation, and practical lab activities with simulations.",
         "tags": [
-          "TCP/IP",
-          "Routing/Switching",
-          "Network Design"
+          "Telecommunications Law",
+          "Regulation",
+          "Privacy & Standards"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109905_516/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109905_516/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20III/Normative"
       },
       {
         "id": "electrical-circuits",
@@ -348,7 +358,8 @@
           "PSpice"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106044_10895/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106044_10895/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20II/Circuiti%20Elettrici"
       },
       {
         "id": "prog-languages",
@@ -361,7 +372,8 @@
           "Language Theory"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109911_2779/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109911_2779/2011/7617?coorte=2021&schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20III/Linguaggi%20Di%20Programmazione"
       },
       {
         "id": "databases",
@@ -374,7 +386,8 @@
           "Query Optimization"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109907_2775/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109907_2775/2011/7617?coorte=2021&schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20III/Database"
       },
       {
         "id": "language-tech",
@@ -387,7 +400,8 @@
           "Code Generation"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109932_21535/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109932_21535/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20III/Tecnologie%20Dei%20Linguaggi%20Artificiali"
       },
       {
         "id": "biology",
@@ -400,7 +414,8 @@
           "Medical Devices"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109931_18407/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109931_18407/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20III/Biomedicina"
       },
       {
         "id": "computer-architecture",
@@ -413,7 +428,8 @@
           "Pipelining"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106034_2767/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106034_2767/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20II/Calcolatori%20Elettronici"
       },
       {
         "id": "software-engineering",
@@ -426,7 +442,8 @@
           "Testing/QA"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109903_511/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109903_511/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20III/Ingegneria%20Del%20Software"
       },
       {
         "id": "advanced-programming",
@@ -439,7 +456,8 @@
           "Multithreading"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106029_502/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106029_502/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20II/Programmazione%20Avanzata%20C%20E%20Java%20"
       },
       {
         "id": "cs-fundamentals",
@@ -452,7 +470,8 @@
           "Programming Basics"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98448_10889/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98448_10889/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20I/Fondamenti%20Di%20Informatica"
       },
       {
         "id": "analysis1",
@@ -465,7 +484,8 @@
           "Differential Equations"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/703789-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=703789"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/703789-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=703789",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20I/Analisi%20Matematica%20"
       },
       {
         "id": "analysis2-or",
@@ -478,7 +498,8 @@
           "Vector Analysis"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106036_2772/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106036_2772/2011/7617?coorte=2021&schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20II/Analisi%20Matematica%20II"
       },
       {
         "id": "operative-research",
@@ -491,7 +512,8 @@
           "Gurobi"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106024_131/2011/7617?coorte=2021&schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106024_131/2011/7617?coorte=2021&schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20II/Ricerca%20Operativa"
       },
       {
         "id": "physics1",
@@ -504,7 +526,8 @@
           "Wave Physics"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98380_442/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98380_442/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20I/Fisica"
       },
       {
         "id": "automatic-control",
@@ -517,7 +540,36 @@
           "MATLAB"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106026_449/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106026_449/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20II/Fondamenti%20Di%20Automatica"
+      },      
+      {
+        "id": "economy",
+        "name": "Engineering Economics",
+        "grade": "30L/30",
+        "description": "Business fundamentals, external accounting & financial statements, internal accounting & break-even analysis, ratios, financial instruments.",
+        "tags": [
+          "Accounting",
+          "Finance",
+          "Business"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106033_815/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20II/Economia"
+      },
+      {
+        "id": "probability-stats",
+        "name": "Probability and Statistics",
+        "grade": "30/30",
+        "description": "Conditional probability, discrete and continuous distributions, expectation, estimation theory.",
+        "tags": [
+          "Probability",
+          "Statistics",
+          "Distributions"
+        ],
+        "featured": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/703157-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=703157",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20I/Probabilità%20E%20Statistica"
       },
       {
         "id": "chemistry",
@@ -530,7 +582,8 @@
           "Reaction Kinetics"
         ],
         "featured": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98374_169/2011/7617_2514?schemaid=2514"
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98374_169/2011/7617_2514?schemaid=2514",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20I/Chimica"
       }
     ]
   },
