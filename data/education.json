@@ -19,7 +19,7 @@
       "featured": false,
       "news": false,
       "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/1479?codicione=0170107303300004",
-      "hfUrl": ""
+      "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main"
     },
     {
       "id": "bachelors",
@@ -40,7 +40,7 @@
       "featured": true,
       "news": false,
       "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/1476?codicione=0170106200800004",
-      "hfUrl": ""
+      "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main"
     },
     {
       "id": "highschools",

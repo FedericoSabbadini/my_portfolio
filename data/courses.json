@@ -337,7 +337,7 @@
         "id": "normativa-tlc",
         "name": "TLC normatives and regulamentation",
         "grade": "30/30",
-        "description": "Course on telecommunications regulation covering European and Italian legal frameworks for electronic communications, liberalization processes, universal service, and regulatory authorities. Topics include intellectual property, copyright, standardization bodies (ISO, ITU, IEEE), privacy regulations, and ethical/legal aspects of AI. Includes electromagnetic compatibility, workplace safety legislation, and practical lab activities with simulations.",
+        "description": "Course on telecommunications regulation covering European and Italian legal frameworks for electronic communications, liberalization processes, universal service, and regulatory authorities. Topics include intellectual property, copyright, standardization bodies (ISO, ITU, IEEE), privacy regulations, and ethical/legal aspects of AI.",
         "tags": [
           "Telecommunications Law",
           "Regulation",
