@@ -34,26 +34,14 @@
       "featured": true
     },
     {
-      "id": "openid-thesis",
-      "title": "OpenID Connect & Digital Identity",
-      "period": "Jun 2024 - Oct 2024",
-      "badge": "Research",
-      "badgeClass": "badge-primary",
-      "description": "Bachelor's thesis exploring modern identity and access management protocols. Conducted in-depth analysis of OAuth 2.0 flows, OpenID Connect authentication mechanisms, and JWT token security. Examined real-world implementations including SPID (Italian Digital Identity) and enterprise SSO solutions, with focus on security vulnerabilities and mitigation strategies.",
-      "tags": ["OpenID", "OAuth 2.0", "JWT", "IAM", "Security"],
-      "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8",
-      "urlLabel": "View Research",
-      "featured": false
-    },
-    {
-      "id": "talentscope",
-      "title": "TalentScope AI",
-      "period": "May 2025 - Jun 2025",
-      "badge": "AI/ML",
-      "badgeClass": "badge-info",
-      "description": "Engineered a machine learning pipeline to predict FIFA 2022 player potential using ensemble methods (Random Forest, XGBoost, Gradient Boosting). Implemented advanced feature engineering on 18,000+ player records, hyperparameter tuning via GridSearchCV, and comprehensive model evaluation achieving 89% accuracy. Full MLOps workflow from data preprocessing to model deployment.",
-      "tags": ["Python", "Scikit-learn", "XGBoost", "Feature Engineering"],
-      "url": "https://github.com/FedericoSabbadini/TalentScope_AI",
+      "id": "pathfinding",
+      "title": "Grid Pathfinding Algorithms",
+      "period": "May 2025 - Jul 2025",
+      "badge": "Opt",
+      "badgeClass": "badge-danger",
+      "description": "Implemented and benchmarked advanced pathfinding algorithms for obstacle-rich grid environments. Developed optimized versions of A*, Dijkstra, and JPS (Jump Point Search) with custom heuristics. Analyzed algorithmic complexity, memory usage, and runtime performance across varying grid densities, achieving up to 40% speedup over naive implementations.",
+      "tags": ["Algorithms", "Graph Theory", "A*", "Optimization"],
+      "url": "https://github.com/FedericoSabbadini/CamminiPRJ",
       "featured": false
     },
     {
@@ -68,6 +56,29 @@
       "featured": false
     },
     {
+      "id": "talentscope",
+      "title": "TalentScope AI",
+      "period": "May 2025 - Jun 2025",
+      "badge": "AI/ML",
+      "badgeClass": "badge-info",
+      "description": "Engineered a machine learning pipeline to predict FIFA 2022 player potential using ensemble methods (Random Forest, XGBoost, Gradient Boosting). Implemented advanced feature engineering on 18,000+ player records, hyperparameter tuning via GridSearchCV, and comprehensive model evaluation achieving 89% accuracy. Full MLOps workflow from data preprocessing to model deployment.",
+      "tags": ["Python", "Scikit-learn", "XGBoost", "Feature Engineering"],
+      "url": "https://github.com/FedericoSabbadini/TalentScope_AI",
+      "featured": false
+    },
+    {
+      "id": "openid-thesis",
+      "title": "OpenID Connect & Digital Identity",
+      "period": "Jun 2024 - Oct 2024",
+      "badge": "Research",
+      "badgeClass": "badge-primary",
+      "description": "Bachelor's thesis exploring modern identity and access management protocols. Conducted in-depth analysis of OAuth 2.0 flows, OpenID Connect authentication mechanisms, and JWT token security. Examined real-world implementations including SPID (Italian Digital Identity) and enterprise SSO solutions, with focus on security vulnerabilities and mitigation strategies.",
+      "tags": ["OpenID", "OAuth 2.0", "JWT", "IAM", "Security"],
+      "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8",
+      "urlLabel": "View Research",
+      "featured": false
+    },
+    {
       "id": "data-hiding",
       "title": "Data Hiding Research",
       "period": "Oct 2024 - Mar 2025",
@@ -77,17 +88,6 @@
       "tags": ["Steganography", "CNN", "GAN", "PyTorch", "Research"],
       "url": "https://drive.google.com/drive/folders/1-2rBrcF9CzBdbvVcxDoxeiMTZej-5eDK",
       "urlLabel": "View Research",
-      "featured": false
-    },
-    {
-      "id": "pathfinding",
-      "title": "Grid Pathfinding Algorithms",
-      "period": "May 2025 - Jul 2025",
-      "badge": "Opt",
-      "badgeClass": "badge-danger",
-      "description": "Implemented and benchmarked advanced pathfinding algorithms for obstacle-rich grid environments. Developed optimized versions of A*, Dijkstra, and JPS (Jump Point Search) with custom heuristics. Analyzed algorithmic complexity, memory usage, and runtime performance across varying grid densities, achieving up to 40% speedup over naive implementations.",
-      "tags": ["Algorithms", "Graph Theory", "A*", "Optimization"],
-      "url": "https://github.com/FedericoSabbadini/CamminiPRJ",
       "featured": false
     },
     {
