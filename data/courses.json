@@ -6,7 +6,7 @@
       {
         "id": "generative-ai-for-media",
         "name": "Generative AI for Media",
-        "grade": "N/A",
+        "grade": "current",
         "description": "This course introduces the theoretical and practical foundations of generative artificial intelligence for multimedia. It covers signal teory, including Fourier analysis, and the generation of audio, images and videos using generative models.",
         "tags": [
           "Signal Theory",
@@ -20,7 +20,7 @@
       {
         "id": "reinforcement-learning",
         "name": "Reinforcement Learning",
-        "grade": "N/A",
+        "grade": "current",
         "description": "Advanced reinforcement learning techniques for decision-making in dynamic environments. Covers Q-learning, policy gradients, actor-critic methods, and multi-agent systems. Implemented with Python and reinforcement learning frameworks like Gymnasium and Stable Baselines3.",
         "tags": [
           "Reinforcement Learning",
@@ -34,7 +34,7 @@
       {
         "id": "digital-transformation",
         "name": "Digital Transformation",
-        "grade": "N/A",
+        "grade": "current",
         "description": "The use of Large Language Models (LLMs) and methodologies such as Retrieval-Augmented Generation (RAG) for handling unstructured knowledge is examined, together with advanced machine learning techniques including reinforcement learning and LLM-based decision making. Learn how to do research and realize technical relations.",
         "tags": [
           "LLMs",
