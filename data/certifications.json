@@ -1,5 +1,56 @@
 {
   "certifications": [
+      {
+    "id": "git-github-zero-to-hero",
+    "title": "Master Git and GitHub in 5 Days: Go from Zero to Hero",
+    "issuer": "Udemy",
+    "issuerIcon": "udemy",
+    "date": "May 2026",
+    "certId": "N/A",
+    "description": "Practical introduction to version control using Git and GitHub. Covers core workflows including commits, branching, merging, pull requests, and repository management. Focuses on the most commonly used commands for real-world development and collaboration scenarios.",
+    "tags": [
+      "Git",
+      "GitHub",
+      "Version Control"
+    ],
+    "featured": false,
+    "url": "",
+    "hfUrl": ""
+  },
+  {
+    "id": "latex-professional-publications",
+    "title": "LaTeX for Professional Publications",
+    "issuer": "Udemy",
+    "issuerIcon": "udemy",
+    "date": "May 2026",
+    "certId": "N/A",
+    "description": "Fundamentals of LaTeX for creating high-quality technical and academic documents. Includes document structuring, mathematical typesetting, bibliography management, and formatting of figures and tables for professional publications.",
+    "tags": [
+      "LaTeX",
+      "Technical Writing",
+      "Documentation"
+    ],
+    "featured": false,
+    "url": "",
+    "hfUrl": ""
+  },
+  {
+    "id": "docker-project-based",
+    "title": "Docker: A Project-Based Approach to Learning",
+    "issuer": "Udemy",
+    "issuerIcon": "udemy",
+    "date": "May 2026",
+    "certId": "N/A",
+    "description": "Hands-on course on containerization with Docker. Covers container lifecycle management, image creation with Dockerfiles, networking, volumes, and deployment of multi-container applications. Includes real-world projects and best practices for packaging and running applications.",
+    "tags": [
+      "Docker",
+      "Containerization",
+      "DevOps"
+    ],
+    "featured": true,
+    "url": "",
+    "hfUrl": ""
+    },
     {
       "id": "n8n-automation-master",
       "title": "Automation Master: n8n, JavaScript and AI Agents",
