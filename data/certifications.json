@@ -5,8 +5,8 @@
       "title": "Master Git and GitHub",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
-      "date": "[current]",
-      "certId": "N/A",
+      "date": "May 2026",
+      "certId": "UC-39b94f84-9394-4727-b6b2-d7e614b43b34",
       "description": "Practical introduction to version control using Git and GitHub. Covers core workflows including commits, branching, merging, pull requests, and repository management. Focuses on the most commonly used commands for real-world development and collaboration scenarios.",
       "tags": [
         "Git",
@@ -14,7 +14,7 @@
         "Version Control"
       ],
       "featured": false,
-      "url": "",
+      "url": "https://www.udemy.com/certificate/UC-39b94f84-9394-4727-b6b2-d7e614b43b34/",
       "hfUrl": ""
     },
     {
@@ -56,7 +56,7 @@
       "title": "Automation Master: n8n, JavaScript and AI Agents",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
-      "date": "May 2026",
+      "date": "April 2026",
       "certId": "UC-d61c4df0-d289-477c-aed1-e95e8fbb5e50",
       "description": "Hands-on course on automation with n8n, progressing from basics to production-ready systems. Covers workflow design, data handling with JavaScript, and implementation in local/VPS/cloud environments. Includes practical projects, reusable workflows, and API integration with Python.",
       "tags": [
