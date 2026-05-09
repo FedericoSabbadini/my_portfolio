@@ -1,6 +1,26 @@
 {
   "certifications": [
     {
+      "id": "complete-fastapi-course-oauth-jwt",
+      "title": "The Complete FastAPI Course With OAuth & JWT Authentication",
+      "issuer": "Udemy",
+      "issuerIcon": "udemy",
+      "date": "[current]",
+      "certId": "N/A",
+      "description": "Comprehensive introduction to building modern REST APIs using FastAPI and Python. Covers API fundamentals, request handling, Pydantic models, database integration with SQLAlchemy, CRUD operations, relational models, modular routing, authentication with OAuth2, JWT token generation, password hashing, and protected API endpoints.",
+      "tags": [
+        "FastAPI",
+        "Python",
+        "SQLAlchemy",
+        "OAuth2",
+        "JWT",
+        "REST API"
+      ],
+      "featured": false,
+      "url": "",
+      "hfUrl": ""
+    },
+    {
       "id": "git-github-zero-to-hero",
       "title": "Master Git and GitHub",
       "issuer": "Udemy",
@@ -32,23 +52,6 @@
       ],
       "featured": false,
       "url": "https://www.udemy.com/certificate/UC-f20ad2e8-2e73-4b51-aca0-da77ae9c763a/",
-      "hfUrl": ""
-    },
-    {
-      "id": "docker-project-based",
-      "title": "Docker: A Project-Based Approach to Learning",
-      "issuer": "Udemy",
-      "issuerIcon": "udemy",
-      "date": "[current]",
-      "certId": "N/A",
-      "description": "Hands-on course on containerization with Docker. Covers container lifecycle management, image creation with Dockerfiles, networking, volumes, and deployment of multi-container applications. Includes real-world projects and best practices for packaging and running applications.",
-      "tags": [
-        "Docker",
-        "Containerization",
-        "DevOps"
-      ],
-      "featured": false,
-      "url": "",
       "hfUrl": ""
     },
     {
