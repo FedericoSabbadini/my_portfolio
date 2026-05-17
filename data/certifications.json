@@ -5,8 +5,8 @@
       "title": "The Complete FastAPI Course With OAuth & JWT Authentication",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
-      "date": "[current]",
-      "certId": "N/A",
+      "date": "May 2026",
+      "certId": "UC-7ed804de-649d-4ccd-a776-5dc3dc386462",
       "description": "Comprehensive introduction to building modern REST APIs using FastAPI and Python. Covers API fundamentals, request handling, Pydantic models, database integration with SQLAlchemy, CRUD operations, relational models, modular routing, authentication with OAuth2, JWT token generation, password hashing, and protected API endpoints.",
       "tags": [
         "FastAPI",
@@ -17,7 +17,7 @@
         "REST API"
       ],
       "featured": false,
-      "url": "",
+      "url": "https://www.udemy.com/certificate/UC-7ed804de-649d-4ccd-a776-5dc3dc386462/",
       "hfUrl": ""
     },
     {
