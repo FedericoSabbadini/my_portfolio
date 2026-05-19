@@ -1,8 +1,61 @@
 {
   "certifications": [
     {
+      "id": "langchain-langgraph-crash-course",
+      "title": "LangChain and LangGraph Crash Course",
+      "issuer": "Udemy",
+      "issuerIcon": "udemy",
+      "date": "[current]",
+      "certId": "N/A",
+      "description": "Hands-on crash course focused on building Generative AI applications using LangChain and LangGraph with Python and OpenAI models. Covered prompt engineering, chains, agents, memory management, document-based chatbots, and Retrieval-Augmented Generation (RAG).",
+      "tags": [
+        "LangChain",
+        "LangGraph",
+        "RAG",
+      ],
+      "featured": false,
+      "url": "",
+      "hfUrl": ""
+    },
+    {
+      "id": "docker-project-based-learning",
+      "title": "Docker: A Project-Based Approach to Learning",
+      "issuer": "Udemy",
+      "issuerIcon": "udemy",
+      "date": "[current]",
+      "certId": "N/A",
+      "description": "Project-based Docker course covering containerization, image creation, Docker networking, persistent storage, and multi-container deployments across Linux, Windows, and macOS environments. Gained hands-on experience building custom Docker images with Dockerfiles, managing registries and container orchestration with Docker Swarm.",
+      "tags": [
+        "Docker",
+        "DevOps",
+        "Docker Swarm",
+      ],
+      "featured": false,
+      "url": "",
+      "hfUrl": ""
+    },
+    {
+      "id": "aws-essentials",
+      "title": "AWS Essentials - Hands-on Learning",
+      "issuer": "Udemy",
+      "issuerIcon": "udemy",
+      "date": "[current]",
+      "certId": "N/A",
+      "description": "Foundational course on Amazon Web Services covering core cloud infrastructure and platform services. Explored practical usage of EC2, S3, VPC, RDS, and cloud networking concepts through guided labs and demonstrations.",
+      "tags": [
+        "AWS",
+        "EC2",
+        "S3",
+        "VPC",
+        "RDS"
+      ],
+      "featured": false,
+      "url": "",
+      "hfUrl": ""
+    },
+    {
       "id": "complete-fastapi-course-oauth-jwt",
-      "title": "The Complete FastAPI Course With OAuth & JWT Authentication",
+      "title": "The Complete FastAPI Course With OAuth & JWT",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "May 2026",
@@ -10,9 +63,7 @@
       "description": "Comprehensive introduction to building modern REST APIs using FastAPI and Python. Covers API fundamentals, request handling, Pydantic models, database integration with SQLAlchemy, CRUD operations, relational models, modular routing, authentication with OAuth2, JWT token generation, password hashing, and protected API endpoints.",
       "tags": [
         "FastAPI",
-        "Python",
         "SQLAlchemy",
-        "OAuth2",
         "JWT",
         "REST API"
       ],
