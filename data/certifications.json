@@ -39,18 +39,19 @@
       "title": "AWS Essentials - Hands-on Learning",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
-      "date": "[current]",
-      "certId": "N/A",
+      "date": "May 2026",
+      "certId": "UC-296ac15b-d1ef-4fb9-ab3e-dafOc48acc4c",
       "description": "Foundational course on Amazon Web Services covering core cloud infrastructure and platform services. Explored practical usage of EC2, S3, VPC, RDS, and cloud networking concepts through guided labs and demonstrations.",
       "tags": [
-        "AWS",
         "EC2",
         "S3",
         "VPC",
-        "RDS"
+        "RDS/DynamoDB",
+        "SNS/SQS",
+        "Lambda"
       ],
       "featured": false,
-      "url": "",
+      "url": "https://www.udemy.com/certificate/UC-296ac15b-d1ef-4fb9-ab3e-daf0c48acc4c/",
       "hfUrl": ""
     },
     {
