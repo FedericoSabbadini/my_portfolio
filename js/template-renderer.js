@@ -476,6 +476,11 @@ class TemplateRenderer {
                 <h3>Europass</h3>
                 <p>Download</p>
             </a>
+            <a href="${social.coverLetter.url}" target="_blank" class="card contact-card" download>
+                <div class="contact-icon">${social.cv.icon}</div>
+                <h3>Cover Letter</h3>
+                <p>Download</p>
+            </a>
         `;
     }
 

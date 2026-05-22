@@ -45,6 +45,11 @@
       "label": "Europass",
       "url": "assets/CV/Federico_Sabbadini_CVEU.pdf",
       "icon": "📄"
+    },
+    "coverLetter": {
+      "label": "Cover Letter",
+      "url": "assets/CV/Federico_Sabbadini_Cover_Letter.pdf",
+      "icon": "📄"
     }
   },
   "stats": [
