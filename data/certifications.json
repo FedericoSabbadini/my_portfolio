@@ -18,23 +18,6 @@
       "hfUrl": ""
     },
     {
-      "id": "docker-project-based-learning",
-      "title": "Docker: A Project-Based Approach to Learning",
-      "issuer": "Udemy",
-      "issuerIcon": "udemy",
-      "date": "[current]",
-      "certId": "N/A",
-      "description": "Project-based Docker course covering containerization, image creation, Docker networking, persistent storage, and multi-container deployments across Linux, Windows, and macOS environments. Gained hands-on experience building custom Docker images with Dockerfiles, managing registries and container orchestration with Docker Swarm.",
-      "tags": [
-        "Docker",
-        "DevOps",
-        "Docker Swarm"
-      ],
-      "featured": false,
-      "url": "",
-      "hfUrl": ""
-    },
-    {
       "id": "aws-essentials",
       "title": "AWS Essentials - Hands-on Learning",
       "issuer": "Udemy",
