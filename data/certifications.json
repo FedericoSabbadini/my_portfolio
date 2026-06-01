@@ -5,8 +5,8 @@
       "title": "LangChain and LangGraph Crash Course",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
-      "date": "[current]",
-      "certId": "N/A",
+      "date": "June 2026",
+      "certId": "UC-2ca35ec1-9fd7-492c-9c13-c176b60bfc9d",
       "description": "Hands-on crash course focused on building Generative AI applications using LangChain and LangGraph with Python and OpenAI models. Covered prompt engineering, chains, agents, memory management, document-based chatbots, and Retrieval-Augmented Generation (RAG).",
       "tags": [
         "LangChain",
@@ -14,7 +14,7 @@
         "RAG"
       ],
       "featured": false,
-      "url": "",
+      "url": "https://www.udemy.com/certificate/UC-2ca35ec1-9fd7-492c-9c13-c176b60bfc9d/",
       "hfUrl": ""
     },
     {
