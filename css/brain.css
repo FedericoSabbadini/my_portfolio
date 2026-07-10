@@ -1,0 +1,144 @@
+/* =========================================================================
+   BRAIN — home canvas + overlay chrome + floating region label + fallback
+   ========================================================================= */
+.brain-canvas {
+  position: fixed; inset: 0;
+  z-index: var(--z-brain);
+  display: block;
+  width: 100%; height: 100%;
+  touch-action: none;
+  cursor: grab;
+  transition: opacity var(--dur-slow) var(--ease-cine);
+}
+.brain-canvas:active { cursor: grabbing; }
+.brain-canvas.is-region { cursor: pointer; }
+
+/* Cinematic vignette + scanline sheen over the brain */
+.brain-vignette {
+  position: fixed; inset: 0; z-index: var(--z-vignette);
+  pointer-events: none;
+  background:
+    radial-gradient(120% 120% at 50% 50%, transparent 52%, rgba(0,0,0,.55) 100%);
+  mix-blend-mode: multiply;
+  transition: opacity var(--dur-med) var(--ease-cine);
+}
+
+/* --- Home overlay chrome --- */
+.home-overlay {
+  position: fixed; inset: 0;
+  z-index: var(--z-overlay);
+  padding: clamp(20px, 3.4vw, 42px);
+  display: flex; flex-direction: column; justify-content: space-between;
+  pointer-events: none;
+  transition: opacity var(--dur-med) var(--ease-cine), transform var(--dur-med) var(--ease-cine);
+}
+.home-overlay.is-hidden { opacity: 0; transform: translateY(-8px); }
+
+.home-overlay__id { display: flex; flex-direction: column; gap: 4px; }
+.home-overlay__name {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1rem, .9rem + .5vw, 1.25rem);
+  color: var(--ink-hi); letter-spacing: -.01em;
+}
+.home-overlay__role {
+  font-family: var(--font-mono); font-size: var(--t-xs);
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-mut);
+}
+
+.home-overlay__hint {
+  align-self: center;
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: var(--t-sm); color: var(--ink-mut);
+  padding: 10px 16px;
+  background: rgba(10,13,20,.5);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-pill);
+  backdrop-filter: blur(10px);
+  animation: hint-fade 1s var(--ease-cine) both .8s;
+}
+.home-overlay__hint-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--cyan); box-shadow: var(--glow-accent);
+  animation: dot-pulse 2.4s var(--ease-inout) infinite;
+}
+@keyframes hint-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
+@keyframes dot-pulse { 0%,100% { opacity: .4; } 50% { opacity: 1; } }
+
+/* --- Floating region label (follows hovered area) --- */
+.region-label {
+  position: fixed; z-index: var(--z-label);
+  left: 0; top: 0;
+  width: min(280px, 72vw);
+  padding: 14px 16px 13px;
+  display: flex; flex-direction: column; gap: 5px;
+  background: linear-gradient(180deg, rgba(14,18,28,.92), rgba(8,10,16,.92));
+  border: 1px solid var(--hairline-2);
+  border-radius: var(--r-md);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(34,211,238,.05);
+  transform: translate(-50%, calc(-100% - 18px));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-cine);
+}
+.region-label.is-visible { opacity: 1; }
+.region-label::after {
+  content: ""; position: absolute; left: 50%; bottom: -6px;
+  width: 12px; height: 12px; transform: translateX(-50%) rotate(45deg);
+  background: rgba(8,10,16,.92);
+  border-right: 1px solid var(--hairline-2); border-bottom: 1px solid var(--hairline-2);
+}
+.region-label__kicker {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--region-accent, var(--cyan));
+}
+.region-label__title {
+  font-family: var(--font-display); font-weight: 600; font-size: 1.06rem;
+  color: var(--ink-hi); letter-spacing: -.01em;
+}
+.region-label__desc { font-size: var(--t-sm); color: var(--ink-mut); line-height: 1.45; }
+.region-label__cta {
+  margin-top: 4px; font-family: var(--font-mono); font-size: var(--t-xs);
+  letter-spacing: .1em; color: var(--region-accent, var(--cyan));
+}
+
+/* =========================================================================
+   FALLBACK / MIND INDEX (no-WebGL or reduced-motion). Hidden by default,
+   revealed by JS (body.no-webgl) — a fully navigable index of the mind.
+   ========================================================================= */
+.mind-index {
+  position: fixed; inset: 0; z-index: var(--z-overlay);
+  display: none; overflow-y: auto;
+  padding: clamp(48px, 10vh, 120px) clamp(20px, 6vw, 64px);
+}
+body.show-index .mind-index { display: block; }
+body.show-index .brain-canvas,
+body.show-index .brain-vignette { display: none; }
+
+.mind-index__inner { max-width: 960px; margin: 0 auto; }
+.mind-index__title { font-size: var(--t-hero); font-weight: 600; margin-bottom: 8px; }
+.mind-index__lead { color: var(--ink-mut); font-size: var(--t-h3); margin-bottom: var(--sp-7); }
+.mind-index__list {
+  list-style: none;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--sp-4);
+}
+.mind-card {
+  display: block; padding: 20px;
+  background: var(--bg-panel);
+  border: 1px solid var(--hairline);
+  border-left: 2px solid var(--mc, var(--cyan));
+  border-radius: var(--r-md);
+  transition: transform var(--dur-fast) var(--ease-cine), border-color var(--dur-fast), background var(--dur-fast);
+}
+.mind-card:hover { transform: translateY(-3px); background: var(--bg-panel-2); border-color: var(--hairline-2); }
+.mind-card__kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--mc, var(--cyan)); }
+.mind-card__title { font-family: var(--font-display); font-weight: 600; color: var(--ink-hi); font-size: 1.12rem; margin: 6px 0 6px; }
+.mind-card__desc { font-size: var(--t-sm); color: var(--ink-mut); }
+.mind-card__meta { margin-top: 12px; font-family: var(--font-mono); font-size: var(--t-xs); color: var(--ink-faint); }
+
+/* --- Mobile home tweaks --- */
+@media (max-width: 640px) {
+  .home-overlay__hint { font-size: var(--t-xs); text-align: center; }
+  .home-overlay__role { display: none; }
+}

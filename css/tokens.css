@@ -1,0 +1,74 @@
+/* =========================================================================
+   DESIGN TOKENS — "Digital Mind"
+   Dark, cinematic, technical. Cool blue→cyan spectrum. No random color.
+   ========================================================================= */
+:root {
+  /* --- Base surfaces (near-black, layered) --- */
+  --bg-void:      #05060A;   /* the deepest background            */
+  --bg-base:      #070910;
+  --bg-panel:     #0A0D14;   /* raised panels                     */
+  --bg-panel-2:   #0E121C;
+  --bg-elev:      #121826;   /* hover / inputs                    */
+  --hairline:     #171D2B;   /* 1px borders                       */
+  --hairline-2:   #232C3E;
+
+  /* --- Ink --- */
+  --ink-hi:       #EAEEF6;   /* primary text                      */
+  --ink:          #B7C0D0;   /* body text                         */
+  --ink-mut:      #7A8699;   /* muted / captions                  */
+  --ink-faint:    #4C566B;   /* faintest labels                   */
+
+  /* --- Signal colors (cool, controlled) --- */
+  --blue:         #2E6BFF;
+  --blue-soft:    #5B86FF;
+  --cyan:         #22D3EE;
+  --cyan-soft:    #6FE6F6;
+  --violet:       #A78BFA;
+  --teal:         #2DD4BF;
+
+  /* Default accent = the synapse blue/cyan */
+  --accent:       var(--cyan);
+  --accent-2:     var(--blue);
+
+  /* --- Glows --- */
+  --glow-accent:  0 0 0.5px rgba(34,211,238,.9), 0 0 18px rgba(34,211,238,.35);
+  --glow-soft:    0 0 40px rgba(46,107,255,.18);
+
+  /* --- Typography --- */
+  --font-display: "Sora", "Inter", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Fluid type scale */
+  --t-hero:  clamp(2.4rem, 1.2rem + 4.4vw, 4.6rem);
+  --t-h1:    clamp(1.7rem, 1.1rem + 2.2vw, 2.6rem);
+  --t-h2:    clamp(1.25rem, 1rem + 1vw, 1.6rem);
+  --t-h3:    1.06rem;
+  --t-body:  0.95rem;
+  --t-sm:    0.82rem;
+  --t-xs:    0.72rem;
+  --t-mono:  0.72rem;
+
+  /* --- Spacing --- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 72px; --sp-9: 120px;
+
+  /* --- Radius --- */
+  --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-pill: 999px;
+
+  /* --- Motion --- */
+  --ease-cine: cubic-bezier(.16,1,.3,1);       /* soft, decelerating   */
+  --ease-inout: cubic-bezier(.65,.05,.36,1);
+  --dur-fast: .28s;
+  --dur-med:  .55s;
+  --dur-slow: .9s;
+
+  /* --- Layout --- */
+  --panel-w: clamp(280px, 24vw, 360px);
+  --z-brain: 1;
+  --z-vignette: 2;
+  --z-overlay: 5;
+  --z-label: 8;
+  --z-section: 10;
+  --z-boot: 50;
+}

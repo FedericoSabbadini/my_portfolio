@@ -1,120 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Federico Sabbadini - Computer Engineering Student</title>
-    <meta name="description" content="Federico Sabbadini - Master's student in Computer Engineering at University of Brescia">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/navigation.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/pages.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Federico Sabbadini — Digital Mind</title>
+  <meta name="description" content="An interactive map of Federico Sabbadini's mind — explore his knowledge network across AI, Cybersecurity, Data, Research and more." />
+  <meta name="theme-color" content="#05060A" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Federico Sabbadini — Digital Mind" />
+  <meta property="og:description" content="Explore my brain and knowledge network." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/brain.css" />
+  <link rel="stylesheet" href="css/graph.css" />
+
+  <!-- Dependency map: zero-build ES modules from CDN -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+      "d3-force": "https://cdn.jsdelivr.net/npm/d3-force@3.0.0/+esm",
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/+esm"
+    }
+  }
+  </script>
 </head>
-<body class="loading">
-    <!-- Page Loader -->
-    <div id="page-loader">
-        <div class="page-loader-spinner"></div>
+<body>
+  <!-- Boot / loader -->
+  <div id="boot" class="boot" aria-hidden="true">
+    <div class="boot__pulse"></div>
+    <div class="boot__label">Waking the mind</div>
+  </div>
+
+  <!-- The living brain (WebGL) -->
+  <canvas id="brain-canvas" class="brain-canvas" aria-hidden="true"></canvas>
+  <div id="brain-vignette" class="brain-vignette" aria-hidden="true"></div>
+
+  <!-- Home overlay: minimal chrome over the brain -->
+  <header id="home-overlay" class="home-overlay" data-view="home">
+    <div class="home-overlay__id">
+      <span class="home-overlay__name">Federico Sabbadini</span>
+      <span class="home-overlay__role">Master's · Computer Engineering — AI, Data &amp; Security</span>
     </div>
+    <p class="home-overlay__hint" id="home-hint">
+      <span class="home-overlay__hint-dot"></span>
+      This is a map of my mind. Hover a region — click to enter.
+    </p>
+  </header>
 
-    <!-- Navigation (Static to prevent flash) -->
-    <div id="navbar-placeholder">
-        <nav class="navbar" id="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo">My Portfolio</a>
-                <div class="nav-menu" id="navMenu">
-                    <a href="journey.html" class="nav-link" data-page="journey">Journey</a>
-                    <a href="courses.html" class="nav-link" data-page="courses">Courses</a>
-                    <a href="certs.html" class="nav-link" data-page="certs">Certifications</a>
-                    <a href="resources.html" class="nav-link" data-page="resources">Projects</a>
-                    <a href="about.html" class="nav-link" data-page="about">About</a>
-                    <a href="contacts.html" class="nav-link" data-page="contacts">Contacts</a>
-                </div>
-                <div class="nav-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
+  <!-- Floating region label that follows the hovered brain area -->
+  <div id="region-label" class="region-label" role="status" aria-live="polite" hidden>
+    <span class="region-label__kicker" id="region-kicker">Mental domain</span>
+    <span class="region-label__title" id="region-title"></span>
+    <span class="region-label__desc" id="region-desc"></span>
+    <span class="region-label__cta">Enter →</span>
+  </div>
+
+  <!-- Accessible / no-WebGL fallback: a real navigable index of the mind -->
+  <nav id="mind-index" class="mind-index" aria-label="Knowledge domains">
+    <div class="mind-index__inner">
+      <h1 class="mind-index__title">The mind of Federico Sabbadini</h1>
+      <p class="mind-index__lead">A knowledge network across nine mental domains.</p>
+      <ul id="mind-index-list" class="mind-index__list"></ul>
     </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title" id="hero-name">Federico</h1>
-                    <p class="hero-subtitle" id="hero-title">Master's Student in Computer Engineering</p>
-                    <p class="hero-description" id="hero-description">
-                        Loading...
-                    </p>
-                    <div class="hero-actions">
-                        <a href="journey.html" class="btn btn-primary">My Journey</a>
-                        <!-- <a href="courses.html" class="btn btn-secondary">Courses</a> -->
-                        <!-- <a href="certs.html" class="btn btn-secondary">Certs</a> -->
-                        <a href="resources.html" class="btn btn-secondary">Projects</a>
-                    </div>
-                </div>
+  <!-- Section view: 3-panel knowledge graph -->
+  <main id="section-view" class="section-view" data-view="section" hidden>
+    <button id="back-to-mind" class="back-to-mind" type="button" aria-label="Return to the mind">
+      <span class="back-to-mind__glyph"></span>
+      <span>The mind</span>
+    </button>
 
-            </div>
-        </div>
+    <aside class="panel panel--left" id="panel-left" aria-label="Domain overview">
+      <div class="panel__scroll" id="left-content"></div>
+    </aside>
+
+    <section class="graph-stage" aria-label="Knowledge graph">
+      <canvas id="graph-canvas" class="graph-canvas"></canvas>
+      <div class="graph-hud">
+        <div class="graph-hud__hint" id="graph-hint">drag · scroll to zoom · click a node</div>
+        <div class="graph-legend" id="graph-legend"></div>
+      </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="section-alt">
-        <div class="container">
-            <div class="stats-grid" id="stats-container" data-dynamic>
-                <!-- Stats rendered dynamically -->
-            </div>
+    <aside class="panel panel--right" id="panel-right" aria-label="Node detail">
+      <div class="panel__scroll" id="right-content">
+        <div class="detail-empty" id="detail-empty">
+          <div class="detail-empty__orb"></div>
+          <p>Select a node to inspect a fragment of this domain.</p>
         </div>
-    </section>
+      </div>
+    </aside>
+  </main>
 
-    <!-- Featured Section
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2>Featured</h2>
-                <p>Top projects, courses & milestones</p>
-            </div>
-            <div class="featured-grid" id="featured-container" data-dynamic>
-            </div>
-        </div>
-    </section> -->
+  <noscript>
+    <div style="max-width:720px;margin:12vh auto;padding:0 24px;color:#E8ECF4;font-family:Inter,system-ui,sans-serif;">
+      <h1 style="font-family:Sora,sans-serif;">Federico Sabbadini</h1>
+      <p>This portfolio is an interactive map of my mind and requires JavaScript.
+      You can still reach me at <a style="color:#22D3EE" href="mailto:federicosabbadini@icloud.com">federicosabbadini@icloud.com</a>
+      or on <a style="color:#22D3EE" href="https://github.com/FedericoSabbadini">GitHub</a> and
+      <a style="color:#22D3EE" href="https://linkedin.com/in/federicosabbadini">LinkedIn</a>.</p>
+    </div>
+  </noscript>
 
-    <!-- News Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>News & Updates</h2>
-                <p>Latest achievements & what's next.</p>
-            </div>
-            <div class="featured-grid" id="news-container" data-dynamic>
-                <!-- News items rendered dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container" id="cta-container">
-            <!-- CTA rendered dynamically -->
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
-
-    <!-- Scripts -->
-    <script src="js/data-loader.js"></script>
-    <script src="js/template-renderer.js"></script>
-    <script src="js/component-loader.js"></script>
-    <script src="js/app.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
