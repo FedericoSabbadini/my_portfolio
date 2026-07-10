@@ -10,10 +10,13 @@ import * as THREE from 'three';
 const VERT = /* glsl */`
   attribute float aAlpha;
   attribute float aSize;
+  attribute float aWarm;
   uniform float uPr;
   varying float vA;
+  varying float vWarm;
   void main() {
     vA = aAlpha;
+    vWarm = aWarm;
     vec4 mv = modelViewMatrix * vec4(position, 1.0);
     gl_PointSize = aSize * uPr * (300.0 / -mv.z);
     gl_Position = projectionMatrix * mv;
@@ -22,15 +25,21 @@ const VERT = /* glsl */`
 const FRAG = /* glsl */`
   precision mediump float;
   varying float vA;
+  varying float vWarm;
   uniform vec3 uColor;
+  uniform vec3 uHot;
   void main() {
     vec2 uv = gl_PointCoord - 0.5;
     float r = length(uv);
     if (r > 0.5) discard;
+    // soft outer halo + a tight incandescent core that whites out at the peak
     float halo = smoothstep(0.5, 0.0, r);
-    float core = smoothstep(0.16, 0.0, r);
-    vec3 c = uColor + vec3(core * 0.6);
-    gl_FragColor = vec4(c, (halo * 0.5 + core) * vA);
+    float core = smoothstep(0.20, 0.0, r);
+    float spark = smoothstep(0.06, 0.0, r);
+    vec3 tint = mix(uColor, uHot, vWarm);
+    vec3 c = tint * halo + tint * core * 1.2 + vec3(spark) * (0.5 + 0.5 * vA);
+    float a = (halo * 0.32 + core * 0.8 + spark) * vA;
+    gl_FragColor = vec4(c, a);
   }
 `;
 
@@ -57,11 +66,17 @@ export class Synapses {
     this.pos = new Float32Array(n * 3);
     this.alpha = new Float32Array(n);
     this.size = new Float32Array(n);
+    this.warm = new Float32Array(n);
     geo.setAttribute('position', new THREE.BufferAttribute(this.pos, 3));
     geo.setAttribute('aAlpha', new THREE.BufferAttribute(this.alpha, 1));
     geo.setAttribute('aSize', new THREE.BufferAttribute(this.size, 1));
+    geo.setAttribute('aWarm', new THREE.BufferAttribute(this.warm, 1));
 
-    this.uniforms = { uPr: { value: 1 }, uColor: { value: new THREE.Color(0x8fe6ff) } };
+    this.uniforms = {
+      uPr: { value: 1 },
+      uColor: { value: new THREE.Color(0x7fe0ff) },
+      uHot: { value: new THREE.Color(0xecfbff) },
+    };
     const mat = new THREE.ShaderMaterial({
       uniforms: this.uniforms, vertexShader: VERT, fragmentShader: FRAG,
       transparent: true, depthTest: true, depthWrite: false, blending: THREE.AdditiveBlending,

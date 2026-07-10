@@ -1,9 +1,15 @@
 /* =========================================================================
    brain-geometry.js — procedural anatomy of a brain (no external model).
-   A welded icosphere is displaced into a two-hemisphere cerebrum with a
-   longitudinal fissure, gyri/sulci folds, temporal flare, a flattened
-   underside and a cerebellar texture. Smooth normals are recomputed so the
-   surface can be *lit* like an organ — not read as a point cloud.
+
+   A welded icosphere is displaced into a two-hemisphere cerebrum. The
+   surface is carved by a *domain-warped groove network*: the zero-set of a
+   meandering noise field becomes the sulci (the dark valleys), leaving broad
+   rounded gyri between them — the single feature that makes a brain read as a
+   brain. A deep longitudinal fissure splits the hemispheres; the posterior-
+   inferior lobe is packed with finer folds to suggest a cerebellum.
+
+   Per vertex we also bake `aFold` — a 0‥1 sulcal-depth value the shader uses
+   for ambient occlusion in the crevices and a sheen on the crests.
    ========================================================================= */
 import * as THREE from 'three';
 import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
@@ -37,26 +43,37 @@ function fbm(noise, x, y, z, oct = 4) {
   for (let o = 0; o < oct; o++) { a += amp * noise(x * f, y * f, z * f); f *= 2.02; amp *= 0.5; }
   return a;
 }
-const ridged = (noise, x, y, z) => 1 - Math.abs(fbm(noise, x, y, z, 3));
-const smoothstep = (e0, e1, x) => { const t = Math.min(1, Math.max(0, (x - e0) / (e1 - e0))); return t * t * (3 - 2 * t); };
+const clamp01 = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
+const smoothstep = (e0, e1, x) => { const t = clamp01((x - e0) / (e1 - e0)); return t * t * (3 - 2 * t); };
 
-/* --- the brain surface field: unit direction → world position ------------ */
+/* --- the brain surface field: unit direction → world position + macro fold
+   The fine gyri are drawn per-pixel in the shader; here we only sculpt the
+   MACRO anatomy — hemispheres, the deep longitudinal fissure, temporal flare,
+   flattened base and the cerebellar bulge — plus a large-scale groove hint
+   that seeds ambient occlusion. `out` gets the position; a 0‥1 macro-cavity
+   value is returned (deep fissure / cerebellar band) for baking. ----------- */
 function brainShape(noise, dx, dy, dz, out) {
-  // gyri (low-freq lobes) + sulci (sharp ridged valleys, two octaves)
-  const warp = fbm(noise, dx * 1.5 + 11, dy * 1.5 + 3, dz * 1.5 + 7);
-  const sulci = (ridged(noise, dx * 3.4, dy * 3.4, dz * 3.4) - 0.5);
-  const fine = (ridged(noise, dx * 6.8, dy * 6.8, dz * 6.8) - 0.5);
-  // gentle silhouette (small warp) + expressive surface folds (sulci/fine)
-  let r = 1.0 + warp * 0.05 + sulci * 0.11 + fine * 0.05;
+  // broad silhouette warp — keeps the outline organically bumpy, not egg-clean
+  const lobe = fbm(noise, dx * 1.4 + 11, dy * 1.4 + 3, dz * 1.4 + 7, 3);
+
+  // large-scale gyral hint (the fine folding is per-pixel in the shader)
+  const wx = fbm(noise, dx * 2.4 + 21.3, dy * 2.4 + 5.1, dz * 2.4 + 9.7, 2) * 0.3;
+  const wy = fbm(noise, dx * 2.4 + 5.4, dy * 2.4 + 13.2, dz * 2.4 + 2.9, 2) * 0.3;
+  const gx = dx + wx, gy = dy + wy, gz = dz + wx;
+  const n0 = fbm(noise, gx * 4.2, gy * 4.2, gz * 4.2, 3);
+  let cavity = (1 - smoothstep(0.0, 0.13, Math.abs(n0))) * 0.5;   // shallow macro grooves
+
+  let r = 1.0 + lobe * 0.05 - cavity * 0.05;
 
   // cerebrum ellipsoid: wide (x), shorter (y), long front-back (z, front = +z)
   let px = dx * 1.02 * r;
   let py = dy * 0.82 * r;
-  let pz = dz * 1.24 * r;
+  let pz = dz * 1.26 * r;
 
-  // longitudinal fissure: a soft midline groove along the top
-  const mid = Math.exp(-(px * px) / 0.02) * smoothstep(0.0, 0.55, py);
-  py -= mid * 0.10;
+  // longitudinal fissure: a deep central groove down the top → two hemispheres
+  const midline = Math.exp(-(px * px) / 0.010) * smoothstep(-0.15, 0.5, py);
+  py -= midline * 0.16;
+  cavity = Math.max(cavity, midline);
 
   // temporal lobes: flare the lower sides forward
   const temporal = smoothstep(0.2, -0.5, py) * smoothstep(-0.9, 0.4, pz);
@@ -65,27 +82,28 @@ function brainShape(noise, dx, dy, dz, out) {
   // frontal fullness / occipital taper
   pz *= 1.0 + smoothstep(0.2, 1.0, dz) * 0.05 - smoothstep(-0.3, -1.0, dz) * 0.06;
 
-  // gently flatten the underside (keep it rounded, not a dome)
+  // gently flatten the underside (rounded, not a dome)
   if (py < -0.52) py = -0.52 + (py + 0.52) * 0.72;
 
-  // cerebellum: a denser-folded bulge at the posterior-inferior
-  const cere = smoothstep(-0.35, -0.85, dz) * smoothstep(0.1, -0.6, dy);
+  // cerebellum: a bulge at the posterior-inferior, offset below, with a cleft
+  const cere = smoothstep(-0.32, -0.82, dz) * smoothstep(0.12, -0.6, dy);
   if (cere > 0.001) {
-    const cf = (ridged(noise, dx * 11.0, dy * 11.0, dz * 11.0) - 0.5) * 0.06;
-    py -= cere * 0.10; pz -= cere * 0.06; r += cf * cere;
-    py += cf * cere;
+    py -= cere * 0.12; pz -= cere * 0.05;
+    const cleft = Math.exp(-(px * px) / 0.02);
+    cavity = Math.max(cavity, cere * cleft * 0.9);
   }
 
   out.set(px, py, pz);
-  return out;
+  return Math.min(1, cavity);
 }
 
 /**
- * Build the brain mesh geometry with smooth normals + per-vertex lobe id.
- * @param {number} detail icosphere subdivision (5 ≈ 10k verts, 6 ≈ 41k)
+ * Build the brain mesh geometry with smooth normals + per-vertex lobe id
+ * and a macro-cavity value. Fine gyri are added per-pixel in the shader.
+ * @param {number} detail icosphere subdivision (verts ≈ 10·detail² + 2)
  * @param {Array<[number,number,number]>} regionPositions domain anchors
  */
-export function buildBrainMesh(detail = 5, regionPositions = []) {
+export function buildBrainMesh(detail = 32, regionPositions = []) {
   const noise = makeNoise3(7);
   let geo = new THREE.IcosahedronGeometry(1, detail);
   geo = mergeVertices(geo);                       // weld → shared verts → smooth normals
@@ -94,22 +112,24 @@ export function buildBrainMesh(detail = 5, regionPositions = []) {
 
   const tmp = new THREE.Vector3();
   const localPos = new Float32Array(n * 3);       // pre-anything positions for shader region math
+  const aFold = new Float32Array(n);
   for (let i = 0; i < n; i++) {
     tmp.set(pos.getX(i), pos.getY(i), pos.getZ(i)).normalize();
-    brainShape(noise, tmp.x, tmp.y, tmp.z, tmp);
+    aFold[i] = brainShape(noise, tmp.x, tmp.y, tmp.z, tmp);
     pos.setXYZ(i, tmp.x, tmp.y, tmp.z);
     localPos[i * 3] = tmp.x; localPos[i * 3 + 1] = tmp.y; localPos[i * 3 + 2] = tmp.z;
   }
   pos.needsUpdate = true;
   geo.computeVertexNormals();
 
-  // blend computed normals slightly toward radial to calm the noise
+  // blend computed normals a touch toward radial to calm silhouette shimmer,
+  // but keep them crisp enough that the grooves still catch the light.
   const nrm = geo.attributes.normal;
   for (let i = 0; i < n; i++) {
     tmp.set(localPos[i * 3], localPos[i * 3 + 1], localPos[i * 3 + 2]).normalize();
-    const nx = nrm.getX(i) * 0.85 + tmp.x * 0.15;
-    const ny = nrm.getY(i) * 0.85 + tmp.y * 0.15;
-    const nz = nrm.getZ(i) * 0.85 + tmp.z * 0.15;
+    const nx = nrm.getX(i) * 0.9 + tmp.x * 0.1;
+    const ny = nrm.getY(i) * 0.9 + tmp.y * 0.1;
+    const nz = nrm.getZ(i) * 0.9 + tmp.z * 0.1;
     const l = Math.hypot(nx, ny, nz) || 1;
     nrm.setXYZ(i, nx / l, ny / l, nz / l);
   }
@@ -131,6 +151,7 @@ export function buildBrainMesh(detail = 5, regionPositions = []) {
   }
   geo.setAttribute('aLobe', new THREE.BufferAttribute(aLobe, 1));
   geo.setAttribute('aSeed', new THREE.BufferAttribute(aSeed, 1));
+  geo.setAttribute('aFold', new THREE.BufferAttribute(aFold, 1));
 
   return { geometry: geo, surface: localPos, count: n };
 }

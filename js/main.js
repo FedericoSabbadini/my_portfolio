@@ -33,7 +33,10 @@ async function boot() {
   addSkipLink();
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const mobile = window.matchMedia('(max-width: 820px)').matches || 'ontouchstart' in window;
+  // guard against transient 0-width layouts (e.g. embedded preview frames)
+  // wrongly triggering the low-detail mobile path.
+  const vw = window.innerWidth || document.documentElement.clientWidth || 1280;
+  const mobile = (vw > 0 && vw <= 820) || (('ontouchstart' in window) && vw <= 1024);
   const canBrain = webglAvailable();
 
   state.graphView = new GraphView(graph, { reducedMotion: reduced });
