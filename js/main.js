@@ -36,7 +36,8 @@ async function boot() {
   const mobile = window.matchMedia('(max-width: 820px)').matches || 'ontouchstart' in window;
   const canBrain = webglAvailable();
 
-  state.graphView = new GraphView(graph);
+  state.graphView = new GraphView(graph, { reducedMotion: reduced });
+  window.__mind = state;   // debug handle (dev only)
 
   if (canBrain) {
     try {
@@ -87,6 +88,7 @@ async function enterDomain(id, opts = {}) {
   }
   await revealSection();
   state.graphView.open(id);
+  state.graphView.resume();
   if (opts.selectNode) requestAnimationFrame(() => state.graphView.selectNode(opts.selectNode));
   if (state.scene) state.scene.stop();
   state.view = 'section';
@@ -96,6 +98,7 @@ async function enterDomain(id, opts = {}) {
 async function enterHome() {
   const fromSection = state.view === 'section';
   if (fromSection) await hideSection();
+  state.graphView.pause();          // stop the graph loop while exploring the brain
   showHomeOverlay();
   if (state.scene) {
     state.scene.start();

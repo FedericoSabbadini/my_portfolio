@@ -1,87 +1,118 @@
 /* =========================================================================
-   synapses.js — luminous pulses that travel along the connectome edges,
-   like signals firing between neurons. Rendered as additive points so the
-   bloom pass makes them glow.
+   synapses.js — biologically-plausible neural firing.
+   Pulses are BORN at a surface point, PROPAGATE along a short synaptic edge
+   (arcing just above the cortex), FADE with a soft envelope, then either
+   BRANCH to a neighbour (chaining) or DISAPPEAR and RE-EMERGE elsewhere.
+   Rendered as additive sprites that occlude behind the brain mesh.
    ========================================================================= */
 import * as THREE from 'three';
 
+const VERT = /* glsl */`
+  attribute float aAlpha;
+  attribute float aSize;
+  uniform float uPr;
+  varying float vA;
+  void main() {
+    vA = aAlpha;
+    vec4 mv = modelViewMatrix * vec4(position, 1.0);
+    gl_PointSize = aSize * uPr * (300.0 / -mv.z);
+    gl_Position = projectionMatrix * mv;
+  }
+`;
+const FRAG = /* glsl */`
+  precision mediump float;
+  varying float vA;
+  uniform vec3 uColor;
+  void main() {
+    vec2 uv = gl_PointCoord - 0.5;
+    float r = length(uv);
+    if (r > 0.5) discard;
+    float halo = smoothstep(0.5, 0.0, r);
+    float core = smoothstep(0.16, 0.0, r);
+    vec3 c = uColor + vec3(core * 0.6);
+    gl_FragColor = vec4(c, (halo * 0.5 + core) * vA);
+  }
+`;
+
 export class Synapses {
   /**
-   * @param {Float32Array} positions particle positions (xyz triples)
-   * @param {Uint32Array}  lineIndices pairs of particle indices = edges
-   * @param {number} pulseCount how many pulses travel at once
+   * @param {Float32Array} surface flat xyz of all mesh verts
+   * @param {{idx:number[], adj:number[][]}} sg synaptic graph (local indices)
+   * @param {number} n number of simultaneous pulses
    */
-  constructor(positions, lineIndices, pulseCount = 90) {
-    this.positions = positions;
-    this.edges = lineIndices;
-    this.edgeCount = lineIndices.length / 2;
-    this.n = Math.min(pulseCount, Math.max(1, this.edgeCount));
+  constructor(surface, sg, n = 70) {
+    this.surface = surface;
+    this.idx = sg.idx;
+    this.adj = sg.adj;
+    this.n = n;
 
-    this.edgeOf = new Int32Array(this.n);
-    this.t = new Float32Array(this.n);
-    this.speed = new Float32Array(this.n);
+    this.from = new Int32Array(n);   // local index
+    this.to = new Int32Array(n);
+    this.t = new Float32Array(n);
+    this.speed = new Float32Array(n);
+    this.life = new Float32Array(n);
+    this.arc = new Float32Array(n);
 
     const geo = new THREE.BufferGeometry();
-    this.buf = new Float32Array(this.n * 3);
-    geo.setAttribute('position', new THREE.BufferAttribute(this.buf, 3));
+    this.pos = new Float32Array(n * 3);
+    this.alpha = new Float32Array(n);
+    this.size = new Float32Array(n);
+    geo.setAttribute('position', new THREE.BufferAttribute(this.pos, 3));
+    geo.setAttribute('aAlpha', new THREE.BufferAttribute(this.alpha, 1));
+    geo.setAttribute('aSize', new THREE.BufferAttribute(this.size, 1));
 
-    const mat = new THREE.PointsMaterial({
-      size: 0.07,
-      color: new THREE.Color(0x9fe9ff),
-      map: Synapses._sprite(),
-      transparent: true,
-      opacity: 0.95,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-      sizeAttenuation: true,
+    this.uniforms = { uPr: { value: 1 }, uColor: { value: new THREE.Color(0x8fe6ff) } };
+    const mat = new THREE.ShaderMaterial({
+      uniforms: this.uniforms, vertexShader: VERT, fragmentShader: FRAG,
+      transparent: true, depthTest: true, depthWrite: false, blending: THREE.AdditiveBlending,
     });
     this.points = new THREE.Points(geo, mat);
     this.points.frustumCulled = false;
 
-    for (let i = 0; i < this.n; i++) this._respawn(i);
+    for (let i = 0; i < n; i++) this._spawn(i, (Math.random() * this.idx.length) | 0);
   }
 
-  static _sprite() {
-    if (Synapses.__tex) return Synapses.__tex;
-    const s = 64;
-    const cv = document.createElement('canvas');
-    cv.width = cv.height = s;
-    const ctx = cv.getContext('2d');
-    const g = ctx.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
-    g.addColorStop(0, 'rgba(255,255,255,1)');
-    g.addColorStop(0.35, 'rgba(200,240,255,0.9)');
-    g.addColorStop(1, 'rgba(160,230,255,0)');
-    ctx.fillStyle = g;
-    ctx.beginPath(); ctx.arc(s / 2, s / 2, s / 2, 0, Math.PI * 2); ctx.fill();
-    Synapses.__tex = new THREE.CanvasTexture(cv);
-    return Synapses.__tex;
-  }
-
-  _respawn(i) {
-    this.edgeOf[i] = (Math.random() * this.edgeCount) | 0;
+  _spawn(i, li) {
+    const neighbours = this.adj[li];
+    if (!neighbours || !neighbours.length) { this._spawn(i, (Math.random() * this.idx.length) | 0); return; }
+    this.from[i] = li;
+    this.to[i] = neighbours[(Math.random() * neighbours.length) | 0];
     this.t[i] = 0;
-    this.speed[i] = 0.35 + Math.random() * 0.9;
+    this.speed[i] = 0.5 + Math.random() * 1.1;
+    this.life[i] = 0.6 + Math.random() * 0.9;      // sizes brightness
+    this.arc[i] = 0.02 + Math.random() * 0.04;
   }
 
   update(dt, activity = 0) {
-    const spd = 1 + activity * 1.6;
+    const spd = 1 + activity * 1.4;
+    const s = this.surface;
     for (let i = 0; i < this.n; i++) {
       this.t[i] += dt * this.speed[i] * spd;
-      if (this.t[i] >= 1) this._respawn(i);
-      const e = this.edgeOf[i];
-      const a = this.edges[e * 2] * 3;
-      const b = this.edges[e * 2 + 1] * 3;
-      const tt = this.t[i];
-      this.buf[i * 3] = this.positions[a] + (this.positions[b] - this.positions[a]) * tt;
-      this.buf[i * 3 + 1] = this.positions[a + 1] + (this.positions[b + 1] - this.positions[a + 1]) * tt;
-      this.buf[i * 3 + 2] = this.positions[a + 2] + (this.positions[b + 2] - this.positions[a + 2]) * tt;
+      if (this.t[i] >= 1) {
+        // branch (chain onward) or re-emerge elsewhere
+        if (Math.random() < 0.55) this._spawn(i, this.to[i]);
+        else this._spawn(i, (Math.random() * this.idx.length) | 0);
+      }
+      const t = this.t[i];
+      const a = this.idx[this.from[i]] * 3;
+      const b = this.idx[this.to[i]] * 3;
+      let x = s[a] + (s[b] - s[a]) * t;
+      let y = s[a + 1] + (s[b + 1] - s[a + 1]) * t;
+      let z = s[a + 2] + (s[b + 2] - s[a + 2]) * t;
+      // arc outward along the surface normal (≈ position direction)
+      const len = Math.hypot(x, y, z) || 1;
+      const lift = this.arc[i] * Math.sin(Math.PI * t);
+      x += (x / len) * lift; y += (y / len) * lift; z += (z / len) * lift;
+      this.pos[i * 3] = x; this.pos[i * 3 + 1] = y; this.pos[i * 3 + 2] = z;
+      // soft birth→death envelope
+      this.alpha[i] = Math.sin(Math.PI * t) * this.life[i] * (0.55 + activity * 0.45);
+      this.size[i] = 0.03 + this.life[i] * 0.05;
     }
-    this.points.geometry.attributes.position.needsUpdate = true;
-    this.points.material.opacity = 0.7 + activity * 0.3;
+    const g = this.points.geometry;
+    g.attributes.position.needsUpdate = true;
+    g.attributes.aAlpha.needsUpdate = true;
+    g.attributes.aSize.needsUpdate = true;
   }
 
-  dispose() {
-    this.points.geometry.dispose();
-    this.points.material.dispose();
-  }
+  dispose() { this.points.geometry.dispose(); this.points.material.dispose(); }
 }

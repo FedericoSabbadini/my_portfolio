@@ -27,6 +27,14 @@
   overflow-y: auto;
   padding: clamp(20px, 2vw, 30px);
   padding-top: clamp(64px, 8vh, 92px);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity var(--dur-slow) var(--ease-cine), transform var(--dur-slow) var(--ease-cine);
+}
+.section-view.is-active .panel--left .panel__scroll { transition-delay: .12s; opacity: 1; transform: none; }
+.section-view.is-active .panel--right .panel__scroll { transition-delay: .22s; opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .panel__scroll { opacity: 1; transform: none; }
 }
 
 /* --- Left: domain overview --- */
@@ -37,9 +45,9 @@
   margin-bottom: 18px;
 }
 .dom-kicker { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: .22em; text-transform: uppercase; color: var(--dom, var(--cyan)); }
-.dom-title { font-size: var(--t-h1); font-weight: 600; margin: 8px 0 6px; }
-.dom-region { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--ink-faint); letter-spacing: .06em; }
-.dom-desc { margin-top: 18px; color: var(--ink); font-size: var(--t-body); line-height: 1.7; }
+.dom-title { font-size: var(--t-h1); font-weight: 600; margin: 10px 0 8px; }
+.dom-region { font-size: var(--t-sm); color: var(--ink-mut); line-height: 1.5; max-width: 30ch; }
+.dom-desc { margin-top: 18px; color: var(--ink); font-size: var(--t-body); line-height: 1.72; max-width: 34ch; }
 
 .dom-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
 .dom-stat {

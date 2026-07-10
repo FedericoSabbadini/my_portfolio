@@ -19,7 +19,7 @@ const TYPE_LEGEND = [
 ];
 
 export class GraphView {
-  constructor(graph) {
+  constructor(graph, { reducedMotion } = {}) {
     this.graph = graph;
     this.canvas = document.getElementById('graph-canvas');
     this.leftHost = document.getElementById('left-content');
@@ -31,9 +31,13 @@ export class GraphView {
     this.fg = new ForceGraph(this.canvas, {
       onNodeClick: (n) => this.selectNode(n),
       onNodeHover: () => {},
+      reducedMotion,
     });
     this._ensureMobileToggles();
   }
+
+  pause() { this.fg.pause(); }
+  resume() { this.fg.resume(); }
 
   colorFor(node) {
     if (node.type === 'project') return this.domain.accent;
