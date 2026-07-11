@@ -200,6 +200,40 @@ body.is-mobile .mind-card__desc { grid-area: desc; }
 body.is-mobile .mind-card__meta { grid-area: meta; margin: 0; justify-self: end; }
 body.is-mobile .mind-card:active { transform: scale(.99); background: var(--bg-panel-2); }
 
+/* =========================================================================
+   REGION RAIL — explicit category navigation under the brain, every size.
+   The floating cortex chips are for immersive hover; this is the calm,
+   always-available way to pick a region.
+   ========================================================================= */
+.home-overlay__foot {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  pointer-events: none;
+}
+.region-rail {
+  pointer-events: auto;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  max-width: min(920px, 94vw);
+  animation: hint-fade 1s var(--ease-cine) both 1s;
+}
+.region-rail__item {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 15px; border-radius: var(--r-pill);
+  background: rgba(10,13,20,.5); border: 1px solid var(--hairline);
+  backdrop-filter: blur(10px);
+  color: var(--ink-mut); font-size: var(--t-sm); letter-spacing: .01em;
+  transition: transform var(--dur-fast) var(--ease-cine), color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
+}
+.region-rail__item:hover,
+.region-rail__item:focus-visible {
+  transform: translateY(-2px); color: var(--ink-hi);
+  border-color: color-mix(in srgb, var(--rc) 55%, transparent);
+  background: rgba(14,18,28,.7);
+}
+.region-rail__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rc); box-shadow: 0 0 9px var(--rc); flex: none; }
+
+/* On the mobile guided layout the card sheet IS the rail — hide the pill row. */
+body.is-mobile .region-rail { display: none; }
+
 /* --- Small-phone home tweaks --- */
 @media (max-width: 640px) {
   .home-overlay__hint { font-size: var(--t-xs); text-align: center; }

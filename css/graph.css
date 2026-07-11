@@ -195,3 +195,131 @@
 @media (max-width: 560px) {
   .panel { width: 90vw; }
 }
+
+/* =========================================================================
+   PANEL MODES — profile (About) · timeline (Work) · contacts
+   The centre stage swaps the canvas for a DOM layout when there are no real
+   branches to explore. The right detail column collapses away.
+   ========================================================================= */
+.section-view.is-panelmode { grid-template-columns: var(--panel-w) 1fr; }
+.section-view.is-panelmode .panel--right { display: none; }
+@media (max-width: 1080px) { .section-view.is-panelmode { grid-template-columns: 1fr; } }
+
+.stage-panel { position: absolute; inset: 0; overflow: hidden; }
+.stage-scroll {
+  position: absolute; inset: 0; overflow-y: auto;
+  padding: clamp(56px, 8vh, 96px) clamp(22px, 4vw, 60px) 64px;
+}
+.stage-panel[hidden] { display: none; }
+
+/* entrance */
+.section-view.is-active .stage-panel .profile,
+.section-view.is-active .stage-panel .timeline,
+.section-view.is-active .stage-panel .contacts {
+  animation: stage-in var(--dur-slow) var(--ease-cine) both .15s;
+}
+@keyframes stage-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .stage-panel * { animation: none !important; } }
+
+.chip--lg { padding: 6px 13px; font-size: var(--t-sm); font-family: var(--font-body); }
+
+/* --- Profile (About) --- */
+.profile { max-width: 640px; margin: 0 auto; }
+.pf-head { display: flex; align-items: center; gap: 20px; margin-bottom: 26px; }
+.pf-avatar {
+  width: 84px; height: 84px; border-radius: 50%; object-fit: cover; flex: none;
+  border: 1px solid var(--hairline-2); box-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+.pf-name { font-size: var(--t-h1); font-weight: 600; }
+.pf-title { color: var(--ink-mut); font-size: var(--t-h3); margin-top: 4px; }
+.pf-loc { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--ink-faint); margin-top: 8px; letter-spacing: .04em; }
+.pf-bio { color: var(--ink); font-size: var(--t-body); line-height: 1.78; display: flex; flex-direction: column; gap: 14px; }
+.pf-stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px;
+  margin: 28px 0 6px;
+}
+.pf-stat {
+  padding: 16px; background: var(--bg-panel); border: 1px solid var(--hairline); border-radius: var(--r-md);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.pf-stat__num { font-family: var(--font-display); font-size: 1.7rem; font-weight: 600; color: var(--ink-hi); }
+.pf-stat__lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-mut); }
+.pf-sec { margin-top: 34px; }
+.pf-sec__t {
+  font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ink-mut); margin-bottom: 14px; font-weight: 500;
+}
+.pf-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.pf-langs { display: flex; flex-direction: column; gap: 16px; }
+.pf-lang__top { display: flex; justify-content: space-between; align-items: baseline; font-size: var(--t-body); color: var(--ink-hi); }
+.pf-lang__lvl { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--ink-mut); }
+.pf-meter { height: 3px; background: var(--bg-elev); border-radius: 3px; margin-top: 8px; overflow: hidden; }
+.pf-meter i { display: block; height: 100%; background: linear-gradient(90deg, var(--dom, var(--cyan)), color-mix(in srgb, var(--dom, var(--cyan)) 40%, transparent)); border-radius: 3px; }
+.pf-lang__detail { font-size: var(--t-xs); color: var(--ink-faint); margin-top: 6px; }
+.pf-interests { display: flex; flex-direction: column; gap: 16px; }
+.pf-interest { display: flex; gap: 14px; align-items: flex-start; }
+.pf-interest__ico { font-size: 1.3rem; line-height: 1.3; flex: none; }
+.pf-interest__t { color: var(--ink-hi); font-weight: 500; margin-bottom: 3px; }
+.pf-interest__d { color: var(--ink-mut); font-size: var(--t-sm); line-height: 1.6; }
+
+/* --- Timeline (Work) --- */
+.timeline { list-style: none; max-width: 620px; margin: 0 auto; position: relative; padding-left: 26px; }
+.timeline::before {
+  content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px;
+  background: linear-gradient(180deg, var(--dom, var(--cyan)), transparent);
+}
+.tl-item { position: relative; padding-bottom: 30px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+  position: absolute; left: -26px; top: 6px; width: 11px; height: 11px; border-radius: 50%;
+  background: var(--dom, var(--cyan)); box-shadow: 0 0 0 4px color-mix(in srgb, var(--dom, var(--cyan)) 18%, transparent);
+}
+.tl-when { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: .08em; color: var(--dom, var(--cyan)); }
+.tl-title { font-size: var(--t-h3); font-weight: 600; margin: 6px 0 4px; }
+.tl-org { font-size: var(--t-sm); color: var(--ink-mut); }
+.tl-badge { color: var(--dom, var(--cyan)); font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; }
+.tl-desc { color: var(--ink); font-size: var(--t-body); line-height: 1.7; margin: 12px 0; }
+.tl-resp { margin: 0 0 12px; padding-left: 18px; color: var(--ink-mut); font-size: var(--t-sm); line-height: 1.7; }
+.tl-resp li { margin-bottom: 2px; }
+.tl-tech { display: flex; flex-wrap: wrap; gap: 7px; }
+
+/* --- Contacts --- */
+.contacts { max-width: 640px; margin: 0 auto; }
+.ct-lead { color: var(--ink); font-size: var(--t-h3); line-height: 1.6; margin-bottom: 28px; max-width: 40ch; }
+.ct-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.ct-card {
+  display: flex; align-items: center; gap: 14px; padding: 16px 18px;
+  background: var(--bg-panel); border: 1px solid var(--hairline); border-radius: var(--r-md);
+  transition: transform var(--dur-fast) var(--ease-cine), border-color var(--dur-fast), background var(--dur-fast);
+}
+.ct-card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--dom, var(--cyan)) 45%, transparent); background: var(--bg-panel-2); }
+.ct-glyph {
+  width: 38px; height: 38px; border-radius: 50%; flex: none; display: grid; place-items: center;
+  font-size: 1rem; color: var(--dom, var(--cyan));
+  background: color-mix(in srgb, var(--dom, var(--cyan)) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--dom, var(--cyan)) 30%, transparent);
+  font-family: var(--font-mono);
+}
+.ct-body { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.ct-label { color: var(--ink-hi); font-weight: 500; }
+.ct-sub { font-size: var(--t-xs); color: var(--ink-mut); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ct-go { color: var(--ink-faint); font-family: var(--font-mono); flex: none; }
+
+/* =========================================================================
+   BRAIN-GLYPH RETURN — a small living brain, top-left of every region view
+   ========================================================================= */
+.brain-home {
+  position: absolute; top: 14px; left: 16px; z-index: 6;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 7px 13px 7px 8px; border-radius: var(--r-pill);
+  background: rgba(10,13,20,.55); border: 1px solid var(--hairline-2);
+  backdrop-filter: blur(10px); color: var(--ink-mut);
+  transition: transform var(--dur-fast) var(--ease-cine), border-color var(--dur-fast), color var(--dur-fast);
+}
+.brain-home:hover { transform: translateX(-1px); color: var(--ink-hi); border-color: color-mix(in srgb, var(--cyan) 45%, transparent); }
+.brain-home svg { width: 20px; height: 20px; display: block; }
+.brain-home__stroke { stroke: var(--cyan); }
+.brain-home__label { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: .12em; }
+/* the breadcrumb starts after the glyph so they never collide */
+.breadcrumb { left: 128px; }
+@media (max-width: 560px) { .brain-home__label { display: none; } .breadcrumb { left: 66px; } }

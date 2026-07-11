@@ -32,6 +32,7 @@ async function boot() {
   console.info(`[mind] ${tree.nodes.length} nodes across ${tree.regions.length} regions`);
 
   renderRegionIndex(raw.regions, tree);
+  renderRegionRail(raw.regions);
   addSkipLink();
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -41,7 +42,6 @@ async function boot() {
   const canBrain = webglAvailable();
 
   state.treeView = new TreeView(tree, { reducedMotion: reduced, mobile, onExit: () => go('#/') });
-  window.__mind = state;   // debug handle (dev only)
 
   // On touch/small screens we lead with guided navigation, not free hover.
   if (mobile) document.body.classList.add('is-mobile');
@@ -111,6 +111,7 @@ async function enterHome() {
 /* ---- chrome ------------------------------------------------------------- */
 function wireChrome() {
   document.getElementById('back-to-mind')?.addEventListener('click', () => go('#/'));
+  document.getElementById('brain-home')?.addEventListener('click', () => go('#/'));
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && state.view === 'section') {
       if (!state.treeView.handleEscape()) go('#/');
@@ -135,6 +136,15 @@ function renderRegionIndex(regions, tree) {
         </a>
       </li>`;
   }).join('');
+}
+
+function renderRegionRail(regions) {
+  const rail = document.getElementById('region-rail');
+  if (!rail) return;
+  rail.innerHTML = regions.map((d) => `
+    <a class="region-rail__item" href="#/region/${d.id}" style="--rc:${d.accent}">
+      <span class="region-rail__dot"></span>${escapeHtml(d.label)}
+    </a>`).join('');
 }
 
 function addSkipLink() {
