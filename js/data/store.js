@@ -21,9 +21,9 @@ async function loadJSON(path) {
  */
 export async function loadAll() {
   const [
-    domainsWrap, personal, projects, work, education, certifications, courses,
+    regionsWrap, personal, projects, work, education, certifications, courses,
   ] = await Promise.all([
-    loadJSON('graph/domains.json'),
+    loadJSON('graph/regions.json'),
     loadJSON('personal.json'),
     loadJSON('projects.json'),
     loadJSON('work.json'),
@@ -33,7 +33,7 @@ export async function loadAll() {
   ]);
 
   return {
-    domains: domainsWrap.domains,
+    regions: regionsWrap.regions,
     personal,          // { personal, social, stats, languages, interests }
     projects: projects.projects || [],
     work: work.work || [],

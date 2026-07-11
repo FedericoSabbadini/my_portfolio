@@ -1,14 +1,15 @@
 /* =========================================================================
    router.js — minimal hash router (works on GitHub Pages, no server config).
-   Routes:  #/                → home
-            #/domain/:id      → domain graph view
-            #/node/:id        → domain view focused on a node
+   Routes:  #/                    → home (the brain)
+            #/region/:id          → region's knowledge tree
+            #/region/:id/:nodeId  → tree focused on a node
    ========================================================================= */
 export function parseHash() {
   const h = (location.hash || '#/').replace(/^#/, '');
-  const parts = h.split('/').filter(Boolean);   // e.g. ['domain','ai']
-  if (parts[0] === 'domain' && parts[1]) return { name: 'domain', id: decodeURIComponent(parts[1]) };
-  if (parts[0] === 'node' && parts[1]) return { name: 'node', id: decodeURIComponent(parts[1]) };
+  const parts = h.split('/').filter(Boolean);   // e.g. ['region','education','course:web']
+  if (parts[0] === 'region' && parts[1]) {
+    return { name: 'region', id: decodeURIComponent(parts[1]), node: parts[2] ? decodeURIComponent(parts[2]) : null };
+  }
   return { name: 'home' };
 }
 

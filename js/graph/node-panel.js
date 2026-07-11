@@ -38,7 +38,9 @@ function connectionsHTML(connections) {
   return `<div class="detail__group-label">Connected (${connections.length})</div>
     <div class="detail__connections">${connections.map((c) => `
       <button class="detail__conn" data-node="${esc(c.id)}">
-        <span class="detail__conn-dot" style="background:${esc(c.color)}"></span>${esc(c.label)}
+        <span class="detail__conn-dot" style="background:${esc(c.color)}"></span>
+        <span class="detail__conn-lbl">${esc(c.label)}</span>
+        ${c.note ? `<span class="detail__conn-note">${esc(c.note)}</span>` : ''}
       </button>`).join('')}</div>`;
 }
 

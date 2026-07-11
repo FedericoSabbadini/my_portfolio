@@ -50,6 +50,13 @@ const FRAG = /* glsl */`
   uniform vec3 uBase, uDeep, uActColor;
   uniform vec3 uRegion, uRegionColor;
   uniform float uTime, uActivity, uRegionStr, uBump, uFold;
+  // knowledge regions painted on the cortex
+  uniform vec3 uRegions[NREG];
+  uniform vec3 uRegionCols[NREG];
+  uniform float uRegionSizes[NREG];
+  uniform float uHoverRegion;   // index of hovered region, or -1
+  uniform float uHoverStr;      // 0..1 emphasis fade
+  uniform float uPaint;         // global region-paint intensity
   varying vec3 vN, vView, vLocal, vWorld;
   varying float vLobe, vSeed, vFold;
 
@@ -153,7 +160,28 @@ const FRAG = /* glsl */`
     // rim last so it always halos the silhouette cleanly (base-normal fresnel)
     col += uRimColor * fresB * 0.4 * (0.85 + 0.15 * lobePulse);
 
-    // hovered region: local glow that also lifts the rim
+    // ---- knowledge regions painted on the cortex ------------------------
+    // Voronoi over the region anchors: nearest anchor owns the fragment; a
+    // thin illuminated line glows where two regions meet (anatomical seam).
+    float b1 = 1e9, b2 = 1e9;
+    vec3 regCol = vec3(0.0);
+    float nearHover = 0.0;
+    for (int i = 0; i < NREG; i++) {
+      float d = distance(vLocal, uRegions[i]) / max(uRegionSizes[i], 0.1);
+      if (d < b1) {
+        b2 = b1; b1 = d; regCol = uRegionCols[i];
+        nearHover = (abs(float(i) - uHoverRegion) < 0.5) ? 1.0 : 0.0;
+      } else if (d < b2) { b2 = d; }
+    }
+    // subtle tint — keeps it a brain, not a colour-blocked map
+    col += regCol * uPaint * (0.045 + 0.20 * uHoverStr * nearHover);
+    // isolate: dim every region except the hovered one
+    col *= mix(1.0, mix(0.40, 1.06, nearHover), uHoverStr);
+    // thin glowing seam between regions
+    float seam = 1.0 - smoothstep(0.0, 0.045, b2 - b1);
+    col += regCol * seam * uPaint * (0.32 + 0.55 * fresB) * (0.7 + 0.7 * uHoverStr * nearHover);
+
+    // dive emphasis: local bloom at the region being entered
     float reg = smoothstep(0.9, 0.0, distance(vLocal, uRegion)) * uRegionStr;
     col += uRegionColor * reg * (0.5 + fres * 0.85);
 
@@ -166,7 +194,7 @@ export class BrainScene {
     this.canvas = canvas;
     this.reduced = !!opts.reducedMotion;
     this.mobile = !!opts.mobile;
-    this.domains = opts.domains || [];
+    this.regions = opts.regions || [];
     this._frameCbs = [];
     this._running = false;
     this._interactive = true;
@@ -175,10 +203,20 @@ export class BrainScene {
 
     this.regionPos = new Map();
     this.regionColor = new Map();
-    for (const d of this.domains) {
-      this.regionPos.set(d.id, new THREE.Vector3(...d.position));
-      this.regionColor.set(d.id, new THREE.Color(d.accent));
-    }
+    this.regionIndex = new Map();
+    this._regionVecs = [];
+    this._regionCols = [];
+    this._regionSizes = [];
+    this.regions.forEach((d, i) => {
+      const v = new THREE.Vector3(...d.position);
+      const c = new THREE.Color(d.accent);
+      this.regionPos.set(d.id, v);
+      this.regionColor.set(d.id, c);
+      this.regionIndex.set(d.id, i);
+      this._regionVecs.push(v.clone());
+      this._regionCols.push(c.clone());
+      this._regionSizes.push(d.size || 1);
+    });
 
     this.pointer = new THREE.Vector2(0, 0);
     this._parallax = new THREE.Vector2(0, 0);
@@ -218,8 +256,8 @@ export class BrainScene {
   }
 
   _buildBrain() {
-    const detail = this.mobile ? 34 : 52;   // verts ≈ 10·detail² (fine gyri are per-pixel)
-    const regionPositions = this.domains.map((d) => d.position);
+    const detail = this.mobile ? 42 : 52;   // verts ≈ 10·detail² (fine gyri are per-pixel)
+    const regionPositions = this.regions.map((d) => d.position);
     const { geometry, surface, count } = buildBrainMesh(detail, regionPositions);
     this.brainGeo = geometry; this.surface = surface;
 
@@ -240,21 +278,28 @@ export class BrainScene {
       uRegion: { value: new THREE.Vector3(0, 0, 6) },
       uRegionStr: { value: 0 },
       uRegionColor: { value: new THREE.Color(0x22d3ee) },
-      uBump: { value: this.mobile ? 0.34 : 0.4 },
-      uFold: { value: this.mobile ? 0.9 : 1.0 },    // fine-gyri intensity (perf lever)
+      uBump: { value: this.mobile ? 0.26 : 0.32 },   // gentler folds → smoother, more elegant
+      uFold: { value: this.mobile ? 0.8 : 0.9 },     // fine-gyri intensity (perf lever)
+      // painted knowledge regions
+      uRegions: { value: this._regionVecs },
+      uRegionCols: { value: this._regionCols },
+      uRegionSizes: { value: this._regionSizes },
+      uHoverRegion: { value: -1 },
+      uHoverStr: { value: 0 },
+      uPaint: { value: 1 },
     };
     const mat = new THREE.ShaderMaterial({
       uniforms: this.uniforms, vertexShader: VERT, fragmentShader: FRAG, transparent: false,
-      defines: this.mobile ? { LITE: 1 } : {},
+      defines: { NREG: this.regions.length, ...(this.mobile ? { LITE: 1 } : {}) },
     });
     mat.extensions = { derivatives: true };
     this.brain = new THREE.Mesh(geometry, mat);
     this.brain.frustumCulled = false;
     this.group.add(this.brain);
 
-    // synapses ride the surface
-    const sg = buildSynapticGraph(surface, count, this.mobile ? 360 : 560);
-    this.synapses = new Synapses(surface, sg, this.mobile ? 40 : 78);
+    // synapses ride the surface — sparse: quiet "activity", not a cloud of points
+    const sg = buildSynapticGraph(surface, count, this.mobile ? 300 : 460);
+    this.synapses = new Synapses(surface, sg, this.mobile ? 18 : 34);
     this.synapses.uniforms.uPr.value = this.pr;
     this.group.add(this.synapses.points);
   }
@@ -264,8 +309,8 @@ export class BrainScene {
     this.composer.addPass(new RenderPass(this.scene, this.camera));
     this.useBloom = !this.reduced;
     if (this.useBloom) {
-      // restrained: only the brightest neural sparks / rim glow softly
-      this.bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.42, 0.6, 0.55);
+      // restrained: only the brightest neural sparks / seams glow softly
+      this.bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.3, 0.6, 0.6);
       this.composer.addPass(this.bloom);
     }
     this.composer.addPass(new OutputPass());
@@ -277,16 +322,17 @@ export class BrainScene {
   setInteractive(v) { this._interactive = v; }
   setPointer(nx, ny) { this.pointer.set(nx, ny); }
 
+  /** hover a region by id (or null): isolates its painted zone + lifts activity */
   setActiveRegion(id) {
     this._activityTarget = id ? 1 : 0;
-    if (id && this.regionPos.has(id)) {
-      const p = this.regionPos.get(id);
-      gsap.to(this.uniforms.uRegion.value, { x: p.x, y: p.y, z: p.z, duration: 0.5, ease: 'power2.out' });
-      gsap.to(this.uniforms.uRegionStr, { value: 1, duration: 0.5, ease: 'power2.out' });
-      const c = this.regionColor.get(id);
-      gsap.to(this.uniforms.uRegionColor.value, { r: c.r, g: c.g, b: c.b, duration: 0.4 });
+    if (id && this.regionIndex.has(id)) {
+      this.uniforms.uHoverRegion.value = this.regionIndex.get(id);
+      gsap.to(this.uniforms.uHoverStr, { value: 1, duration: 0.45, ease: 'power2.out' });
     } else {
-      gsap.to(this.uniforms.uRegionStr, { value: 0, duration: 0.6, ease: 'power2.out' });
+      gsap.to(this.uniforms.uHoverStr, {
+        value: 0, duration: 0.5, ease: 'power2.out',
+        onComplete: () => { this.uniforms.uHoverRegion.value = -1; },
+      });
     }
   }
 
@@ -305,17 +351,23 @@ export class BrainScene {
       visible: v.z < 1 && facing, depth: v.z,
     };
   }
-  allRegionScreen() { return this.domains.map((d) => ({ id: d.id, ...this.projectRegion(d.id) })); }
+  allRegionScreen() { return this.regions.map((d) => ({ id: d.id, ...this.projectRegion(d.id) })); }
 
   zoomTo(id) {
     this._diving = true;
     const p = this.regionPos.get(id) || new THREE.Vector3();
+    const c = this.regionColor.get(id) || new THREE.Color(0x22d3ee);
+    // isolate the entered region + set its dive-glow colour
+    if (this.regionIndex.has(id)) this.uniforms.uHoverRegion.value = this.regionIndex.get(id);
+    this.uniforms.uRegion.value.copy(p);
+    this.uniforms.uRegionColor.value.copy(c);
     const yaw = -Math.atan2(p.x, p.z + 0.001);
     const tl = gsap.timeline();
+    tl.to(this.uniforms.uHoverStr, { value: 1, duration: 0.5 }, 0);
     tl.to(this.group.rotation, { y: yaw, x: p.y * 0.35, duration: 1.15, ease: 'power3.inOut' }, 0);
     tl.to(this.camera.position, { x: p.x * 0.5, y: p.y * 0.5, z: 1.75, duration: 1.25, ease: 'power3.inOut',
       onUpdate: () => { this.camera.lookAt(this._camTarget); } }, 0);
-    tl.to(this.uniforms.uRegionStr, { value: 1.8, duration: 0.9 }, 0);
+    tl.to(this.uniforms.uRegionStr, { value: 1.6, duration: 0.9 }, 0);
     tl.to(this.uniforms.uActivity, { value: 1.4, duration: 0.9 }, 0);
     setTimeout(() => { this.canvas.style.opacity = '0'; }, 620);
     return tl.then(() => {});
@@ -327,6 +379,7 @@ export class BrainScene {
     const tl = gsap.timeline();
     tl.to(this.camera.position, { z: this.homeCamZ, x: 0, y: 0, duration: 1.1, ease: 'power3.inOut' }, 0);
     tl.to(this.uniforms.uRegionStr, { value: 0, duration: 0.6 }, 0);
+    tl.to(this.uniforms.uHoverStr, { value: 0, duration: 0.6, onComplete: () => { this.uniforms.uHoverRegion.value = -1; } }, 0);
     tl.to(this.uniforms.uActivity, { value: 0, duration: 0.8 }, 0);
     return tl.then(() => {});
   }
@@ -334,10 +387,20 @@ export class BrainScene {
   resize() {
     const w = this.canvas.clientWidth || window.innerWidth;
     const h = this.canvas.clientHeight || window.innerHeight;
-    this.camera.aspect = w / h; this.camera.updateProjectionMatrix();
+    const aspect = w / h;
+    this.camera.aspect = aspect; this.camera.updateProjectionMatrix();
     this.renderer.setSize(w, h, false);
     this.composer.setSize(w, h);
     if (this.bloom) this.bloom.setSize(w, h);
+
+    // frame the brain so it is never cropped: keep the roomy landscape framing,
+    // but on portrait / narrow aspects pull the camera back to fit the width.
+    const vHalf = Math.tan((40 * Math.PI / 180) / 2);
+    const hHalf = vHalf * aspect;
+    const widthFit = 1.4 / Math.max(hHalf, 1e-3);          // 1.4 = brain half-width + margin
+    this.homeCamZ = Math.max(4.15, Math.min(widthFit * 1.05, 10.0));
+    // apply immediately so static (reduced-motion) framing is correct too
+    if (!this._diving) { this.camera.position.z = this.homeCamZ; this.camera.lookAt(this._camTarget); }
   }
 
   start() { this._wantRun = true; if (this._running) return; this._running = true; this._clock.start(); this._loop(); }
@@ -376,7 +439,7 @@ export class BrainScene {
       this.camera.lookAt(this._camTarget);
     }
 
-    this.synapses.update(dt, this.activity);
+    this.synapses.update(this.reduced ? dt * 0.12 : dt, this.activity);
     for (const cb of this._frameCbs) cb();
     this.composer.render();
   }

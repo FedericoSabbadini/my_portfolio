@@ -93,9 +93,10 @@ export class Synapses {
     this.from[i] = li;
     this.to[i] = neighbours[(Math.random() * neighbours.length) | 0];
     this.t[i] = 0;
-    this.speed[i] = 0.5 + Math.random() * 1.1;
-    this.life[i] = 0.6 + Math.random() * 0.9;      // sizes brightness
-    this.arc[i] = 0.02 + Math.random() * 0.04;
+    this.speed[i] = 0.55 + Math.random() * 1.2;
+    this.life[i] = 0.55 + Math.random() * 0.9;      // sizes brightness
+    this.arc[i] = 0.02 + Math.random() * 0.05;
+    this.warm[i] = Math.random() < 0.3 ? 0.6 + Math.random() * 0.4 : Math.random() * 0.3;
   }
 
   update(dt, activity = 0) {
@@ -119,14 +120,18 @@ export class Synapses {
       const lift = this.arc[i] * Math.sin(Math.PI * t);
       x += (x / len) * lift; y += (y / len) * lift; z += (z / len) * lift;
       this.pos[i * 3] = x; this.pos[i * 3 + 1] = y; this.pos[i * 3 + 2] = z;
-      // soft birth→death envelope
-      this.alpha[i] = Math.sin(Math.PI * t) * this.life[i] * (0.55 + activity * 0.45);
-      this.size[i] = 0.03 + this.life[i] * 0.05;
+      // action-potential envelope: a quick bright flash after birth that
+      // tapers away — front-loaded so it reads as a spark, not a blob.
+      const env = Math.pow(Math.sin(Math.PI * t), 1.6);
+      const flash = Math.exp(-t * 3.0) * 0.5;             // ignition burst
+      this.alpha[i] = Math.min(1, (env + flash)) * this.life[i] * (0.5 + activity * 0.5);
+      this.size[i] = 0.05 + this.life[i] * 0.07 + flash * 0.05;
     }
     const g = this.points.geometry;
     g.attributes.position.needsUpdate = true;
     g.attributes.aAlpha.needsUpdate = true;
     g.attributes.aSize.needsUpdate = true;
+    g.attributes.aWarm.needsUpdate = true;
   }
 
   dispose() { this.points.geometry.dispose(); this.points.material.dispose(); }
