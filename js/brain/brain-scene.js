@@ -174,12 +174,12 @@ const FRAG = /* glsl */`
       } else if (d < b2) { b2 = d; }
     }
     // subtle tint — keeps it a brain, not a colour-blocked map
-    col += regCol * uPaint * (0.045 + 0.20 * uHoverStr * nearHover);
+    col += regCol * uPaint * (0.07 + 0.22 * uHoverStr * nearHover);
     // isolate: dim every region except the hovered one
-    col *= mix(1.0, mix(0.40, 1.06, nearHover), uHoverStr);
-    // thin glowing seam between regions
-    float seam = 1.0 - smoothstep(0.0, 0.045, b2 - b1);
-    col += regCol * seam * uPaint * (0.32 + 0.55 * fresB) * (0.7 + 0.7 * uHoverStr * nearHover);
+    col *= mix(1.0, mix(0.38, 1.08, nearHover), uHoverStr);
+    // thin illuminated seam where two regions meet (anatomical separation)
+    float seam = 1.0 - smoothstep(0.0, 0.018, b2 - b1);
+    col += regCol * seam * uPaint * (0.28 + 0.35 * fresB) * (0.75 + 0.7 * uHoverStr * nearHover);
 
     // dive emphasis: local bloom at the region being entered
     float reg = smoothstep(0.9, 0.0, distance(vLocal, uRegion)) * uRegionStr;
@@ -278,8 +278,8 @@ export class BrainScene {
       uRegion: { value: new THREE.Vector3(0, 0, 6) },
       uRegionStr: { value: 0 },
       uRegionColor: { value: new THREE.Color(0x22d3ee) },
-      uBump: { value: this.mobile ? 0.26 : 0.32 },   // gentler folds → smoother, more elegant
-      uFold: { value: this.mobile ? 0.8 : 0.9 },     // fine-gyri intensity (perf lever)
+      uBump: { value: this.mobile ? 0.22 : 0.27 },   // gentler folds → smoother, more elegant
+      uFold: { value: this.mobile ? 0.72 : 0.82 },   // fine-gyri intensity (perf lever)
       // painted knowledge regions
       uRegions: { value: this._regionVecs },
       uRegionCols: { value: this._regionCols },
