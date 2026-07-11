@@ -84,17 +84,21 @@ const FRAG = /* glsl */`
   // long flowing lines (cerebral gyri) rather than tight cells (brain coral).
   float sulcus(vec3 p) {
   #ifdef LITE
-    vec3 w = vec3(gnoise(p * 1.3 + 21.0), gnoise(p * 1.3 + 5.0), 0.0) * 0.22;
+    vec3 w = vec3(gnoise(p * 1.7 + 21.0), gnoise(p * 1.7 + 5.0), 0.0) * 0.4;
     vec3 g = p + w;
-    float a = gnoise(g * 5.2) * 0.9 + gnoise(g * 10.4 + 2.0) * 0.1;
-    return 1.0 - smoothstep(0.0, 0.19, abs(a));
+    float a = gnoise(g * 8.5) * 0.78 + gnoise(g * 17.0 + 2.0) * 0.22;
+    return 1.0 - smoothstep(0.0, 0.12, abs(a));
   #else
-    // a gentle, low-frequency domain warp bends the field so a FEW broad sulci
-    // meander in long, soft valleys — a calm, minimal cortex, not busy coral.
-    vec3 w = vec3(gnoise(p * 1.3 + 21.0), gnoise(p * 1.3 + 5.0), gnoise(p * 1.3 + 9.0)) * 0.22;
+    // a domain warp bends the field so the sulci meander in long flowing valleys
+    // (true cerebral gyri) — dense and clearly-brain, with a finer fold nested on
+    // each gyrus so it reads as a real, detailed cortex up close.
+    vec3 w = vec3(gnoise(p * 1.7 + 21.0), gnoise(p * 1.7 + 5.0), gnoise(p * 1.7 + 9.0)) * 0.4;
     vec3 g = p + w;
-    float a = gnoise(g * 5.4) * 0.88 + gnoise(g * 10.8 + 2.0) * 0.12;
-    return 1.0 - smoothstep(0.0, 0.18, abs(a));
+    float a = gnoise(g * 9.8) * 0.7 + gnoise(g * 19.6 + 2.0) * 0.3;
+    float s = 1.0 - smoothstep(0.0, 0.10, abs(a));
+    float b = gnoise(g * 31.0 + 7.0);                     // nested finer folding
+    s = max(s, (1.0 - smoothstep(0.0, 0.035, abs(b))) * 0.22);
+    return s;
   #endif
   }
 
@@ -135,7 +139,7 @@ const FRAG = /* glsl */`
     col += uSSSColor * sss * 0.34;
 
     // ambient occlusion: the deeper the sulcus, the darker (light can't reach)
-    col *= 1.0 - clamp(s, 0.0, 1.0) * 0.42;
+    col *= 1.0 - clamp(s, 0.0, 1.0) * 0.55;
     // crest sheen: broad gyri catch a soft specular-ish bloom of the key
     float crest = smoothstep(0.55, 0.0, s);
     col += uKeyColor * pow(wrap, 4.0) * crest * 0.07;
@@ -277,8 +281,8 @@ export class BrainScene {
       uRegion: { value: new THREE.Vector3(0, 0, 6) },
       uRegionStr: { value: 0 },
       uRegionColor: { value: new THREE.Color(0x22d3ee) },
-      uBump: { value: this.mobile ? 0.10 : 0.12 },   // soft folds → minimal, elegant
-      uFold: { value: this.mobile ? 0.40 : 0.46 },   // fine-gyri intensity (perf lever)
+      uBump: { value: this.mobile ? 0.26 : 0.30 },   // pronounced folds → clearly a brain
+      uFold: { value: this.mobile ? 0.82 : 0.92 },   // fine-gyri intensity (perf lever)
       // painted knowledge regions
       uRegions: { value: this._regionVecs },
       uRegionCols: { value: this._regionCols },

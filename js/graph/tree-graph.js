@@ -35,9 +35,10 @@ export class TreeGraph {
   }
 
   /* ---- data / progressive state ---------------------------------------- */
-  setTree(tree, regionId, accent) {
+  setTree(tree, regionId, accent, layout = 'radial') {
     this.tree = tree;
     this.accent = accent || '#22D3EE';
+    this.layout = layout;
     this.rootId = `region:${regionId}`;
     this.visible = new Set([this.rootId]);
     this.expanded = new Set();
@@ -102,25 +103,49 @@ export class TreeGraph {
     });
     const byId = new Map(this.nodes.map((n) => [n.id, n]));
 
-    // parent→child links among visible
-    const links = [];
+    let links;
+    if (this.layout === 'chain') {
+      // Work: a vertical chronological CHAIN (root → step → step), not a star.
+      const order = this.nodes.slice().sort((a, b) =>
+        a.depth - b.depth || ((a.meta.startKey || 0) - (b.meta.startKey || 0)));
+      const gap = RING * 0.95;
+      const y0 = -((order.length - 1) / 2) * gap;
+      order.forEach((n, i) => { n.x = 0; n.y = y0 + i * gap; n.fx = 0; n.fy = n.y; });
+      links = [];
+      for (let i = 0; i < order.length - 1; i++) links.push({ source: order[i].id, target: order[i + 1].id, kind: 'child' });
+      for (const cl of this.tree.crossLinks) {
+        if (byId.has(cl.a) && byId.has(cl.b)) links.push({ source: cl.a, target: cl.b, kind: 'cross', note: cl.note });
+      }
+      this.links = links;
+      this.adj = new Map(this.nodes.map((n) => [n.id, new Set()]));
+      for (const l of links) { this.adj.get(l.source)?.add(l.target); this.adj.get(l.target)?.add(l.source); }
+      if (this.sim) this.sim.stop();
+      this.sim = forceSimulation(this.nodes)
+        .force('link', forceLink(links).id((d) => d.id).distance(gap).strength(0))
+        .force('collide', forceCollide().radius((n) => n.r + 8))
+        .alpha(0).alphaDecay(0.2);
+      return;
+    }
+
+    // Radial hierarchy (default): children fan out on concentric rings by depth.
+    const links2 = [];
     for (const n of this.nodes) {
+      n.fx = null; n.fy = null;
       const pid = this.tree.parentById.get(n.id);
-      if (pid && byId.has(pid)) links.push({ source: pid, target: n.id, kind: 'child' });
+      if (pid && byId.has(pid)) links2.push({ source: pid, target: n.id, kind: 'child' });
     }
-    // curated cross-links among visible
     for (const cl of this.tree.crossLinks) {
-      if (byId.has(cl.a) && byId.has(cl.b)) links.push({ source: cl.a, target: cl.b, kind: 'cross', note: cl.note });
+      if (byId.has(cl.a) && byId.has(cl.b)) links2.push({ source: cl.a, target: cl.b, kind: 'cross', note: cl.note });
     }
-    this.links = links;
+    this.links = links2;
     this.adj = new Map(this.nodes.map((n) => [n.id, new Set()]));
-    for (const l of links) { this.adj.get(l.source)?.add(l.target); this.adj.get(l.target)?.add(l.source); }
+    for (const l of links2) { this.adj.get(l.source)?.add(l.target); this.adj.get(l.target)?.add(l.source); }
 
     if (this.sim) this.sim.stop();
     this.sim = forceSimulation(this.nodes)
       .force('radial', forceRadial((n) => n.depth * RING, 0, 0).strength(0.92))
       .force('charge', forceManyBody().strength((n) => -70 - n.r * 6).distanceMax(460))
-      .force('link', forceLink(links).id((d) => d.id)
+      .force('link', forceLink(links2).id((d) => d.id)
         .distance((l) => (l.kind === 'cross' ? 150 : RING * 0.82)).strength((l) => (l.kind === 'cross' ? 0.03 : 0.16)))
       .force('collide', forceCollide().radius((n) => n.r + 16).strength(0.9).iterations(2))
       .force('x', forceX(0).strength(0.006)).force('y', forceY(0).strength(0.006))

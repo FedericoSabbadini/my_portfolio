@@ -1,52 +1,48 @@
 /* =========================================================================
    build-tree.js — THE KNOWLEDGE HIERARCHY ENGINE
 
-   Turns the raw content JSON into a strict parent → child TREE that mirrors
-   how the work is actually organised — grouped by SUBJECT, not by bureaucracy:
+   Turns the raw content JSON into a strict parent → child TREE, all rendered
+   in the same neural graph (About/Work/Contacts are NOT separate pages):
 
      Federico
-     ├── About          → profile (bio · skills · languages · interests)   [profile]
-     ├── Education      → degrees + courses grouped by topic                [graph]
-     ├── Work           → internship · thesis · first role (chronological)  [timeline]
-     ├── Projects       → grouped by topic → project → the tech it used     [graph]
-     ├── Certifications → grouped by topic → credential                     [graph]
-     └── Contacts       → email · GitHub · LinkedIn · CV …                  [contacts]
+     ├── About          → Core skills · Languages · Beyond code
+     ├── Education      → each degree → its courses
+     ├── Work           → internship → thesis → first role (a chain)
+     ├── Projects       → grouped by subject → each project (leaf)
+     ├── Certifications → grouped by subject → each credential
+     └── Contacts       → email · GitHub · LinkedIn · CV …
 
-   Research folds into Projects (a research project is just a project with a
-   "Research" badge, filed under its subject). Content is routed to a region
-   deterministically by SOURCE/TYPE; within a region it is grouped by TOPIC.
-   Add an item to any content JSON and it appears under the right topic.
+   Research folds into Projects (a research project is a project with a
+   "Research" badge, filed under its subject). Projects are LEAVES — they are
+   not broken down into the tech they used (that lives in the detail panel).
+   Content is routed to a region by SOURCE/TYPE; Projects & Certifications are
+   then grouped by a small set of CONCRETE subjects (no vague "Theory" bucket).
    ========================================================================= */
 
 const slug = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
-/* ---- subject taxonomy (shared by projects, courses, certifications) ----- */
+/* ---- subject taxonomy — concrete buckets only (no catch-all) ------------ */
 export const TOPICS = [
   { id: 'ai', label: 'AI & Machine Learning', desc: 'Learning machines — deep networks, reinforcement, generative & symbolic AI.' },
   { id: 'security', label: 'Cybersecurity', desc: 'Offense & defense — cryptography, pentesting, network defense and digital identity.' },
-  { id: 'data', label: 'Data & Systems', desc: 'Data at scale — databases, big-data engineering and enterprise systems.' },
-  { id: 'software', label: 'Programming & Software', desc: 'The craft — languages, architecture, algorithms and full-stack engineering.' },
-  { id: 'theory', label: 'Theory & Foundations', desc: 'The bedrock — mathematics, physics, signals, control, and a little philosophy.' },
-  { id: 'business', label: 'Business & Communication', desc: 'How work is decided, managed, shipped and shared.' },
+  { id: 'data', label: 'Data & Big Data', desc: 'Data at scale — databases, distributed processing and analytics.' },
+  { id: 'software', label: 'Software & Engineering', desc: 'The craft — languages, architecture, algorithms, optimization and full-stack.' },
+  { id: 'business', label: 'Business & Soft Skills', desc: 'Strategy, management, communication and the human side of shipping work.' },
 ];
-const TOPIC_LABEL = Object.fromEntries(TOPICS.map((t) => [t.id, t.label]));
 
-// keyword → topic (scanned in this order; first hit wins)
 const TOPIC_KEYWORDS = [
-  ['security', ['security', 'cyber', 'pentest', 'metasploit', 'wireshark', 'forensic', 'protocol analysis', 'cryptograph', 'vpn', 'ipsec', 'pki', 'wireless security', 'steganograph', 'exploit', 'openid', 'oauth', 'jwt', ' iam', 'hardening', 'network defense', 'ec-council']],
-  ['ai', ['reinforcement', 'deep learning', 'neural', 'transformer', 'generative', 'machine learning', 'scikit', 'xgboost', 'lstm', 'bayesian', ' fol', 'csp', 'automated reasoning', 'planning', 'llm', 'rag', 'langchain', 'langgraph', 'agentic', 'keras', 'diffusion', 'time series', 'time-series', 'signal theory', 'fourier', 'feature engineering', 'gan', 'cnn']],
-  ['data', ['mongodb', 'influxdb', 'neo4j', 'nosql', 'map-reduce', 'mapreduce', 'distributed system', ' sql', 'er modeling', 'query optim', 'business intelligence', 'erp', 'crm', 'big data', 'hadoop', 'spark', 'data architect', 'numpy', 'pandas', 'analytics', 'data science', 'digital transformation', 'olap', 'oltp', 'warehouse', 'database']],
-  ['software', ['java', ' oop', 'python', 'design pattern', 'mvc', 'solid', 'junit', 'functional programming', 'prolog', 'compiler', 'lex', 'yacc', 'algorithm', 'graph theory', 'optimization', 'gurobi', ' ilp', 'operations research', 'linear programming', 'simplex', 'laravel', 'php', 'rest api', 'fastapi', 'sqlalchemy', ' git', 'version control', 'full stack', 'software development', 'software engineering', 'bootstrap', 'arduino', 'vhdl', 'fpga', 'mips', 'assembly', 'multithread', ' c ', 'automation', 'n8n', 'systems admin', 'linux', 'active directory', 'operating system', 'cloud', 'aws', 'ec2', 'devops']],
-  ['theory', ['linear algebra', 'eigen', 'vector space', 'calculus', 'series', 'differential equation', 'multivariable', 'probability', 'statistic', 'mechanics', 'thermodynamic', 'electromagnet', 'maxwell', 'wave', 'circuit', 'analog', 'cmos', 'op-amp', 'numerical', ' ode', 'control theory', 'pid', 'bode', 'nyquist', 'signal processing', 'modulation', 'biophys', 'biosensor', 'chemistr', 'philosoph', 'idealism', 'existential', 'rationalism', 'empiricism', 'metaphysic', 'telecommunication']],
-  ['business', ['strateg', 'porter', 'competitive', 'agile', 'scrum', 'project management', 'accounting', 'finance', 'econom', 'sustainab', 'esg', 'green it', 'marketing', 'content strategy', 'blockchain', 'smart contract', 'latex', 'technical writing', 'documentation', 'english', 'cefr', 'regulation', 'privacy', 'standard']],
+  ['security', ['security', 'cyber', 'pentest', 'metasploit', 'wireshark', 'forensic', 'protocol analysis', 'cryptograph', 'vpn', 'ipsec', 'pki', 'wireless security', 'steganograph', 'exploit', 'openid', 'oauth', 'jwt', 'hardening', 'ec-council']],
+  ['ai', ['reinforcement', 'deep learning', 'neural', 'transformer', 'generative', 'machine learning', 'scikit', 'xgboost', 'lstm', 'bayesian', 'csp', 'automated reasoning', 'planning', 'llm', 'rag', 'langchain', 'langgraph', 'agentic', 'keras', 'diffusion', 'time series', 'time-series', 'feature engineering', 'gan', 'cnn']],
+  ['data', ['mongodb', 'influxdb', 'neo4j', 'nosql', 'map-reduce', 'mapreduce', 'distributed system', 'big data', 'hadoop', 'spark', 'data architect', 'numpy', 'pandas', 'analytics', 'data science', 'olap', 'warehouse', 'database', 'business intelligence']],
+  ['software', ['java', 'python', 'design pattern', 'mvc', 'solid', 'junit', 'prolog', 'compiler', 'algorithm', 'graph theory', 'optimization', 'gurobi', 'operations research', 'linear programming', 'simplex', 'laravel', 'php', 'rest api', 'fastapi', 'sqlalchemy', 'git', 'full stack', 'software development', 'software engineering', 'automation', 'n8n', 'systems admin', 'linux', 'cloud', 'aws', 'ec2', 'devops', 'matlab', 'simulation']],
+  ['business', ['strateg', 'porter', 'competitive', 'agile', 'scrum', 'project management', 'accounting', 'finance', 'econom', 'sustainab', 'esg', 'green it', 'marketing', 'content strategy', 'blockchain', 'smart contract', 'latex', 'technical writing', 'documentation', 'english', 'cefr']],
 ];
 
-// explicit overrides where a keyword scan would misfile a specific item
 const TOPIC_OVERRIDE = {
   'data-hiding': 'security', 'openid-thesis': 'security', 'network-hardening': 'security',
-  'patch-aliasing-tsf': 'ai', 'electromagnetic': 'theory', 'f1-deepL': 'ai',
-  'gurobi': 'software', 'pathfinding': 'software', 'oracool': 'software', 'work-performance': 'software',
-  'data-nexus': 'data', 'talentscope': 'ai',
+  'patch-aliasing-tsf': 'ai', 'f1-deepL': 'ai', 'talentscope': 'ai',
+  'electromagnetic': 'software', 'gurobi': 'software', 'pathfinding': 'software',
+  'oracool': 'software', 'work-performance': 'software', 'data-nexus': 'data',
   'sustainability': 'business', 'agile': 'business', 'blockchain': 'business', 'smm': 'business',
   'english': 'business', 'latex-professional-publications': 'business',
   'aws-essentials': 'software', 'n8n-automation-master': 'software', 'git-github-zero-to-hero': 'software',
@@ -61,6 +57,14 @@ function topicOf(rawId, tags, fallback = 'software') {
   return fallback;
 }
 
+/* hand-written blurbs so nothing reads auto-generated ---------------------- */
+const SKILL_BLURB = {
+  'machine-learning': 'From classical models to deep neural networks and reinforcement learning — the thread running through most of my work.',
+  'data-science': 'Turning messy, real-world data into structure, insight and predictions worth acting on.',
+  'cybersecurity': 'Breaking and defending systems — network security, penetration testing and digital identity, backed by hands-on EC-Council credentials.',
+  'cloud-os': 'The layer underneath the code — cloud services, systems administration and operating-system internals.',
+};
+
 /* ---- link classification ------------------------------------------------ */
 function classifyUrl(url, fallbackLabel) {
   if (!url) return null;
@@ -71,7 +75,7 @@ function classifyUrl(url, fallbackLabel) {
   return { label: fallbackLabel || 'Open link', url, kind: 'external' };
 }
 
-/* ---- chronology helper for the Work timeline ---------------------------- */
+/* ---- chronology for the Work chain -------------------------------------- */
 const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
 const SEASONS = { spring: 4, summer: 7, autumn: 9, fall: 9, winter: 1 };
 function startKey(period) {
@@ -100,9 +104,8 @@ const CROSS_LINKS = [
   ['project:patch-aliasing-tsf', 'course:reinforcement-learning', 'related to'],
 ];
 
-/* how each region's centre stage is rendered */
-const REGION_MODE = { about: 'profile', work: 'timeline', contacts: 'contacts' };
-export function getRegionMode(regionId) { return REGION_MODE[regionId] || 'graph'; }
+/* layout hint per region (work reads as a chronological chain, not a star) */
+export function getRegionLayout(regionId) { return regionId === 'work' ? 'chain' : 'radial'; }
 
 /* ========================================================================= */
 export function buildTree(raw) {
@@ -123,7 +126,6 @@ export function buildTree(raw) {
   };
   const REG = (id) => `region:${id}`;
 
-  // L0 regions
   for (const r of regions) {
     add({
       id: REG(r.id), type: 'region', label: r.label, sub: r.lobe, desc: r.blurb,
@@ -131,21 +133,20 @@ export function buildTree(raw) {
     }, null);
   }
 
-  // reusable: ensure a topic group exists under a region, return its id
-  const topicGroups = new Map();               // `${region}:${topic}` -> node
+  const topicGroups = new Map();
   const ensureTopic = (regionId, topicId, accent) => {
     const key = `${regionId}:${topicId}`;
     if (topicGroups.has(key)) return topicGroups.get(key);
     const t = TOPICS.find((x) => x.id === topicId);
     const node = add({
-      id: `topic:${key}`, type: 'topicgroup', label: t.label, sub: 'Topic', desc: t.desc,
+      id: `topic:${key}`, type: 'topicgroup', label: t.label, sub: 'Subject', desc: t.desc,
       region: regionId, accent, topic: topicId, tags: [], links: [],
     }, REG(regionId));
     topicGroups.set(key, node);
     return node;
   };
 
-  /* ---- About: rich profile (rendered as a panel, not a graph) ---------- */
+  /* ---- About: skills · languages · interests --------------------------- */
   {
     const p = raw.personal.personal || {};
     const about = nodes.find((n) => n.id === REG('about'));
@@ -153,56 +154,66 @@ export function buildTree(raw) {
     about.meta = {
       name: p.name, title: p.title, bio: p.bio || [], location: p.location, email: p.email,
       stats: raw.personal.stats || [], topSkills: p.topSkills || [],
-      languages: raw.personal.languages || [], interests: raw.personal.interests || [],
-      profileImage: p.profileImage,
     };
-    // keep a few real child nodes so the graph fallback & cross-links still work
+
+    const skills = add({ id: 'group:skills', type: 'group', label: 'Core skills', sub: 'What I lead with',
+      region: 'about', desc: 'The four areas I build in most.', tags: [], links: [] }, REG('about'));
     (p.topSkills || []).forEach((sname) => add({
-      id: `skill:${slug(sname)}`, type: 'skill', label: sname, region: 'about',
-      desc: `One of the areas I work in most.`, tags: [], links: [],
-    }, REG('about')));
+      id: `skill:${slug(sname)}`, type: 'skill', label: sname, sub: 'Core skill', region: 'about',
+      desc: SKILL_BLURB[slug(sname)] || `${sname} — one of the areas I work in most.`, tags: [], links: [],
+    }, skills.id));
+
+    const langs = add({ id: 'group:languages', type: 'group', label: 'Languages', sub: 'How I communicate',
+      region: 'about', desc: 'Languages I speak.', tags: [], links: [] }, REG('about'));
+    (raw.personal.languages || []).forEach((l) => add({
+      id: `lang:${slug(l.name)}`, type: 'language', label: `${l.flag || ''} ${l.name}`.trim(),
+      sub: l.level, desc: l.detail ? `${l.level}. ${l.detail}.` : `${l.level}.`, region: 'about',
+      tags: [], links: [], data: l,
+    }, langs.id));
+
+    const its = add({ id: 'group:interests', type: 'group', label: 'Beyond code', sub: 'What drives me',
+      region: 'about', desc: 'What I do away from the screen — and what it teaches me.', tags: [], links: [] }, REG('about'));
+    (raw.personal.interests || []).forEach((it) => add({
+      id: `interest:${slug(it.title)}`, type: 'interest', label: `${it.icon || ''} ${it.title}`.trim(),
+      sub: 'Interest', desc: it.description, region: 'about', tags: [], links: [], data: it,
+    }, its.id));
   }
 
-  /* ---- Education: degrees + courses grouped by TOPIC ------------------- */
+  /* ---- Education: each degree → its courses ---------------------------- */
   {
-    const about = null; void about;
     const levelLabel = { masters: "Master's", bachelors: "Bachelor's", highschools: 'High School' };
-    const degreesGroup = add({
-      id: 'group:degrees', type: 'group', label: 'Degrees', sub: 'Qualifications', region: 'education',
-      desc: 'The formal qualifications behind the coursework.', tags: [], links: [],
-    }, REG('education'));
-
     for (const e of raw.education) {
-      add({
+      const degree = add({
         id: `degree:${e.id}`, type: 'degree', label: e.degree, sub: `${e.institution} · ${e.period}`,
         badge: e.gpa, desc: e.description, region: 'education', tags: e.tags || [],
         links: [e.url && { label: 'Course catalogue', url: e.url, kind: 'external' },
           e.hfUrl && { label: 'Notes dataset', url: e.hfUrl, kind: 'dataset' }].filter(Boolean),
         data: e,
-      }, degreesGroup.id);
+      }, REG('education'));
 
       const bucket = raw.courses[e.id];
       if (bucket && bucket.courses) {
         for (const c of bucket.courses) {
-          const topic = topicOf(c.id, c.tags, 'theory');
-          const grp = ensureTopic('education', topic, nodes.find((n) => n.id === REG('education')).accent);
           const done = c.grade && c.grade !== 'current';
           add({
             id: `course:${c.id}`, type: 'course', label: c.name,
-            sub: `${levelLabel[e.id]}${c.grade && c.grade !== 'current' ? ` · ${c.grade}` : ''}`,
+            sub: `${levelLabel[e.id]}${done ? ` · ${c.grade}` : ''}`,
             badge: c.grade === 'current' ? 'In progress' : (done ? c.grade : null),
             desc: c.description, region: 'education', tags: c.tags || [],
             links: [c.url && { label: 'Course page', url: c.url, kind: 'external' },
               c.hfUrl && { label: 'Notes', url: c.hfUrl, kind: 'dataset' }].filter(Boolean),
             data: { ...c, level: levelLabel[e.id] },
-          }, grp.id);
+          }, degree.id);
         }
       }
     }
   }
 
-  /* ---- Work: roles as a chronological timeline ------------------------- */
-  for (const w of raw.work) {
+  /* ---- Work: roles (rendered as a chronological chain) ----------------- */
+  const WORK_ORDER = { Internship: 0, Academic: 1, Work: 2 };
+  const workSorted = raw.work.slice().sort((a, b) =>
+    (startKey(a.period) - startKey(b.period)) || ((WORK_ORDER[a.type] ?? 9) - (WORK_ORDER[b.type] ?? 9)));
+  for (const w of workSorted) {
     add({
       id: `work:${w.id}`, type: 'work', label: w.title, sub: `${w.company} · ${w.period}`,
       badge: w.status === 'upcoming' ? 'Upcoming' : w.type,
@@ -211,7 +222,7 @@ export function buildTree(raw) {
     }, REG('work'));
   }
 
-  /* ---- Projects (incl. research), grouped by TOPIC → project → tech ---- */
+  /* ---- Projects (incl. research), grouped by subject → project (leaf) -- */
   {
     const accent = nodes.find((n) => n.id === REG('projects')).accent;
     for (const p of raw.projects) {
@@ -219,19 +230,15 @@ export function buildTree(raw) {
       const topic = topicOf(p.id, p.tags, 'software');
       const grp = ensureTopic('projects', topic, accent);
       const main = classifyUrl(p.url, p.urlLabel);
-      const proj = add({
+      add({
         id: `project:${p.id}`, type: isResearch ? 'research' : 'project', label: p.title, sub: p.period,
         badge: p.badge, desc: p.description, region: 'projects', tags: p.tags || [],
         links: main ? [main] : [], data: p,
       }, grp.id);
-      (p.tags || []).forEach((t) => add({
-        id: `${proj.id}::tech:${slug(t)}`, type: 'tech', label: t, region: 'projects',
-        desc: `Used in ${p.title}.`, tags: [], links: [],
-      }, proj.id));
     }
   }
 
-  /* ---- Certifications grouped by TOPIC (not by issuer) ----------------- */
+  /* ---- Certifications grouped by subject ------------------------------- */
   {
     const accent = nodes.find((n) => n.id === REG('certifications')).accent;
     for (const c of raw.certifications) {
@@ -250,23 +257,21 @@ export function buildTree(raw) {
   {
     const s = raw.personal.social || {};
     const p = raw.personal.personal || {};
-    const chans = [];
     const email = (s.email && s.email.address) || p.email;
-    if (email) chans.push(['Email', `mailto:${email}`, 'external', email, 'Best for opportunities & collaboration']);
-    if (s.github) chans.push(['GitHub', s.github.url, 'repo', `@${s.github.username}`, 'Code, projects & experiments']);
-    if (s.linkedin) chans.push(['LinkedIn', s.linkedin.url, 'external', `in/${s.linkedin.username}`, 'Professional profile']);
-    if (s.phone) chans.push(['Phone', `tel:${s.phone.number}`, 'external', s.phone.number, 'Direct line']);
-    if (s.cv) chans.push(['Curriculum Vitae', s.cv.url, 'pdf', 'PDF', 'Full CV']);
-    if (s.europass) chans.push(['Europass CV', s.europass.url, 'pdf', 'PDF', 'EU-format CV']);
-    if (s.coverLetter) chans.push(['Cover letter', s.coverLetter.url, 'pdf', 'PDF', 'Introduction']);
+    const chans = [];
+    if (email) chans.push(['Email', `mailto:${email}`, 'external', email, 'The best way to reach me for opportunities & collaboration.']);
+    if (s.github) chans.push(['GitHub', s.github.url, 'repo', `@${s.github.username}`, 'Code, projects and experiments — where the work lives.']);
+    if (s.linkedin) chans.push(['LinkedIn', s.linkedin.url, 'external', `in/${s.linkedin.username}`, 'Professional profile and network.']);
+    if (s.phone) chans.push(['Phone', `tel:${s.phone.number}`, 'external', s.phone.number, 'A direct line.']);
+    if (s.cv) chans.push(['Curriculum Vitae', s.cv.url, 'pdf', 'PDF', 'The full CV, ready to download.']);
+    if (s.europass) chans.push(['Europass CV', s.europass.url, 'pdf', 'PDF', 'EU-standard format.']);
+    if (s.coverLetter) chans.push(['Cover letter', s.coverLetter.url, 'pdf', 'PDF', 'A short introduction in my own words.']);
     for (const [label, url, kind, sub, note] of chans) {
       add({
         id: `contact:${slug(label)}`, type: 'contact', label, sub, note, region: 'contacts',
         desc: note, tags: [], links: [{ label: `Open ${label}`, url, kind }], data: { url },
       }, REG('contacts'));
     }
-    const contactsRegion = nodes.find((n) => n.id === REG('contacts'));
-    contactsRegion.meta = { location: p.location, email };
   }
 
   /* ---- indexes + cross-links ------------------------------------------- */
