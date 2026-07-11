@@ -6,6 +6,7 @@
 import { TreeGraph } from './tree-graph.js';
 import { renderDetail, renderEmpty } from './node-panel.js';
 import { getChildren, getPath, getRegionStats } from '../data/build-tree.js';
+import { go } from '../router.js';
 
 const esc = (s) => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -52,13 +53,21 @@ export class TreeView {
     this.canvas.focus?.();
   }
 
+  /** navigate to a node, hopping to its region's tree if it lives elsewhere */
+  navigateToNode(id) {
+    const n = this.tree.byId.get(id);
+    if (!n) return;
+    if (n.region && n.region !== this.regionId) go(`#/region/${n.region}/${id}`);
+    else this.selectNode(id, true);
+  }
+
   selectNode(id, reveal) {
     const node = this.tree.byId.get(id);
     if (!node) return;
     if (reveal) this.fg.revealAndSelect(id);
     else this.fg.select(id);
     const connections = this._connectionsOf(node);
-    renderDetail(this.rightHost, node, this.region, connections, (cid) => this.selectNode(cid, true));
+    renderDetail(this.rightHost, node, this.region, connections, (cid) => this.navigateToNode(cid));
     this.panelRight.classList.add('is-open');
     this._renderCrumb(id);
     this.leftHost.querySelectorAll('.dom-nav__item').forEach((el) =>
