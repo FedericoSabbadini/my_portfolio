@@ -11,6 +11,7 @@ import { showRegion, showHome, hideBoot } from './ui/transitions.js';
 import { renderRegion } from './ui/region-view.js';
 
 const state = { view: 'home', scene: null, regions: null, data: null, domains: null };
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 boot();
 
@@ -27,7 +28,6 @@ async function boot() {
   state.data = raw;
   state.domains = raw.domains;
 
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const vw = window.innerWidth || document.documentElement.clientWidth || 1280;
   const mobile = (vw > 0 && vw <= 820) || (('ontouchstart' in window) && vw <= 1024);
   const canBrain = webglAvailable();
@@ -35,9 +35,9 @@ async function boot() {
   if (canBrain) {
     try {
       state.scene = new BrainScene(document.getElementById('brain-canvas'), {
-        domains: state.domains, reducedMotion: reduced, mobile,
+        domains: state.domains, reducedMotion: reducedMotion, mobile,
       });
-      state.regions = new BrainRegions(state.scene, state.domains);
+      state.regions = new BrainRegions(state.scene, state.domains, { onDive });
       state.scene.start();
     } catch (err) {
       console.warn('[mind] WebGL init failed', err);
@@ -51,6 +51,18 @@ async function boot() {
   requestAnimationFrame(() => setTimeout(hideBoot, state.scene ? 500 : 0));
 }
 
+/* ---- dive: play the brain zoom, then navigate to the region ------------- */
+function onDive(id) {
+  // reduced-motion users skip the cinematic zoom and go straight there
+  if (state.scene && !reducedMotion) {
+    state.scene.setInteractive(false);
+    state.scene.zoomTo(id);
+    setTimeout(() => go(`#/region/${id}`), 640);
+  } else {
+    go(`#/region/${id}`);
+  }
+}
+
 /* ---- routing ------------------------------------------------------------ */
 function route(r) {
   if (r.name === 'region') return enterRegion(r.id);
@@ -62,12 +74,15 @@ async function enterRegion(id) {
   if (!domain) return go('#/');
 
   if (state.regions) state.regions.stopTour();
-  if (state.scene) state.scene.stop();
 
   renderRegion(id, state.data, state.domains);
   await showRegion();
+  if (state.scene) state.scene.stop();   // pause the loop while the catalog is up
   state.view = 'region';
   document.title = `${domain.label} — Federico Sabbadini`;
+  // move keyboard/SR focus to the new page's heading
+  const h = document.getElementById('hero-title');
+  if (h) h.focus({ preventScroll: true });
 }
 
 async function enterHome() {
@@ -77,7 +92,13 @@ async function enterHome() {
   if (state.scene) {
     state.scene.start();
     state.scene.setInteractive(true);
-    if (fromRegion) state.scene.reset();
+    state.scene.reset();                  // ease camera/rotation back to idle
+  }
+  if (state.regions) state.regions.resume();
+  // return keyboard focus to a sensible anchor when arriving back from a region
+  if (fromRegion) {
+    const t = document.getElementById('tour-btn');
+    if (t) t.focus({ preventScroll: true });
   }
   state.view = 'home';
   document.title = 'Federico Sabbadini — Digital Mind';

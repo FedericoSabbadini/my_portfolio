@@ -77,19 +77,19 @@ const FRAG = /* glsl */`
   // long flowing lines (cerebral gyri) rather than tight cells (brain coral).
   float sulcus(vec3 p) {
   #ifdef LITE
-    vec3 w = vec3(gnoise(p * 1.7 + 21.0), gnoise(p * 1.7 + 5.0), 0.0) * 0.38;
+    vec3 w = vec3(gnoise(p * 1.7 + 21.0), gnoise(p * 1.7 + 5.0), 0.0) * 0.4;
     vec3 g = p + w;
-    float a = gnoise(g * 10.5) * 0.8 + gnoise(g * 21.0 + 2.0) * 0.2;
-    return 1.0 - smoothstep(0.0, 0.12, abs(a));
+    float a = gnoise(g * 8.5) * 0.78 + gnoise(g * 17.0 + 2.0) * 0.22;
+    return 1.0 - smoothstep(0.0, 0.11, abs(a));
   #else
-    vec3 w = vec3(gnoise(p * 1.7 + 21.0), gnoise(p * 1.7 + 5.0), gnoise(p * 1.7 + 9.0)) * 0.38;
+    vec3 w = vec3(gnoise(p * 1.7 + 21.0), gnoise(p * 1.7 + 5.0), gnoise(p * 1.7 + 9.0)) * 0.42;
     vec3 g = p + w;
-    // primary sulci — many fine flowing valleys (delicate cortex, not tubes)
-    float a = gnoise(g * 10.5) * 0.72 + gnoise(g * 21.0 + 2.0) * 0.28;
-    float s = 1.0 - smoothstep(0.0, 0.11, abs(a));
-    // a restrained hint of still-finer folding nested on the gyri
+    // primary sulci — flowing valleys (gyri), pronounced enough to read as a brain
+    float a = gnoise(g * 9.6) * 0.7 + gnoise(g * 19.2 + 2.0) * 0.3;
+    float s = 1.0 - smoothstep(0.0, 0.09, abs(a));
+    // a second tier of still-finer folding nested on the gyri
     float b = gnoise(g * 30.0 + 7.0);
-    s = max(s, (1.0 - smoothstep(0.0, 0.04, abs(b))) * 0.14);
+    s = max(s, (1.0 - smoothstep(0.0, 0.032, abs(b))) * 0.24);
     return s;
   #endif
   }
@@ -124,22 +124,23 @@ const FRAG = /* glsl */`
 
     // base body: deep core → lit tissue, warmed by the key
     vec3 col = mix(uDeep, uBase, wrap);
-    col += uKeyColor * pow(wrap, 1.7) * 0.30;
+    col += uKeyColor * pow(wrap, 1.7) * 0.32;
     col += uFillColor * ndf * 0.10;
-    col += uSSSColor * sss * 0.34;
+    col += uSSSColor * sss * 0.36;
 
     // ambient occlusion: the deeper the sulcus, the darker (light can't reach)
-    col *= 1.0 - clamp(s, 0.0, 1.0) * 0.58;
+    col *= 1.0 - clamp(s, 0.0, 1.0) * 0.60;
     // crest sheen: broad gyri catch a soft specular-ish bloom of the key
     float crest = smoothstep(0.55, 0.0, s);
-    col += uKeyColor * pow(wrap, 4.0) * crest * 0.07;
+    col += uKeyColor * pow(wrap, 4.0) * crest * 0.08;
     // a whisper of translucent life pooled along the crests
     col += uSSSColor * crest * fres * 0.05;
 
     // cinematic volume: let the underside fall away into shadow so the mass
     // reads as a lit sculpture, not a uniformly-glowing ball (world-space up).
     float vert = smoothstep(-0.85, 0.5, vWorld.y);
-    col *= 0.62 + 0.38 * vert;
+    col *= 0.60 + 0.40 * vert;
+    col += uFillColor * 0.05; // faint ambient so no facet reads pure black
 
     // ---- neural activity -------------------------------------------------
     // each lobe breathes in brightness at its own slow phase (no bands); the
@@ -151,7 +152,7 @@ const FRAG = /* glsl */`
     col += uActColor * uActivity * (0.05 * fres + 0.05 * current * s);
 
     // rim last so it always halos the silhouette cleanly (base-normal fresnel)
-    col += uRimColor * fresB * 0.4 * (0.85 + 0.15 * lobePulse);
+    col += uRimColor * fresB * 0.42 * (0.85 + 0.15 * lobePulse);
 
     // hovered region: local glow that also lifts the rim
     float reg = smoothstep(0.9, 0.0, distance(vLocal, uRegion)) * uRegionStr;
@@ -209,16 +210,36 @@ export class BrainScene {
   _initScene() {
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
-    this.homeCamZ = 4.15;
+    this._syncMode();
+    this.homeCamZ = 4.0;                 // updated dynamically in resize()
+    this.camZTarget = this.homeCamZ;
     this.camera.position.set(0, 0, this.homeCamZ);
+
     this.group = new THREE.Group();
-    this.group.rotation.set(0.16, -0.5, 0);   // open on a cinematic 3/4 view
+    this.group.rotation.order = 'YXZ';
+    // rotation is driven by rot → rotTarget with an idle/target mode machine so
+    // hovering a region turns the brain to face it, then it eases back to idle.
+    this.idlePitch = 0.14;
+    this.rot = { x: this.idlePitch, y: -0.5 };       // open on a cinematic 3/4 view
+    this.rotTarget = { x: this.idlePitch, y: -0.5 };
+    this.mode = 'idle';                  // 'idle' | 'target'
+    this._holdUntil = 0;
+    this._pendingIdle = false;
+    this.group.rotation.set(this.rot.x, this.rot.y, 0);
     this.scene.add(this.group);
     this._camTarget = new THREE.Vector3(0, 0, 0);
   }
 
+  /** live layout flags: stacked (mobile band) vs side (desktop full-screen) */
+  _syncMode() {
+    const W = window.innerWidth || 1280, H = window.innerHeight || 800;
+    this.vw = W; this.vh = H;
+    this.touch = ('ontouchstart' in window) && W <= 1024;
+    this.stacked = this.touch || W <= 820;
+  }
+
   _buildBrain() {
-    const detail = this.mobile ? 34 : 52;   // verts ≈ 10·detail² (fine gyri are per-pixel)
+    const detail = this.mobile ? 40 : 52;   // verts ≈ 10·detail² (fine gyri are per-pixel)
     const regionPositions = this.domains.map((d) => d.position);
     const { geometry, surface, count } = buildBrainMesh(detail, regionPositions);
     this.brainGeo = geometry; this.surface = surface;
@@ -229,19 +250,19 @@ export class BrainScene {
       uActivity: { value: 0 },
       // key: warm-cool top-left; fill: cold from the lower right; rim: cyan halo
       uKeyDir: { value: new THREE.Vector3(-0.55, 0.85, 0.5).normalize() },
-      uKeyColor: { value: new THREE.Color(0xbfd6f0) },
+      uKeyColor: { value: new THREE.Color(0xc7dbf2) },
       uFillDir: { value: new THREE.Vector3(0.7, -0.35, 0.4).normalize() },
       uFillColor: { value: new THREE.Color(0x2b4a78) },
       uRimColor: { value: new THREE.Color(0x38d6ee) },
-      uSSSColor: { value: new THREE.Color(0xd08a86) },
+      uSSSColor: { value: new THREE.Color(0xd98f88) },
       uActColor: { value: new THREE.Color(0x8fe6ff) },
-      uBase: { value: new THREE.Color(0x35597e) },
-      uDeep: { value: new THREE.Color(0x060a13) },
+      uBase: { value: new THREE.Color(0x3a6088) },
+      uDeep: { value: new THREE.Color(0x05080f) },
       uRegion: { value: new THREE.Vector3(0, 0, 6) },
       uRegionStr: { value: 0 },
       uRegionColor: { value: new THREE.Color(0x22d3ee) },
-      uBump: { value: this.mobile ? 0.34 : 0.4 },
-      uFold: { value: this.mobile ? 0.9 : 1.0 },    // fine-gyri intensity (perf lever)
+      uBump: { value: this.mobile ? 0.34 : 0.44 },
+      uFold: { value: this.mobile ? 0.9 : 1.05 },    // fine-gyri intensity (perf lever)
     };
     const mat = new THREE.ShaderMaterial({
       uniforms: this.uniforms, vertexShader: VERT, fragmentShader: FRAG, transparent: false,
@@ -277,17 +298,42 @@ export class BrainScene {
   setInteractive(v) { this._interactive = v; }
   setPointer(nx, ny) { this.pointer.set(nx, ny); }
 
-  setActiveRegion(id) {
-    this._activityTarget = id ? 1 : 0;
-    if (id && this.regionPos.has(id)) {
-      const p = this.regionPos.get(id);
-      gsap.to(this.uniforms.uRegion.value, { x: p.x, y: p.y, z: p.z, duration: 0.5, ease: 'power2.out' });
-      gsap.to(this.uniforms.uRegionStr, { value: 1, duration: 0.5, ease: 'power2.out' });
-      const c = this.regionColor.get(id);
-      gsap.to(this.uniforms.uRegionColor.value, { r: c.r, g: c.g, b: c.b, duration: 0.4 });
-    } else {
-      gsap.to(this.uniforms.uRegionStr, { value: 0, duration: 0.6, ease: 'power2.out' });
-    }
+  /* rotation target (yaw/pitch) that brings a region to face the camera */
+  _regionYawPitch(p) {
+    const rxz = Math.hypot(p.x, p.z) || 1e-4;
+    const yaw = -Math.atan2(p.x, p.z);
+    const pitch = Math.atan2(p.y, rxz) + 0.10; // small downward bias so top folds read
+    return { x: pitch, y: yaw };
+  }
+  _nearestYaw(target, current) {
+    let d = target - current;
+    while (d > Math.PI) d -= Math.PI * 2;
+    while (d < -Math.PI) d += Math.PI * 2;
+    return current + d;
+  }
+
+  /** turn the brain to face a region and light it up (hover / focus) */
+  faceRegion(id) {
+    if (!this.regionPos.has(id)) return;
+    const p = this.regionPos.get(id);
+    const yp = this._regionYawPitch(p);
+    this.rotTarget.x = yp.x;
+    this.rotTarget.y = this._nearestYaw(yp.y, this.rot.y);
+    this.mode = 'target';
+    this._pendingIdle = false;
+    this._activityTarget = 1;
+    gsap.to(this.uniforms.uRegion.value, { x: p.x, y: p.y, z: p.z, duration: 0.5, ease: 'power2.out' });
+    gsap.to(this.uniforms.uRegionStr, { value: 1, duration: 0.5, ease: 'power2.out' });
+    const c = this.regionColor.get(id);
+    gsap.to(this.uniforms.uRegionColor.value, { r: c.r, g: c.g, b: c.b, duration: 0.4 });
+  }
+
+  /** release a focused region: hold briefly, then ease back to idle rotation */
+  releaseFocus(hold = 1.1) {
+    this._holdUntil = (this._clock ? this._clock.elapsedTime : 0) + hold;
+    this._pendingIdle = true;
+    this._activityTarget = 0;
+    gsap.to(this.uniforms.uRegionStr, { value: 0, duration: 0.6, ease: 'power2.out' });
   }
 
   projectRegion(id) {
@@ -307,18 +353,16 @@ export class BrainScene {
   }
   allRegionScreen() { return this.domains.map((d) => ({ id: d.id, ...this.projectRegion(d.id) })); }
 
-  rotateTo(id) {
-    const p = this.regionPos.get(id) || new THREE.Vector3();
-    const yaw = -Math.atan2(p.x, p.z + 0.001);
-    gsap.to(this.group.rotation, { y: yaw, x: p.y * 0.25, duration: 1.8, ease: 'power2.inOut' });
-  }
-
+  /** dive: turn to the region, rush the camera in, fade out — then navigate */
   zoomTo(id) {
     this._diving = true;
     const p = this.regionPos.get(id) || new THREE.Vector3();
-    const yaw = -Math.atan2(p.x, p.z + 0.001);
+    const yp = this._regionYawPitch(p);
+    // sync the rot-machine so there is no snap if the dive is interrupted
+    this.rotTarget.x = yp.x; this.rotTarget.y = this._nearestYaw(yp.y, this.rot.y);
     const tl = gsap.timeline();
-    tl.to(this.group.rotation, { y: yaw, x: p.y * 0.35, duration: 1.15, ease: 'power3.inOut' }, 0);
+    tl.to(this.rot, { x: yp.x, y: this.rotTarget.y, duration: 1.15, ease: 'power3.inOut',
+      onUpdate: () => { this.group.rotation.set(this.rot.x, this.rot.y, 0); } }, 0);
     tl.to(this.camera.position, { x: p.x * 0.5, y: p.y * 0.5, z: 1.75, duration: 1.25, ease: 'power3.inOut',
       onUpdate: () => { this.camera.lookAt(this._camTarget); } }, 0);
     tl.to(this.uniforms.uRegionStr, { value: 1.8, duration: 0.9 }, 0);
@@ -330,20 +374,38 @@ export class BrainScene {
   reset() {
     this._diving = false;
     this.canvas.style.opacity = '1';
-    const tl = gsap.timeline();
-    tl.to(this.camera.position, { z: this.homeCamZ, x: 0, y: 0, duration: 1.1, ease: 'power3.inOut' }, 0);
-    tl.to(this.uniforms.uRegionStr, { value: 0, duration: 0.6 }, 0);
-    tl.to(this.uniforms.uActivity, { value: 0, duration: 0.8 }, 0);
-    return tl.then(() => {});
+    // resume the idle machine from wherever the dive left the brain (no snap);
+    // the render loop eases the camera/activity back — no gsap here so the two
+    // don't fight over camera.position each frame.
+    this.rot.x = this.group.rotation.x; this.rot.y = this.group.rotation.y;
+    this.rotTarget.x = this.rot.x; this.rotTarget.y = this.rot.y;
+    this.mode = 'idle'; this._pendingIdle = false; this._activityTarget = 0;
+    this.camZTarget = this.homeCamZ;
+    gsap.to(this.uniforms.uRegionStr, { value: 0, duration: 0.6, ease: 'power2.out' });
   }
 
   resize() {
+    this._syncMode();
     const w = this.canvas.clientWidth || window.innerWidth;
     const h = this.canvas.clientHeight || window.innerHeight;
-    this.camera.aspect = w / h; this.camera.updateProjectionMatrix();
+    const aspect = w / Math.max(h, 1);
+    this.camera.aspect = aspect; this.camera.updateProjectionMatrix();
     this.renderer.setSize(w, h, false);
     this.composer.setSize(w, h);
     if (this.bloom) this.bloom.setSize(w, h);
+
+    // Frame the brain so it never overflows: fit to width on desktop; on the
+    // mobile band take the tighter of width/height so a tall portrait screen
+    // pushes the camera back (the brain stays a modest bust, not a giant ball).
+    const vHalf = Math.tan((40 * Math.PI / 180) / 2);
+    const hHalf = vHalf * aspect;
+    const marginHalf = this.stacked ? 1.5 : 1.42;
+    const heightHalf = this.stacked ? 1.34 : 1.15;
+    const widthFit = marginHalf / Math.max(hHalf, 1e-3);
+    const heightFit = heightHalf / Math.max(vHalf, 1e-3);
+    const fit = this.stacked ? Math.max(widthFit, heightFit) : widthFit;
+    this.homeCamZ = Math.max(this.stacked ? 3.2 : 3.9, Math.min(fit * 1.04, 9.5));
+    if (this.mode !== 'target' && !this._diving) this.camZTarget = this.homeCamZ;
   }
 
   start() { this._wantRun = true; if (this._running) return; this._running = true; this._clock.start(); this._loop(); }
@@ -358,6 +420,11 @@ export class BrainScene {
 
     this._adaptQuality(dt);
 
+    // resume idle rotation once the post-hover hold window has elapsed
+    if (this._pendingIdle && t >= this._holdUntil) {
+      this._pendingIdle = false; this.mode = 'idle'; this._activityTarget = 0;
+    }
+
     this.activity += (this._activityTarget - this.activity) * Math.min(1, dt * 3.5);
     if (!this._diving) this.uniforms.uActivity.value = this.activity;
 
@@ -367,18 +434,35 @@ export class BrainScene {
     this._parallax.x += (px - this._parallax.x) * Math.min(1, dt * 2.6);
     this._parallax.y += (py - this._parallax.y) * Math.min(1, dt * 2.6);
 
-    if (!this.reduced && !this._diving) {
-      // brain self-rotation + gentle lean toward pointer, held at a slight
-      // downward 3/4 tilt so the top convolutions read as volume, not a disc
-      this.group.rotation.y += dt * 0.05 + this._parallax.x * dt * 0.25;
-      const tiltTarget = 0.16 + this._parallax.y * 0.12;
-      this.group.rotation.x += (tiltTarget - this.group.rotation.x) * Math.min(1, dt * 2);
-      // hand-held camera: micro breathing + parallax orbit, always framing the brain
-      const bx = Math.sin(t * 0.31) * 0.03 + Math.sin(t * 0.17) * 0.018;
-      const by = Math.cos(t * 0.27) * 0.024 + Math.sin(t * 0.11) * 0.014;
-      this.camera.position.x = this._parallax.x * 0.5 + bx;
-      this.camera.position.y = this._parallax.y * 0.32 + by + 0.02;
-      this.camera.position.z = this.homeCamZ + Math.sin(t * 0.2) * 0.05;
+    // ---- rotation (gsap drives it during a dive) ----
+    if (!this._diving) {
+      if (this.mode === 'target') {
+        const k = this.reduced ? 1 : Math.min(1, dt * 4.5);
+        this.rot.x += (this.rotTarget.x - this.rot.x) * k;
+        this.rot.y += (this.rotTarget.y - this.rot.y) * k;
+      } else {
+        // idle: gentle auto-rotation + a lean toward the pointer, pitch to idle
+        if (!this.reduced) this.rot.y += dt * 0.05 + this._parallax.x * dt * 0.25;
+        const tiltTarget = this.idlePitch + this._parallax.y * 0.12;
+        this.rot.x += (tiltTarget - this.rot.x) * Math.min(1, dt * 2);
+        this.rotTarget.x = this.rot.x; this.rotTarget.y = this.rot.y;
+      }
+      this.group.rotation.set(this.rot.x, this.rot.y, 0);
+    }
+
+    // ---- camera (gsap drives it during a dive) ----
+    if (!this._diving) {
+      this.camZTarget = this.camZTarget || this.homeCamZ;
+      if (!this.reduced && this.mode !== 'target') {
+        const bx = Math.sin(t * 0.31) * 0.03 + Math.sin(t * 0.17) * 0.018;
+        const by = Math.cos(t * 0.27) * 0.024 + Math.sin(t * 0.11) * 0.014;
+        this.camera.position.x += (this._parallax.x * 0.5 + bx - this.camera.position.x) * Math.min(1, dt * 3);
+        this.camera.position.y += (this._parallax.y * 0.32 + by + 0.02 - this.camera.position.y) * Math.min(1, dt * 3);
+      } else {
+        this.camera.position.x += (0 - this.camera.position.x) * Math.min(1, dt * 3);
+        this.camera.position.y += (0.02 - this.camera.position.y) * Math.min(1, dt * 3);
+      }
+      this.camera.position.z += (this.camZTarget - this.camera.position.z) * Math.min(1, dt * 3.2);
       this.camera.lookAt(this._camTarget);
     }
 

@@ -58,6 +58,38 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   50%     { transform: scale(1.05); opacity: 1; }
 }
 
+/* =========================================================================
+   PERSISTENT HEADER — identical identity on every page (home + regions)
+   ========================================================================= */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 30;
+  pointer-events: none;                 /* let the brain receive pointer under it */
+  background: linear-gradient(180deg, rgba(5,6,10,.78) 0%, rgba(5,6,10,.32) 55%, rgba(5,6,10,0) 100%);
+}
+.site-header__inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px clamp(20px, 3.4vw, 44px);
+}
+.site-header__id { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.site-header__name {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1rem, .9rem + .4vw, 1.2rem);
+  color: var(--ink-hi); letter-spacing: -.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.site-header__role {
+  font-family: var(--font-mono); font-size: .7rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--ink-mut);
+  white-space: nowrap;
+}
+.site-header__slot { display: flex; align-items: center; gap: 10px; pointer-events: auto; flex: none; }
+
+/* slot: Tour on the home view, the "back" link on a region page */
+#back-to-mind { display: none; }
+body.view-region #tour-btn { display: none; }
+body.view-region #back-to-mind { display: inline-flex; }
+
 /* --- Animations --- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(10px); }

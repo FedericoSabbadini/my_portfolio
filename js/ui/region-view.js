@@ -4,6 +4,7 @@
 import { groupBySubject } from '../data/taxonomy.js';
 
 const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const cap = (s) => String(s).charAt(0).toUpperCase() + String(s).slice(1);
 
 export function renderRegion(regionId, data, domains) {
   const domain = domains.find((d) => d.id === regionId);
@@ -24,8 +25,8 @@ export function renderRegion(regionId, data, domains) {
     case 'about':     main.innerHTML = renderAbout(data); break;
     case 'education': main.innerHTML = renderEducation(data); break;
     case 'work':      main.innerHTML = renderWork(data); break;
-    case 'projects':  main.innerHTML = renderGrouped(data.projects, 'Projects'); break;
-    case 'certifications': main.innerHTML = renderGrouped(data.certifications, 'Certifications'); break;
+    case 'projects':  main.innerHTML = renderGrouped(data.projects); break;
+    case 'certifications': main.innerHTML = renderGrouped(data.certifications); break;
     case 'contacts':  main.innerHTML = renderContacts(data); break;
     default: main.innerHTML = '';
   }
@@ -50,7 +51,7 @@ function renderAbout(data) {
 
   // Stats
   if (stats.length) {
-    html += `<span class="section-kicker">Key Numbers</span><div class="stats-grid" style="margin-bottom:48px">`;
+    html += `<h2 class="section-kicker">Key Numbers</h2><div class="stats-grid" style="margin-bottom:48px">`;
     for (const s of stats) {
       html += `<div class="stat-card"><div class="stat-card__num">${esc(s.number)}</div><div class="stat-card__lbl">${esc(s.label)}</div>${s.sublabel ? `<div class="stat-card__sub">${esc(s.sublabel)}</div>` : ''}</div>`;
     }
@@ -59,26 +60,26 @@ function renderAbout(data) {
 
   // Top skills
   if (p.topSkills && p.topSkills.length) {
-    html += `<span class="section-kicker">Core Skills</span><div class="skills-wrap" style="margin-bottom:48px">`;
+    html += `<h2 class="section-kicker">Core Skills</h2><div class="skills-wrap" style="margin-bottom:48px">`;
     for (const sk of p.topSkills) html += `<span class="skill-chip">${esc(sk)}</span>`;
     html += `</div>`;
   }
 
   // Languages
   if (languages.length) {
-    html += `<span class="section-kicker">Languages</span><div style="display:flex;flex-direction:column;gap:18px;margin-bottom:48px">`;
+    html += `<h2 class="section-kicker">Languages</h2><div style="display:flex;flex-direction:column;gap:18px;margin-bottom:48px">`;
     for (const l of languages) {
       const pct = l.percentage || 50;
-      html += `<div class="lang-item"><span class="lang-flag">${l.flag || ''}</span><div class="lang-info"><div class="lang-row"><span class="lang-name">${esc(l.name)}</span><span class="lang-level">${esc(l.level || '')}</span></div><div class="lang-bar"><div class="lang-bar__fill" style="width:${pct}%"></div></div></div></div>`;
+      html += `<div class="lang-item"><span class="lang-flag" aria-hidden="true">${l.flag || ''}</span><div class="lang-info"><div class="lang-row"><span class="lang-name">${esc(l.name)}</span><span class="lang-level">${esc(l.level || '')}</span></div><div class="lang-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(l.name)} proficiency"><div class="lang-bar__fill" style="width:${pct}%"></div></div></div></div>`;
     }
     html += `</div>`;
   }
 
   // Interests
   if (interests.length) {
-    html += `<span class="section-kicker">Interests</span><div class="interests-grid">`;
+    html += `<h2 class="section-kicker">Interests</h2><div class="interests-grid">`;
     for (const i of interests) {
-      html += `<div class="interest-card"><span class="interest-icon">${i.icon || '✦'}</span><div><div class="interest-title">${esc(i.name || i.title || '')}</div>${i.description ? `<div class="interest-desc">${esc(i.description)}</div>` : ''}</div></div>`;
+      html += `<div class="interest-card"><span class="interest-icon" aria-hidden="true">${i.icon || '✦'}</span><div><div class="interest-title">${esc(i.name || i.title || '')}</div>${i.description ? `<div class="interest-desc">${esc(i.description)}</div>` : ''}</div></div>`;
     }
     html += `</div>`;
   }
@@ -91,9 +92,9 @@ function renderEducation(data) {
   let html = '<div class="edu-block">';
   for (const ed of data.education) {
     html += `<div class="edu-entry">`;
-    html += `<div class="edu-degree-head"><span class="edu-accent-bar"></span><div>`;
-    html += `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span class="edu-degree-title">${esc(ed.degree)}</span>`;
-    if (ed.status === 'in-progress') html += `<span class="edu-badge-current">In progress</span>`;
+    html += `<div class="edu-degree-head"><span class="edu-accent-bar" aria-hidden="true"></span><div>`;
+    html += `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><h2 class="edu-degree-title">${esc(ed.degree)}</h2>`;
+    if (ed.status === 'current') html += `<span class="edu-badge-current">${esc(ed.statusLabel || 'Current')}</span>`;
     html += `</div>`;
     html += `<div class="edu-meta">${esc(ed.institution)} · ${esc(ed.period)}</div>`;
     if (ed.gpa) html += `<div class="edu-gpa"><span class="edu-gpa-label">GPA</span> ${esc(ed.gpa)}</div>`;
@@ -103,17 +104,17 @@ function renderEducation(data) {
     // Links
     const links = [];
     if (ed.url) links.push(`<a class="edu-link" href="${esc(ed.url)}" target="_blank" rel="noopener">Programme ↗</a>`);
-    if (ed.hfUrl) links.push(`<a class="edu-link edu-link--secondary" href="${esc(ed.hfUrl)}" target="_blank" rel="noopener">HuggingFace ↗</a>`);
+    if (ed.hfUrl) links.push(`<a class="edu-link edu-link--secondary" href="${esc(ed.hfUrl)}" target="_blank" rel="noopener">Study notes ↗</a>`);
     if (links.length) html += `<div class="edu-links">${links.join('')}</div>`;
 
     // Courses
-    const level = ed.id || '';
-    const courses = getCourses(data.courses, level);
+    const courses = getCourses(data.courses, ed.id || '');
     if (courses.length) {
-      html += `<div style="margin-top:28px"><span class="courses-label">Courses (${courses.length})</span><div class="courses-grid">`;
+      html += `<div style="margin-top:28px"><h3 class="courses-label">Courses (${courses.length})</h3><div class="courses-grid">`;
       for (const c of courses) {
-        html += `<div class="course-card"><div class="course-card__head"><span class="course-card__name">${esc(c.name)}</span>`;
-        if (c.grade) html += `<span class="course-card__grade">${esc(c.grade)}</span>`;
+        const ongoing = /^current$/i.test(c.grade || '');
+        html += `<div class="course-card"><div class="course-card__head"><h4 class="course-card__name">${esc(c.name)}</h4>`;
+        if (c.grade) html += `<span class="course-card__grade${ongoing ? ' course-card__grade--ongoing' : ''}">${ongoing ? 'In progress' : esc(c.grade)}</span>`;
         html += `</div>`;
         if (c.description) html += `<p class="course-card__desc">${esc(c.description)}</p>`;
         if (c.tags && c.tags.length) {
@@ -138,7 +139,6 @@ function getCourses(coursesData, level) {
   if (level.includes('master') || level.includes('msc')) return coursesData.masters?.courses || [];
   if (level.includes('bachelor') || level.includes('bsc')) return coursesData.bachelors?.courses || [];
   if (level.includes('high')) return coursesData.highschools?.courses || [];
-  // Try matching by id substring
   for (const key of Object.keys(coursesData)) {
     if (level.includes(key) || key.includes(level)) return coursesData[key]?.courses || [];
   }
@@ -147,15 +147,15 @@ function getCourses(coursesData, level) {
 
 /* --- WORK --- */
 function renderWork(data) {
-  let html = '<div class="work-timeline"><div class="work-timeline__line"></div>';
+  let html = '<div class="work-timeline"><div class="work-timeline__line" aria-hidden="true"></div>';
   for (const w of data.work) {
-    html += `<div class="work-item"><div class="work-item__dot"></div>`;
+    html += `<div class="work-item"><div class="work-item__dot" aria-hidden="true"></div>`;
     if (w.type) html += `<span class="work-item__type">${esc(w.type)}</span>`;
-    html += `<div class="work-item__title">${esc(w.title)} — ${esc(w.company)}</div>`;
+    html += `<h2 class="work-item__title">${esc(w.title)}${w.company ? ` — ${esc(w.company)}` : ''}</h2>`;
     html += `<div class="work-item__meta">${esc(w.period)}${w.location ? ` · ${esc(w.location)}` : ''}</div>`;
     if (w.description) html += `<p class="work-item__desc">${esc(w.description)}</p>`;
     if (w.responsibilities && w.responsibilities.length) {
-      html += `<div class="work-item__resp">${w.responsibilities.map((r) => `<div class="work-resp"><span class="work-resp__mark">→</span><span>${esc(r)}</span></div>`).join('')}</div>`;
+      html += `<ul class="work-item__resp">${w.responsibilities.map((r) => `<li class="work-resp"><span class="work-resp__mark" aria-hidden="true">→</span><span>${esc(r)}</span></li>`).join('')}</ul>`;
     }
     html += `</div>`;
   }
@@ -164,19 +164,22 @@ function renderWork(data) {
 }
 
 /* --- GROUPED (Projects / Certifications) --- */
-function renderGrouped(items, title) {
-  const groups = groupBySubject(items);
+function renderGrouped(items) {
+  const groups = groupBySubject(items || []);
+  if (!groups.length) {
+    return `<p class="region-empty">Nothing to show here yet — check back soon.</p>`;
+  }
   let html = `<div class="group-section">`;
   for (const g of groups) {
-    html += `<div><div class="group-head"><span class="group-head__dot" style="background:var(--region-accent)"></span><span class="group-head__label">${esc(g.label)}</span><span class="group-head__count">${g.items.length}</span></div>`;
+    html += `<section><div class="group-head"><span class="group-head__dot" style="background:var(--region-accent)" aria-hidden="true"></span><h2 class="group-head__label">${esc(g.label)}</h2><span class="group-head__count">${g.items.length}</span></div>`;
     html += `<div class="group-grid">`;
     for (const item of g.items) {
       const href = item.url ? ` href="${esc(item.url)}" target="_blank" rel="noopener"` : '';
       const tag = item.url ? 'a' : 'div';
+      const badge = item.badge || item.issuer;
       html += `<${tag} class="group-card"${href}>`;
-      html += `<div class="group-card__head"><span class="group-card__title">${esc(item.title)}</span>`;
-      if (item.badge) html += `<span class="group-card__badge">${esc(item.badge)}</span>`;
-      if (item.issuer) html += `<span class="group-card__badge">${esc(item.issuer)}</span>`;
+      html += `<div class="group-card__head"><h3 class="group-card__title">${esc(item.title)}</h3>`;
+      if (badge) html += `<span class="group-card__badge">${esc(badge)}</span>`;
       html += `</div>`;
       const meta = item.period || item.date || '';
       if (meta) html += `<div class="group-card__meta">${esc(meta)}</div>`;
@@ -187,7 +190,7 @@ function renderGrouped(items, title) {
       if (item.url) html += `<span class="group-card__link">${esc(item.urlLabel || 'View')} ↗</span>`;
       html += `</${tag}>`;
     }
-    html += `</div></div>`;
+    html += `</div></section>`;
   }
   html += '</div>';
   return html;
@@ -204,39 +207,53 @@ function renderContacts(data) {
   const primary = [];
   if (p.email) primary.push({ label: 'Email', value: p.email, href: `mailto:${p.email}`, icon: '✉' });
   if (p.location) primary.push({ label: 'Location', value: p.location, icon: '📍' });
+  if (primary.length) html += contactGroup('Primary', primary);
 
-  if (primary.length) {
-    html += `<div><span class="contact-group-label">Primary</span><div class="contact-grid">`;
-    for (const c of primary) {
-      const tag = c.href ? 'a' : 'div';
-      html += `<${tag} class="contact-card"${c.href ? ` href="${esc(c.href)}"` : ''}>`;
-      html += `<span class="contact-card__icon">${c.icon}</span>`;
-      html += `<div class="contact-card__body"><div class="contact-card__label">${esc(c.label)}</div><div class="contact-card__value">${esc(c.value)}</div></div>`;
-      html += `</${tag}>`;
+  // Classify the rest of the entries into social links and downloadable docs
+  const docKeys = new Set(['cv', 'europass', 'coverletter', 'resume']);
+  const links = [], docs = [];
+  for (const [key, info] of Object.entries(social)) {
+    const k = key.toLowerCase();
+    if (k === 'email') continue;                 // already shown in Primary
+    const label = info.label || cap(key);
+    const icon = info.icon || '🔗';
+    if (docKeys.has(k) && info.url) {
+      docs.push({ label, value: 'PDF document', href: info.url, icon, action: 'Download', download: true });
+    } else {
+      const href = info.url
+        || (info.address ? `mailto:${info.address}` : '')
+        || (info.number ? `tel:${info.number}` : '');
+      const value = info.username || info.address || info.number || label;
+      const action = href.startsWith('tel:') ? 'Call' : (href.startsWith('mailto:') ? 'Email' : 'Open');
+      links.push({ label, value, href, icon, action });
     }
-    html += `</div></div>`;
   }
-
-  // Social / links
-  const entries = Object.entries(social);
-  if (entries.length) {
-    html += `<div><span class="contact-group-label">Links & Social</span><div class="contact-grid">`;
-    for (const [key, info] of entries) {
-      const url = info.url || info.address || (info.number ? `tel:${info.number}` : '');
-      const value = info.username || info.address || info.number || info.label || key;
-      const icon = info.icon || '🔗';
-      const tag = url ? 'a' : 'div';
-      html += `<${tag} class="contact-card"${url ? ` href="${esc(url)}" target="_blank" rel="noopener"` : ''}>`;
-      html += `<span class="contact-card__icon">${icon}</span>`;
-      html += `<div class="contact-card__body"><div class="contact-card__label">${esc(info.label || key)}</div><div class="contact-card__value">${esc(value)}</div></div>`;
-      if (url) html += `<span class="contact-card__action">Open ↗</span>`;
-      html += `</${tag}>`;
-    }
-    html += `</div></div>`;
-  }
+  if (links.length) html += contactGroup('Links & Social', links);
+  if (docs.length) html += contactGroup('Documents', docs);
 
   html += '</div>';
   return html;
+}
+
+function contactGroup(title, items) {
+  let h = `<section><h2 class="contact-group-label">${esc(title)}</h2><div class="contact-grid">`;
+  for (const c of items) {
+    const tag = c.href ? 'a' : 'div';
+    const external = /^https?:\/\//i.test(c.href || '') || c.download;
+    let attrs = '';
+    if (c.href) {
+      attrs = ` href="${esc(c.href)}"`;
+      if (external) attrs += ' target="_blank" rel="noopener"';
+      if (c.download) attrs += ' download';
+    }
+    h += `<${tag} class="contact-card"${attrs}>`;
+    h += `<span class="contact-card__icon" aria-hidden="true">${c.icon}</span>`;
+    h += `<div class="contact-card__body"><div class="contact-card__label">${esc(c.label)}</div><div class="contact-card__value">${esc(c.value)}</div></div>`;
+    if (c.action) h += `<span class="contact-card__action">${esc(c.action)} ↗</span>`;
+    h += `</${tag}>`;
+  }
+  h += `</div></section>`;
+  return h;
 }
 
 /* --- FOOTER --- */
@@ -244,6 +261,6 @@ function renderFooter(currentId, domains) {
   const links = document.getElementById('footer-links');
   links.innerHTML = domains
     .filter((d) => d.id !== currentId)
-    .map((d) => `<a class="region-footer__link" href="#/region/${d.id}"><span class="region-footer__link-dot" style="background:${d.accent}"></span>${esc(d.label)}</a>`)
+    .map((d) => `<a class="region-footer__link" href="#/region/${d.id}"><span class="region-footer__link-dot" style="background:${d.accent}" aria-hidden="true"></span>${esc(d.label)}</a>`)
     .join('');
 }

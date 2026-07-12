@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Federico Sabbadini — Digital Mind</title>
-  <meta name="description" content="An interactive map of Federico Sabbadini's mind — explore his knowledge network across AI, Cybersecurity, Data, Research and more." />
+  <meta name="description" content="Interactive portfolio of Federico Sabbadini — a 3D mind mapping his education, work, projects and certifications across AI, Cybersecurity, Data and Software Engineering." />
   <meta name="theme-color" content="#05060A" />
 
   <meta property="og:title" content="Federico Sabbadini — Digital Mind" />
-  <meta property="og:description" content="Explore my brain and knowledge network." />
+  <meta property="og:description" content="An interactive 3D portfolio: education, work, projects and certifications across AI, Cybersecurity and Data." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,23 +37,33 @@
     <div class="boot__label">Waking the mind</div>
   </div>
 
+  <!-- ====== PERSISTENT HEADER (identical on every page) ====== -->
+  <header id="site-header" class="site-header">
+    <div class="site-header__inner">
+      <div class="site-header__id">
+        <span class="site-header__name">Federico Sabbadini</span>
+        <span class="site-header__role">Computer Engineering — AI · Data</span>
+      </div>
+      <div class="site-header__slot">
+        <!-- Home: guided tour -->
+        <button id="tour-btn" class="tour-btn" type="button" aria-label="Guided tour of the mind" title="Guided tour">
+          <span class="tour-btn__icon" id="tour-icon"></span>
+          <span id="tour-label">Tour</span>
+        </button>
+        <!-- Region: back to the mind -->
+        <a id="back-to-mind" class="back-link" href="#/">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
+          The Mind
+        </a>
+      </div>
+    </div>
+  </header>
+
   <!-- ====== HOME VIEW ====== -->
   <div id="home-view" data-view="home">
     <!-- Brain canvas -->
     <canvas id="brain-canvas" class="brain-canvas" aria-hidden="true"></canvas>
     <div id="brain-vignette" class="brain-vignette" aria-hidden="true"></div>
-
-    <!-- Top-left identity -->
-    <div class="home-id" id="home-id">
-      <span class="home-id__name">Federico Sabbadini</span>
-      <span class="home-id__role">Computer Engineering — AI · Data</span>
-    </div>
-
-    <!-- Tour button top-right -->
-    <button id="tour-btn" class="tour-btn" type="button" aria-label="Guided tour of the mind" title="Guided tour">
-      <span class="tour-btn__icon" id="tour-icon"></span>
-      <span id="tour-label">Tour</span>
-    </button>
 
     <!-- Left panel: intro + region nav -->
     <div class="home-panel" id="home-panel">
@@ -86,20 +96,6 @@
 
   <!-- ====== REGION VIEW ====== -->
   <div id="region-view" class="region-view" data-view="region" hidden>
-    <!-- Sticky header -->
-    <header class="region-header">
-      <div class="region-header__inner">
-        <div class="region-header__id">
-          <span class="region-header__name">Federico Sabbadini</span>
-          <span class="region-header__role">Computer Engineering — AI · Data</span>
-        </div>
-        <a id="back-to-mind" class="back-link" href="#/">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
-          The Mind
-        </a>
-      </div>
-    </header>
-
     <!-- Hero section -->
     <section class="region-hero" id="region-hero">
       <div class="region-hero__inner">
@@ -107,7 +103,7 @@
           <span class="region-hero__dot" id="hero-dot"></span>
           <span class="region-hero__lobe" id="hero-lobe"></span>
         </div>
-        <h1 class="region-hero__title" id="hero-title"></h1>
+        <h1 class="region-hero__title" id="hero-title" tabindex="-1"></h1>
         <p class="region-hero__intro" id="hero-intro"></p>
       </div>
     </section>

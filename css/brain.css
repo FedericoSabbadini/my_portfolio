@@ -1,5 +1,6 @@
 /* =========================================================================
-   BRAIN — homepage: canvas, overlay chrome, sidebar, tour, callout
+   BRAIN — homepage: canvas, sidebar nav, tour button, callout
+   (the identity header is global — see base.css .site-header)
    ========================================================================= */
 
 /* --- Canvas & vignette --- */
@@ -29,37 +30,14 @@
   background: radial-gradient(120% 120% at 50% 46%, transparent 50%, rgba(0,0,0,.62) 100%);
 }
 
-/* --- Top-left identity --- */
-.home-id {
-  position: absolute;
-  top: clamp(20px, 3vw, 40px);
-  left: clamp(20px, 3.4vw, 44px);
-  display: flex; flex-direction: column; gap: 5px;
-  z-index: 6; pointer-events: none;
-}
-.home-id__name {
-  font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(1rem, .9rem + .4vw, 1.2rem);
-  color: var(--ink-hi); letter-spacing: -.01em;
-}
-.home-id__role {
-  font-family: var(--font-mono); font-size: .7rem;
-  letter-spacing: .16em; text-transform: uppercase;
-  color: var(--ink-mut);
-}
-
-/* --- Tour button (top-right) --- */
+/* --- Tour button (lives in the header slot) --- */
 .tour-btn {
-  position: absolute;
-  top: clamp(18px, 3vw, 38px);
-  right: clamp(18px, 3.4vw, 44px);
-  z-index: 7;
   display: inline-flex; align-items: center; gap: 9px;
   height: 40px; padding: 0 15px 0 13px;
   border-radius: 999px;
   border: 1px solid var(--hairline-2);
   background: rgba(10,13,20,.55);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   color: var(--ink);
   font-family: var(--font-mono); font-size: .7rem;
   letter-spacing: .08em; text-transform: uppercase;
@@ -71,9 +49,7 @@
   color: var(--ink-hi);
   background: rgba(14,18,28,.75);
 }
-.tour-btn__icon {
-  display: inline-flex; width: 15px; height: 15px; color: var(--cyan);
-}
+.tour-btn__icon { display: inline-flex; width: 15px; height: 15px; color: var(--cyan); }
 
 /* --- Left panel (sidebar) --- */
 .home-panel {
@@ -117,12 +93,18 @@
   border-color: color-mix(in srgb, var(--item-accent, var(--cyan)) 45%, transparent);
   transform: translateX(3px);
 }
+/* all:unset above strips the default focus ring — restore a visible one */
+.region-nav__item:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
 .region-nav__dot {
   width: 9px; height: 9px; border-radius: 2px; flex: none;
   background: var(--item-accent, var(--cyan));
   box-shadow: 0 0 10px var(--item-accent, var(--cyan));
   opacity: .85;
 }
+.region-nav__col { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 .region-nav__label {
   font-family: var(--font-display); font-weight: 600;
   font-size: .98rem; color: var(--ink-hi);
@@ -136,7 +118,7 @@
 
 /* --- Callout card --- */
 .callout {
-  position: absolute; left: 0; top: 0; z-index: 8;
+  position: fixed; left: 0; top: 0; z-index: 8;
   pointer-events: none;
   opacity: 0; transform: translateY(4px);
   transition: opacity .3s var(--ease-cine), transform .3s var(--ease-cine);
@@ -147,7 +129,7 @@
   border-radius: 13px;
   border: 1px solid var(--hairline-2);
   background: linear-gradient(180deg, rgba(14,18,28,.94), rgba(8,10,16,.94));
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 22px 55px rgba(0,0,0,.5);
   padding: 13px 15px;
 }
@@ -170,7 +152,7 @@
 
 /* Marker on the cortex */
 .callout-marker {
-  position: absolute; left: 0; top: 0; z-index: 7;
+  position: fixed; left: 0; top: 0; z-index: 7;
   pointer-events: none; opacity: 0;
   transform: translate(-50%, -50%);
   transition: opacity .3s;
@@ -183,11 +165,19 @@
 }
 
 /* =========================================================================
-   RESPONSIVE — stacked layout on mobile/tablet
+   RESPONSIVE — mobile / tablet: brain sits in an upper band, sections below
    ========================================================================= */
 @media (max-width: 820px) {
+  /* brain occupies a band under the header, clear of the panel below */
+  .brain-canvas,
+  .brain-vignette {
+    inset: auto; left: 0; right: 0;
+    top: 62px; height: 46vh;
+  }
+
   .home-panel {
-    top: auto; bottom: 20px;
+    top: calc(62px + 46vh + 12px);
+    bottom: auto;
     left: 50%; right: auto;
     transform: translateX(-50%);
     width: min(680px, 94vw);
@@ -216,10 +206,25 @@
   }
   .region-nav__lobe { display: none; }
   .region-nav__label { font-size: .86rem; }
-  .home-id__role { display: none; }
+  .site-header__role { display: none; }
+
+  /* the floating callout would collide with the stacked panel — the active
+     nav chip + brain glow already convey the region on small screens */
+  .callout { display: none !important; }
 }
 
 @media (max-width: 440px) {
+  .brain-canvas,
+  .brain-vignette { height: 42vh; }
+  .home-panel { top: calc(58px + 42vh + 10px); }
   .region-nav { grid-template-columns: repeat(2, 1fr); }
   .home-panel__intro { display: none; }
+}
+
+/* Short viewports: reclaim vertical room */
+@media (max-width: 820px) and (max-height: 680px) {
+  .home-panel__intro { display: none; }
+  .brain-canvas,
+  .brain-vignette { height: 40vh; }
+  .home-panel { top: calc(58px + 40vh + 8px); }
 }

@@ -63,21 +63,21 @@ function brainShape(noise, dx, dy, dz, out) {
   const n0 = fbm(noise, gx * 4.2, gy * 4.2, gz * 4.2, 3);
   let cavity = (1 - smoothstep(0.0, 0.13, Math.abs(n0))) * 0.5;   // shallow macro grooves
 
-  let r = 1.0 + lobe * 0.05 - cavity * 0.05;
+  let r = 1.0 + lobe * 0.06 - cavity * 0.06;
 
   // cerebrum ellipsoid: wide (x), shorter (y), long front-back (z, front = +z)
   let px = dx * 1.02 * r;
   let py = dy * 0.82 * r;
   let pz = dz * 1.26 * r;
 
-  // longitudinal fissure: a deep central groove down the top → two hemispheres
-  const midline = Math.exp(-(px * px) / 0.010) * smoothstep(-0.15, 0.5, py);
-  py -= midline * 0.16;
+  // longitudinal fissure: a DEEP central groove down the top → two hemispheres
+  const midline = Math.exp(-(px * px) / 0.009) * smoothstep(-0.15, 0.5, py);
+  py -= midline * 0.25;
   cavity = Math.max(cavity, midline);
 
   // temporal lobes: flare the lower sides forward
   const temporal = smoothstep(0.2, -0.5, py) * smoothstep(-0.9, 0.4, pz);
-  px *= 1.0 + temporal * 0.12;
+  px *= 1.0 + temporal * 0.16;
 
   // frontal fullness / occipital taper
   pz *= 1.0 + smoothstep(0.2, 1.0, dz) * 0.05 - smoothstep(-0.3, -1.0, dz) * 0.06;
@@ -88,10 +88,14 @@ function brainShape(noise, dx, dy, dz, out) {
   // cerebellum: a bulge at the posterior-inferior, offset below, with a cleft
   const cere = smoothstep(-0.32, -0.82, dz) * smoothstep(0.12, -0.6, dy);
   if (cere > 0.001) {
-    py -= cere * 0.12; pz -= cere * 0.05;
+    py -= cere * 0.17; pz -= cere * 0.06;
     const cleft = Math.exp(-(px * px) / 0.02);
     cavity = Math.max(cavity, cere * cleft * 0.9);
   }
+
+  // brain-stem hint: a small downward nub at the base center-front
+  const stem = smoothstep(0.0, -0.55, dy) * smoothstep(0.55, -0.2, dz) * smoothstep(0.35, 0.0, Math.abs(dx));
+  py -= stem * 0.05;
 
   out.set(px, py, pz);
   return Math.min(1, cavity);

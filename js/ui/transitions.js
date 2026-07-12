@@ -9,6 +9,7 @@ export function showRegion() {
   const region = q('region-view');
   home.hidden = true;
   region.hidden = false;
+  document.body.classList.add('view-region');
   region.scrollTop = 0;
   return wait(DUR);
 }
@@ -18,6 +19,7 @@ export function showHome() {
   const region = q('region-view');
   region.hidden = true;
   home.hidden = false;
+  document.body.classList.remove('view-region');
   return wait(DUR);
 }
 

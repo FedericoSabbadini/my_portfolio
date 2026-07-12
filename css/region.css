@@ -3,11 +3,12 @@
    ========================================================================= */
 
 .region-view {
-  min-height: 100vh;
+  position: fixed; inset: 0;
   background: var(--bg-void);
-  position: relative;
-  overflow-y: auto;
+  overflow-y: auto; overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
+.region-view[hidden] { display: none !important; }
 
 /* Ambient glow behind hero */
 .region-view::before {
@@ -16,31 +17,6 @@
   width: min(800px, 140vw); height: 460px;
   background: radial-gradient(50% 55% at 50% 0%, color-mix(in srgb, var(--region-accent, transparent) 7%, transparent) 0%, transparent 70%);
   pointer-events: none; z-index: 0;
-}
-
-/* --- Sticky header --- */
-.region-header {
-  position: sticky; top: 0; z-index: 10;
-  background: rgba(5,6,10,.88);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--hairline);
-}
-.region-header__inner {
-  max-width: 1000px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px clamp(16px, 4vw, 44px); gap: 12px;
-}
-.region-header__id { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.region-header__name {
-  font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(.85rem, .8rem + .25vw, 1rem);
-  color: var(--ink-hi); letter-spacing: -.01em;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.region-header__role {
-  font-family: var(--font-mono); font-size: .6rem;
-  letter-spacing: .14em; text-transform: uppercase;
-  color: var(--ink-faint); white-space: nowrap;
 }
 
 .back-link {
@@ -61,11 +37,11 @@
   color: var(--ink-hi);
 }
 
-/* --- Hero --- */
+/* --- Hero (clears the fixed global header) --- */
 .region-hero {
   position: relative; z-index: 1;
   max-width: 1000px; margin: 0 auto;
-  padding: clamp(32px, 5vh, 64px) clamp(16px, 4vw, 44px) 28px;
+  padding: calc(clamp(32px, 5vh, 64px) + 46px) clamp(16px, 4vw, 44px) 28px;
 }
 .region-hero__badge { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .region-hero__dot {
@@ -266,6 +242,12 @@
   background: color-mix(in srgb, var(--region-accent, #818CF8) 8%, transparent);
   white-space: nowrap;
 }
+/* an in-progress course reads as a status, not a grade */
+.course-card__grade--ongoing {
+  color: var(--ink-mut);
+  border-color: var(--hairline-2);
+  background: rgba(255,255,255,.02);
+}
 .course-card__desc { margin: 0 0 12px; font-size: .83rem; line-height: 1.55; color: var(--ink-mut); }
 .course-card__tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
 .course-card__tag {
@@ -329,7 +311,7 @@
   color: var(--ink-mut); margin-bottom: 12px;
 }
 .work-item__desc { margin: 0; font-size: .86rem; line-height: 1.6; color: var(--ink-mut); max-width: 56ch; }
-.work-item__resp { margin-top: 12px; display: flex; flex-direction: column; gap: 5px; }
+.work-item__resp { margin-top: 12px; display: flex; flex-direction: column; gap: 5px; list-style: none; }
 .work-resp {
   display: flex; gap: 8px; font-size: .8rem; color: #8791A3;
 }
@@ -389,6 +371,12 @@
   font-family: var(--font-mono); font-size: .56rem;
   letter-spacing: .08em; text-transform: uppercase;
   color: var(--region-accent, #22D3EE);
+}
+
+/* Empty state */
+.region-empty {
+  padding: 40px 0; text-align: center;
+  color: var(--ink-mut); font-size: .95rem;
 }
 
 /* --- Contacts --- */

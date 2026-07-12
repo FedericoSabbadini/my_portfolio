@@ -16,7 +16,7 @@
   --ink-hi:       #EAEEF6;   /* primary text                      */
   --ink:          #B7C0D0;   /* body text                         */
   --ink-mut:      #7A8699;   /* muted / captions                  */
-  --ink-faint:    #4C566B;   /* faintest labels                   */
+  --ink-faint:    #5F6A80;   /* faintest labels (lifted for contrast) */
 
   /* --- Signal colors (cool, controlled) --- */
   --blue:         #2E6BFF;
