@@ -104,10 +104,20 @@ export class BrainRegions {
     this._setTourIcon(false);
     clearInterval(this._tourTimer);
     this._tourTimer = null;
+    if (this._autoStop) { clearTimeout(this._autoStop); this._autoStop = null; }
     this._unfocus(0.4);
   }
 
   stopTour() { if (this._touring) this._stopTour(); }
+
+  /** run one automatic lap through every region, then stop (first-visit intro) */
+  autoTour() {
+    if (this._touring || this._diving) return;
+    this._startTour();
+    // end while the last region is still on screen, before it wraps to the first
+    const ms = this.domains.length * 3000 - 700;
+    this._autoStop = setTimeout(() => { if (this._touring) this._stopTour(); }, ms);
+  }
 
   _setTourIcon(playing) {
     this._tourIcon.innerHTML = playing

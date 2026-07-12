@@ -30,6 +30,25 @@
   background: radial-gradient(120% 120% at 50% 46%, transparent 50%, rgba(0,0,0,.62) 100%);
 }
 
+/* --- Dive flash: accent bloom during the plunge into a region --- */
+.dive-flash {
+  position: fixed; inset: 0; z-index: 40;
+  pointer-events: none; opacity: 0;
+  background:
+    radial-gradient(120% 120% at 50% 50%, var(--flash, #22d3ee) 0%, transparent 55%);
+  mix-blend-mode: screen;
+  will-change: opacity, transform;
+}
+.dive-flash.is-firing { animation: dive-flash .72s var(--ease-cine) forwards; }
+@keyframes dive-flash {
+  0%   { opacity: 0; transform: scale(1.35); }
+  50%  { opacity: .5; }
+  100% { opacity: 0; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dive-flash.is-firing { animation: none; }
+}
+
 /* --- Tour button (lives in the header slot) --- */
 .tour-btn {
   display: inline-flex; align-items: center; gap: 9px;

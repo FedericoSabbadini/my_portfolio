@@ -71,7 +71,16 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 14px clamp(20px, 3.4vw, 44px);
 }
-.site-header__id { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.site-header__id {
+  display: flex; flex-direction: column; gap: 3px; min-width: 0;
+  pointer-events: auto;              /* clickable identity — routes home */
+  align-self: flex-start;
+  padding: 4px 10px 5px; margin: -4px -10px -5px; border-radius: 10px;
+  transition: background .25s, transform .25s var(--ease-cine);
+}
+.site-header__id:hover { background: rgba(14,18,28,.5); }
+.site-header__id:hover .site-header__name { color: var(--cyan); }
+.site-header__name { transition: color .25s; }
 .site-header__name {
   font-family: var(--font-display); font-weight: 600;
   font-size: clamp(1rem, .9rem + .4vw, 1.2rem);

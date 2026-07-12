@@ -49,18 +49,49 @@ async function boot() {
   createRouter(route).start();
 
   requestAnimationFrame(() => setTimeout(hideBoot, state.scene ? 500 : 0));
+
+  maybeAutoTour();
+}
+
+/* On the very first visit, play one automatic guided-tour lap so newcomers see
+   what the six regions are. Runs once (localStorage), only when landing on the
+   home view, and never for reduced-motion users. */
+function maybeAutoTour() {
+  if (!state.regions || reducedMotion) return;
+  const onHome = !location.hash || location.hash === '#' || location.hash === '#/';
+  if (!onHome) return;
+  let seen = false;
+  try { seen = localStorage.getItem('mind_tour_seen') === '1'; } catch (e) {}
+  if (seen) return;
+  try { localStorage.setItem('mind_tour_seen', '1'); } catch (e) {}
+  setTimeout(() => {
+    if (state.view === 'home' && state.regions) state.regions.autoTour();
+  }, 1600);
 }
 
 /* ---- dive: play the brain zoom, then navigate to the region ------------- */
 function onDive(id) {
   // reduced-motion users skip the cinematic zoom and go straight there
   if (state.scene && !reducedMotion) {
+    const dom = state.domains.find((d) => d.id === id);
+    playDiveFlash(dom ? dom.accent : '#22d3ee');
     state.scene.setInteractive(false);
     state.scene.zoomTo(id);
-    setTimeout(() => go(`#/region/${id}`), 640);
+    setTimeout(() => go(`#/region/${id}`), 700);
   } else {
     go(`#/region/${id}`);
   }
+}
+
+/* accent bloom that peaks as the brain fades and the region view rises */
+function playDiveFlash(accent) {
+  const el = document.getElementById('dive-flash');
+  if (!el || reducedMotion) return;
+  el.style.setProperty('--flash', accent);
+  el.classList.remove('is-firing');
+  void el.offsetWidth;                     // restart the animation
+  el.classList.add('is-firing');
+  setTimeout(() => el.classList.remove('is-firing'), 760);
 }
 
 /* ---- routing ------------------------------------------------------------ */
@@ -92,7 +123,13 @@ async function enterHome() {
   if (state.scene) {
     state.scene.start();
     state.scene.setInteractive(true);
-    state.scene.reset();                  // ease camera/rotation back to idle
+    // the canvas was 0×0 while the region view was up; re-measure now that it's
+    // visible again (also catches any mobile address-bar / orientation change)
+    // before easing the camera back, so the brain never shows up squashed.
+    requestAnimationFrame(() => {
+      state.scene.resize();
+      state.scene.reset();                // ease camera/rotation back to idle
+    });
   }
   if (state.regions) state.regions.resume();
   // return keyboard focus to a sensible anchor when arriving back from a region

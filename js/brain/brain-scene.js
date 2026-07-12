@@ -203,7 +203,10 @@ export class BrainScene {
     });
     this.renderer.setClearColor(0x000000, 0);
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
-    this.pr = Math.min(window.devicePixelRatio || 1, this.mobile ? 1.5 : 2);
+    // On phones, 1.5× left the dense per-pixel gyri looking soft/aliased; 2× is
+    // noticeably crisper and the adaptive-quality loop still scales it back if
+    // the framerate drops.
+    this.pr = Math.min(window.devicePixelRatio || 1, this.mobile ? 2 : 2);
     this.renderer.setPixelRatio(this.pr);
   }
 
@@ -261,8 +264,8 @@ export class BrainScene {
       uRegion: { value: new THREE.Vector3(0, 0, 6) },
       uRegionStr: { value: 0 },
       uRegionColor: { value: new THREE.Color(0x22d3ee) },
-      uBump: { value: this.mobile ? 0.34 : 0.44 },
-      uFold: { value: this.mobile ? 0.9 : 1.05 },    // fine-gyri intensity (perf lever)
+      uBump: { value: this.mobile ? 0.27 : 0.44 },
+      uFold: { value: this.mobile ? 0.66 : 1.05 },   // softer, cleaner gyri on phones
     };
     const mat = new THREE.ShaderMaterial({
       uniforms: this.uniforms, vertexShader: VERT, fragmentShader: FRAG, transparent: false,
@@ -353,21 +356,36 @@ export class BrainScene {
   }
   allRegionScreen() { return this.domains.map((d) => ({ id: d.id, ...this.projectRegion(d.id) })); }
 
-  /** dive: turn to the region, rush the camera in, fade out — then navigate */
+  /** dive: turn to the region, plunge the camera through the cortex with a
+      lens-warp + synaptic surge + bloom flash, fade out — then navigate. */
   zoomTo(id) {
     this._diving = true;
     const p = this.regionPos.get(id) || new THREE.Vector3();
+    const c = this.regionColor.get(id) || new THREE.Color(0x22d3ee);
     const yp = this._regionYawPitch(p);
     // sync the rot-machine so there is no snap if the dive is interrupted
     this.rotTarget.x = yp.x; this.rotTarget.y = this._nearestYaw(yp.y, this.rot.y);
+
+    // recolour the region glow to the target accent as we commit to the dive
+    gsap.to(this.uniforms.uRegionColor.value, { r: c.r, g: c.g, b: c.b, duration: 0.3 });
+    gsap.to(this.uniforms.uRegion.value, { x: p.x, y: p.y, z: p.z, duration: 0.5, ease: 'power2.out' });
+
     const tl = gsap.timeline();
-    tl.to(this.rot, { x: yp.x, y: this.rotTarget.y, duration: 1.15, ease: 'power3.inOut',
+    // turn to face the region
+    tl.to(this.rot, { x: yp.x, y: this.rotTarget.y, duration: 1.0, ease: 'power2.inOut',
       onUpdate: () => { this.group.rotation.set(this.rot.x, this.rot.y, 0); } }, 0);
-    tl.to(this.camera.position, { x: p.x * 0.5, y: p.y * 0.5, z: 1.75, duration: 1.25, ease: 'power3.inOut',
+    // rush the camera *through* the cortex toward the region anchor
+    tl.to(this.camera.position, { x: p.x * 0.62, y: p.y * 0.62, z: 1.28, duration: 1.1, ease: 'power3.in',
       onUpdate: () => { this.camera.lookAt(this._camTarget); } }, 0);
-    tl.to(this.uniforms.uRegionStr, { value: 1.8, duration: 0.9 }, 0);
-    tl.to(this.uniforms.uActivity, { value: 1.4, duration: 0.9 }, 0);
-    setTimeout(() => { this.canvas.style.opacity = '0'; }, 620);
+    // dolly the lens wider as we plunge — the tunnel / warp feel
+    tl.to(this.camera, { fov: 60, duration: 1.1, ease: 'power2.in',
+      onUpdate: () => { this.camera.updateProjectionMatrix(); } }, 0);
+    // the region blooms open and the whole cortex fires
+    tl.to(this.uniforms.uRegionStr, { value: 2.6, duration: 0.8, ease: 'power2.in' }, 0);
+    tl.to(this.uniforms.uActivity, { value: 1.9, duration: 0.7, ease: 'power2.in' }, 0);
+    tl.to(this.uniforms.uBreath, { value: 2.2, duration: 0.5, ease: 'power2.out' }, 0);
+    if (this.bloom) tl.to(this.bloom, { strength: 1.4, radius: 0.85, duration: 0.7, ease: 'power2.in' }, 0);
+    setTimeout(() => { this.canvas.style.opacity = '0'; }, 600);
     return tl.then(() => {});
   }
 
@@ -381,6 +399,11 @@ export class BrainScene {
     this.rotTarget.x = this.rot.x; this.rotTarget.y = this.rot.y;
     this.mode = 'idle'; this._pendingIdle = false; this._activityTarget = 0;
     this.camZTarget = this.homeCamZ;
+    // undo everything the dive pushed (lens dolly, bloom flash, breath surge);
+    // the brain fades back in from opacity 0 so these snaps are unseen.
+    this.camera.fov = 40; this.camera.updateProjectionMatrix();
+    if (this.bloom) { this.bloom.strength = 0.42; this.bloom.radius = 0.6; }
+    this.uniforms.uBreath.value = this.reduced ? 0 : 1;
     gsap.to(this.uniforms.uRegionStr, { value: 0, duration: 0.6, ease: 'power2.out' });
   }
 
@@ -388,6 +411,10 @@ export class BrainScene {
     this._syncMode();
     const w = this.canvas.clientWidth || window.innerWidth;
     const h = this.canvas.clientHeight || window.innerHeight;
+    // When the home view is hidden (a region catalog is up) the canvas measures
+    // 0×0. Resizing to that ratio squashes the brain the next time it shows, so
+    // skip until it has real dimensions again.
+    if (w < 2 || h < 2) return;
     const aspect = w / Math.max(h, 1);
     this.camera.aspect = aspect; this.camera.updateProjectionMatrix();
     this.renderer.setSize(w, h, false);

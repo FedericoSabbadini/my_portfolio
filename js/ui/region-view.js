@@ -33,6 +33,25 @@ export function renderRegion(regionId, data, domains) {
 
   // Footer
   renderFooter(regionId, domains);
+
+  wireCollapsibles(main);
+}
+
+/* Collapsible course lists: one delegated listener, bound once per element. */
+function wireCollapsibles(main) {
+  if (main.dataset.collapsibleBound) return;
+  main.dataset.collapsibleBound = '1';
+  main.addEventListener('click', (e) => {
+    const btn = e.target.closest('.courses-toggle');
+    if (!btn) return;
+    const block = btn.closest('.courses-block');
+    if (!block) return;
+    const collapsed = block.getAttribute('data-collapsed') !== 'false';
+    block.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
+    btn.setAttribute('aria-expanded', collapsed ? 'true' : 'false');
+    const hint = btn.querySelector('.courses-toggle__hint');
+    if (hint) hint.textContent = collapsed ? 'Hide' : 'Show';
+  });
 }
 
 /* --- ABOUT --- */
@@ -107,10 +126,19 @@ function renderEducation(data) {
     if (ed.hfUrl) links.push(`<a class="edu-link edu-link--secondary" href="${esc(ed.hfUrl)}" target="_blank" rel="noopener">Study notes ↗</a>`);
     if (links.length) html += `<div class="edu-links">${links.join('')}</div>`;
 
-    // Courses
+    // Courses — collapsed by default (a degree can carry many), click to expand
     const courses = getCourses(data.courses, ed.id || '');
     if (courses.length) {
-      html += `<div style="margin-top:28px"><h3 class="courses-label">Courses (${courses.length})</h3><div class="courses-grid">`;
+      const cid = `courses-${esc(ed.id || Math.random().toString(36).slice(2))}`;
+      html += `<div class="courses-block" data-collapsed="true">
+        <button class="courses-toggle" type="button" aria-expanded="false" aria-controls="${cid}">
+          <span class="courses-toggle__label">Courses</span>
+          <span class="courses-toggle__count">${courses.length}</span>
+          <span class="courses-toggle__hint">Show</span>
+          <svg class="courses-toggle__chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="courses-collapse"><div class="courses-collapse__inner">
+        <div class="courses-grid" id="${cid}">`;
       for (const c of courses) {
         const ongoing = /^current$/i.test(c.grade || '');
         html += `<div class="course-card"><div class="course-card__head"><h4 class="course-card__name">${esc(c.name)}</h4>`;
@@ -126,7 +154,7 @@ function renderEducation(data) {
         if (clinks.length) html += `<div class="course-card__links">${clinks.join('')}</div>`;
         html += `</div>`;
       }
-      html += `</div></div>`;
+      html += `</div></div></div></div>`;
     }
     html += `</div>`;
   }
