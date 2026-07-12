@@ -1,31 +1,24 @@
 /* =========================================================================
-   transitions.js — cinematic view swaps between the brain (home) and the
-   knowledge-graph section. CSS carries the easing; these helpers sequence it.
+   transitions.js — view swaps between brain (home) and region catalog.
    ========================================================================= */
-const DUR_MED = 550;
+const DUR = 450;
 const q = (id) => document.getElementById(id);
 
-export function revealSection() {
-  const section = q('section-view');
-  const overlay = q('home-overlay');
-  const label = q('region-label');
-  overlay.classList.add('is-hidden');
-  label.classList.remove('is-visible');
-  section.hidden = false;
-  // force reflow so the opacity transition runs
-  void section.offsetWidth;
-  section.classList.add('is-active');
-  return wait(DUR_MED);
+export function showRegion() {
+  const home = q('home-view');
+  const region = q('region-view');
+  home.hidden = true;
+  region.hidden = false;
+  region.scrollTop = 0;
+  return wait(DUR);
 }
 
-export function hideSection() {
-  const section = q('section-view');
-  section.classList.remove('is-active');
-  return wait(DUR_MED).then(() => { section.hidden = true; });
-}
-
-export function showHomeOverlay() {
-  q('home-overlay').classList.remove('is-hidden');
+export function showHome() {
+  const home = q('home-view');
+  const region = q('region-view');
+  region.hidden = true;
+  home.hidden = false;
+  return wait(DUR);
 }
 
 export function hideBoot() {

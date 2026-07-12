@@ -307,6 +307,12 @@ export class BrainScene {
   }
   allRegionScreen() { return this.domains.map((d) => ({ id: d.id, ...this.projectRegion(d.id) })); }
 
+  rotateTo(id) {
+    const p = this.regionPos.get(id) || new THREE.Vector3();
+    const yaw = -Math.atan2(p.x, p.z + 0.001);
+    gsap.to(this.group.rotation, { y: yaw, x: p.y * 0.25, duration: 1.8, ease: 'power2.inOut' });
+  }
+
   zoomTo(id) {
     this._diving = true;
     const p = this.regionPos.get(id) || new THREE.Vector3();
