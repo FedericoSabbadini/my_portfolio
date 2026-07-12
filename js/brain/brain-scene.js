@@ -84,17 +84,20 @@ const FRAG = /* glsl */`
   // long flowing lines (cerebral gyri) rather than tight cells (brain coral).
   float sulcus(vec3 p) {
   #ifdef LITE
-    vec3 w = vec3(gnoise(p * 1.3 + 21.0), gnoise(p * 1.3 + 5.0), 0.0) * 0.22;
+    vec3 w = vec3(gnoise(p * 1.7 + 21.0), gnoise(p * 1.7 + 5.0), 0.0) * 0.38;
     vec3 g = p + w;
-    float a = gnoise(g * 5.2) * 0.9 + gnoise(g * 10.4 + 2.0) * 0.1;
-    return 1.0 - smoothstep(0.0, 0.19, abs(a));
+    float a = gnoise(g * 10.5) * 0.8 + gnoise(g * 21.0 + 2.0) * 0.2;
+    return 1.0 - smoothstep(0.0, 0.12, abs(a));
   #else
-    // a gentle, low-frequency domain warp bends the field so a FEW broad sulci
-    // meander in long, soft valleys — a calm, minimal cortex, not busy coral.
-    vec3 w = vec3(gnoise(p * 1.3 + 21.0), gnoise(p * 1.3 + 5.0), gnoise(p * 1.3 + 9.0)) * 0.22;
+    vec3 w = vec3(gnoise(p * 1.7 + 21.0), gnoise(p * 1.7 + 5.0), gnoise(p * 1.7 + 9.0)) * 0.38;
     vec3 g = p + w;
-    float a = gnoise(g * 5.4) * 0.88 + gnoise(g * 10.8 + 2.0) * 0.12;
-    return 1.0 - smoothstep(0.0, 0.18, abs(a));
+    // primary sulci — many fine flowing valleys (delicate cortex, not tubes)
+    float a = gnoise(g * 10.5) * 0.72 + gnoise(g * 21.0 + 2.0) * 0.28;
+    float s = 1.0 - smoothstep(0.0, 0.11, abs(a));
+    // a restrained hint of still-finer folding nested on the gyri
+    float b = gnoise(g * 30.0 + 7.0);
+    s = max(s, (1.0 - smoothstep(0.0, 0.04, abs(b))) * 0.14);
+    return s;
   #endif
   }
 
@@ -105,11 +108,9 @@ const FRAG = /* glsl */`
     // ---- fine gyri drawn per-pixel, sharpened with screen-space derivative
     // bump-mapping so the cortex reads crisp regardless of mesh resolution.
     float sf = sulcus(vLocal) * uFold;
-    float s = max(sf, vFold * 0.85);                    // + baked macro cavities (shading only)
+    float s = max(sf, vFold * 0.85);                    // + baked macro cavities
     vec3 dpdx = dFdx(vWorld), dpdy = dFdy(vWorld);
-    // bump the normal from the SMOOTH per-pixel field only — deriving from the
-    // low-res baked cavity would stair-step into blocky voxels.
-    float dhx = dFdx(sf), dhy = dFdy(sf);
+    float dhx = dFdx(s), dhy = dFdy(s);
     vec3 r1 = cross(dpdy, N), r2 = cross(N, dpdx);
     float det = dot(dpdx, r1);
     vec3 grad = (dhx * r1 + dhy * r2) * (det < 0.0 ? -1.0 : 1.0) / max(abs(det), 1e-7);
@@ -135,7 +136,7 @@ const FRAG = /* glsl */`
     col += uSSSColor * sss * 0.34;
 
     // ambient occlusion: the deeper the sulcus, the darker (light can't reach)
-    col *= 1.0 - clamp(s, 0.0, 1.0) * 0.42;
+    col *= 1.0 - clamp(s, 0.0, 1.0) * 0.58;
     // crest sheen: broad gyri catch a soft specular-ish bloom of the key
     float crest = smoothstep(0.55, 0.0, s);
     col += uKeyColor * pow(wrap, 4.0) * crest * 0.07;
@@ -172,13 +173,13 @@ const FRAG = /* glsl */`
         nearHover = (abs(float(i) - uHoverRegion) < 0.5) ? 1.0 : 0.0;
       } else if (d < b2) { b2 = d; }
     }
-    // At rest the brain is CLEAN — barely any tint, no visible zone borders.
-    // Region identity emerges only on hover: the touched zone lights, the rest
-    // dims, and a thin seam traces the border of the hovered region.
-    col += regCol * uPaint * (0.015 + 0.24 * uHoverStr * nearHover);
-    col *= mix(1.0, mix(0.34, 1.10, nearHover), uHoverStr);
+    // subtle tint — keeps it a brain, not a colour-blocked map
+    col += regCol * uPaint * (0.07 + 0.22 * uHoverStr * nearHover);
+    // isolate: dim every region except the hovered one
+    col *= mix(1.0, mix(0.38, 1.08, nearHover), uHoverStr);
+    // thin illuminated seam where two regions meet (anatomical separation)
     float seam = 1.0 - smoothstep(0.0, 0.018, b2 - b1);
-    col += regCol * seam * uPaint * (0.30 + 0.35 * fresB) * uHoverStr * (0.35 + 0.9 * nearHover);
+    col += regCol * seam * uPaint * (0.28 + 0.35 * fresB) * (0.75 + 0.7 * uHoverStr * nearHover);
 
     // dive emphasis: local bloom at the region being entered
     float reg = smoothstep(0.9, 0.0, distance(vLocal, uRegion)) * uRegionStr;
@@ -277,8 +278,8 @@ export class BrainScene {
       uRegion: { value: new THREE.Vector3(0, 0, 6) },
       uRegionStr: { value: 0 },
       uRegionColor: { value: new THREE.Color(0x22d3ee) },
-      uBump: { value: this.mobile ? 0.10 : 0.12 },   // soft folds → minimal, elegant
-      uFold: { value: this.mobile ? 0.40 : 0.46 },   // fine-gyri intensity (perf lever)
+      uBump: { value: this.mobile ? 0.22 : 0.27 },   // gentler folds → smoother, more elegant
+      uFold: { value: this.mobile ? 0.72 : 0.82 },   // fine-gyri intensity (perf lever)
       // painted knowledge regions
       uRegions: { value: this._regionVecs },
       uRegionCols: { value: this._regionCols },

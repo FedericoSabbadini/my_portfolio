@@ -1,48 +1,57 @@
 {
-  "_comment": "Level-0 knowledge regions = the high-level sections of the portfolio, painted as zones on the cortex. `position` is an [x,y,z] anchor in the brain's local space (front = +z, up = +y). Regions are spread across the surface so the per-pixel Voronoi paint gives each a distinct, non-overlapping zone. `blurb` is the one-line recruiter summary shown on hover. Research is folded into Projects (a research project is a project with a Research badge, filed under its subject).",
+  "_comment": "Level-0 knowledge regions = the high-level sections of the portfolio, painted as zones on the cortex. `position` is an [x,y,z] anchor in the brain's local space (front = +z, up = +y). Regions are spread across the surface so the per-pixel Voronoi paint gives each a distinct, non-overlapping zone. `blurb` is the one-line recruiter summary shown on hover. Content is mapped to regions deterministically by source/type in build-tree.js — never by tag similarity.",
   "regions": [
     {
       "id": "about",
       "label": "About",
       "lobe": "The self",
-      "blurb": "Who I am — background, the skills I lead with, languages and what drives me.",
-      "position": [0.0, 0.30, 0.62],
-      "size": 1.05,
+      "blurb": "Who I am — background, core skills, languages and what drives me.",
+      "position": [0.0, 0.28, 0.42],
+      "size": 1.0,
       "accent": "#EAEEF6"
     },
     {
       "id": "education",
       "label": "Education",
-      "lobe": "Prefrontal cortex · left",
-      "blurb": "Master's & Bachelor's in Computer Engineering, with courses grouped by subject.",
-      "position": [-0.86, 0.40, 0.34],
-      "size": 1.18,
+      "lobe": "Prefrontal cortex",
+      "blurb": "Master's & Bachelor's in Computer Engineering, plus every course along the way.",
+      "position": [-0.82, 0.42, 0.52],
+      "size": 1.15,
       "accent": "#818CF8"
     },
     {
       "id": "work",
       "label": "Work",
-      "lobe": "Frontal lobe · right",
-      "blurb": "The road ahead — internship, Master's thesis and first professional role.",
-      "position": [0.86, 0.40, 0.34],
+      "lobe": "Frontal lobe",
+      "blurb": "Professional path: internship, Master's thesis and first role.",
+      "position": [0.82, 0.42, 0.52],
       "size": 1.0,
       "accent": "#60A5FA"
     },
     {
       "id": "projects",
       "label": "Projects",
-      "lobe": "Parietal · occipital",
-      "blurb": "Things I've built and researched — AI/ML, security, optimization and full-stack.",
-      "position": [0.58, 0.10, -0.86],
-      "size": 1.2,
+      "lobe": "Parietal lobe",
+      "blurb": "Things I've built — AI/ML, security, optimization and full-stack.",
+      "position": [0.9, 0.16, -0.55],
+      "size": 1.15,
       "accent": "#22D3EE"
+    },
+    {
+      "id": "research",
+      "label": "Research",
+      "lobe": "Occipital lobe",
+      "blurb": "Deep dives and publications — papers, thesis and open datasets.",
+      "position": [0.0, 0.4, -1.12],
+      "size": 1.05,
+      "accent": "#A78BFA"
     },
     {
       "id": "certifications",
       "label": "Certifications",
-      "lobe": "Temporal lobe · left",
-      "blurb": "Hands-on credentials — EC-Council security, cloud, AI and software.",
-      "position": [-0.80, 0.04, -0.72],
+      "lobe": "Temporal lobe",
+      "blurb": "Hands-on credentials — EC-Council security, cloud, AI and more.",
+      "position": [-0.9, 0.06, -0.5],
       "size": 1.05,
       "accent": "#2DD4BF"
     },
@@ -51,7 +60,7 @@
       "label": "Contacts",
       "lobe": "Brain stem",
       "blurb": "Reach me — email, GitHub, LinkedIn and CV.",
-      "position": [0.0, -0.72, 0.12],
+      "position": [0.0, -0.74, 0.18],
       "size": 0.95,
       "accent": "#38BDF8"
     }
