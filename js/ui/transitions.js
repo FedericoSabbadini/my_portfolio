@@ -8,9 +8,9 @@ const q = (id) => document.getElementById(id);
 export function revealSection() {
   const section = q('section-view');
   const overlay = q('home-overlay');
-  const labels = q('region-labels');
+  const label = q('region-label');
   overlay.classList.add('is-hidden');
-  if (labels) labels.classList.add('is-hidden');
+  label.classList.remove('is-visible');
   section.hidden = false;
   // force reflow so the opacity transition runs
   void section.offsetWidth;
@@ -26,8 +26,6 @@ export function hideSection() {
 
 export function showHomeOverlay() {
   q('home-overlay').classList.remove('is-hidden');
-  const labels = q('region-labels');
-  if (labels) labels.classList.remove('is-hidden');
 }
 
 export function hideBoot() {

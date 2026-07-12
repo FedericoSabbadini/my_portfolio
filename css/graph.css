@@ -71,12 +71,7 @@
 }
 .dom-nav__item:hover { background: var(--bg-elev); color: var(--ink-hi); }
 .dom-nav__item.is-active { color: var(--ink-hi); background: var(--bg-elev); }
-.dom-nav__dot { width: 8px; height: 8px; border-radius: 50%; flex: none; box-shadow: 0 0 8px currentColor; }
-.dom-nav__lbl { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.dom-nav__count {
-  font-family: var(--font-mono); font-size: 10px; color: var(--ink-faint);
-  background: var(--bg-elev); padding: 1px 7px; border-radius: var(--r-pill); flex: none;
-}
+.dom-nav__dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
 
 /* --- Graph stage (center) --- */
 .graph-stage { position: relative; min-width: 0; overflow: hidden; }
@@ -96,24 +91,22 @@
 .graph-legend__item { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; color: var(--ink-mut); }
 .graph-legend__dot { width: 8px; height: 8px; border-radius: 50%; }
 
-/* --- Breadcrumb --- */
-.breadcrumb {
-  position: absolute; top: 16px; left: 20px; right: 20px; z-index: 3;
-  display: flex; flex-wrap: wrap; align-items: center; gap: 3px;
-  font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: .06em;
-  pointer-events: none;
+/* --- Back to mind --- */
+.back-to-mind {
+  position: absolute; top: 20px; left: 20px; z-index: 3;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 9px 15px 9px 12px;
+  font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: .1em;
+  color: var(--ink); background: rgba(10,13,20,.6);
+  border: 1px solid var(--hairline-2); border-radius: var(--r-pill);
+  backdrop-filter: blur(10px);
+  transition: transform var(--dur-fast) var(--ease-cine), border-color var(--dur-fast), color var(--dur-fast);
 }
-.crumb {
-  pointer-events: auto;
-  display: inline-flex; align-items: center; padding: 5px 10px;
-  color: var(--ink-mut); border: 1px solid transparent; border-radius: var(--r-pill);
-  background: rgba(10,13,20,.5); backdrop-filter: blur(8px);
-  transition: color var(--dur-fast), background var(--dur-fast), border-color var(--dur-fast);
-  max-width: 22ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+.back-to-mind:hover { transform: translateX(-2px); border-color: var(--cyan); color: var(--ink-hi); }
+.back-to-mind__glyph {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, var(--cyan), rgba(34,211,238,0) 72%);
 }
-.crumb:hover { color: var(--ink-hi); border-color: var(--hairline-2); }
-.crumb.is-current { color: var(--ink-hi); background: transparent; pointer-events: none; }
-.crumb__sep { color: var(--ink-faint); padding: 0 1px; }
 
 /* --- Right: node detail --- */
 .detail-empty {
@@ -159,11 +152,6 @@
 }
 .detail__conn:hover { background: var(--bg-elev); color: var(--ink-hi); }
 .detail__conn-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
-.detail__conn-lbl { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.detail__conn-note {
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: .04em;
-  color: var(--ink-faint); flex: none;
-}
 
 /* =========================================================================
    RESPONSIVE — collapse to a single column on narrow screens

@@ -58,38 +58,47 @@
     </p>
   </header>
 
-  <!-- Persistent region labels pinned to the cortex (built in brain-regions.js) -->
-  <div id="region-labels" class="region-labels" aria-hidden="true"></div>
+  <!-- Floating region label that follows the hovered brain area -->
+  <div id="region-label" class="region-label" role="status" aria-live="polite" hidden>
+    <span class="region-label__kicker" id="region-kicker">Mental domain</span>
+    <span class="region-label__title" id="region-title"></span>
+    <span class="region-label__desc" id="region-desc"></span>
+    <span class="region-label__cta">Enter →</span>
+  </div>
 
-  <!-- Accessible / no-WebGL / mobile guided index of the mind -->
-  <nav id="mind-index" class="mind-index" aria-label="Knowledge regions">
+  <!-- Accessible / no-WebGL fallback: a real navigable index of the mind -->
+  <nav id="mind-index" class="mind-index" aria-label="Knowledge domains">
     <div class="mind-index__inner">
-      <p class="mind-index__kicker">Federico Sabbadini · Digital Mind</p>
-      <h1 class="mind-index__title">Explore my mind</h1>
-      <p class="mind-index__lead">Seven regions of who I am, what I studied, and what I've built. Tap one to dive in.</p>
+      <h1 class="mind-index__title">The mind of Federico Sabbadini</h1>
+      <p class="mind-index__lead">A knowledge network across nine mental domains.</p>
       <ul id="mind-index-list" class="mind-index__list"></ul>
     </div>
   </nav>
 
-  <!-- Section view: region overview · hierarchy · detail -->
+  <!-- Section view: 3-panel knowledge graph -->
   <main id="section-view" class="section-view" data-view="section" hidden>
-    <aside class="panel panel--left" id="panel-left" aria-label="Region overview">
+    <button id="back-to-mind" class="back-to-mind" type="button" aria-label="Return to the mind">
+      <span class="back-to-mind__glyph"></span>
+      <span>The mind</span>
+    </button>
+
+    <aside class="panel panel--left" id="panel-left" aria-label="Domain overview">
       <div class="panel__scroll" id="left-content"></div>
     </aside>
 
-    <section class="graph-stage" aria-label="Knowledge hierarchy">
-      <nav id="breadcrumb" class="breadcrumb" aria-label="Breadcrumb"></nav>
-      <canvas id="graph-canvas" class="graph-canvas" tabindex="0" aria-label="Interactive knowledge hierarchy"></canvas>
+    <section class="graph-stage" aria-label="Knowledge graph">
+      <canvas id="graph-canvas" class="graph-canvas"></canvas>
       <div class="graph-hud">
-        <div class="graph-hud__hint" id="graph-hint">click a node to expand · drag to move · scroll to zoom</div>
+        <div class="graph-hud__hint" id="graph-hint">drag · scroll to zoom · click a node</div>
+        <div class="graph-legend" id="graph-legend"></div>
       </div>
     </section>
 
-    <aside class="panel panel--right" id="panel-right" aria-label="Item detail">
+    <aside class="panel panel--right" id="panel-right" aria-label="Node detail">
       <div class="panel__scroll" id="right-content">
         <div class="detail-empty" id="detail-empty">
           <div class="detail-empty__orb"></div>
-          <p>Select a node to inspect it.</p>
+          <p>Select a node to inspect a fragment of this domain.</p>
         </div>
       </div>
     </aside>

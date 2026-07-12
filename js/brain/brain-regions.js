@@ -1,61 +1,25 @@
 /* =========================================================================
-   brain-regions.js — the brain IS the navigation.
-   Seven high-level regions are painted on the cortex (shader) and labelled
-   with small persistent chips (here). Hover/focus a region → its zone lights
-   up, the others dim, and the chip expands into a recruiter card (blurb +
-   item count + key threads). Click/Enter → dive into that region's tree.
+   brain-regions.js — maps pointer interaction over the brain to mental
+   domains. Hover → highlight region + floating label (which follows the
+   rotating anchor). Click → dive into that domain.
    ========================================================================= */
-import { getRegionStats } from '../data/build-tree.js';
-
-const esc = (s) => String(s == null ? '' : s)
-  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
 export class BrainRegions {
-  constructor(scene, regions, tree, { onEnter } = {}) {
+  constructor(scene, domains, { onEnter } = {}) {
     this.scene = scene;
-    this.regions = regions;
-    this.tree = tree;
-    this.byId = new Map(regions.map((d) => [d.id, d]));
+    this.domains = domains;
+    this.byId = new Map(domains.map((d) => [d.id, d]));
     this.onEnter = onEnter || (() => {});
     this.canvas = scene.canvas;
     this.hovered = null;
-    this.host = document.getElementById('region-labels');
-    this.labels = new Map();
+    this._pointerInside = false;
 
-    this._buildLabels();
+    this.label = document.getElementById('region-label');
+    this.elKicker = document.getElementById('region-kicker');
+    this.elTitle = document.getElementById('region-title');
+    this.elDesc = document.getElementById('region-desc');
+
     this._bind();
     scene.onFrame(() => this._follow());
-  }
-
-  _buildLabels() {
-    if (!this.host) return;
-    this.host.innerHTML = '';
-    for (const d of this.regions) {
-      const s = getRegionStats(this.tree, d.id);
-      const tech = s.tech.slice(0, 3).join(' · ');
-      const el = document.createElement('button');
-      el.className = 'rlabel';
-      el.type = 'button';
-      el.style.setProperty('--rc', d.accent);
-      el.setAttribute('aria-label', `${d.label}: ${d.blurb}. ${s.items} items. Enter region.`);
-      el.innerHTML = `
-        <span class="rlabel__dot"></span>
-        <span class="rlabel__body">
-          <span class="rlabel__kicker">${esc(d.lobe)}</span>
-          <span class="rlabel__title">${esc(d.label)}</span>
-          <span class="rlabel__card">
-            <span class="rlabel__blurb">${esc(d.blurb)}</span>
-            <span class="rlabel__meta"><b>${s.items}</b> item${s.items === 1 ? '' : 's'}${tech ? ` · ${esc(tech)}` : ''}</span>
-            <span class="rlabel__cta">Enter →</span>
-          </span>
-        </span>`;
-      el.addEventListener('pointerenter', () => this._setHover(d.id));
-      el.addEventListener('focus', () => this._setHover(d.id));
-      el.addEventListener('pointerleave', () => { if (!this._overCanvas) this._setHover(null); });
-      el.addEventListener('click', (e) => { e.stopPropagation(); this.onEnter(d.id); });
-      this.host.appendChild(el);
-      this.labels.set(d.id, el);
-    }
   }
 
   _bind() {
@@ -63,21 +27,34 @@ export class BrainRegions {
     this._move = (e) => {
       const rect = c.getBoundingClientRect();
       const mx = e.clientX - rect.left, my = e.clientY - rect.top;
-      this._overCanvas = true;
+      this._mx = mx; this._my = my; this._pointerInside = true;
+      // feed parallax (-1..1)
       this.scene.setPointer((mx / rect.width) * 2 - 1, -((my / rect.height) * 2 - 1));
       this._pick(mx, my, rect);
     };
-    this._leave = () => { this._overCanvas = false; this.scene.setPointer(0, 0); this._setHover(null); };
+    this._leave = () => {
+      this._pointerInside = false;
+      this.scene.setPointer(0, 0);
+      this._setHover(null);
+    };
     this._click = () => { if (this.hovered) this.onEnter(this.hovered); };
+    this._touch = (e) => {
+      if (!e.touches || !e.touches[0]) return;
+      const rect = c.getBoundingClientRect();
+      const mx = e.touches[0].clientX - rect.left, my = e.touches[0].clientY - rect.top;
+      this._mx = mx; this._my = my; this._pointerInside = true;
+      this._pick(mx, my, rect);
+    };
     c.addEventListener('pointermove', this._move);
     c.addEventListener('pointerleave', this._leave);
     c.addEventListener('click', this._click);
+    c.addEventListener('touchstart', this._touch, { passive: true });
   }
 
   _pick(mx, my, rect) {
-    const threshold = Math.min(rect.width, rect.height) * 0.16;
+    const threshold = Math.min(rect.width, rect.height) * 0.14;
     let best = null, bestD = threshold;
-    for (const d of this.regions) {
+    for (const d of this.domains) {
       const p = this.scene.projectRegion(d.id);
       if (!p || !p.visible) continue;
       const dist = Math.hypot(p.x - mx, p.y - my);
@@ -91,25 +68,26 @@ export class BrainRegions {
     this.hovered = id;
     this.scene.setActiveRegion(id);
     this.canvas.classList.toggle('is-region', !!id);
-    for (const [rid, el] of this.labels) {
-      el.classList.toggle('is-active', rid === id);
-      el.classList.toggle('is-dim', !!id && rid !== id);
+    if (id) {
+      const d = this.byId.get(id);
+      this.elKicker.textContent = d.region;
+      this.elTitle.textContent = d.label;
+      this.elDesc.textContent = d.short;
+      this.label.style.setProperty('--region-accent', d.accent);
+      this.label.hidden = false;
+      requestAnimationFrame(() => this.label.classList.add('is-visible'));
+    } else {
+      this.label.classList.remove('is-visible');
     }
   }
 
-  /** keep the labels pinned to their (rotating) anchors; hide back-facing ones */
+  /** keep the label pinned to the (rotating) region anchor */
   _follow() {
-    if (!this.labels.size) return;
-    for (const d of this.regions) {
-      const el = this.labels.get(d.id);
-      const p = this.scene.projectRegion(d.id);
-      if (!p || !p.visible) { el.classList.add('is-hidden'); continue; }
-      el.classList.remove('is-hidden');
-      el.style.left = `${p.x}px`;
-      el.style.top = `${p.y}px`;
-      // depth cue: fade chips that face away from the camera
-      el.style.setProperty('--depth', (1 - Math.min(Math.max(p.depth, 0), 1) * 0.35).toFixed(2));
-    }
+    if (!this.hovered) return;
+    const p = this.scene.projectRegion(this.hovered);
+    if (!p || !p.visible) { this._setHover(null); return; }
+    this.label.style.left = `${p.x}px`;
+    this.label.style.top = `${p.y}px`;
   }
 
   destroy() {
@@ -117,5 +95,6 @@ export class BrainRegions {
     c.removeEventListener('pointermove', this._move);
     c.removeEventListener('pointerleave', this._leave);
     c.removeEventListener('click', this._click);
+    c.removeEventListener('touchstart', this._touch);
   }
 }

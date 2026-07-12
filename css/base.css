@@ -24,17 +24,15 @@ body {
   overscroll-behavior: none;
 }
 
-/* Ambient gradient wash behind everything — a faint cool halo seats the brain
-   in atmosphere rather than flat black, plus two off-axis colour washes. */
+/* Ambient gradient wash behind everything */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(46% 52% at 50% 47%, rgba(48,96,150,.14), rgba(24,52,92,.05) 45%, transparent 72%),
-    radial-gradient(120% 90% at 50% 10%, rgba(46,107,255,.09), transparent 55%),
-    radial-gradient(90% 70% at 84% 90%, rgba(34,211,238,.05), transparent 60%),
+    radial-gradient(120% 90% at 50% 12%, rgba(46,107,255,.10), transparent 55%),
+    radial-gradient(90% 70% at 82% 88%, rgba(34,211,238,.06), transparent 60%),
     var(--bg-void);
   pointer-events: none;
 }
