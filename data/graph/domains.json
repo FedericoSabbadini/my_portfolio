@@ -1,0 +1,126 @@
+{
+  "_comment": "Brain regions = mental domains. `position` is an [x,y,z] anchor in the brain's local space (front = +z). `match` rules assign content nodes; a node can belong to MANY domains (a real knowledge web). Rules are additive (OR). Add/adjust rules here to re-route the KB — no code change.",
+  "domains": [
+    {
+      "id": "identity",
+      "label": "Identity",
+      "region": "Corpus callosum · the self",
+      "short": "Who I am — the connective core of the mind.",
+      "description": "The connective core: who I am, how I think, the languages I speak and what drives me. Everything else branches from here.",
+      "accent": "#EAEEF6",
+      "position": [0.0, 0.02, 0.05],
+      "size": 1.15,
+      "match": { "types": ["person", "language", "interest", "contact"] }
+    },
+    {
+      "id": "ai",
+      "label": "Artificial Intelligence & ML",
+      "region": "Frontal cortex",
+      "short": "Learning machines: deep nets, RL, generative & symbolic AI.",
+      "description": "Where I reason about learning machines — deep neural architectures, reinforcement learning, generative and symbolic AI. From transformers and diffusion models to planning and Bayesian inference.",
+      "accent": "#22D3EE",
+      "position": [0.0, 0.46, 1.02],
+      "size": 1.25,
+      "match": {
+        "tagsAny": ["Reinforcement Learning", "Deep Learning", "Deep Reinforcement", "Neural", "Transformers", "Generative", "Machine Learning", "Scikit", "XGBoost", "LSTM", "Time Series", "Time-Series", "Bayesian", "FOL", "CSPs", "Automated Reasoning", "Planning", "LLM", "RAG", "LangChain", "LangGraph", "Agentic", "Multi-agent", "Keras", "Feature Engineering", "FastF1", "Signal Theory"],
+        "idsAny": ["talentscope", "f1-deepL", "patch-aliasing-tsf"]
+      }
+    },
+    {
+      "id": "cyber",
+      "label": "Cybersecurity",
+      "region": "Temporal lobe · right",
+      "short": "Offense & defense: crypto, pentesting, network security.",
+      "description": "Breaking and defending systems — cryptography, network security, penetration testing, digital identity and information hiding. Backed by EC-Council hands-on certifications.",
+      "accent": "#6366F1",
+      "position": [1.02, -0.34, 0.16],
+      "size": 1.15,
+      "match": {
+        "tagsAny": ["Security", "Cybersecurity", "Pentesting", "Metasploit", "Wireshark", "Network Forensics", "Protocol Analysis", "Cryptography", "VPN", "IPSec", "PKI", "Wireless Security", "Steganography", "Exploit", "OpenID", "OAuth", "JWT", "IAM", "ANSI Accredited", "Practical Lab", "AI Planning", "Unified Planning", "FastDownward"],
+        "idsAny": ["network-hardening", "openid-thesis", "data-hiding", "cct", "metasploit", "wireshark"]
+      }
+    },
+    {
+      "id": "data",
+      "label": "Data & Big Data",
+      "region": "Parietal lobe",
+      "short": "Modeling, storing and querying data at scale.",
+      "description": "Turning raw data into structure and insight — relational and NoSQL modeling, distributed processing, big-data architectures and data science pipelines.",
+      "accent": "#38BDF8",
+      "position": [0.36, 0.72, -0.34],
+      "size": 1.1,
+      "match": {
+        "tagsAny": ["MongoDB", "InfluxDB", "Neo4J", "Neo4j", "Map-reduce", "MapReduce", "NoSQL", "Data Architectures", "Distributed Systems", "SQL", "ER Modeling", "Query Optimization", "Business Intelligence", "ERP", "CRM", "Numpy", "Pandas", "Analytics", "Data Science", "Big Data", "Hadoop", "Spark", "Digital Transformation"],
+        "idsAny": ["data-nexus"]
+      }
+    },
+    {
+      "id": "research",
+      "label": "Research & Publications",
+      "region": "Occipital lobe",
+      "short": "Deep dives, papers and open datasets.",
+      "description": "Where curiosity becomes formal work — investigating open problems, deriving results and writing them up. Papers, theses and published HuggingFace datasets.",
+      "accent": "#A78BFA",
+      "position": [0.0, 0.26, -1.24],
+      "size": 1.1,
+      "match": {
+        "badges": ["Research"],
+        "tagsAny": ["Research"],
+        "idsAny": ["patch-aliasing-tsf", "openid-thesis", "data-hiding", "electromagnetic"]
+      }
+    },
+    {
+      "id": "programming",
+      "label": "Programming & Software Engineering",
+      "region": "Cerebellum",
+      "short": "Craft: languages, patterns, algorithms, full-stack.",
+      "description": "The craft of building software — languages from C and Java to Python, clean architecture and design patterns, algorithms and optimization, and full-stack web engineering.",
+      "accent": "#2DD4BF",
+      "position": [0.0, -0.62, -1.02],
+      "size": 1.15,
+      "match": {
+        "tagsAny": ["Java", "OOP", "Python", "Design Patterns", "MVC", "SOLID", "JUnit", "Functional Programming", "Prolog", "Compilers", "Lex/Yacc", "Code Generation", "Algorithms", "Graph Theory", "A*", "Optimization", "Gurobi", "ILP", "Operations Research", "Linear Programming", "Simplex", "Laravel", "PHP", "REST API", "FastAPI", "SQLAlchemy", "Git", "GitHub", "Version Control", "Full Stack", "Software Development", "Bootstrap"],
+        "idsAny": ["oracool", "pathfinding", "work-performance", "gurobi", "python-pro", "python-data-science-sales", "git-github-zero-to-hero", "complete-fastapi-course-oauth-jwt", "software-engineering"]
+      }
+    },
+    {
+      "id": "cloud",
+      "label": "Cloud · DevOps · Systems",
+      "region": "Brain stem",
+      "short": "Infrastructure, automation and operating systems.",
+      "description": "Where software meets infrastructure — AWS cloud services, systems administration across Windows/Linux/macOS, workflow automation and the operating systems underneath it all.",
+      "accent": "#60A5FA",
+      "position": [0.0, -0.86, -0.14],
+      "size": 1.05,
+      "match": {
+        "tagsAny": ["EC2", "S3", "VPC", "RDS", "DynamoDB", "Lambda", "SNS", "SQS", "AWS", "Cloud", "Virtualization", "Linux Admin", "Linux/Unix", "Active Directory", "Automation", "n8n", "Process Mgmt", "Shell Scripting", "DevOps", "Enterprise IT"],
+        "idsAny": ["aws-essentials", "n8n-automation-master", "sys-admin", "os-systems", "ii-systems"]
+      }
+    },
+    {
+      "id": "foundations",
+      "label": "Foundations & Theory",
+      "region": "Hippocampus · limbic",
+      "short": "Math, physics, signals — and philosophy.",
+      "description": "The bedrock beneath everything technical — calculus and linear algebra, probability, physics and signal theory, control systems, and the philosophy that shapes how I think.",
+      "accent": "#7DD3FC",
+      "position": [-1.02, -0.3, 0.12],
+      "size": 1.1,
+      "match": {
+        "tagsAny": ["Linear Algebra", "Eigenvalues", "Vector Spaces", "Calculus", "Series", "Differential Equations", "Multivariable", "Vector Analysis", "Probability", "Statistics", "Distributions", "Mechanics", "Thermodynamics", "Wave Physics", "Electromagnetism", "Maxwell", "Wave Optics", "Circuit Analysis", "AC/DC", "Analog Design", "CMOS/BJT", "Op-Amps", "Numerical Methods", "ODE Solvers", "System Identification", "Control Theory", "PID Control", "Bode/Nyquist", "Signal Processing", "Modulation", "Network Protocols", "Biophysics", "Biosensors", "Medical Devices", "Chemical Bonds", "Reaction Kinetics", "German Idealism", "Existentialism", "Psychoanalysis", "Rationalism", "Empiricism", "Political Philosophy", "Ancient Philosophy", "Medieval Philosophy", "Metaphysics"],
+        "idsAny": ["electromagnetic"]
+      }
+    },
+    {
+      "id": "academia",
+      "label": "Academic Journey",
+      "region": "Prefrontal cortex",
+      "short": "Degrees, courses and the path so far.",
+      "description": "The path so far — from a scientific high-school diploma to a Bachelor's and an ongoing Master's in Computer Engineering at the University of Brescia, and every course along the way. This region also holds the road ahead: thesis, internship and first role.",
+      "accent": "#818CF8",
+      "position": [-0.46, 0.16, 1.18],
+      "size": 1.2,
+      "match": { "types": ["education", "course", "work"] }
+    }
+  ]
+}

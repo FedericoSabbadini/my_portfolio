@@ -107,8 +107,8 @@ export class BrainRegions {
       el.classList.remove('is-hidden');
       el.style.left = `${p.x}px`;
       el.style.top = `${p.y}px`;
-      // gentle depth cue, but keep labels comfortably legible
-      el.style.setProperty('--depth', (1 - Math.min(Math.max(p.depth, 0), 1) * 0.18).toFixed(2));
+      // depth cue: fade chips that face away from the camera
+      el.style.setProperty('--depth', (1 - Math.min(Math.max(p.depth, 0), 1) * 0.35).toFixed(2));
     }
   }
 
