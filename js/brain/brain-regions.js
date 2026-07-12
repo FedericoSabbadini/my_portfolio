@@ -227,6 +227,14 @@ export class BrainRegions {
       this._marker.classList.remove('is-visible');
       return;
     }
+    // Mobile: the brain is a full-bleed backdrop and the callout is pinned at
+    // the top by CSS (used as the tour's per-region description) — just toggle
+    // visibility, don't chase the projected point or show the cortex marker.
+    if (this.scene.stacked) {
+      this._marker.classList.remove('is-visible');
+      this._callout.classList.add('is-visible');
+      return;
+    }
     const d = this.byId.get(this.hovered);
     // marker on the cortex
     this._marker.style.left = `${p.x}px`;

@@ -41,7 +41,7 @@
 .region-hero {
   position: relative; z-index: 1;
   max-width: 1000px; margin: 0 auto;
-  padding: calc(clamp(32px, 5vh, 64px) + 46px) clamp(16px, 4vw, 44px) 28px;
+  padding: calc(clamp(32px, 5vh, 64px) + 60px) clamp(16px, 4vw, 44px) 28px;
 }
 .region-hero__badge { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .region-hero__dot {
@@ -237,13 +237,13 @@
 .courses-toggle__chev { transition: transform .3s var(--ease-cine); color: var(--ink-mut); }
 .courses-block[data-collapsed="false"] .courses-toggle__chev { transform: rotate(180deg); }
 
-/* smooth height collapse via grid-template-rows 0fr → 1fr */
+/* smooth height collapse — height is driven in JS (measured), so it works for
+   any amount of content; starts closed */
 .courses-collapse {
-  display: grid; grid-template-rows: 0fr;
-  transition: grid-template-rows .42s var(--ease-cine);
+  height: 0; overflow: hidden;
+  transition: height .42s var(--ease-cine);
 }
-.courses-block[data-collapsed="false"] .courses-collapse { grid-template-rows: 1fr; }
-.courses-collapse__inner { min-height: 0; overflow: hidden; }
+.courses-collapse__inner { /* wrapper the JS measures */ }
 .courses-grid {
   padding-top: 16px;
   display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px;

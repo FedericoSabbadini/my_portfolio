@@ -65,34 +65,72 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 30;
   pointer-events: none;                 /* let the brain receive pointer under it */
-  background: linear-gradient(180deg, rgba(5,6,10,.78) 0%, rgba(5,6,10,.32) 55%, rgba(5,6,10,0) 100%);
 }
 .site-header__inner {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 14px clamp(20px, 3.4vw, 44px);
+  padding: clamp(16px, 2vw, 22px) clamp(16px, 3.4vw, 40px);
+  max-width: 1360px; margin: 0 auto;
 }
+
+/* --- Identity: a floating glass "chip" with a synapse mark, matching the
+   callout / nav / button language so the header reads as one system --- */
 .site-header__id {
-  display: flex; flex-direction: column; gap: 3px; min-width: 0;
-  pointer-events: auto;              /* clickable identity — routes home */
-  align-self: flex-start;
-  padding: 4px 10px 5px; margin: -4px -10px -5px; border-radius: 10px;
-  transition: background .25s, transform .25s var(--ease-cine);
+  display: inline-flex; align-items: center; gap: 12px; min-width: 0;
+  pointer-events: auto;                 /* clickable identity — routes home */
+  padding: 6px 16px 6px 7px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--hairline-2);
+  background: rgba(9,12,19,.6);
+  backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,.34);
+  transition: border-color .3s, background .3s, box-shadow .3s, transform .3s var(--ease-cine);
 }
-.site-header__id:hover { background: rgba(14,18,28,.5); }
-.site-header__id:hover .site-header__name { color: var(--cyan); }
-.site-header__name { transition: color .25s; }
+.site-header__id:hover {
+  border-color: color-mix(in srgb, var(--cyan) 42%, transparent);
+  background: rgba(12,16,25,.72);
+  box-shadow: 0 12px 34px rgba(0,0,0,.42), 0 0 0 1px rgba(34,211,238,.06);
+}
+.site-header__id:active { transform: translateY(1px); }
+
+.site-header__mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; flex: none; border-radius: 50%;
+  color: var(--cyan);
+  background: radial-gradient(circle at 50% 50%, rgba(34,211,238,.18), rgba(34,211,238,0) 68%);
+  border: 1px solid color-mix(in srgb, var(--cyan) 24%, transparent);
+}
+.site-header__mark svg { display: block; }
+.site-header__mark-ring { transform-origin: 16px 16px; animation: mark-pulse 3.4s var(--ease-inout) infinite; }
+@keyframes mark-pulse {
+  0%, 100% { opacity: .18; transform: scale(.86); }
+  50%      { opacity: .4;  transform: scale(1.06); }
+}
+
+.site-header__id-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .site-header__name {
   font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(1rem, .9rem + .4vw, 1.2rem);
-  color: var(--ink-hi); letter-spacing: -.01em;
+  font-size: clamp(.98rem, .9rem + .35vw, 1.14rem);
+  color: var(--ink-hi); letter-spacing: -.01em; line-height: 1.1;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .25s;
 }
+.site-header__id:hover .site-header__name { color: var(--cyan-soft); }
 .site-header__role {
-  font-family: var(--font-mono); font-size: .7rem;
+  font-family: var(--font-mono); font-size: .62rem;
   letter-spacing: .16em; text-transform: uppercase; color: var(--ink-mut);
   white-space: nowrap;
 }
 .site-header__slot { display: flex; align-items: center; gap: 10px; pointer-events: auto; flex: none; }
+
+/* on a region page, content scrolls beneath the header — a soft scrim lets it
+   fade out cleanly under the floating chips (home stays pure glass on the brain) */
+.site-header::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  pointer-events: none; opacity: 0;
+  background: linear-gradient(180deg, rgba(5,6,10,.9) 0%, rgba(5,6,10,.55) 48%, rgba(5,6,10,0) 100%);
+  transition: opacity .4s var(--ease-cine);
+}
+body.view-region .site-header::before { opacity: 1; }
 
 /* slot: Tour on the home view, the "back" link on a region page */
 #back-to-mind { display: none; }

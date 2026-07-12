@@ -37,7 +37,9 @@ export function renderRegion(regionId, data, domains) {
   wireCollapsibles(main);
 }
 
-/* Collapsible course lists: one delegated listener, bound once per element. */
+/* Collapsible course lists: one delegated listener, bound once per element.
+   Height is measured and animated in JS so it works for any content size and
+   settles to `auto` (responsive) once open. */
 function wireCollapsibles(main) {
   if (main.dataset.collapsibleBound) return;
   main.dataset.collapsibleBound = '1';
@@ -46,11 +48,30 @@ function wireCollapsibles(main) {
     if (!btn) return;
     const block = btn.closest('.courses-block');
     if (!block) return;
-    const collapsed = block.getAttribute('data-collapsed') !== 'false';
-    block.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
-    btn.setAttribute('aria-expanded', collapsed ? 'true' : 'false');
+    const collapse = block.querySelector('.courses-collapse');
+    const inner = block.querySelector('.courses-collapse__inner');
+    if (!collapse || !inner) return;
+
+    const opening = block.getAttribute('data-collapsed') !== 'false';
+    block.setAttribute('data-collapsed', opening ? 'false' : 'true');
+    btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
     const hint = btn.querySelector('.courses-toggle__hint');
-    if (hint) hint.textContent = collapsed ? 'Hide' : 'Show';
+    if (hint) hint.textContent = opening ? 'Hide' : 'Show';
+
+    if (opening) {
+      collapse.style.height = inner.offsetHeight + 'px';
+      const done = (ev) => {
+        if (ev.propertyName !== 'height') return;
+        collapse.style.height = 'auto';            // let it reflow responsively
+        collapse.removeEventListener('transitionend', done);
+      };
+      collapse.addEventListener('transitionend', done);
+    } else {
+      // from auto → a fixed px start, then to 0 on the next frame so it animates
+      collapse.style.height = collapse.offsetHeight + 'px';
+      void collapse.offsetHeight;
+      requestAnimationFrame(() => { collapse.style.height = '0px'; });
+    }
   });
 }
 

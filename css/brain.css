@@ -183,67 +183,112 @@
   box-shadow: 0 0 12px rgba(255,255,255,.5);
 }
 
+/* Mobile-only lead: on desktop the intro paragraph frames the concept */
+.home-lead { display: none; }
+
 /* =========================================================================
-   RESPONSIVE — mobile / tablet: brain sits in an upper band, sections below
+   RESPONSIVE — mobile / tablet:
+   full-bleed brain backdrop + a floating content sheet over the lower third,
+   echoing the desktop full-bleed canvas without copying its side-panel layout.
    ========================================================================= */
 @media (max-width: 820px) {
-  /* brain occupies a band under the header, clear of the panel below */
+  /* the brain is the full-bleed backdrop, filling the whole viewport height */
   .brain-canvas,
   .brain-vignette {
-    inset: auto; left: 0; right: 0;
-    top: 62px; height: 46vh;
+    inset: 0; top: 0; left: 0; right: 0;
+    width: 100%; height: 100vh; height: 100svh;
+  }
+  .brain-vignette {
+    background: radial-gradient(118% 82% at 50% 33%, transparent 40%, rgba(0,0,0,.6) 100%);
   }
 
+  /* content sheet: floats over the lower brain, fading up from the void */
   .home-panel {
-    top: calc(62px + 46vh + 12px);
-    bottom: auto;
-    left: 50%; right: auto;
-    transform: translateX(-50%);
-    width: min(680px, 94vw);
-    align-items: center; gap: 12px;
+    position: fixed; inset: auto 0 0 0; top: auto;
+    transform: none; width: 100%;
+    padding: 104px clamp(16px, 5vw, 26px) calc(22px + env(safe-area-inset-bottom));
+    gap: 20px; align-items: stretch;
+    background: linear-gradient(180deg,
+      rgba(5,6,10,0) 0%, rgba(5,6,10,.5) 22%,
+      rgba(5,6,10,.87) 48%, rgba(5,6,10,.96) 70%);
+    pointer-events: none;             /* taps fall through to the brain … */
   }
-  .home-panel__intro {
-    max-width: 54ch; text-align: center; font-size: .85rem;
-  }
+  .home-panel__intro,
   .home-panel__kicker { display: none; }
-  .home-panel__nav-wrap { width: 100%; align-items: center; gap: 0; }
+
+  /* --- Mobile lead / concept framing --- */
+  .home-lead { display: flex; flex-direction: column; gap: 7px; pointer-events: none; }
+  .home-lead__kicker {
+    font-family: var(--font-mono); font-size: .6rem;
+    letter-spacing: .28em; text-transform: uppercase;
+    color: var(--cyan);
+  }
+  .home-lead__title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(1.5rem, 6.6vw, 2.05rem); line-height: 1.08;
+    letter-spacing: -.02em; color: var(--ink-hi); margin: 0;
+  }
+  .home-lead__sub {
+    font-size: .85rem; line-height: 1.5; color: var(--ink-mut);
+    max-width: 44ch; margin: 0;
+  }
+
+  /* --- Category grid: elegant glass cards, clear hierarchy --- */
+  .home-panel__nav-wrap { width: 100%; pointer-events: auto; gap: 0; }
   .region-nav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px; width: 100%;
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 9px; width: 100%;
   }
   .region-nav__item {
-    padding: 9px 12px; border-radius: 10px;
-    border: 1px solid rgba(255,255,255,.05);
-    gap: 9px;
+    display: flex; align-items: center; gap: 11px;
+    padding: 13px; border-radius: 14px;
+    border: 1px solid var(--hairline-2);
+    background: rgba(9,12,19,.66);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    transition: border-color .25s, background .25s, transform .2s var(--ease-cine);
   }
-  .region-nav__item:hover,
+  .region-nav__item:hover { transform: none; }   /* no hover translate on touch */
+  .region-nav__item:active {
+    transform: scale(.975);
+    border-color: color-mix(in srgb, var(--item-accent, var(--cyan)) 55%, transparent);
+  }
   .region-nav__item.is-active {
     transform: none;
-    background: color-mix(in srgb, var(--item-accent, var(--cyan)) 14%, transparent);
-    border-color: color-mix(in srgb, var(--item-accent, var(--cyan)) 50%, transparent);
+    border-color: color-mix(in srgb, var(--item-accent, var(--cyan)) 60%, transparent);
+    background: color-mix(in srgb, var(--item-accent, var(--cyan)) 15%, rgba(9,12,19,.66));
   }
-  .region-nav__lobe { display: none; }
-  .region-nav__label { font-size: .86rem; }
+  .region-nav__dot { width: 8px; height: 8px; }
+  .region-nav__col { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .region-nav__label { font-size: .9rem; line-height: 1.1; }
+  .region-nav__lobe {                 /* restore the lobe caption for hierarchy */
+    display: block; font-size: .53rem; letter-spacing: .12em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
   .site-header__role { display: none; }
 
-  /* the floating callout would collide with the stacked panel — the active
-     nav chip + brain glow already convey the region on small screens */
-  .callout { display: none !important; }
+  /* --- Tour caption: pinned near the top over the brain (desc per region) --- */
+  .callout {
+    left: 50% !important; top: calc(env(safe-area-inset-top) + 78px) !important;
+    transform: translateX(-50%) translateY(6px);
+    width: min(440px, 92vw); z-index: 12;
+  }
+  .callout.is-visible { transform: translateX(-50%) translateY(0); }
+  .callout__inner { text-align: center; }
+  .callout__head { justify-content: center; }
+  /* the cortex marker is noisy on a small full-bleed brain — hide it */
+  .callout-marker { display: none !important; }
 }
 
-@media (max-width: 440px) {
-  .brain-canvas,
-  .brain-vignette { height: 42vh; }
-  .home-panel { top: calc(58px + 42vh + 10px); }
-  .region-nav { grid-template-columns: repeat(2, 1fr); }
-  .home-panel__intro { display: none; }
+/* Narrow phones: one clean column reads better than cramped pairs */
+@media (max-width: 380px) {
+  .region-nav { grid-template-columns: 1fr; gap: 8px; }
+  .home-panel { gap: 16px; }
 }
 
-/* Short viewports: reclaim vertical room */
-@media (max-width: 820px) and (max-height: 680px) {
-  .home-panel__intro { display: none; }
-  .brain-canvas,
-  .brain-vignette { height: 40vh; }
-  .home-panel { top: calc(58px + 40vh + 8px); }
+/* Short viewports (landscape phones): tighten the sheet so the brain breathes */
+@media (max-width: 820px) and (max-height: 620px) {
+  .home-lead__sub { display: none; }
+  .home-lead { gap: 4px; }
+  .home-panel { padding-top: 72px; gap: 12px; }
 }

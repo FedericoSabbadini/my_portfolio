@@ -233,12 +233,16 @@ export class BrainScene {
     this._camTarget = new THREE.Vector3(0, 0, 0);
   }
 
-  /** live layout flags: stacked (mobile band) vs side (desktop full-screen) */
+  /** live layout flags: stacked (mobile full-bleed) vs side (desktop) */
   _syncMode() {
     const W = window.innerWidth || 1280, H = window.innerHeight || 800;
     this.vw = W; this.vh = H;
     this.touch = ('ontouchstart' in window) && W <= 1024;
     this.stacked = this.touch || W <= 820;
+    // On mobile the brain is a full-bleed backdrop with a content sheet over the
+    // lower third — lift the framing so the brain sits in the upper portion,
+    // clear of the sheet. (negative target.y → origin renders above centre)
+    if (this._camTarget) this._camTarget.y = this.stacked ? -0.62 : 0;
   }
 
   _buildBrain() {
@@ -421,17 +425,21 @@ export class BrainScene {
     this.composer.setSize(w, h);
     if (this.bloom) this.bloom.setSize(w, h);
 
-    // Frame the brain so it never overflows: fit to width on desktop; on the
-    // mobile band take the tighter of width/height so a tall portrait screen
-    // pushes the camera back (the brain stays a modest bust, not a giant ball).
     const vHalf = Math.tan((40 * Math.PI / 180) / 2);
     const hHalf = vHalf * aspect;
-    const marginHalf = this.stacked ? 1.5 : 1.42;
-    const heightHalf = this.stacked ? 1.34 : 1.15;
-    const widthFit = marginHalf / Math.max(hHalf, 1e-3);
-    const heightFit = heightHalf / Math.max(vHalf, 1e-3);
-    const fit = this.stacked ? Math.max(widthFit, heightFit) : widthFit;
-    this.homeCamZ = Math.max(this.stacked ? 3.2 : 3.9, Math.min(fit * 1.04, 9.5));
+    if (this.stacked) {
+      // Mobile = full-bleed backdrop: size the brain to the viewport HEIGHT so
+      // it stays large and commanding (sides may bleed off-canvas — that reads
+      // as depth, not a bug). The framing is lifted in _syncMode so the lower
+      // sheet never covers it.
+      const radius = 1.95;                       // world half-extent to frame
+      const fit = radius / Math.max(vHalf, 1e-3);
+      this.homeCamZ = Math.max(3.4, Math.min(fit, 8.5));
+    } else {
+      // Desktop = fit to width so the brain sits beside the left panel.
+      const widthFit = 1.42 / Math.max(hHalf, 1e-3);
+      this.homeCamZ = Math.max(3.9, Math.min(widthFit * 1.04, 9.5));
+    }
     if (this.mode !== 'target' && !this._diving) this.camZTarget = this.homeCamZ;
   }
 
