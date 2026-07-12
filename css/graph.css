@@ -320,20 +320,6 @@
 .brain-home svg { width: 20px; height: 20px; display: block; }
 .brain-home__stroke { stroke: var(--cyan); }
 .brain-home__label { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: .12em; }
-/* the breadcrumb starts well after the glyph so they never crowd each other */
-.breadcrumb { left: 168px; top: 18px; }
-@media (max-width: 560px) { .brain-home__label { display: none; } .breadcrumb { left: 72px; } }
-
-/* --- key concepts: the most important terms, surfaced prominently --- */
-.detail__keys { display: flex; flex-wrap: wrap; gap: 7px; margin: 16px 0 6px; }
-.keychip {
-  padding: 5px 12px; border-radius: var(--r-pill);
-  font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: .02em;
-  color: var(--nd, var(--cyan));
-  background: color-mix(in srgb, var(--nd, var(--cyan)) 13%, transparent);
-  border: 1px solid color-mix(in srgb, var(--nd, var(--cyan)) 34%, transparent);
-}
-
-/* --- About: bio + headline stats in the left overview --- */
-.dom-bio { color: var(--ink); font-size: var(--t-body); line-height: 1.72; display: flex; flex-direction: column; gap: 12px; max-width: 36ch; margin-top: 4px; }
-.dom-stats--about { grid-template-columns: 1fr 1fr; }
+/* the breadcrumb starts after the glyph so they never collide */
+.breadcrumb { left: 128px; }
+@media (max-width: 560px) { .brain-home__label { display: none; } .breadcrumb { left: 66px; } }

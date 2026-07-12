@@ -1,24 +1,15 @@
 /* =========================================================================
    node-panel.js — renders the right-hand detail panel for a selected node.
-   The most important terms (the key concepts / tech) are surfaced right under
-   the title, prominent and accent-coloured, so they read at a glance.
    ========================================================================= */
 const esc = (s) => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const TYPE_LABEL = {
-  region: 'Region', project: 'Project', research: 'Research', cert: 'Certification',
-  course: 'Course', degree: 'Degree', work: 'Experience', skill: 'Core skill',
-  language: 'Language', interest: 'Interest', contact: 'Contact',
-  topicgroup: 'Subject', group: 'Group', person: 'Identity',
+  project: 'Project', cert: 'Certification', course: 'Course', education: 'Education',
+  work: 'Experience', person: 'Identity', language: 'Language', interest: 'Interest', skill: 'Skill / concept',
 };
 
 const LINK_ICON = { repo: '⌥', pdf: '▤', dataset: '⛁', research: '❖', external: '↗' };
-
-function keyConceptsHTML(tags) {
-  if (!tags || !tags.length) return '';
-  return `<div class="detail__keys">${tags.map((t) => `<span class="keychip">${esc(t)}</span>`).join('')}</div>`;
-}
 
 function linksHTML(links) {
   if (!links || !links.length) return '';
@@ -27,6 +18,19 @@ function linksHTML(links) {
       <a class="link-btn" href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">
         <span class="link-btn__ico">${LINK_ICON[l.kind] || '↗'}</span>${esc(l.label)}
       </a>`).join('')}</div>`;
+}
+
+function tagsHTML(tags) {
+  if (!tags || !tags.length) return '';
+  return `<div class="detail__group-label">Threads</div>
+    <div class="detail__tags">${tags.map((t) => `<span class="chip">${esc(t)}</span>`).join('')}</div>`;
+}
+
+function statsHTML(stats) {
+  if (!stats || !stats.length) return '';
+  return `<div class="dom-stats">${stats.map((s) => `
+    <div class="dom-stat"><div class="dom-stat__num">${esc(s.number)}</div>
+    <div class="dom-stat__lbl">${esc(s.label)} ${esc(s.sublabel || '')}</div></div>`).join('')}</div>`;
 }
 
 function connectionsHTML(connections) {
@@ -43,14 +47,15 @@ function connectionsHTML(connections) {
 /**
  * @param {HTMLElement} host  right panel content container
  * @param {object} node       graph node
- * @param {object} domain     current region (for accent)
- * @param {Array}  connections [{id,label,color,note}]
+ * @param {object} domain     current domain (for accent)
+ * @param {Array}  connections [{id,label,color}]
  * @param {function} onConnectionClick(id)
  */
 export function renderDetail(host, node, domain, connections, onConnectionClick) {
-  const accent = node.type === 'skill' ? '#c7d0e0' : domain.accent;
+  const accent = node.type === 'project' ? domain.accent : (node.type === 'skill' ? '#8aa0b8' : domain.accent);
   const badge = node.badge ? `<span class="detail__badge">${esc(node.badge)}</span>` : '';
   const desc = (node.desc || '').split('\n\n').map((p) => `<p>${esc(p)}</p>`).join('');
+  const stats = node.type === 'person' ? statsHTML(node.data?.stats) : '';
 
   host.innerHTML = `
     <article class="detail" style="--nd:${accent}">
@@ -58,8 +63,9 @@ export function renderDetail(host, node, domain, connections, onConnectionClick)
       ${badge}
       <h2 class="detail__title">${esc(node.label)}</h2>
       ${node.sub ? `<div class="detail__meta">${esc(node.sub)}</div>` : ''}
-      ${keyConceptsHTML(node.tags)}
       <div class="detail__desc">${desc}</div>
+      ${stats}
+      ${tagsHTML(node.tags)}
       ${linksHTML(node.links)}
       ${connectionsHTML(connections)}
     </article>`;
@@ -74,6 +80,6 @@ export function renderEmpty(host) {
   host.innerHTML = `
     <div class="detail-empty" id="detail-empty">
       <div class="detail-empty__orb"></div>
-      <p>Select a node to inspect it.</p>
+      <p>Select a node to inspect a fragment of this domain.</p>
     </div>`;
 }

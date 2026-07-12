@@ -547,7 +547,7 @@
         "id": "economy",
         "name": "Engineering Economics",
         "grade": "30L/30",
-        "description": "Where engineering meets the balance sheet. Covered business fundamentals, external accounting and the reading of financial statements, internal (cost) accounting, break-even and profitability analysis, the key financial ratios used to judge a company's health, and the main financial instruments — the vocabulary an engineer needs to reason about the cost and value of what they build.",
+        "description": "Business fundamentals, external accounting & financial statements, internal accounting & break-even analysis, ratios, financial instruments.",
         "tags": [
           "Accounting",
           "Finance",
@@ -561,7 +561,7 @@
         "id": "probability-stats",
         "name": "Probability and Statistics",
         "grade": "30/30",
-        "description": "The mathematics underpinning machine learning. Covered conditional probability and Bayes' theorem, discrete and continuous random variables and their distributions, expectation and variance, the law of large numbers and the central limit theorem, and an introduction to statistical estimation and hypothesis testing.",
+        "description": "Conditional probability, discrete and continuous distributions, expectation, estimation theory.",
         "tags": [
           "Probability",
           "Statistics",
