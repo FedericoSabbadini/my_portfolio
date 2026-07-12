@@ -61,8 +61,9 @@ export function buildTree(raw) {
   const parentById = new Map();     // id -> parentId
 
   const add = (node, parentId) => {
+    node.region = node.region || (parentById.get(parentId) ? nodes.find((n) => n.id === parentId)?.region : parentId);
     nodes.push(node);
-    if (!childrenById.has(node.id)) childrenById.set(node.id, []);
+    childrenById.set(node.id, childrenById.get(node.id) || []);
     if (parentId != null) {
       parentById.set(node.id, parentId);
       if (!childrenById.has(parentId)) childrenById.set(parentId, []);

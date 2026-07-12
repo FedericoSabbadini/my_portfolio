@@ -214,7 +214,7 @@ export class TreeGraph {
       if (this._dragNode) { this._dragNode.fx = null; this._dragNode.fy = null; this.sim.alphaTarget(0); }
       if (!this._moved) {
         const n = this._nodeAt(sx, sy);
-        if (n) { this.selected = n; this.onSelect(n.id); if (n.expandable && n.id !== this.rootId) this.toggle(n.id); }
+        if (n) { this.selected = n; this.onSelect(n.id); if (n.expandable) this.toggle(n.id); }
       }
       this._dragNode = null; this._panning = false; this._wake();
     };
