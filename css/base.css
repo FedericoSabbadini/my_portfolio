@@ -36,6 +36,15 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
 [hidden] { display: none !important; }
 
+/* visually hidden but available to screen readers / SEO */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
 /* --- Boot loader --- */
 .boot {
   position: fixed; inset: 0; z-index: var(--z-boot);
