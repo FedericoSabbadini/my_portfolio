@@ -254,7 +254,7 @@ function renderContacts(data) {
 
   // Primary
   const primary = [];
-  if (p.email) primary.push({ label: 'Email', value: p.email, href: `mailto:${p.email}`, icon: '✉' });
+  if (p.email) primary.push({ label: 'Email', value: p.email, href: `mailto:${p.email}`, icon: '✉', action: 'Email', wide: true });
   if (p.location) primary.push({ label: 'Location', value: p.location, icon: '📍' });
   if (primary.length) html += contactGroup('Primary', primary);
 
@@ -295,7 +295,7 @@ function contactGroup(title, items) {
       if (external) attrs += ' target="_blank" rel="noopener"';
       if (c.download) attrs += ' download';
     }
-    h += `<${tag} class="contact-card"${attrs}>`;
+    h += `<${tag} class="contact-card${c.wide ? ' contact-card--wide' : ''}"${attrs}>`;
     h += `<span class="contact-card__icon" aria-hidden="true">${c.icon}</span>`;
     h += `<div class="contact-card__body"><div class="contact-card__label">${esc(c.label)}</div><div class="contact-card__value">${esc(c.value)}</div></div>`;
     if (c.action) h += `<span class="contact-card__action">${esc(c.action)} ↗</span>`;

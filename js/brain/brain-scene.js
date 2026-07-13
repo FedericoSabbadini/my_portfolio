@@ -206,7 +206,7 @@ export class BrainScene {
     // On phones, 1.5× left the dense per-pixel gyri looking soft/aliased; 2× is
     // noticeably crisper and the adaptive-quality loop still scales it back if
     // the framerate drops.
-    this.pr = Math.min(window.devicePixelRatio || 1, this.mobile ? 1.5 : 2);
+    this.pr = Math.min(window.devicePixelRatio || 1, 2);
     this.renderer.setPixelRatio(this.pr);
   }
 
@@ -242,7 +242,11 @@ export class BrainScene {
     // On mobile the brain is a full-bleed backdrop with a content sheet over the
     // lower third — lift the framing so the brain sits in the upper portion,
     // clear of the sheet. (negative target.y → origin renders above centre)
-    if (this._camTarget) this._camTarget.y = this.stacked ? -0.62 : 0;
+    if (this._camTarget) this._camTarget.y = this.stacked ? -0.5 : 0;
+    // On desktop, slide the whole brain to the right (skew-free world translate)
+    // so the cortex sits in the right two-thirds — balanced against the left
+    // sidebar and filling the void — while it still spins about its own centre.
+    if (this.group) this.group.position.x = this.stacked ? 0 : 0.55;
   }
 
   _buildBrain() {
@@ -268,8 +272,8 @@ export class BrainScene {
       uRegion: { value: new THREE.Vector3(0, 0, 6) },
       uRegionStr: { value: 0 },
       uRegionColor: { value: new THREE.Color(0x22d3ee) },
-      uBump: { value: this.mobile ? 0.18 : 0.44 },
-      uFold: { value: this.mobile ? 0.48 : 1.05 },
+      uBump: { value: this.mobile ? 0.30 : 0.44 },
+      uFold: { value: this.mobile ? 0.82 : 1.05 },
     };
     const mat = new THREE.ShaderMaterial({
       uniforms: this.uniforms, vertexShader: VERT, fragmentShader: FRAG, transparent: false,
@@ -374,22 +378,27 @@ export class BrainScene {
     gsap.to(this.uniforms.uRegionColor.value, { r: c.r, g: c.g, b: c.b, duration: 0.3 });
     gsap.to(this.uniforms.uRegion.value, { x: p.x, y: p.y, z: p.z, duration: 0.5, ease: 'power2.out' });
 
+    const startZ = this.camera.position.z;
     const tl = gsap.timeline();
-    // turn to face the region
-    tl.to(this.rot, { x: yp.x, y: this.rotTarget.y, duration: 1.0, ease: 'power2.inOut',
+    // turn to face the region across the whole dive
+    tl.to(this.rot, { x: yp.x, y: this.rotTarget.y, duration: 1.05, ease: 'power2.inOut',
       onUpdate: () => { this.group.rotation.set(this.rot.x, this.rot.y, 0); } }, 0);
-    // rush the camera *through* the cortex toward the region anchor
-    tl.to(this.camera.position, { x: p.x * 0.62, y: p.y * 0.62, z: 1.28, duration: 1.1, ease: 'power3.in',
+    // anticipation: a brief pull-back that loads the plunge…
+    tl.to(this.camera.position, { z: startZ + 0.55, duration: 0.3, ease: 'power2.out',
       onUpdate: () => { this.camera.lookAt(this._camTarget); } }, 0);
+    // …then rush *through* the cortex toward the region anchor (offset by the
+    // brain's world shift so we plunge into it, not past it)
+    tl.to(this.camera.position, { x: p.x * 0.6 + this.group.position.x, y: p.y * 0.6, z: 1.12, duration: 0.85, ease: 'power3.in',
+      onUpdate: () => { this.camera.lookAt(this._camTarget); } }, 0.3);
     // dolly the lens wider as we plunge — the tunnel / warp feel
-    tl.to(this.camera, { fov: 60, duration: 1.1, ease: 'power2.in',
-      onUpdate: () => { this.camera.updateProjectionMatrix(); } }, 0);
+    tl.to(this.camera, { fov: 66, duration: 0.85, ease: 'power2.in',
+      onUpdate: () => { this.camera.updateProjectionMatrix(); } }, 0.3);
     // the region blooms open and the whole cortex fires
-    tl.to(this.uniforms.uRegionStr, { value: 2.6, duration: 0.8, ease: 'power2.in' }, 0);
-    tl.to(this.uniforms.uActivity, { value: 1.9, duration: 0.7, ease: 'power2.in' }, 0);
-    tl.to(this.uniforms.uBreath, { value: 2.2, duration: 0.5, ease: 'power2.out' }, 0);
-    if (this.bloom) tl.to(this.bloom, { strength: 1.4, radius: 0.85, duration: 0.7, ease: 'power2.in' }, 0);
-    setTimeout(() => { this.canvas.style.opacity = '0'; }, 600);
+    tl.to(this.uniforms.uRegionStr, { value: 3.0, duration: 0.9, ease: 'power2.in' }, 0.15);
+    tl.to(this.uniforms.uActivity, { value: 2.1, duration: 0.85, ease: 'power2.in' }, 0.15);
+    tl.to(this.uniforms.uBreath, { value: 2.4, duration: 0.5, ease: 'power2.out' }, 0.15);
+    if (this.bloom) tl.to(this.bloom, { strength: 1.5, radius: 0.9, duration: 0.85, ease: 'power2.in' }, 0.15);
+    setTimeout(() => { this.canvas.style.opacity = '0'; }, 860);
     return tl.then(() => {});
   }
 
@@ -428,13 +437,13 @@ export class BrainScene {
     const vHalf = Math.tan((40 * Math.PI / 180) / 2);
     const hHalf = vHalf * aspect;
     if (this.stacked) {
-      // Mobile = full-bleed backdrop: size the brain to the viewport HEIGHT so
-      // it stays large and commanding (sides may bleed off-canvas — that reads
-      // as depth, not a bug). The framing is lifted in _syncMode so the lower
+      // Mobile/tablet: frame by WIDTH so the WHOLE cerebrum — both hemispheres
+      // and the longitudinal fissure — stays on screen and reads as a brain,
+      // instead of a cropped central bulge that looks like a ball on a narrow
+      // phone. It's lifted into the upper area (see _syncMode) so the content
       // sheet never covers it.
-      const radius = 1.95;                       // world half-extent to frame
-      const fit = radius / Math.max(vHalf, 1e-3);
-      this.homeCamZ = Math.max(3.4, Math.min(fit, 8.5));
+      const widthFit = 1.4 / Math.max(hHalf, 1e-3);
+      this.homeCamZ = Math.max(4.6, Math.min(widthFit, 9.6));
     } else {
       // Desktop = fit to width so the brain sits beside the left panel.
       const widthFit = 1.42 / Math.max(hHalf, 1e-3);

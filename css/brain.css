@@ -39,11 +39,11 @@
   mix-blend-mode: screen;
   will-change: opacity, transform;
 }
-.dive-flash.is-firing { animation: dive-flash .72s var(--ease-cine) forwards; }
+.dive-flash.is-firing { animation: dive-flash .8s var(--ease-cine) forwards; }
 @keyframes dive-flash {
-  0%   { opacity: 0; transform: scale(1.35); }
-  50%  { opacity: .5; }
-  100% { opacity: 0; transform: scale(1); }
+  0%   { opacity: 0; transform: scale(1.4); }
+  60%  { opacity: .72; }
+  100% { opacity: 0; transform: scale(.96); }
 }
 @media (prefers-reduced-motion: reduce) {
   .dive-flash.is-firing { animation: none; }
@@ -268,30 +268,12 @@
 
   .site-header__role { display: none; }
 
-  /* --- Tour caption: pinned near the top over the brain (desc per region) --- */
-  .callout {
-    left: 50% !important; top: calc(env(safe-area-inset-top) + 78px) !important;
-    transform: translateX(-50%) translateY(6px);
-    width: min(440px, 92vw); z-index: 12;
-  }
-  .callout.is-visible { transform: translateX(-50%) translateY(0); }
-  .callout__inner { text-align: center; }
-  .callout__head { justify-content: center; }
-  /* the cortex marker is noisy on a small full-bleed brain — hide it */
+  /* On a phone there's no hover, so the floating callout would only ever appear
+     during the tour — and those dynamic cards shouldn't show on mobile. Hide it
+     (and the cortex marker); the nav grid's active-item highlight already tracks
+     which region the brain is showing, and it stays visible throughout. */
+  .callout { display: none !important; }
   .callout-marker { display: none !important; }
-
-  /* During the tour on mobile, hide nav, lead AND callout — only the brain
-     highlight itself communicates which region is active */
-  body.is-touring .home-panel__nav-wrap,
-  body.is-touring .home-lead {
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transition: opacity .4s var(--ease-cine);
-  }
-  body.is-touring .callout {
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
 }
 
 /* Narrow phones: one clean column reads better than cramped pairs */

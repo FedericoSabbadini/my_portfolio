@@ -422,6 +422,8 @@
   min-width: 0; text-decoration: none; color: inherit;
   transition: border-color .25s, background .25s;
 }
+/* long values (the email) get a full-width row so they never crowd */
+.contact-card--wide { grid-column: 1 / -1; }
 .contact-card:hover {
   border-color: color-mix(in srgb, var(--region-accent, #38BDF8) 45%, transparent);
   background: var(--bg-panel);

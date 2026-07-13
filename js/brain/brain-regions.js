@@ -223,18 +223,18 @@ export class BrainRegions {
   /* --- Keep callout + marker pinned to the (rotating) region anchor --- */
   _follow() {
     if (!this.hovered || !this._showCallout || this._diving) return;
-    const p = this.scene.projectRegion(this.hovered);
-    if (!p || !p.visible) {
+    // Mobile: the floating callout + cortex marker are hidden by CSS (those
+    // dynamic tour cards shouldn't show on a phone — the nav grid tracks the
+    // active region instead), so there's nothing to position here.
+    if (this.scene.stacked) {
       this._callout.classList.remove('is-visible');
       this._marker.classList.remove('is-visible');
       return;
     }
-    // Mobile: the brain is a full-bleed backdrop and the callout is pinned at
-    // the top by CSS (used as the tour's per-region description) — just toggle
-    // visibility, don't chase the projected point or show the cortex marker.
-    if (this.scene.stacked) {
+    const p = this.scene.projectRegion(this.hovered);
+    if (!p || !p.visible) {
+      this._callout.classList.remove('is-visible');
       this._marker.classList.remove('is-visible');
-      this._callout.classList.add('is-visible');
       return;
     }
     const d = this.byId.get(this.hovered);

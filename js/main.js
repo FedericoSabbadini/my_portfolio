@@ -46,6 +46,7 @@ async function boot() {
   }
 
   wireChrome();
+  window.__mind = state;                 // debug handle (dev only)
   createRouter(route).start();
 
   requestAnimationFrame(() => setTimeout(hideBoot, state.scene ? 500 : 0));
@@ -74,10 +75,11 @@ function onDive(id) {
   // reduced-motion users skip the cinematic zoom and go straight there
   if (state.scene && !reducedMotion) {
     const dom = state.domains.find((d) => d.id === id);
-    playDiveFlash(dom ? dom.accent : '#22d3ee');
     state.scene.setInteractive(false);
-    state.scene.zoomTo(id);
-    setTimeout(() => go(`#/region/${id}`), 700);
+    state.scene.zoomTo(id);                    // ~1.15s cinematic plunge
+    // the accent bloom peaks late so it veils the brain→catalog swap
+    setTimeout(() => playDiveFlash(dom ? dom.accent : '#22d3ee'), 520);
+    setTimeout(() => go(`#/region/${id}`), 1000);
   } else {
     go(`#/region/${id}`);
   }
@@ -121,17 +123,16 @@ async function enterHome() {
   if (fromRegion) await showHome();
 
   if (state.scene) {
-    state.scene.start();
+    // the canvas was 0×0 while the region view was up. Force a reflow so it has
+    // real dimensions again, then resize the renderer + camera BEFORE the loop
+    // renders a single frame — otherwise the first frames stretch the old buffer
+    // into the new box and the brain flashes up squashed.
+    const cv = document.getElementById('brain-canvas');
+    void cv.offsetWidth;
+    state.scene.resize();
+    state.scene.reset();
     state.scene.setInteractive(true);
-    // the canvas was 0×0 while the region view was up; re-measure now that it's
-    // visible again before easing the camera back, so the brain never shows up
-    // squashed. Double-rAF ensures the layout has flushed after hidden→visible.
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        state.scene.resize();
-        state.scene.reset();
-      });
-    });
+    state.scene.start();
   }
   if (state.regions) state.regions.resume();
   // return keyboard focus to a sensible anchor when arriving back from a region
