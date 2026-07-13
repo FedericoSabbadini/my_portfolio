@@ -212,6 +212,7 @@
       rgba(5,6,10,0) 0%, rgba(5,6,10,.5) 22%,
       rgba(5,6,10,.87) 48%, rgba(5,6,10,.96) 70%);
     pointer-events: none;             /* taps fall through to the brain … */
+    transition: opacity .4s var(--ease-cine);
   }
   .home-panel__intro,
   .home-panel__kicker { display: none; }
@@ -234,8 +235,7 @@
   }
 
   /* --- Category grid: elegant glass cards, clear hierarchy --- */
-  .home-panel__nav-wrap { width: 100%; pointer-events: auto; gap: 0; transition: opacity .4s var(--ease-cine); }
-  .home-lead { transition: opacity .4s var(--ease-cine); }
+  .home-panel__nav-wrap { width: 100%; pointer-events: auto; gap: 0; }
   .region-nav {
     display: grid; grid-template-columns: repeat(2, 1fr);
     gap: 9px; width: 100%;
@@ -280,9 +280,9 @@
   /* the cortex marker is noisy on a small full-bleed brain — hide it */
   .callout-marker { display: none !important; }
 
-  /* During the tour on mobile, hide the nav/lead so the brain breathes */
-  body.is-touring .home-panel__nav-wrap,
-  body.is-touring .home-lead {
+  /* During the tour on mobile, hide the entire panel so only the brain +
+     callout remain — clean, no card clutter */
+  body.is-touring .home-panel {
     opacity: 0 !important;
     pointer-events: none !important;
     transition: opacity .4s var(--ease-cine);
