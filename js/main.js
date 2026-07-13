@@ -124,11 +124,13 @@ async function enterHome() {
     state.scene.start();
     state.scene.setInteractive(true);
     // the canvas was 0×0 while the region view was up; re-measure now that it's
-    // visible again (also catches any mobile address-bar / orientation change)
-    // before easing the camera back, so the brain never shows up squashed.
+    // visible again before easing the camera back, so the brain never shows up
+    // squashed. Double-rAF ensures the layout has flushed after hidden→visible.
     requestAnimationFrame(() => {
-      state.scene.resize();
-      state.scene.reset();                // ease camera/rotation back to idle
+      requestAnimationFrame(() => {
+        state.scene.resize();
+        state.scene.reset();
+      });
     });
   }
   if (state.regions) state.regions.resume();
@@ -147,6 +149,13 @@ function wireChrome() {
     e.preventDefault();
     go('#/');
   });
+  const headerHome = document.getElementById('header-home');
+  if (headerHome) {
+    headerHome.addEventListener('click', (e) => {
+      e.preventDefault();
+      go('#/');
+    });
+  }
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && state.view === 'region') go('#/');
   });

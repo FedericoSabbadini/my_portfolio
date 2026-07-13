@@ -206,7 +206,7 @@ export class BrainScene {
     // On phones, 1.5× left the dense per-pixel gyri looking soft/aliased; 2× is
     // noticeably crisper and the adaptive-quality loop still scales it back if
     // the framerate drops.
-    this.pr = Math.min(window.devicePixelRatio || 1, this.mobile ? 2 : 2);
+    this.pr = Math.min(window.devicePixelRatio || 1, this.mobile ? 1.5 : 2);
     this.renderer.setPixelRatio(this.pr);
   }
 
@@ -246,7 +246,7 @@ export class BrainScene {
   }
 
   _buildBrain() {
-    const detail = this.mobile ? 40 : 52;   // verts ≈ 10·detail² (fine gyri are per-pixel)
+    const detail = this.mobile ? 32 : 52;
     const regionPositions = this.domains.map((d) => d.position);
     const { geometry, surface, count } = buildBrainMesh(detail, regionPositions);
     this.brainGeo = geometry; this.surface = surface;
@@ -268,8 +268,8 @@ export class BrainScene {
       uRegion: { value: new THREE.Vector3(0, 0, 6) },
       uRegionStr: { value: 0 },
       uRegionColor: { value: new THREE.Color(0x22d3ee) },
-      uBump: { value: this.mobile ? 0.27 : 0.44 },
-      uFold: { value: this.mobile ? 0.66 : 1.05 },   // softer, cleaner gyri on phones
+      uBump: { value: this.mobile ? 0.18 : 0.44 },
+      uFold: { value: this.mobile ? 0.48 : 1.05 },
     };
     const mat = new THREE.ShaderMaterial({
       uniforms: this.uniforms, vertexShader: VERT, fragmentShader: FRAG, transparent: false,
