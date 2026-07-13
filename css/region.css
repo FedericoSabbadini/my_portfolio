@@ -165,8 +165,16 @@
 }
 
 /* --- Education timeline --- */
-.edu-block { display: flex; flex-direction: column; gap: 56px; }
-.edu-degree-head { display: flex; gap: 16px; margin-bottom: 26px; }
+.edu-block { display: flex; flex-direction: column; gap: 20px; }
+/* each degree is a full-width card so the section fills the column */
+.edu-entry {
+  padding: 26px clamp(20px, 3vw, 30px) 28px;
+  border-radius: 16px;
+  border: 1px solid #151A24; background: var(--bg-base);
+  transition: border-color .25s, background .25s;
+}
+.edu-entry:hover { border-color: color-mix(in srgb, var(--region-accent, #818CF8) 30%, transparent); }
+.edu-degree-head { display: flex; gap: 16px; margin-bottom: 6px; }
 .edu-accent-bar { width: 3px; border-radius: 2px; background: var(--region-accent, #818CF8); flex: none; }
 .edu-degree-title {
   font-family: var(--font-display); font-weight: 600;
@@ -193,7 +201,7 @@
   color: var(--ink-faint); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase;
 }
 .edu-credit { font-family: var(--font-mono); font-size: .66rem; color: var(--ink-mut); margin-left: 14px; }
-.edu-desc { font-size: .9rem; line-height: 1.65; color: var(--ink-mut); margin: 14px 0 0; max-width: 62ch; }
+.edu-desc { font-size: .9rem; line-height: 1.65; color: var(--ink-mut); margin: 14px 0 0; max-width: 80ch; }
 .edu-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
 .edu-link {
   display: inline-flex; align-items: center; gap: 7px;
@@ -311,10 +319,18 @@
   position: absolute; left: 7px; top: 10px; bottom: 10px;
   width: 2px; background: var(--hairline); border-radius: 1px;
 }
-.work-item { position: relative; padding-bottom: 44px; }
+.work-item {
+  position: relative; margin-bottom: 18px;
+  padding: 22px clamp(20px, 3vw, 28px) 24px;
+  border-radius: 16px;
+  border: 1px solid #151A24; background: var(--bg-base);
+  transition: border-color .25s, background .25s;
+}
+.work-item:hover { border-color: color-mix(in srgb, var(--region-accent, #60A5FA) 32%, transparent); }
+.work-item:last-child { margin-bottom: 0; }
 .work-item__dot {
-  position: absolute; left: -28px; top: 5px;
-  width: 16px; height: 16px; border-radius: 50%;
+  position: absolute; left: -28px; top: 26px;
+  width: 15px; height: 15px; border-radius: 50%;
   border: 2px solid var(--region-accent, #60A5FA);
   background: var(--bg-void); z-index: 1;
 }
@@ -336,8 +352,13 @@
   letter-spacing: .1em; text-transform: uppercase;
   color: var(--ink-mut); margin-bottom: 12px;
 }
-.work-item__desc { margin: 0; font-size: .86rem; line-height: 1.6; color: var(--ink-mut); max-width: 56ch; }
-.work-item__resp { margin-top: 12px; display: flex; flex-direction: column; gap: 5px; list-style: none; }
+.work-item__desc { margin: 0; font-size: .86rem; line-height: 1.6; color: var(--ink-mut); max-width: 72ch; }
+.work-item__resp { margin-top: 14px; display: flex; flex-direction: column; gap: 7px; list-style: none; }
+/* on wide screens spread the responsibilities across two columns so the card
+   uses its full width instead of a narrow left strip */
+@media (min-width: 680px) {
+  .work-item__resp { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 28px; }
+}
 .work-resp {
   display: flex; gap: 8px; font-size: .8rem; color: #8791A3;
 }
