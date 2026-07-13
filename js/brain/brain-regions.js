@@ -87,6 +87,7 @@ export class BrainRegions {
     this._tourBtn.setAttribute('aria-pressed', 'true');
     this._tourLabel.textContent = 'Touring';
     this._setTourIcon(true);
+    document.body.classList.add('is-touring');
     this._tourIdx = -1;
     const step = () => {
       this._tourIdx = (this._tourIdx + 1) % this.domains.length;
@@ -102,6 +103,7 @@ export class BrainRegions {
     this._tourBtn.setAttribute('aria-pressed', 'false');
     this._tourLabel.textContent = 'Tour';
     this._setTourIcon(false);
+    document.body.classList.remove('is-touring');
     clearInterval(this._tourTimer);
     this._tourTimer = null;
     if (this._autoStop) { clearTimeout(this._autoStop); this._autoStop = null; }
