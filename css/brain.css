@@ -280,12 +280,17 @@
   /* the cortex marker is noisy on a small full-bleed brain — hide it */
   .callout-marker { display: none !important; }
 
-  /* During the tour on mobile, hide the nav/lead so the brain breathes */
+  /* During the tour on mobile, hide nav, lead AND callout — only the brain
+     highlight itself communicates which region is active */
   body.is-touring .home-panel__nav-wrap,
   body.is-touring .home-lead {
     opacity: 0 !important;
     pointer-events: none !important;
     transition: opacity .4s var(--ease-cine);
+  }
+  body.is-touring .callout {
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 }
 

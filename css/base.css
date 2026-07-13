@@ -137,27 +137,6 @@ body.view-region .site-header::before { opacity: 1; }
 body.view-region #tour-btn { display: none; }
 body.view-region #back-to-mind { display: inline-flex; }
 
-/* Desktop region: back link sits below the identity chip on the left */
-@media (min-width: 821px) {
-  body.view-region .site-header__inner {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-    gap: 8px 12px;
-    align-items: center;
-  }
-  body.view-region .site-header__id {
-    grid-column: 1; grid-row: 1;
-  }
-  body.view-region .site-header__slot {
-    grid-column: 2; grid-row: 1;
-    justify-self: end;
-  }
-  body.view-region #back-to-mind {
-    grid-column: 1; grid-row: 2;
-  }
-}
-
 /* --- Animations --- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(10px); }
