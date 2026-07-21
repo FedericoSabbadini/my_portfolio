@@ -12,6 +12,17 @@
       "featured": true
     },
     {
+      "id": "temporal-difference",
+      "title": "Temporal Difference Learning",
+      "period": "May 2025 - Jul 2025",
+      "badge": "AI/ML",
+      "badgeClass": "badge-info",
+      "description": "I implement the core RL algorithms from scratch (no high-level RL library) and compare them across three environments, with sensitivity analyses, explicit failure cases and a DQN ablation study. Following the assignment, the goal is understanding and experimental analysis, not absolute performance.",
+      "tags": ["Reinforcement Learning", "Temporal Difference Learning", "Markov Decision Processes"],
+      "url": "https://github.com/FedericoSabbadini/temporalDifference",
+      "featured": true
+    },
+    {
       "id": "network-hardening",
       "title": "Network Hardening Planner",
       "period": "Feb 2026 - Apr 2026",
@@ -20,7 +31,7 @@
       "description": "Developed an automated planning system using Unified Planning and Fast Downward that models network hardening as a classical planning problem. The system encodes hosts, services and ports with actions like migration and shutdown, then computes cost-optimal remediation plans that enforce security policies while preserving operational continuity constraints.",
       "tags": ["AI Planning", "Unified Planning", "FastDownward"],
       "url": "https://github.com/FedericoSabbadini/network-hardening-planner",
-      "featured": true
+      "featured": false
     },
     {
       "id": "data-nexus",

@@ -18,20 +18,6 @@
         "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20V/Generative%20AI%20for%20Media"
       },
       {
-        "id": "reinforcement-learning",
-        "name": "Reinforcement Learning",
-        "grade": "current",
-        "description": "Advanced reinforcement learning techniques for decision-making in dynamic environments. Covers Q-learning, policy gradients, actor-critic methods, and multi-agent systems. Implemented with Python and reinforcement learning frameworks like Gymnasium and Stable Baselines3.",
-        "tags": [
-          "Reinforcement Learning",
-          "Multi-agent Systems",
-          "Deep Reinforcement Learning"
-        ],
-        "news": false,
-        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_139627_29560/2011/8595?coorte=2024",
-        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20V/Reinforcement%20Learning"
-      },
-      {
         "id": "digital-transformation",
         "name": "Digital Transformation",
         "grade": "current",
@@ -44,6 +30,20 @@
         "news": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131028_28209/2011/8595?schemaid=3260",
         "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20V/Digital%20Transformation"
+      },
+      {
+        "id": "reinforcement-learning",
+        "name": "Reinforcement Learning",
+        "grade": "30",
+        "description": "Advanced reinforcement learning techniques for decision-making in dynamic environments. Covers Q-learning, policy gradients, actor-critic methods, and multi-agent systems. Implemented with Python and reinforcement learning frameworks like Gymnasium and Stable Baselines3.",
+        "tags": [
+          "Reinforcement Learning",
+          "Multi-agent Systems",
+          "Deep Reinforcement Learning"
+        ],
+        "news": false,
+        "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_139627_29560/2011/8595?coorte=2024",
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20V/Reinforcement%20Learning"
       },
       {
         "id": "symbolic-ai",
