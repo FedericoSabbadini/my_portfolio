@@ -34,7 +34,7 @@
       {
         "id": "reinforcement-learning",
         "name": "Reinforcement Learning",
-        "grade": "30",
+        "grade": "30/30",
         "description": "Advanced reinforcement learning techniques for decision-making in dynamic environments. Covers Q-learning, policy gradients, actor-critic methods, and multi-agent systems. Implemented with Python and reinforcement learning frameworks like Gymnasium and Stable Baselines3.",
         "tags": [
           "Reinforcement Learning",
