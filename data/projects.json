@@ -3,7 +3,7 @@
     {
       "id": "patch-aliasing-tsf",
       "title": "Structural Aliasing in Patch-Based Time-Series Models (Chronos)",
-      "period": "Apr 2026 - Jul 2026",
+      "period": "Apr 2026 - ",
       "badge": "Research",
       "badgeClass": "badge-info",
       "description": "Investigated structural aliasing induced by patch-based tokenisation in time-series foundation models. Formally derived conditions under which phase-locking between signal periodicity and patch grid creates frequency blind spots beyond classical Nyquist limits. Validated hypotheses through controlled synthetic experiments, quantified effects via Bayesian inference, and formalised semantic impact through domain ontologies. Discussed mitigation strategies and agentic AI integration for monitoring and explainability.",
