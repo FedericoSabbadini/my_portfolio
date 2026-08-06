@@ -199,12 +199,30 @@ function renderWork(data) {
   let html = '<div class="work-timeline"><div class="work-timeline__line" aria-hidden="true"></div>';
   for (const w of data.work) {
     html += `<div class="work-item"><div class="work-item__dot" aria-hidden="true"></div>`;
-    if (w.type) html += `<span class="work-item__type">${esc(w.type)}</span>`;
+    if (w.type || w.logo) {
+      html += `<div class="work-item__head">`;
+      html += w.type ? `<span class="work-item__type">${esc(w.type)}</span>` : `<span></span>`;
+      if (w.logo) {
+        const img = `<img class="work-item__logo" src="${esc(w.logo)}" alt="${esc(w.company || w.title)} logo" loading="lazy" />`;
+        const logoHref = w.logoUrl || w.url;
+        html += logoHref
+          ? `<a class="work-item__logo-link" href="${esc(logoHref)}" target="_blank" rel="noopener" aria-label="${esc(w.company || w.title)} website">${img}</a>`
+          : img;
+      }
+      html += `</div>`;
+    }
     html += `<h2 class="work-item__title">${esc(w.title)}${w.company ? ` — ${esc(w.company)}` : ''}</h2>`;
     html += `<div class="work-item__meta">${esc(w.period)}${w.location ? ` · ${esc(w.location)}` : ''}</div>`;
+    if (w.url) {
+      const label = w.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+      html += `<a class="work-item__link" href="${esc(w.url)}" target="_blank" rel="noopener">${esc(label)} <span aria-hidden="true">↗</span></a>`;
+    }
     if (w.description) html += `<p class="work-item__desc">${esc(w.description)}</p>`;
     if (w.responsibilities && w.responsibilities.length) {
       html += `<ul class="work-item__resp">${w.responsibilities.map((r) => `<li class="work-resp"><span class="work-resp__mark" aria-hidden="true">→</span><span>${esc(r)}</span></li>`).join('')}</ul>`;
+    }
+    if (w.technologies && w.technologies.length) {
+      html += `<ul class="work-tags">${w.technologies.map((t) => `<li class="work-tag">${esc(t)}</li>`).join('')}</ul>`;
     }
     html += `</div>`;
   }

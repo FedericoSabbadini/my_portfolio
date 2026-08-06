@@ -29,7 +29,9 @@ async function boot() {
   state.domains = raw.domains;
 
   const vw = window.innerWidth || document.documentElement.clientWidth || 1280;
-  const mobile = (vw > 0 && vw <= 820) || (('ontouchstart' in window) && vw <= 1024);
+  // Shares the 1024 breakpoint with brain.css + brain-scene._syncMode so the
+  // lighter shader/geometry path matches the full-bleed tablet layout exactly.
+  const mobile = vw > 0 && vw <= 1024;
   const canBrain = webglAvailable();
 
   if (canBrain) {

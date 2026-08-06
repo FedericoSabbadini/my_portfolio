@@ -1,54 +1,45 @@
 {
     "work": [
         {
-            "id": "professional-upcoming",
-            "title": "Junior Professional Role",
-            "company": "To be determined",
-            "location": "EU",
-            "period": "March 2027",
-            "type": "Work",
-            "status": "upcoming",
-            "description": "Entry-level professional position following the completion of the Master's degree, focused on applied work in Artificial Intelligence, Machine Learning, or Data Science within a structured technical team.",
+            "id": "modelvault",
+            "title": "Founder & Lead AI Engineer",
+            "company": "ModelVault",
+            "location": "Remote · Italy",
+            "period": "Ongoing",
+            "type": "Startup",
+            "status": "current",
+            "url": "https://www.modelvault.it",
+            "logo": "assets/images/modelvault.svg",
+            "description": "ModelVault is an independent AI-engineering studio building production-grade, bespoke AI for businesses — predictive ML models, LLM agents, RAG systems and automation pipelines. Every solution is engineered end to end on a backend of seven FastAPI microservices hosted on ISO 27001–certified infrastructure in Italy. Quality over quantity: each model, a concrete advantage. It's where I'm turning applied AI into products companies can put into production — the start of my professional path.",
             "responsibilities": [
-                "Participation in production-level projects",
-                "Design and implementation of technical solutions",
-                "Collaboration with senior engineers and cross-functional teams"
+                "Custom AI solutions: predictive models, LLM agents, RAG systems and automation pipelines",
+                "Engineered on seven FastAPI microservices — ISO 27001–certified infrastructure in Italy",
+                "End-to-end delivery: discovery, technical design, iterative build, deployment and monitoring",
+                "Client data stays in Italy and is never used to train third-party models"
             ],
-            "technologies": ["Machine Learning", "AI", "Data", "Software"],
-            "featured": false,
+            "technologies": ["Python", "FastAPI", "LLMs", "RAG", "Machine Learning", "Microservices"],
+            "featured": true,
             "news": false
         },
         {
-            "id": "thesis-upcoming",
-            "title": "Master's Thesis",
-            "company": "To be determined",
-            "location": "Italy",
-            "period": "November 2026 - February 2027",
-            "type": "Academic",
+            "id": "beretta-internship-thesis",
+            "title": "Internship & Master's Thesis",
+            "company": "Beretta",
+            "location": "Gardone Val Trompia, Italy",
+            "period": "September 2026 - March 2027",
+            "type": "Internship & Thesis",
             "status": "upcoming",
-            "description": "Master's thesis project developed in collaboration with an academic supervisor and, where applicable, an external organization, focused on a research or applied topic in Artificial Intelligence, Data Science or Machine Learning.",
+            "url": "https://www.beretta.com",
+            "logo": "assets/images/beretta.svg",
+            "description": "Curricular internship and Master's thesis at Fabbrica d'Armi Pietro Beretta — one of the world's oldest industrial companies — within its technological-innovation efforts. The work centers on applied Artificial Intelligence: Retrieval-Augmented Generation (RAG) over technical knowledge bases and intelligent web-scraping pipelines, with a focus on AI-based innovation for industrial processes.",
             "responsibilities": [
-                "Definition of research objectives",
-                "Literature review and state-of-the-art analysis",
-                "Design, implementation, and evaluation of the proposed solution",
-                "Thesis writing and final defense"
+                "Design and implementation of Retrieval-Augmented Generation (RAG) systems over technical and industrial knowledge bases",
+                "Development of intelligent web-scraping and data-extraction pipelines feeding the AI stack",
+                "Applied research on AI-based technological innovation for industrial workflows",
+                "Master's thesis: design, implementation and experimental evaluation of the proposed AI solution"
             ],
-            "technologies": ["Thesis", "Machine Learning", "AI", "Data Science"],
-            "featured": false,
-            "news": false
-        },
-        {
-            "id": "stage-upcoming",
-            "title": "Internship",
-            "company": "To be determined",
-            "location": "Italy",
-            "period": "September 2026 - November 2026",
-            "type": "Internship",
-            "status": "upcoming",
-            "description": "Curricular internship of 150 hours as part of the Master's degree program in Data Science, IA or Machine Learning.",
-            "responsibilities": [],
-            "technologies": ["Data Science", "Machine Learning", "AI"],
-            "featured": false,
+            "technologies": ["AI", "RAG", "LLMs", "Web Scraping", "Python"],
+            "featured": true,
             "news": true
         }
     ]
