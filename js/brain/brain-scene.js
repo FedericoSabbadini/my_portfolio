@@ -233,17 +233,12 @@ export class BrainScene {
     this._camTarget = new THREE.Vector3(0, 0, 0);
   }
 
-  /** live layout flags: stacked (mobile/tablet full-bleed) vs side (desktop) */
+  /** live layout flags: stacked (mobile full-bleed) vs side (desktop) */
   _syncMode() {
     const W = window.innerWidth || 1280, H = window.innerHeight || 800;
     this.vw = W; this.vh = H;
-    // Single source of truth for the layout switch, shared with the CSS
-    // breakpoint in brain.css (max-width:1024). Everything up to 1024 — phones
-    // AND tablets (incl. iPad Pro portrait) — gets the full-bleed sheet layout;
-    // above that, the desktop sidebar layout. Width alone (no touch sniffing) so
-    // the JS framing and the CSS layout can never disagree at medium widths.
-    this.touch = 'ontouchstart' in window;
-    this.stacked = W <= 1024;
+    this.touch = ('ontouchstart' in window) && W <= 1024;
+    this.stacked = this.touch || W <= 820;
     // On mobile the brain is a full-bleed backdrop with a content sheet over the
     // lower third — lift the framing so the brain sits in the upper portion,
     // clear of the sheet. (negative target.y → origin renders above centre)
