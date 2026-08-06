@@ -334,13 +334,32 @@
   border: 2px solid var(--region-accent, #60A5FA);
   background: var(--bg-void); z-index: 1;
 }
+/* header row: type badge (left) + company logo (right) on one baseline so the
+   logo never collides with the title, which wraps full-width below */
+.work-item__head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; margin-bottom: 10px;
+}
 .work-item__type {
   display: inline-block; padding: 3px 10px; border-radius: 6px;
   background: color-mix(in srgb, var(--region-accent, #60A5FA) 10%, transparent);
   border: 1px solid color-mix(in srgb, var(--region-accent, #60A5FA) 28%, transparent);
   font-family: var(--font-mono); font-size: .58rem;
   letter-spacing: .08em; text-transform: uppercase;
-  color: var(--region-accent, #60A5FA); margin-bottom: 10px;
+  color: var(--region-accent, #60A5FA);
+}
+.work-item__logo {
+  height: 24px; width: auto; max-width: 100%;
+  object-fit: contain; opacity: .92; flex: none;
+  transition: opacity .2s, transform .2s var(--ease-cine);
+}
+.work-item__logo-link {
+  display: inline-flex; flex: none; max-width: 46%;
+  border-radius: 6px;
+}
+.work-item__logo-link:hover .work-item__logo { opacity: 1; transform: scale(1.04); }
+.work-item__logo-link:focus-visible {
+  outline: 2px solid var(--region-accent, #60A5FA); outline-offset: 3px;
 }
 .work-item__title {
   font-family: var(--font-display); font-weight: 600;
@@ -352,6 +371,16 @@
   letter-spacing: .1em; text-transform: uppercase;
   color: var(--ink-mut); margin-bottom: 12px;
 }
+.work-item__link {
+  display: inline-flex; align-items: center; gap: 5px;
+  width: fit-content; margin: -2px 0 14px;
+  font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .05em; text-transform: lowercase;
+  color: var(--region-accent, #60A5FA);
+  border-bottom: 1px solid color-mix(in srgb, var(--region-accent, #60A5FA) 32%, transparent);
+  padding-bottom: 1px; transition: border-color .2s, opacity .2s;
+}
+.work-item__link:hover { opacity: .82; border-color: var(--region-accent, #60A5FA); }
 .work-item__desc { margin: 0; font-size: .86rem; line-height: 1.6; color: var(--ink-mut); max-width: 72ch; }
 .work-item__resp { margin-top: 14px; display: flex; flex-direction: column; gap: 7px; list-style: none; }
 /* on wide screens spread the responsibilities across two columns so the card
@@ -363,6 +392,18 @@
   display: flex; gap: 8px; font-size: .8rem; color: #8791A3;
 }
 .work-resp__mark { color: var(--region-accent, #60A5FA); flex: none; }
+
+/* tech tags: quiet mono chips summarising the stack of each role */
+.work-tags {
+  list-style: none; margin: 16px 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 7px;
+}
+.work-tag {
+  padding: 3px 9px; border-radius: 999px;
+  border: 1px solid var(--hairline-2); background: rgba(10,13,20,.5);
+  font-family: var(--font-mono); font-size: .58rem;
+  letter-spacing: .06em; text-transform: uppercase; color: #8791A3;
+}
 
 /* --- Grouped cards (projects/certifications) --- */
 .group-section { display: flex; flex-direction: column; gap: 48px; }

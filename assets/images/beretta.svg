@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Beretta">
+  <g fill="#E7ECF5" stroke="#E7ECF5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- outer ring -->
+    <circle cx="120" cy="120" r="110" fill="none" stroke-width="8"/>
+
+    <!-- loops (P/B monogram rings) -->
+    <circle cx="80"  cy="120" r="30" fill="none" stroke-width="7"/>
+    <circle cx="160" cy="120" r="30" fill="none" stroke-width="7"/>
+    <circle cx="120" cy="152" r="30" fill="none" stroke-width="7"/>
+
+    <!-- arrow shafts + heads -->
+    <polygon points="120,32 103,64 137,64" stroke="none"/>
+    <rect x="116" y="58" width="8" height="128" stroke="none"/>
+
+    <polygon points="80,48 65,78 95,78" stroke="none"/>
+    <rect x="76.5" y="72" width="7" height="102" stroke="none"/>
+
+    <polygon points="160,48 145,78 175,78" stroke="none"/>
+    <rect x="156.5" y="72" width="7" height="102" stroke="none"/>
+
+    <!-- fletching (feather barbs) -->
+    <g fill="none" stroke-width="5">
+      <!-- center -->
+      <path d="M120 150 L107 159 M120 150 L133 159"/>
+      <path d="M120 164 L107 173 M120 164 L133 173"/>
+      <path d="M120 178 L107 187 M120 178 L133 187"/>
+      <!-- left -->
+      <path d="M80 140 L68 149 M80 140 L92 149"/>
+      <path d="M80 153 L68 162 M80 153 L92 162"/>
+      <path d="M80 166 L68 175 M80 166 L92 175"/>
+      <!-- right -->
+      <path d="M160 140 L148 149 M160 140 L172 149"/>
+      <path d="M160 153 L148 162 M160 153 L172 162"/>
+      <path d="M160 166 L148 175 M160 166 L172 175"/>
+    </g>
+  </g>
+</svg>

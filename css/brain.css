@@ -187,11 +187,14 @@
 .home-lead { display: none; }
 
 /* =========================================================================
-   RESPONSIVE — mobile / tablet:
+   RESPONSIVE — mobile / tablet (≤1024px, incl. iPad Pro portrait):
    full-bleed brain backdrop + a floating content sheet over the lower third,
    echoing the desktop full-bleed canvas without copying its side-panel layout.
+   NOTE: 1024 is the single layout breakpoint — kept in sync with
+   brain-scene._syncMode() and main.js so the 3D framing never disagrees with
+   the page layout at medium (tablet) widths.
    ========================================================================= */
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   /* the brain is the full-bleed backdrop, filling the whole viewport height */
   .brain-canvas,
   .brain-vignette {
@@ -283,7 +286,7 @@
 }
 
 /* Short viewports (landscape phones): tighten the sheet so the brain breathes */
-@media (max-width: 820px) and (max-height: 620px) {
+@media (max-width: 1024px) and (max-height: 620px) {
   .home-lead__sub { display: none; }
   .home-lead { gap: 4px; }
   .home-panel { padding-top: 72px; gap: 12px; }
