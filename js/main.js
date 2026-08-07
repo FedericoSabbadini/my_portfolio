@@ -87,32 +87,23 @@ function maybeAutoTour() {
 
 /* ---- dive: play the brain zoom, then navigate to the region ------------- */
 function onDive(id) {
-  const dom = state.domains.find((d) => d.id === id);
+  // reduced-motion users skip the cinematic zoom and go straight there
   if (state.scene && !reducedMotion) {
+    const dom = state.domains.find((d) => d.id === id);
     state.scene.setInteractive(false);
     state.scene.zoomTo(id);                    // ~1.15s cinematic plunge
     // the accent bloom peaks late so it veils the brain→catalog swap
     setTimeout(() => playDiveFlash(dom ? dom.accent : '#22d3ee'), 520);
     setTimeout(() => go(`#/region/${id}`), 1000);
-  } else if (state.scene && reducedMotion) {
-    // Reduced-motion: no camera plunge (vestibular-safe), but a quick accent
-    // bloom + canvas fade so the tap still reads as a deliberate transition
-    // rather than an instant, animation-less jump.
-    state.scene.setInteractive(false);
-    playDiveFlash(dom ? dom.accent : '#22d3ee');   // opacity-only under reduced motion
-    const cv = document.getElementById('brain-canvas');
-    if (cv) cv.style.opacity = '0';
-    setTimeout(() => go(`#/region/${id}`), 340);
   } else {
     go(`#/region/${id}`);
   }
 }
 
-/* accent bloom that peaks as the brain fades and the region view rises.
-   Under reduced motion the CSS swaps to an opacity-only fade (no scale). */
+/* accent bloom that peaks as the brain fades and the region view rises */
 function playDiveFlash(accent) {
   const el = document.getElementById('dive-flash');
-  if (!el) return;
+  if (!el || reducedMotion) return;
   el.style.setProperty('--flash', accent);
   el.classList.remove('is-firing');
   void el.offsetWidth;                     // restart the animation
