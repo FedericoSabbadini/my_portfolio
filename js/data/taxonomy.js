@@ -10,23 +10,25 @@ const SUBJECTS = [
   { id: 'business', label: 'Business & Professional' },
 ];
 
-const OVERRIDES = {
-  // project/certification id → subject id
-};
+const VALID = new Set(SUBJECTS.map((s) => s.id));
 
 const KEYWORDS = [
-  { id: 'ai',       words: ['ai', 'machine learning', 'deep learning', 'neural', 'nlp', 'llm', 'reinforcement', 'generative', 'transformer', 'computer vision', 'ml'] },
-  { id: 'security', words: ['security', 'cyber', 'penetration', 'ctf', 'forensic', 'malware', 'vulnerability', 'threat', 'ethical hacking', 'osint'] },
-  { id: 'data',     words: ['data', 'big data', 'analytics', 'database', 'sql', 'spark', 'hadoop', 'etl', 'pipeline', 'warehouse'] },
+  { id: 'ai',       words: ['artificial intelligence', 'machine learning', 'deep learning', 'neural', 'nlp', 'llm', 'reinforcement', 'generative', 'transformer', 'computer vision'] },
+  { id: 'security', words: ['security', 'cyber', 'penetration', 'pentest', 'ctf', 'forensic', 'malware', 'vulnerability', 'threat', 'ethical hacking', 'osint', 'steganography'] },
+  { id: 'data',     words: ['big data', 'data science', 'analytics', 'database', 'sql', 'spark', 'hadoop', 'etl', 'pipeline', 'warehouse'] },
   { id: 'software', words: ['software', 'engineering', 'web', 'cloud', 'devops', 'docker', 'kubernetes', 'api', 'microservice', 'architecture', 'programming'] },
-  { id: 'business', words: ['business', 'management', 'leadership', 'agile', 'scrum', 'professional', 'communication', 'strategy', 'project management'] },
+  { id: 'business', words: ['business', 'management', 'leadership', 'agile', 'scrum', 'professional', 'communication', 'strategy', 'project management', 'marketing'] },
 ];
 
+/* Subject is authored per item (projects.json / certifications.json → `subject`).
+   The keyword pass is only a fallback for items missing an explicit subject; it
+   matches on whole words so short tokens ("ai", "ml") don't hit substrings like
+   "tr-ai-ning" or "ht-ml". */
 function classify(item) {
-  if (OVERRIDES[item.id]) return OVERRIDES[item.id];
-  const text = `${item.title || ''} ${item.description || ''} ${(item.tags || []).join(' ')}`.toLowerCase();
+  if (item.subject && VALID.has(item.subject)) return item.subject;
+  const text = ` ${`${item.title || ''} ${item.description || ''} ${(item.tags || []).join(' ')}`.toLowerCase().replace(/[^a-z0-9]+/g, ' ')} `;
   for (const kw of KEYWORDS) {
-    if (kw.words.some((w) => text.includes(w))) return kw.id;
+    if (kw.words.some((w) => text.includes(` ${w} `))) return kw.id;
   }
   return 'software';
 }

@@ -84,10 +84,17 @@ function renderAbout(data) {
   const interests = raw.interests || [];
   let html = '';
 
-  // Bio
-  if (p.bio && p.bio.length) {
-    html += `<section style="margin-bottom:48px">${p.bio.map((b) => `<p style="font-size:.95rem;line-height:1.7;color:var(--ink-mut);margin-bottom:12px;max-width:62ch">${esc(b)}</p>`).join('')}</section>`;
-  }
+  // Profile hero: cutout portrait on a themed gradient, beside the bio.
+  const bioHtml = (p.bio && p.bio.length)
+    ? p.bio.map((b) => `<p class="about-bio__p">${esc(b)}</p>`).join('')
+    : '';
+  const photo = p.profileImage || 'assets/images/profile.webp';
+  html += `<div class="about-hero">
+    <figure class="about-photo">
+      <img class="about-photo__img" src="${esc(photo)}" alt="Portrait of ${esc(p.name || 'Federico Sabbadini')}" width="620" height="880" />
+    </figure>
+    <div class="about-bio">${bioHtml}</div>
+  </div>`;
 
   // Stats
   if (stats.length) {

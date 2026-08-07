@@ -2,147 +2,226 @@
   "projects": [
     {
       "id": "patch-aliasing-tsf",
+      "subject": "ai",
       "title": "Structural Aliasing in Patch-Based Time-Series Models (Chronos)",
       "period": "Apr 2026 - ",
       "badge": "Research",
       "badgeClass": "badge-info",
       "description": "Investigated structural aliasing induced by patch-based tokenisation in time-series foundation models. Formally derived conditions under which phase-locking between signal periodicity and patch grid creates frequency blind spots beyond classical Nyquist limits. Validated hypotheses through controlled synthetic experiments, quantified effects via Bayesian inference, and formalised semantic impact through domain ontologies. Discussed mitigation strategies and agentic AI integration for monitoring and explainability.",
-      "tags": ["Time-Series", "Signal Processing", "Bayesian Inference"],
+      "tags": [
+        "Time-Series",
+        "Signal Processing",
+        "Bayesian Inference"
+      ],
       "url": "https://github.com/FedericoSabbadini/patchAliasing",
       "featured": true
     },
     {
       "id": "temporal-difference",
+      "subject": "ai",
       "title": "Temporal Difference Learning",
       "period": "May 2025 - Jul 2025",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "I've implemented the core RL algorithms from scratch (no high-level RL library) and compare them across three environments, with sensitivity analyses, explicit failure cases and a DQN ablation study. Following the assignment, the goal is understanding and experimental analysis, not absolute performance. Working on 3 diffeent Gymnasium environments: Acrobot, CartPole and Pong. The repository contains the code, the report and the slides of the presentation.",
-      "tags": ["Reinforcement Learning", "Temporal Difference Learning", "Markov Decision Processes"],
+      "tags": [
+        "Reinforcement Learning",
+        "Temporal Difference Learning",
+        "Markov Decision Processes"
+      ],
       "url": "https://github.com/FedericoSabbadini/temporalDifference",
       "featured": true
     },
     {
       "id": "network-hardening",
+      "subject": "security",
       "title": "Network Hardening Planner",
       "period": "Feb 2026 - Apr 2026",
       "badge": "Security",
       "badgeClass": "badge-warning",
       "description": "Developed an automated planning system using Unified Planning and Fast Downward that models network hardening as a classical planning problem. The system encodes hosts, services and ports with actions like migration and shutdown, then computes cost-optimal remediation plans that enforce security policies while preserving operational continuity constraints.",
-      "tags": ["AI Planning", "Unified Planning", "FastDownward"],
+      "tags": [
+        "AI Planning",
+        "Unified Planning",
+        "FastDownward"
+      ],
       "url": "https://github.com/FedericoSabbadini/network-hardening-planner",
       "featured": false
     },
     {
       "id": "data-nexus",
+      "subject": "data",
       "title": "dataNexus Big Data Engineering",
       "period": "Dec 2025 - Jan 2026",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "A hands-on Big Data project showcasing how different database models and distributed computing paradigms are applied to real-world datasets, such as Amazon Food Reviews, LAPD Crime Data and arXiv publications. The repository demonstrates querying, modeling, analytics, and performance comparisons across modern big data technologies.",
-      "tags": ["MongoDB", "InfluxDB", "Neo4J", "Map-reduce"],
+      "tags": [
+        "MongoDB",
+        "InfluxDB",
+        "Neo4J",
+        "Map-reduce"
+      ],
       "url": "https://github.com/FedericoSabbadini/dataNexus",
       "featured": false
     },
     {
       "id": "f1-deepL",
+      "subject": "ai",
       "title": "F1 Pit Strategy Predictor",
       "period": "Dec 2025 - Feb 2026",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "Built an end-to-end deep learning pipeline that predicts Formula 1 pit stop timing and tire compound selection using real-world telemetry from the FastF1 API. Achieved 0.78 AUC for pit timing prediction and 78% accuracy on compound choice using Transformers with self-attention mechanisms, handling time-series data across 20+ race weekends.",
-      "tags": ["LSTM", "FastF1 API", "Transformers", "Time Series"],
+      "tags": [
+        "LSTM",
+        "FastF1 API",
+        "Transformers",
+        "Time Series"
+      ],
       "url": "https://github.com/FedericoSabbadini/f1-strategy-predictor",
       "featured": false
     },
     {
       "id": "pathfinding",
+      "subject": "software",
       "title": "Grid Pathfinding Algorithms",
       "period": "May 2025 - Jul 2025",
       "badge": "Opt",
       "badgeClass": "badge-danger",
       "description": "Implemented and benchmarked advanced pathfinding algorithms for obstacle-rich grid environments. Developed optimized versions of A*, Dijkstra, and JPS (Jump Point Search) with custom heuristics. Analyzed algorithmic complexity, memory usage, and runtime performance across varying grid densities, achieving up to 40% speedup over naive implementations.",
-      "tags": ["Algorithms", "Graph Theory", "A*", "Optimization"],
+      "tags": [
+        "Algorithms",
+        "Graph Theory",
+        "A*",
+        "Optimization"
+      ],
       "url": "https://github.com/FedericoSabbadini/CamminiPRJ",
       "featured": false
     },
     {
       "id": "oracool",
+      "subject": "software",
       "title": "Oracool Web Platform",
       "period": "Apr 2025 - Jul 2025",
       "badge": "SW Development",
       "badgeClass": "badge-success",
       "description": "Designed and developed a full-stack sports prediction platform following Agile/Scrum methodology. Built RESTful APIs with Laravel and Eloquent ORM, implemented user authentication with role-based access control, MySQL database with optimized queries, and responsive Bootstrap UI. Managed complete SDLC from requirements gathering to deployment.",
-      "tags": ["Laravel", "PHP", "MySQL", "REST API", "Bootstrap"],
+      "tags": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "REST API",
+        "Bootstrap"
+      ],
       "url": "https://github.com/FedericoSabbadini/Oracool_Project",
       "featured": false
     },
     {
       "id": "talentscope",
+      "subject": "ai",
       "title": "TalentScope AI",
       "period": "May 2025 - Jun 2025",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "Engineered a machine learning pipeline to predict FIFA 2022 player potential using ensemble methods (Random Forest, XGBoost, Gradient Boosting). Implemented advanced feature engineering on 18,000+ player records, hyperparameter tuning via GridSearchCV, and comprehensive model evaluation achieving 89% accuracy. Full MLOps workflow from data preprocessing to model deployment.",
-      "tags": ["Python", "Scikit-learn", "XGBoost", "Feature Engineering"],
+      "tags": [
+        "Python",
+        "Scikit-learn",
+        "XGBoost",
+        "Feature Engineering"
+      ],
       "url": "https://github.com/FedericoSabbadini/TalentScope_AI",
       "featured": false
     },
     {
       "id": "openid-thesis",
+      "subject": "security",
       "title": "OpenID Connect & Digital Identity",
       "period": "Jun 2024 - Oct 2024",
       "badge": "Research",
       "badgeClass": "badge-primary",
       "description": "Bachelor's thesis exploring modern identity and access management protocols. Conducted in-depth analysis of OAuth 2.0 flows, OpenID Connect authentication mechanisms, and JWT token security. Examined real-world implementations including SPID (Italian Digital Identity) and enterprise SSO solutions, with focus on security vulnerabilities and mitigation strategies.",
-      "tags": ["OpenID", "OAuth 2.0", "JWT", "IAM", "Security"],
+      "tags": [
+        "OpenID",
+        "OAuth 2.0",
+        "JWT",
+        "IAM",
+        "Security"
+      ],
       "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8",
       "urlLabel": "View Research",
       "featured": false
     },
     {
       "id": "data-hiding",
+      "subject": "security",
       "title": "Data Hiding Research",
       "period": "Oct 2024 - Mar 2025",
       "badge": "Research",
       "badgeClass": "badge-primary",
       "description": "Research project investigating cutting-edge steganography techniques using deep learning. Analyzed CNN-based methods for embedding hidden data in images while maintaining visual imperceptibility, and GAN architectures for generating stego-images that evade statistical detection. Published comprehensive research paper comparing classical vs. neural approaches for information hiding.",
-      "tags": ["Steganography", "CNN", "GAN", "PyTorch", "Research"],
+      "tags": [
+        "Steganography",
+        "CNN",
+        "GAN",
+        "PyTorch",
+        "Research"
+      ],
       "url": "https://drive.google.com/drive/folders/1-2rBrcF9CzBdbvVcxDoxeiMTZej-5eDK",
       "urlLabel": "View Research",
       "featured": false
     },
     {
       "id": "work-performance",
+      "subject": "software",
       "title": "Work Performance Trading",
       "period": "Jan 2024 - Jun 2024",
       "badge": "SW Development",
       "badgeClass": "badge-success",
       "description": "Architected a Java desktop application for automated resource exchange simulation following clean architecture principles. Implemented MVC pattern with Swing GUI, applied SOLID principles throughout, and utilized design patterns (Factory, Observer, Strategy) for extensibility. Comprehensive unit testing with JUnit and documentation following industry best practices.",
-      "tags": ["Java", "Design Patterns", "MVC", "SOLID", "JUnit"],
+      "tags": [
+        "Java",
+        "Design Patterns",
+        "MVC",
+        "SOLID",
+        "JUnit"
+      ],
       "url": "https://github.com/FedericoSabbadini/Software_Engineering",
       "featured": false
     },
     {
       "id": "electromagnetic",
+      "subject": "software",
       "title": "Electromagnetic Field Analysis",
       "period": "Apr 2024 - Jul 2024",
       "badge": "Research",
       "badgeClass": "badge-primary",
       "description": "Developed MATLAB simulation tools for quantitative assessment of electromagnetic field exposure from HF radio antennas and ELF power lines. Created 3D visualization of field intensity distributions, calculated SAR (Specific Absorption Rate) values, and evaluated compliance with international exposure limits (ICNIRP guidelines). Applied numerical methods for Maxwell's equations.",
-      "tags": ["MATLAB", "Numerical Analysis", "EMF", "Simulation"],
+      "tags": [
+        "MATLAB",
+        "Numerical Analysis",
+        "EMF",
+        "Simulation"
+      ],
       "url": "https://github.com/FedericoSabbadini/Elettrosmog",
       "featured": false,
       "news": false
     },
     {
       "id": "gurobi",
+      "subject": "software",
       "title": "Gurobi Optimization",
       "period": "Jan 2023 - Jun 2023",
       "badge": "Opt",
       "badgeClass": "badge-danger",
       "description": "Solved complex combinatorial optimization problems using Gurobi solver and mathematical programming techniques. Formulated real-world scenarios as Integer Linear Programs (ILP), implemented constraint modeling for scheduling, routing, and resource allocation problems. Achieved optimal solutions for NP-hard instances through branch-and-bound and cutting plane methods.",
-      "tags": ["Operations Research", "ILP", "Gurobi", "Python"],
+      "tags": [
+        "Operations Research",
+        "ILP",
+        "Gurobi",
+        "Python"
+      ],
       "url": "https://github.com/FedericoSabbadini/Gurobi_Optimization",
       "featured": false
     }

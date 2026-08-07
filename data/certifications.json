@@ -2,6 +2,7 @@
   "certifications": [
     {
       "id": "langchain-langgraph-crash-course",
+      "subject": "ai",
       "title": "LangChain and LangGraph Crash Course",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
@@ -11,7 +12,8 @@
       "tags": [
         "LangChain",
         "LangGraph",
-        "RAG", "LangSmith"
+        "RAG",
+        "LangSmith"
       ],
       "featured": false,
       "url": "https://www.udemy.com/certificate/UC-2ca35ec1-9fd7-492c-9c13-c176b60bfc9d/",
@@ -19,11 +21,12 @@
     },
     {
       "id": "aws-essentials",
+      "subject": "software",
       "title": "AWS Essentials - Hands-on Learning ",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "May 2026",
-      "certId": "UC-296ac15b-d1ef-4fb9-ab3e-dafOc48acc4c",
+      "certId": "UC-296ac15b-d1ef-4fb9-ab3e-daf0c48acc4c",
       "description": "Foundational course on Amazon Web Services covering core cloud infrastructure and platform services. Explored practical usage of EC2, S3, VPC, RDS, and cloud networking concepts through guided labs and demonstrations.",
       "tags": [
         "EC2",
@@ -39,6 +42,7 @@
     },
     {
       "id": "complete-fastapi-course-oauth-jwt",
+      "subject": "software",
       "title": "The Complete FastAPI Course With OAuth & JWT",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
@@ -57,6 +61,7 @@
     },
     {
       "id": "git-github-zero-to-hero",
+      "subject": "software",
       "title": "Master Git and GitHub",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
@@ -74,6 +79,7 @@
     },
     {
       "id": "latex-professional-publications",
+      "subject": "business",
       "title": "LaTeX for Professional Publications",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
@@ -91,6 +97,7 @@
     },
     {
       "id": "n8n-automation-master",
+      "subject": "ai",
       "title": "Automation Master: n8n, JavaScript and AI Agents",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
@@ -108,6 +115,7 @@
     },
     {
       "id": "cct",
+      "subject": "security",
       "title": "C|CT Certified Cybersecurity Technician",
       "issuer": "EC-Council",
       "issuerIcon": "ec-council",
@@ -126,6 +134,7 @@
     },
     {
       "id": "python-data-science-sales",
+      "subject": "data",
       "title": "Data Science with Python: Data, Insight and Sell Predictions",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
@@ -144,6 +153,7 @@
     },
     {
       "id": "python-pro",
+      "subject": "software",
       "title": "Python Pro - Advanced and Complete Guide to the PL",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
@@ -163,6 +173,7 @@
     },
     {
       "id": "metasploit",
+      "subject": "security",
       "title": "Metasploit Penetration Testing",
       "issuer": "EC-Council",
       "issuerIcon": "ec-council",
@@ -180,6 +191,7 @@
     },
     {
       "id": "wireshark",
+      "subject": "security",
       "title": "Wireshark Network Troubleshooting",
       "issuer": "EC-Council",
       "issuerIcon": "ec-council",
@@ -197,6 +209,7 @@
     },
     {
       "id": "sustainability",
+      "subject": "business",
       "title": "Environmental Sustainability & Digital Technologies",
       "issuer": "Politecnico di Milano",
       "issuerIcon": "polimi",
@@ -214,6 +227,7 @@
     },
     {
       "id": "blockchain",
+      "subject": "software",
       "title": "Blockchain Fundamentals",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
@@ -231,6 +245,7 @@
     },
     {
       "id": "smm",
+      "subject": "business",
       "title": "Social Media Marketing",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
@@ -248,6 +263,7 @@
     },
     {
       "id": "english",
+      "subject": "business",
       "title": "English Language B1 Certification",
       "issuer": "CLA Test, Università di Brescia",
       "issuerIcon": "unibs",
@@ -265,6 +281,7 @@
     },
     {
       "id": "agile",
+      "subject": "business",
       "title": "Agile Project Management",
       "issuer": "Politecnico di Milano",
       "issuerIcon": "polimi",

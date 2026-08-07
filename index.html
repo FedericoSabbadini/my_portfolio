@@ -6,10 +6,23 @@
   <title>Federico Sabbadini — Digital Mind</title>
   <meta name="description" content="Interactive portfolio of Federico Sabbadini — a 3D mind mapping his education, work, projects and certifications across AI, Cybersecurity, Data and Software Engineering." />
   <meta name="theme-color" content="#05060A" />
+  <link rel="canonical" href="https://federicosabbadini.github.io/my_portfolio/" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
 
   <meta property="og:title" content="Federico Sabbadini — Digital Mind" />
   <meta property="og:description" content="An interactive 3D portfolio: education, work, projects and certifications across AI, Cybersecurity and Data." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://federicosabbadini.github.io/my_portfolio/" />
+  <meta property="og:image" content="https://federicosabbadini.github.io/my_portfolio/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Federico Sabbadini — Digital Mind, an interactive 3D portfolio in AI, Data and Cybersecurity." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Federico Sabbadini — Digital Mind" />
+  <meta name="twitter:description" content="An interactive 3D portfolio across AI, Cybersecurity and Data." />
+  <meta name="twitter:image" content="https://federicosabbadini.github.io/my_portfolio/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -154,6 +167,25 @@
       <a style="color:#22D3EE" href="https://linkedin.com/in/federicosabbadini">LinkedIn</a>.</p>
     </div>
   </noscript>
+
+  <!-- Boot watchdog: if the ES module (three/gsap from the CDN) never executes —
+       CDN blocked, offline, unsupported browser — the boot loader would hang on
+       "Waking the mind". After a grace period, swap in a static fallback. -->
+  <script>
+    setTimeout(function () {
+      if (window.__mindBooted) return;                 // module ran fine
+      var boot = document.getElementById('boot');
+      if (!boot || boot.classList.contains('is-hidden')) return;
+      boot.innerHTML =
+        '<div style="max-width:640px;padding:0 24px;text-align:center;color:#B7C0D0;font-family:Inter,system-ui,sans-serif">' +
+        '<h1 style="font-family:Sora,sans-serif;color:#EAEEF6;font-size:1.6rem;margin-bottom:12px">Federico Sabbadini</h1>' +
+        '<p style="line-height:1.6;margin-bottom:16px">The interactive view could not load. Reach me at ' +
+        '<a style="color:#22D3EE" href="mailto:federicosabbadini@icloud.com">federicosabbadini@icloud.com</a> ' +
+        'or on <a style="color:#22D3EE" href="https://github.com/FedericoSabbadini">GitHub</a> and ' +
+        '<a style="color:#22D3EE" href="https://linkedin.com/in/federicosabbadini">LinkedIn</a>.</p></div>';
+      boot.style.pointerEvents = 'auto';
+    }, 12000);
+  </script>
 
   <script type="module" src="js/main.js"></script>
 </body>

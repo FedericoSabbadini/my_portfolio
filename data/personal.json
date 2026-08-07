@@ -3,16 +3,15 @@
     "name": "Federico Sabbadini",
     "nameOnly": "Federico",
     "title": "Master's Student in Computer Engineering",
-    "description": "Focused on machine learning & AI, Big Data and cybersecurity. Available for collaborations and internships from autumn 2026. Always open-to-learn.",
+    "description": "Focused on machine learning & AI, Big Data and cybersecurity. Available for collaborations and full-time roles from spring 2027. Always open-to-learn.",
     "bio": [
       "Born in 2002 and based in the province of Brescia, Italy. I completed my scientific high school education at Istituto Salesiano Don Bosco in Chiari (BS) and earned a Bachelor's degree in Computer Engineering from the University of Brescia.",
-      "I am currently pursuing a Master's degree in Computer Engineering, expected to be completed in Autumn 2026.  I'm a curious and determined person with a strong interest in technology and problem-solving. I approach challenges with commitment and consistency, aiming to continuously improve both my technical and analytical skills.  I know that I know nothing: always open-to-learn. "
+      "I am currently pursuing a Master's degree in Computer Engineering, expected to be completed in March 2027.  I'm a curious and determined person with a strong interest in technology and problem-solving. I approach challenges with commitment and consistency, aiming to continuously improve both my technical and analytical skills.  I know that I know nothing: always open-to-learn. "
     ],
     "email": "federicosabbadini@icloud.com",
     "location": "Cologne (BS), Brescia, Italy",
     "birthYear": 2002,
-    "profileImage": "assets/images/profile.jpeg",
-    "profileImageOld": "assets/images/profileOld.jpeg",
+    "profileImage": "assets/images/profile.webp",
     "topSkills": ["Machine learning", "Data Science", "Cybersecurity", "Cloud & OS"]
   },
   "social": {
@@ -54,7 +53,7 @@
   },
   "stats": [
     {
-      "number": "27.9",
+      "number": "28.03",
       "label": "GPA",
       "sublabel": "/30 Master's"
     },

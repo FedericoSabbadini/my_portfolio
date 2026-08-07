@@ -1,13 +1,13 @@
 {
   "masters": {
     "title": "Master's Degree Courses",
-    "subtitle": "University of Brescia • 2024-2026 • Current Weighted Average: 27.97/30 (87 CFU)",
+    "subtitle": "University of Brescia • 2024-2026 • Current Weighted Average: 28.03/30 (87 CFU)",
     "courses": [
       {
         "id": "generative-ai-for-media",
         "name": "Generative AI for Media",
         "grade": "current",
-        "description": "This course introduces the theoretical and practical foundations of generative artificial intelligence for multimedia. It covers signal teory, including Fourier analysis, and the generation of audio, images and videos using generative models.",
+        "description": "This course introduces the theoretical and practical foundations of generative artificial intelligence for multimedia. It covers signal theory, including Fourier analysis, and the generation of audio, images and videos using generative models.",
         "tags": [
           "Signal Theory",
           "Fourier Analysis",

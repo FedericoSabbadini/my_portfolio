@@ -10,6 +10,12 @@ import { createRouter, go } from './router.js';
 import { showRegion, showHome, hideBoot } from './ui/transitions.js';
 import { renderRegion } from './ui/region-view.js';
 
+// Signals to the inline boot-watchdog in index.html that the ES module graph
+// (three/gsap from the CDN) resolved and this script is executing. If the CDN
+// is blocked/unreachable the module never runs, the flag stays false, and the
+// watchdog swaps the boot loader for a static fallback instead of hanging.
+window.__mindBooted = true;
+
 const state = { view: 'home', scene: null, regions: null, data: null, domains: null };
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
