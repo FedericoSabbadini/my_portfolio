@@ -107,43 +107,13 @@
    CONTENT COMPONENTS — shared card/section styles
    ========================================================================= */
 
-/* About — profile hero (cutout portrait + bio) */
-.about-hero {
-  display: grid;
-  grid-template-columns: clamp(200px, 30%, 290px) 1fr;
-  gap: clamp(22px, 4vw, 46px);
-  align-items: center;
-  margin-bottom: 52px;
-}
-.about-photo {
-  position: relative; margin: 0;
-  aspect-ratio: 4 / 5;
-  border-radius: 18px; overflow: hidden;
-  border: 1px solid var(--hairline-2);
-  /* cyan glow behind the head + a dark blue→void base, so the cutout reads as if
-     it emerges from the mind's own palette rather than a bright lecture hall */
-  background:
-    radial-gradient(115% 78% at 50% 15%, color-mix(in srgb, var(--cyan) 24%, transparent) 0%, transparent 55%),
-    radial-gradient(140% 120% at 50% 2%, #101a2c 0%, #0a0f1a 46%, #05060A 100%);
-  box-shadow: 0 24px 55px -32px rgba(0, 0, 0, .85);
-}
-.about-photo__img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: 50% 8%;
-  /* fade the lower edge so he emerges from the dark instead of ending on a line */
-  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 99%);
-          mask-image: linear-gradient(to bottom, #000 72%, transparent 99%);
-}
+/* About — bio */
+.about-bio { margin-bottom: 48px; }
 .about-bio__p {
   font-size: .95rem; line-height: 1.7; color: var(--ink-mut);
   margin-bottom: 12px; max-width: 62ch;
 }
 .about-bio__p:last-child { margin-bottom: 0; }
-@media (max-width: 640px) {
-  .about-hero { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
-  .about-photo { width: min(220px, 64%); margin: 0 auto; }
-}
 
 /* Stats grid */
 .stats-grid {
@@ -506,6 +476,35 @@
 }
 
 /* --- Contacts --- */
+.contacts-lead {
+  padding: 26px clamp(20px, 3vw, 32px);
+  margin-bottom: 40px;
+  border-radius: 16px;
+  border: 1px solid var(--hairline-2);
+  background:
+    radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--region-accent, var(--cyan)) 12%, transparent) 0%, transparent 60%),
+    var(--bg-panel);
+}
+.contacts-lead__title {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.3rem, 1rem + 1.4vw, 1.9rem);
+  color: var(--ink-hi); letter-spacing: -.02em; margin-bottom: 10px;
+}
+.contacts-lead__text {
+  font-size: .95rem; line-height: 1.65; color: var(--ink); max-width: 60ch;
+}
+.contacts-lead__cta {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
+  padding: 11px 20px; border-radius: 999px;
+  background: var(--region-accent, var(--cyan)); color: #05060A;
+  font-family: var(--font-display); font-weight: 600; font-size: .9rem;
+  transition: transform .2s var(--ease-cine), box-shadow .25s, filter .2s;
+}
+.contacts-lead__cta:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--region-accent, var(--cyan)) 70%, transparent);
+}
 .contacts-section { display: flex; flex-direction: column; gap: 40px; }
 .contact-group-label {
   font-family: var(--font-mono); font-size: .58rem;

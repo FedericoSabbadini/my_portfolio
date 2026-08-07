@@ -84,17 +84,10 @@ function renderAbout(data) {
   const interests = raw.interests || [];
   let html = '';
 
-  // Profile hero: cutout portrait on a themed gradient, beside the bio.
-  const bioHtml = (p.bio && p.bio.length)
-    ? p.bio.map((b) => `<p class="about-bio__p">${esc(b)}</p>`).join('')
-    : '';
-  const photo = p.profileImage || 'assets/images/profile.webp';
-  html += `<div class="about-hero">
-    <figure class="about-photo">
-      <img class="about-photo__img" src="${esc(photo)}" alt="Portrait of ${esc(p.name || 'Federico Sabbadini')}" width="620" height="880" />
-    </figure>
-    <div class="about-bio">${bioHtml}</div>
-  </div>`;
+  // Bio
+  if (p.bio && p.bio.length) {
+    html += `<section class="about-bio">${p.bio.map((b) => `<p class="about-bio__p">${esc(b)}</p>`).join('')}</section>`;
+  }
 
   // Stats
   if (stats.length) {
@@ -275,12 +268,28 @@ function renderContacts(data) {
   const raw = data.personal;
   const p = raw.personal || {};
   const social = raw.social || {};
-  let html = '<div class="contacts-section">';
+  let html = '';
+
+  // Lead: give the page a voice — who I am to reach, why, and one clear action.
+  html += `<div class="contacts-lead">
+    <p class="contacts-lead__title">Let's talk.</p>
+    <p class="contacts-lead__text">Open to collaborations, a Master's-thesis internship and full-time roles from spring 2027 — in AI, Data &amp; Cybersecurity. Email is the surest way to reach me, and I reply to every message.</p>
+    ${p.email ? `<a class="contacts-lead__cta" href="mailto:${esc(p.email)}">Write me <span aria-hidden="true">→</span></a>` : ''}
+  </div>`;
+
+  html += '<div class="contacts-section">';
 
   // Primary
   const primary = [];
-  if (p.email) primary.push({ label: 'Email', value: p.email, href: `mailto:${p.email}`, icon: '✉', action: 'Email', wide: true });
-  if (p.location) primary.push({ label: 'Location', value: p.location, icon: '📍' });
+  if (p.email) {
+    // Display the domain only (e.g. "@icloud.com"); the mailto + title keep the full address.
+    const shortEmail = p.email.includes('@') ? `@${p.email.split('@').pop()}` : p.email;
+    primary.push({ label: 'Email', value: shortEmail, title: p.email, href: `mailto:${p.email}`, icon: '✉', action: 'Email' });
+  }
+  if (p.location) {
+    const mapUrl = p.locationUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.location)}`;
+    primary.push({ label: 'Location', value: p.location, title: `Open ${p.location} in Google Maps`, href: mapUrl, icon: '📍', action: 'Map' });
+  }
   if (primary.length) html += contactGroup('Primary', primary);
 
   // Classify the rest of the entries into social links and downloadable docs
@@ -320,6 +329,7 @@ function contactGroup(title, items) {
       if (external) attrs += ' target="_blank" rel="noopener"';
       if (c.download) attrs += ' download';
     }
+    if (c.title) attrs += ` title="${esc(c.title)}"`;
     h += `<${tag} class="contact-card${c.wide ? ' contact-card--wide' : ''}"${attrs}>`;
     h += `<span class="contact-card__icon" aria-hidden="true">${c.icon}</span>`;
     h += `<div class="contact-card__body"><div class="contact-card__label">${esc(c.label)}</div><div class="contact-card__value">${esc(c.value)}</div></div>`;
