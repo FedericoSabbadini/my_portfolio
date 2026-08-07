@@ -77,8 +77,18 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 .site-header__inner {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: clamp(16px, 2vw, 22px) clamp(16px, 3.4vw, 40px);
-  max-width: 1360px; margin: 0 auto;
+  /* Home: full-bleed row whose left edge shares .home-panel's exact clamp, so the
+     identity chip lines up with the intro + region list at every width. */
+  padding: clamp(16px, 2vw, 22px) clamp(20px, 3.4vw, 44px);
+  max-width: none; margin: 0;
+}
+/* Region: the header tracks the centred catalog column (same max-width + inline
+   padding as .region-hero / .region-main), so the identity aligns with the title
+   on the left and the back button aligns with the content edge on the right. */
+body.view-region .site-header__inner {
+  max-width: 1000px; margin: 0 auto;
+  padding-left: clamp(16px, 4vw, 44px);
+  padding-right: clamp(16px, 4vw, 44px);
 }
 
 /* --- Identity: a floating glass "chip" with a synapse mark, matching the
@@ -129,6 +139,12 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   letter-spacing: .16em; text-transform: uppercase; color: var(--ink-mut);
   white-space: nowrap;
 }
+/* The identity chip is the full name on the mind (home), and a clear "back to the
+   mind" affordance on a region page. display:none keeps only the active one in the
+   a11y tree. */
+.site-header__id-text--mind { display: none; }
+body.view-region .site-header__id-text--home { display: none; }
+body.view-region .site-header__id-text--mind { display: flex; }
 .site-header__slot { display: flex; align-items: center; gap: 10px; pointer-events: auto; flex: none; }
 
 /* on a region page, content scrolls beneath the header — a soft scrim lets it

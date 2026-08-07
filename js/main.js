@@ -19,6 +19,13 @@ window.__mindBooted = true;
 const state = { view: 'home', scene: null, regions: null, data: null, domains: null };
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Tracks whether we've navigated within the app since load. Lets the "Back"
+// button return to the actual previous page (history.back) when there is in-app
+// history, and fall back to the mind when the region was the entry point (deep
+// link) so Back can never leave the site.
+let navigatedInApp = false;
+window.addEventListener('hashchange', () => { navigatedInApp = true; });
+
 boot();
 
 async function boot() {
@@ -154,9 +161,12 @@ async function enterHome() {
 
 /* ---- chrome ------------------------------------------------------------- */
 function wireChrome() {
+  // "Back" → the previous page (region → region, or region → mind). Falls back to
+  // the mind when there's no in-app history to step back to (direct deep link).
   document.getElementById('back-to-mind').addEventListener('click', (e) => {
     e.preventDefault();
-    go('#/');
+    if (navigatedInApp && window.history.length > 1) window.history.back();
+    else go('#/');
   });
   const headerHome = document.getElementById('header-home');
   if (headerHome) {
