@@ -223,12 +223,21 @@ export class BrainRegions {
   /* --- Keep callout + marker pinned to the (rotating) region anchor --- */
   _follow() {
     if (!this.hovered || !this._showCallout || this._diving) return;
-    // Mobile: the floating callout + cortex marker are hidden by CSS (those
-    // dynamic tour cards shouldn't show on a phone — the nav grid tracks the
-    // active region instead), so there's nothing to position here.
+    // Mobile/tablet: the cortex marker never shows on the full-bleed backdrop.
+    // The floating callout is desktop-only for hover — EXCEPT during the guided
+    // tour, where CSS pins it as a fixed banner naming the current region (the
+    // nav grid can't convey the description, and the brain has no label). Clear
+    // any stale inline coordinates left by a prior desktop layout (orientation
+    // change) so the CSS-centred position wins.
     if (this.scene.stacked) {
-      this._callout.classList.remove('is-visible');
       this._marker.classList.remove('is-visible');
+      if (this._touring) {
+        this._callout.style.left = '';
+        this._callout.style.top = '';
+        this._callout.classList.add('is-visible');
+      } else {
+        this._callout.classList.remove('is-visible');
+      }
       return;
     }
     const p = this.scene.projectRegion(this.hovered);

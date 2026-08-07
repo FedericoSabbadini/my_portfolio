@@ -45,8 +45,15 @@
   60%  { opacity: .72; }
   100% { opacity: 0; transform: scale(.96); }
 }
+/* Reduced-motion: no scale/plunge, but a gentle opacity-only bloom so tapping a
+   region still reads as an intentional transition rather than a hard cut. */
 @media (prefers-reduced-motion: reduce) {
-  .dive-flash.is-firing { animation: none; }
+  .dive-flash.is-firing { animation: dive-flash-soft .5s ease forwards; }
+  @keyframes dive-flash-soft {
+    0%   { opacity: 0; transform: none; }
+    45%  { opacity: .5; }
+    100% { opacity: 0; transform: none; }
+  }
 }
 
 /* --- Tour button (lives in the header slot) --- */
@@ -272,11 +279,31 @@
   .site-header__role { display: none; }
 
   /* On a phone there's no hover, so the floating callout would only ever appear
-     during the tour — and those dynamic cards shouldn't show on mobile. Hide it
-     (and the cortex marker); the nav grid's active-item highlight already tracks
-     which region the brain is showing, and it stays visible throughout. */
-  .callout { display: none !important; }
+     during the tour. The cortex marker still makes no sense on the full-bleed
+     backdrop, so hide it — but keep a callout available for the guided tour so
+     the visitor can read which region is on screen (see the tour rule below). */
+  .callout { display: none; }
   .callout-marker { display: none !important; }
+
+  /* --- Guided tour on tablet/mobile: pin the region label as a fixed banner
+     under the header (the desktop callout follows the cortex; here there's no
+     hover, so a centred card naming the current region is what makes the tour
+     legible). The nav grid's active card still highlights in sync below. */
+  body.is-touring .callout {
+    display: block;
+    position: fixed; left: 50%; right: auto;
+    top: calc(env(safe-area-inset-top, 0px) + 74px);
+    transform: translateX(-50%) translateY(-6px);
+    width: min(340px, 86vw);
+    z-index: 30;
+  }
+  body.is-touring .callout.is-visible { transform: translateX(-50%) translateY(0); }
+
+  /* the toured region's card lifts a touch more so the eye connects it to the
+     brain above */
+  body.is-touring .region-nav__item.is-active {
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--item-accent, var(--cyan)) 40%, transparent);
+  }
 }
 
 /* Narrow phones: one clean column reads better than cramped pairs */
