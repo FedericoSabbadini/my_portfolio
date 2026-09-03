@@ -18,37 +18,37 @@
     "github": {
       "username": "FedericoSabbadini",
       "url": "https://github.com/FedericoSabbadini",
-      "icon": "💻"
+      "icon": "github"
     },
     "linkedin": {
       "username": "federicosabbadini",
       "url": "https://linkedin.com/in/federicosabbadini",
-      "icon": "💼"
+      "icon": "linkedin"
     },
     "phone": {
       "label": "Phone",
       "number": "+393342030281",
-      "icon": "📞"
+      "icon": "phone"
     },
     "email": {
       "label": "Email",
       "address": "federicosabbadini@icloud.com",
-      "icon": "📧"
+      "icon": "email"
     },
     "cv": {
       "label": "CV",
       "url": "assets/CV/FedericoSabbadini_CV.pdf",
-      "icon": "📄"
+      "icon": "doc"
     },
     "europass": {
       "label": "Europass",
       "url": "assets/CV/Federico_Sabbadini_CVEU.pdf",
-      "icon": "📄"
+      "icon": "doc"
     },
     "coverLetter": {
       "label": "Cover Letter",
       "url": "assets/CV/Federico_Sabbadini_Cover_Letter.pdf",
-      "icon": "📄"
+      "icon": "doc"
     }
   },
   "stats": [
@@ -97,17 +97,17 @@
   ],
   "interests": [
     {
-      "icon": "🏊",
+      "icon": "sports",
       "title": "Sports",
       "description": "Watching and practicing sport have helped me develop discipline, determination, and teamwork skills."
     },
     {
-      "icon": "📚",
+      "icon": "book",
       "title": "Continuous Learning",
       "description": "Passionate about reading, history, technology trends, and staying updated."
     },
     {
-      "icon": "🌍",
+      "icon": "globe",
       "title": "Travel & Culture",
       "description": "Visiting the world has broadened my cultural perspective and language skills."
     }

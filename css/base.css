@@ -119,11 +119,6 @@ body.view-region .site-header__inner {
   border: 1px solid color-mix(in srgb, var(--cyan) 24%, transparent);
 }
 .site-header__mark svg { display: block; }
-.site-header__mark-ring { transform-origin: 16px 16px; animation: mark-pulse 3.4s var(--ease-inout) infinite; }
-@keyframes mark-pulse {
-  0%, 100% { opacity: .18; transform: scale(.86); }
-  50%      { opacity: .4;  transform: scale(1.06); }
-}
 
 .site-header__id-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .site-header__name {

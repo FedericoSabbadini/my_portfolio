@@ -6,6 +6,25 @@ import { groupBySubject } from '../data/taxonomy.js';
 const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const cap = (s) => String(s).charAt(0).toUpperCase() + String(s).slice(1);
 
+/* --- Linear icon set (24px grid, currentColor). One visual voice: hairline
+   outlines for UI glyphs, solid paths only for brand marks. --- */
+const STROKE_ATTRS = 'viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+const FILL_ATTRS = 'viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"';
+const ICONS = {
+  email: `<svg ${STROKE_ATTRS}><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>`,
+  phone: `<svg ${STROKE_ATTRS}><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>`,
+  pin: `<svg ${STROKE_ATTRS}><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>`,
+  doc: `<svg ${STROKE_ATTRS}><path d="M7 3h7l5 5v13H7Z"/><path d="M14 3v5h5"/><path d="M9.5 13h5M9.5 16.5h5"/></svg>`,
+  link: `<svg ${STROKE_ATTRS}><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>`,
+  globe: `<svg ${STROKE_ATTRS}><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/></svg>`,
+  book: `<svg ${STROKE_ATTRS}><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>`,
+  sports: `<svg ${STROKE_ATTRS}><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>`,
+  github: `<svg ${FILL_ATTRS}><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C16.4 4.9 17.4 5.2 17.4 5.2c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>`,
+  linkedin: `<svg ${FILL_ATTRS}><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.22 8.09h4.56V23H.22V8.09ZM8.34 8.09h4.37v2.04h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.24h-4.55v-7.3c0-1.74-.03-3.99-2.43-3.99-2.44 0-2.81 1.9-2.81 3.86V23H8.34V8.09Z"/></svg>`,
+};
+/* data files carry an icon key; unknown values fall back to the link glyph */
+const icon = (key) => ICONS[key] || ICONS.link;
+
 export function renderRegion(regionId, data, domains) {
   const domain = domains.find((d) => d.id === regionId);
   if (!domain) return;
@@ -119,7 +138,7 @@ function renderAbout(data) {
   if (interests.length) {
     html += `<h2 class="section-kicker">Interests</h2><div class="interests-grid">`;
     for (const i of interests) {
-      html += `<div class="interest-card"><span class="interest-icon" aria-hidden="true">${i.icon || '✦'}</span><div><div class="interest-title">${esc(i.name || i.title || '')}</div>${i.description ? `<div class="interest-desc">${esc(i.description)}</div>` : ''}</div></div>`;
+      html += `<div class="interest-card"><span class="interest-icon" aria-hidden="true">${icon(i.icon)}</span><div><div class="interest-title">${esc(i.name || i.title || '')}</div>${i.description ? `<div class="interest-desc">${esc(i.description)}</div>` : ''}</div></div>`;
     }
     html += `</div>`;
   }
@@ -284,11 +303,11 @@ function renderContacts(data) {
   if (p.email) {
     // Display the domain only (e.g. "@icloud.com"); the mailto + title keep the full address.
     const shortEmail = p.email.includes('@') ? `@${p.email.split('@').pop()}` : p.email;
-    primary.push({ label: 'Email', value: shortEmail, title: p.email, href: `mailto:${p.email}`, icon: '✉', action: 'Email' });
+    primary.push({ label: 'Email', value: shortEmail, title: p.email, href: `mailto:${p.email}`, icon: icon('email'), action: 'Email' });
   }
   if (p.location) {
     const mapUrl = p.locationUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.location)}`;
-    primary.push({ label: 'Location', value: p.location, title: `Open ${p.location} in Google Maps`, href: mapUrl, icon: '📍', action: 'Map' });
+    primary.push({ label: 'Location', value: p.location, title: `Open ${p.location} in Google Maps`, href: mapUrl, icon: icon('pin'), action: 'Map' });
   }
   if (primary.length) html += contactGroup('Primary', primary);
 
@@ -299,16 +318,16 @@ function renderContacts(data) {
     const k = key.toLowerCase();
     if (k === 'email') continue;                 // already shown in Primary
     const label = info.label || cap(key);
-    const icon = info.icon || '🔗';
+    const iconSvg = icon(info.icon);
     if (docKeys.has(k) && info.url) {
-      docs.push({ label, value: 'PDF document', href: info.url, icon, action: 'Download', download: true });
+      docs.push({ label, value: 'PDF document', href: info.url, icon: iconSvg, action: 'Download', download: true });
     } else {
       const href = info.url
         || (info.address ? `mailto:${info.address}` : '')
         || (info.number ? `tel:${info.number}` : '');
       const value = info.username || info.address || info.number || label;
       const action = href.startsWith('tel:') ? 'Call' : (href.startsWith('mailto:') ? 'Email' : 'Open');
-      links.push({ label, value, href, icon, action });
+      links.push({ label, value, href, icon: iconSvg, action });
     }
   }
   if (links.length) html += contactGroup('Links & Social', links);

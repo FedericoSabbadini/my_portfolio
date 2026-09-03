@@ -161,7 +161,8 @@
   display: flex; gap: 12px; padding: 16px; border-radius: 10px;
   border: 1px solid var(--hairline);
 }
-.interest-icon { font-size: 1.3rem; flex: none; }
+.interest-icon { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; color: var(--region-accent, #38BDF8); }
+.interest-icon svg { width: 20px; height: 20px; display: block; }
 .interest-title { font-family: var(--font-display); font-weight: 500; font-size: .88rem; color: var(--ink-hi); margin-bottom: 4px; }
 .interest-desc { font-size: .8rem; line-height: 1.5; color: var(--ink-mut); }
 
@@ -534,6 +535,7 @@
   background: color-mix(in srgb, var(--region-accent, #38BDF8) 8%, transparent);
   color: var(--region-accent, #38BDF8);
 }
+.contact-card__icon svg { width: 20px; height: 20px; display: block; }
 .contact-card__body { flex: 1; min-width: 0; }
 .contact-card__label {
   font-family: var(--font-mono); font-size: .54rem;
