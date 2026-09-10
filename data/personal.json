@@ -36,23 +36,26 @@
       "icon": "email"
     },
     "cv": {
-      "label": "CV",
+      "label": "PDF CV",
+      "value": "Curriculum Vitae",
       "url": "assets/CV/FedericoSabbadini_CV.pdf",
       "icon": "doc"
     },
     "europass": {
-      "label": "Europass",
+      "label": "PDF EP",
+      "value": "Europass CV",
       "url": "assets/CV/Federico_Sabbadini_CVEU.pdf",
       "icon": "doc"
     },
     "coverLetter": {
-      "label": "Cover Letter",
+      "label": "PDF CL",
+      "value": "Cover Letter",
       "url": "assets/CV/Federico_Sabbadini_Cover_Letter.pdf",
       "icon": "doc"
     },
     "workSafetyCert": {
-      "label": "Work Safety Certificate",
-      "value": "Certificato formazione sicurezza sul lavoro",
+      "label": "PDF WSC",
+      "value": "Work Safety Certificate",
       "url": "assets/CV/FedericoSabbadini_CFL.pdf",
       "icon": "doc"
     }
