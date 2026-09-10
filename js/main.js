@@ -69,17 +69,12 @@ async function boot() {
   maybeAutoTour();
 }
 
-/* On the very first visit, play one automatic guided-tour lap so newcomers see
-   what the six regions are. Runs once (localStorage), only when landing on the
-   home view, and never for reduced-motion users. */
+/* Play one automatic guided-tour lap when the portfolio opens on the home view.
+   Respect reduced-motion preferences and let the user control later tours. */
 function maybeAutoTour() {
   if (!state.regions || reducedMotion) return;
   const onHome = !location.hash || location.hash === '#' || location.hash === '#/';
   if (!onHome) return;
-  let seen = false;
-  try { seen = localStorage.getItem('mind_tour_seen') === '1'; } catch (e) {}
-  if (seen) return;
-  try { localStorage.setItem('mind_tour_seen', '1'); } catch (e) {}
   setTimeout(() => {
     if (state.view === 'home' && state.regions) state.regions.autoTour();
   }, 1600);

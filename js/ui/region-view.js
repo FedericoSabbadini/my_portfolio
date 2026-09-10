@@ -292,7 +292,7 @@ function renderContacts(data) {
   // Lead: give the page a voice — who I am to reach, why, and one clear action.
   html += `<div class="contacts-lead">
     <p class="contacts-lead__title">Let's talk.</p>
-    <p class="contacts-lead__text">Open to collaborations, a Master's-thesis internship and full-time roles from spring 2027 — in AI, Data &amp; Cybersecurity. Email is the surest way to reach me, and I reply to every message.</p>
+    <p class="contacts-lead__text">I am currently completing my Master's thesis and internship at Beretta. For opportunities from spring 2027 in AI, Data &amp; Cybersecurity, email is the surest way to reach me and I reply to every message.</p>
     ${p.email ? `<a class="contacts-lead__cta" href="mailto:${esc(p.email)}">Write me <span aria-hidden="true">→</span></a>` : ''}
   </div>`;
 
@@ -312,7 +312,7 @@ function renderContacts(data) {
   if (primary.length) html += contactGroup('Primary', primary);
 
   // Classify the rest of the entries into social links and downloadable docs
-  const docKeys = new Set(['cv', 'europass', 'coverletter', 'resume']);
+  const docKeys = new Set(['cv', 'europass', 'coverletter', 'resume', 'worksafetycert']);
   const links = [], docs = [];
   for (const [key, info] of Object.entries(social)) {
     const k = key.toLowerCase();
@@ -320,7 +320,15 @@ function renderContacts(data) {
     const label = info.label || cap(key);
     const iconSvg = icon(info.icon);
     if (docKeys.has(k) && info.url) {
-      docs.push({ label, value: 'PDF document', href: info.url, icon: iconSvg, action: 'Download', download: true });
+      const downloadable = !/^https?:\/\//i.test(info.url);
+      docs.push({
+        label,
+        value: info.value || (downloadable ? 'PDF document' : 'Online credential'),
+        href: info.url,
+        icon: iconSvg,
+        action: info.action || (downloadable ? 'Download' : 'Verify'),
+        download: downloadable,
+      });
     } else {
       const href = info.url
         || (info.address ? `mailto:${info.address}` : '')
