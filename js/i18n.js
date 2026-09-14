@@ -21,6 +21,7 @@ async function loadLocale(locale) {
   const res = await fetch(`${I18N_BASE}${locale}.json`);
   if (!res.ok) throw new Error(`Failed to load ${locale}.json`);
   const json = await res.json();
+  console.log('[i18n] Loaded locale:', locale, Object.keys(json));
   translationsCache.set(locale, json);
   return json;
 }
@@ -39,11 +40,13 @@ export function getLocale() {
  */
 export async function setLocale(locale) {
   if (!SUPPORTED_LOCALES.includes(locale)) locale = DEFAULT_LOCALE;
+  console.log('[i18n] setLocale called:', locale);
   currentLocale = locale;
   localStorage.setItem('locale', locale);
   document.documentElement.lang = locale;
   await loadLocale(locale);
   notifyListeners();
+  console.log('[i18n] Locale changed to:', currentLocale);
 }
 
 /**

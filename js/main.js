@@ -93,7 +93,9 @@ function applyStaticTranslations() {
   // Elements with data-i18n attribute
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    el.textContent = t(key);
+    const translated = t(key);
+    console.log('[i18n] Translating', key, '->', translated);
+    el.textContent = translated;
   });
   // Elements with data-i18n-aria-label attribute
   document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
