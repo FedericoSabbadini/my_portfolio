@@ -6,7 +6,7 @@
    callout + surface marker appear. Click → the camera dives in, then we
    navigate. The tour cycles through the regions on a timer.
    ========================================================================= */
-import { localize, t } from '../../i18n.js';
+import { localize, t } from '../i18n.js';
 
 export class BrainRegions {
   constructor(scene, domains, { onDive } = {}) {
@@ -41,14 +41,12 @@ export class BrainRegions {
 
   /* --- Sidebar nav --- */
   _buildNav() {
-    this._nav.innerHTML = this.domains.map((d) => `
-      <button class="region-nav__item" data-region="${d.id}" style="--item-accent:${d.accent}" type="button" aria-label="Explore ${localize(d, 'label')}">
-        <span class="region-nav__dot"></span>
-        <span class="region-nav__col">
-          <span class="region-nav__label">${localize(d, 'label')}</span>
-          <span class="region-nav__lobe">${localize(d, 'region')}</span>
-        </span>
-      </button>`).join('');
+    this._renderNav();
+
+    // Bind the delegated listeners exactly once — re-rendering the items (e.g.
+    // on a language change) must not stack duplicate handlers on the container.
+    if (this._navBound) return;
+    this._navBound = true;
 
     // pointer hover on an item focuses its region (unless touring / diving)
     this._nav.addEventListener('pointerover', (e) => {
@@ -72,6 +70,28 @@ export class BrainRegions {
       const btn = e.target.closest('[data-region]');
       if (btn) this._dive(btn.dataset.region);
     });
+  }
+
+  /* Render the nav items in the active locale (no listener work). */
+  _renderNav() {
+    this._nav.innerHTML = this.domains.map((d) => `
+      <button class="region-nav__item" data-region="${d.id}" style="--item-accent:${d.accent}" type="button" aria-label="${localize(d, 'label')}">
+        <span class="region-nav__dot"></span>
+        <span class="region-nav__col">
+          <span class="region-nav__label">${localize(d, 'label')}</span>
+          <span class="region-nav__lobe">${localize(d, 'region')}</span>
+        </span>
+      </button>`).join('');
+  }
+
+  /** Re-render the nav in the active locale and restore the hovered state. */
+  rebuildNav() {
+    this._renderNav();
+    if (this.hovered) {
+      this._nav.querySelectorAll('.region-nav__item').forEach((btn) => {
+        btn.classList.toggle('is-active', btn.dataset.region === this.hovered);
+      });
+    }
   }
 
   /* --- Tour --- */

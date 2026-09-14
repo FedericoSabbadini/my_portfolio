@@ -161,7 +161,7 @@ body.view-region .site-header__id-text--mind { display: flex; }
   align-items: center;
   gap: 6px;
   padding: 6px 10px;
-  border-radius: var(--r-pill-sm);
+  border-radius: var(--r-pill);
   font-family: var(--font-mono);
   font-size: var(--t-xs);
   font-weight: 500;

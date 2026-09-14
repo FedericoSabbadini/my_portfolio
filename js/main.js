@@ -54,8 +54,9 @@ async function boot() {
       const match = hash.match(/^#\/region\/(.+)$/);
       if (match) renderRegion(match[1], state.data, state.domains);
     } else {
-      // Update home view texts
+      // Update home view texts + region nav with the new locale
       updateHomeView();
+      if (state.regions) state.regions.rebuildNav();
     }
     // Update document title
     updateDocumentTitle();
@@ -93,9 +94,7 @@ function applyStaticTranslations() {
   // Elements with data-i18n attribute
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    const translated = t(key);
-    console.log('[i18n] Translating', key, '->', translated);
-    el.textContent = translated;
+    el.textContent = t(key);
   });
   // Elements with data-i18n-aria-label attribute
   document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
@@ -144,34 +143,27 @@ function updateDocumentTitle() {
 
 function wireLanguageSwitcher() {
   const switcher = document.getElementById('lang-switcher');
-  if (!switcher) {
-    console.warn('[i18n] lang-switcher not found');
-    return;
-  }
-  
+  if (!switcher) return;
+
   switcher.addEventListener('click', async (e) => {
     const btn = e.target.closest('.lang-btn');
     if (!btn) return;
     const lang = btn.dataset.lang;
     if (lang === getLocale()) return;
-    
-    console.log('[i18n] Switching to', lang);
-    
+
     // Update button states
     switcher.querySelectorAll('.lang-btn').forEach(b => {
       b.setAttribute('aria-pressed', b.dataset.lang === lang);
     });
-    
+
     await setLocale(lang);
   });
-  
+
   // Set initial active state
   const currentLang = getLocale();
   switcher.querySelectorAll('.lang-btn').forEach(b => {
     b.setAttribute('aria-pressed', b.dataset.lang === currentLang);
   });
-  
-  console.log('[i18n] Language switcher wired, current locale:', currentLang);
 }
 
 /* Play one automatic guided-tour lap when the portfolio opens on the home view.

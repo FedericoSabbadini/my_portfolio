@@ -4,7 +4,7 @@
 import { groupBySubject } from '../data/taxonomy.js';
 import { t, localize, localizeArray } from '../i18n.js';
 
-const esc = (s) => String(s).replace(/&/g,'&').replace(/</g,'<').replace(/>/g,'>').replace(/"/g,'"');
+const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const cap = (s) => String(s).charAt(0).toUpperCase() + String(s).slice(1);
 
 /* --- Linear icon set (24px grid, currentColor). One visual voice: hairline
