@@ -3,14 +3,23 @@
     {
       "id": "masters",
       "degree": "Master's degree in Computer Engineering",
+      "degree_it": "Laurea Magistrale in Ingegneria Informatica",
       "institution": "University of Brescia",
       "period": "Sep 2024 - Mar 2027 (Expected)",
       "status": "current",
       "statusLabel": "Current",
+      "statusLabel_it": "In corso",
       "statusBadge": "badge-success",
       "gpa": "28.03/30",
       "description": "Specializing in cybersecurity, systems administration, artificial intelligence, and advanced software engineering. Focusing on network security, machine learning applications, and enterprise system architecture.",
+      "description_it": "Specializzazione in cybersecurity, systems administration, artificial intelligence e advanced software engineering. Focus su network security, applicazioni machine learning e architettura sistemi enterprise.",
       "tags": [
+        "Cybersecurity",
+        "Machine Learning",
+        "Network Security",
+        "Systems Administration"
+      ],
+      "tags_it": [
         "Cybersecurity",
         "Machine Learning",
         "Network Security",
@@ -24,18 +33,27 @@
     {
       "id": "bachelors",
       "degree": "Bachelor's degree in Computer Engineering",
+      "degree_it": "Laurea Triennale in Ingegneria Informatica",
       "institution": "University of Brescia",
       "period": "Sep 2021 - Oct 2024",
       "status": "completed",
       "statusLabel": "Completed",
+      "statusLabel_it": "Completato",
       "statusBadge": "badge-primary",
       "gpa": "104/110",
       "description": "Focused on computer systems, networks, software development, and security fundamentals. Completed thesis on OpenID Connect and Digital Identity Management.",
+      "description_it": "Focus su sistemi calcolatori, reti, sviluppo software e fondamenti security. Completata tesi su OpenID Connect e Digital Identity Management.",
       "tags": [
         "Problem Solving",
         "Computer Architectures",
         "Networks",
         "Algorithms"
+      ],
+      "tags_it": [
+        "Problem Solving",
+        "Architetture Calcolatori",
+        "Reti",
+        "Algoritmi"
       ],
       "featured": true,
       "news": false,
@@ -45,13 +63,16 @@
     {
       "id": "highschools",
       "degree": "Scientific High School Diploma",
+      "degree_it": "Diploma Liceo Scientifico",
       "institution": "Salesiani San Bernardino, Chiari (BS)",
       "period": "Sep 2016 - Sep 2021",
       "status": "completed",
       "statusLabel": "Completed",
+      "statusLabel_it": "Completato",
       "statusBadge": "badge-primary",
       "gpa": "100/100",
       "description": "Scientific curriculum with focus on mathematic, art, history, physic, and sciences. Participated in study abroad program at Pitzer College, USA (Jul-Aug 2019).",
+      "description_it": "Curriculum scientifico con focus su matematica, arte, storia, fisica e scienze. Partecipato a programma studio all'estero presso Pitzer College, USA (Lug-Ago 2019).",
       "featured": false,
       "news": false,
       "url": "https://salesianichiari.it/scuole/licei/liceo-scientifico/",

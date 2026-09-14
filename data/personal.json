@@ -3,59 +3,80 @@
     "name": "Federico Sabbadini",
     "nameOnly": "Federico",
     "title": "Master's Student in Computer Engineering",
+    "title_it": "Studente Magistrale in Ingegneria Informatica",
     "description": "Focused on machine learning & AI, Big Data and cybersecurity. Currently completing my Master's thesis and internship at Beretta; open to full-time roles from spring 2027.",
+    "description_it": "Specializzato in machine learning & AI, Big Data e cybersecurity. Sto completando la tesi magistrale e il tirocinio in Beretta; aperto a ruoli full-time da primavera 2027.",
     "bio": [
       "Born in 2002 and based in the province of Brescia, Italy. I completed my scientific high school education at Istituto Salesiano Don Bosco in Chiari (BS) and earned a Bachelor's degree in Computer Engineering from the University of Brescia.",
       "I am currently pursuing a Master's degree in Computer Engineering, expected to be completed in March 2027.  I'm a curious and determined person with a strong interest in technology and problem-solving. I approach challenges with commitment and consistency, aiming to continuously improve both my technical and analytical skills.  I know that I know nothing: always open-to-learn. "
+    ],
+    "bio_it": [
+      "Nato nel 2002 e residente in provincia di Brescia, Italia. Ho completato il liceo scientifico all'Istituto Salesiano Don Bosco di Chiari (BS) e conseguito la laurea triennale in Ingegneria Informatica all'Università di Brescia.",
+      "Sto attualmente frequentando la laurea magistrale in Ingegneria Informatica, con completamento previsto per marzo 2027. Sono una persona curiosa e determinata con un forte interesse per la tecnologia e il problem-solving. Affronto le sfide con impegno e costanza, mirando a migliorare continuamente le mie competenze tecniche e analitiche. So di non sapere: sempre aperto ad imparare."
     ],
     "email": "federicosabbadini@icloud.com",
     "location": "Cologne (BS), Brescia, Italy",
     "locationUrl": "https://www.google.com/maps/search/?api=1&query=Cologne%2C+Provincia+di+Brescia%2C+Italia",
     "birthYear": 2002,
-    "topSkills": ["Machine learning", "Data Science", "Cybersecurity", "Cloud & OS"]
+    "topSkills": ["Machine learning", "Data Science", "Cybersecurity", "Cloud & OS"],
+    "topSkills_it": ["Machine learning", "Data Science", "Cybersecurity", "Cloud & OS"]
   },
   "social": {
     "github": {
       "username": "FedericoSabbadini",
       "url": "https://github.com/FedericoSabbadini",
-      "icon": "github"
+      "icon": "github",
+      "label": "GitHub",
+      "label_it": "GitHub"
     },
     "linkedin": {
       "username": "federicosabbadini",
       "url": "https://linkedin.com/in/federicosabbadini",
-      "icon": "linkedin"
+      "icon": "linkedin",
+      "label": "LinkedIn",
+      "label_it": "LinkedIn"
     },
     "phone": {
       "label": "Phone",
+      "label_it": "Telefono",
       "number": "+393342030281",
       "icon": "phone"
     },
     "email": {
       "label": "Email",
+      "label_it": "Email",
       "address": "federicosabbadini@icloud.com",
       "icon": "email"
     },
     "cv": {
       "label": "PDF CV",
+      "label_it": "PDF CV",
       "value": "Curriculum Vitae",
+      "value_it": "Curriculum Vitae",
       "url": "assets/CV/FedericoSabbadini_CV.pdf",
       "icon": "doc"
     },
     "europass": {
       "label": "PDF EP",
+      "label_it": "PDF EP",
       "value": "Europass CV",
+      "value_it": "CV Europass",
       "url": "assets/CV/Federico_Sabbadini_CVEU.pdf",
       "icon": "doc"
     },
     "coverLetter": {
       "label": "PDF CL",
+      "label_it": "PDF CL",
       "value": "Cover Letter",
+      "value_it": "Lettera di Presentazione",
       "url": "assets/CV/Federico_Sabbadini_Cover_Letter.pdf",
       "icon": "doc"
     },
     "workSafetyCert": {
       "label": "PDF WSC",
+      "label_it": "PDF WSC",
       "value": "Work Safety Certificate",
+      "value_it": "Certificato Sicurezza Lavoro",
       "url": "assets/CV/FedericoSabbadini_CFL.pdf",
       "icon": "doc"
     }
@@ -64,43 +85,59 @@
     {
       "number": "28.03",
       "label": "GPA",
-      "sublabel": "/30 Master's"
+      "label_it": "Media",
+      "sublabel": "/30 Master's",
+      "sublabel_it": "/30 Magistrale"
     },
     {
       "number": "3",
       "label": "EC-Council",
-      "sublabel": "Certifications"
+      "label_it": "EC-Council",
+      "sublabel": "Certifications",
+      "sublabel_it": "Certificazioni"
     },
     {
       "number": "10+",
       "label": "Projects",
-      "sublabel": "Completed"
+      "label_it": "Progetti",
+      "sublabel": "Completed",
+      "sublabel_it": "Completati"
     },
     {
       "number": "3",
       "label": "Academic",
-      "sublabel": "Scholarships"
+      "label_it": "Accademiche",
+      "sublabel": "Scholarships",
+      "sublabel_it": "Borse di Studio"
     }
   ],
   "languages": [
     {
       "name": "Italiano",
+      "name_it": "Italiano",
       "flag": "🇮🇹",
       "level": "Native Speaker",
+      "level_it": "Madrelingua",
       "percentage": 100
     },
     {
       "name": "English",
+      "name_it": "Inglese",
       "flag": "🇬🇧",
       "level": "B1-B2 Intermediate",
+      "level_it": "B1-B2 Intermedio",
       "detail": "Reading & Listening: B2 • Speaking & Writing: B1",
+      "detail_it": "Lettura e Ascolto: B2 • Parlato e Scritto: B1",
       "percentage": 70
     },
     {
       "name": "Deutsch",
+      "name_it": "Tedesco",
       "flag": "🇩🇪",
       "level": "A1 Basic",
+      "level_it": "A1 Base",
       "detail": "Study abroad: Germany 2016",
+      "detail_it": "Studio all'estero: Germania 2016",
       "percentage": 20
     }
   ],
@@ -108,17 +145,23 @@
     {
       "icon": "sports",
       "title": "Sports",
-      "description": "Watching and practicing sport have helped me develop discipline, determination, and teamwork skills."
+      "title_it": "Sport",
+      "description": "Watching and practicing sport have helped me develop discipline, determination, and teamwork skills.",
+      "description_it": "Guardare e praticare sport mi ha aiutato a sviluppare disciplina, determinazione e capacità di lavoro in team."
     },
     {
       "icon": "book",
       "title": "Continuous Learning",
-      "description": "Passionate about reading, history, technology trends, and staying updated."
+      "title_it": "Apprendimento Continuo",
+      "description": "Passionate about reading, history, technology trends, and staying updated.",
+      "description_it": "Appassionato di lettura, storia, trend tecnologici e aggiornamento costante."
     },
     {
       "icon": "globe",
       "title": "Travel & Culture",
-      "description": "Visiting the world has broadened my cultural perspective and language skills."
+      "title_it": "Viaggi e Cultura",
+      "description": "Visiting the world has broadened my cultural perspective and language skills.",
+      "description_it": "Viaggiare per il mondo ha ampliato la mia prospettiva culturale e le competenze linguistiche."
     }
   ]
 }

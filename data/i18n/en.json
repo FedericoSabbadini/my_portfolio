@@ -1,0 +1,99 @@
+{
+  "header": {
+    "homeAriaLabel": "Federico Sabbadini — back to the mind",
+    "role": "Computer Engineering — AI · Data",
+    "mindName": "My Mind",
+    "mindRole": "Back to the map",
+    "tourAriaLabel": "Guided tour of the mind",
+    "tourLabel": "Tour",
+    "backAriaLabel": "Go back to the previous page",
+    "backLabel": "Back"
+  },
+  "home": {
+    "intro": "An interactive map of everything I've studied and built. Hover a region to explore it — or take the guided tour.",
+    "leadKicker": "Knowledge Base",
+    "leadTitle": "Step inside my digital mind",
+    "leadSub": "Six regions — everything I've studied and built. Tap one to dive in, or take the tour.",
+    "kicker": "Regions",
+    "calloutKicker": "Lobe"
+  },
+  "region": {
+    "footerLabel": "Other Regions",
+    "heroAriaLabel": "Region details"
+  },
+  "about": {
+    "bioLabel": "Bio",
+    "statsLabel": "Key Numbers",
+    "skillsLabel": "Core Skills",
+    "languagesLabel": "Languages",
+    "interestsLabel": "Interests",
+    "gpaLabel": "GPA",
+    "ongoing": "In progress"
+  },
+  "education": {
+    "coursesLabel": "Courses",
+    "syllabusLink": "Syllabus",
+    "notesLink": "Notes",
+    "programmeLink": "Programme",
+    "studyNotesLink": "Study notes",
+    "currentBadge": "Current",
+    "completedBadge": "Completed"
+  },
+  "work": {
+    "responsibilitiesLabel": "Responsibilities",
+    "technologiesLabel": "Technologies",
+    "viewLink": "View"
+  },
+  "projects": {
+    "groupLabel": "Projects",
+    "featuredBadge": "Featured",
+    "viewLink": "View",
+    "visitLink": "Visit"
+  },
+  "certifications": {
+    "groupLabel": "Certifications",
+    "verifyLink": "Verify",
+    "downloadLink": "Download"
+  },
+  "contacts": {
+    "leadTitle": "Let's talk.",
+    "leadText": "I am currently completing my Master's thesis and internship at Beretta. For opportunities from spring 2027 in AI, Data & Cybersecurity, email is the surest way to reach me and I reply to every message.",
+    "ctaLabel": "Write me",
+    "primaryLabel": "Primary",
+    "linksLabel": "Links & Social",
+    "documentsLabel": "Documents",
+    "emailLabel": "Email",
+    "locationLabel": "Location",
+    "actionEmail": "Email",
+    "actionMap": "Map",
+    "actionCall": "Call",
+    "actionOpen": "Open",
+    "actionDownload": "Download",
+    "actionVerify": "Verify"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "notFound": "Not found"
+  },
+  "seo": {
+    "siteTitle": "Federico Sabbadini — Digital Mind",
+    "siteDescription": "Interactive portfolio of Federico Sabbadini — a 3D mind mapping his education, work, projects and certifications across AI, Cybersecurity, Data and Software Engineering.",
+    "ogTitle": "Federico Sabbadini — Digital Mind",
+    "ogDescription": "An interactive 3D portfolio: education, work, projects and certifications across AI, Cybersecurity and Data.",
+    "ogImageAlt": "Federico Sabbadini — Digital Mind, an interactive 3D portfolio in AI, Data and Cybersecurity.",
+    "twitterTitle": "Federico Sabbadini — Digital Mind",
+    "twitterDescription": "An interactive 3D portfolio across AI, Cybersecurity and Data."
+  },
+  "noscript": {
+    "title": "Federico Sabbadini",
+    "message": "This portfolio requires JavaScript. Reach me at ",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "boot": {
+    "label": "Waking the mind",
+    "fallbackTitle": "Federico Sabbadini",
+    "fallbackMessage": "The interactive view could not load. Reach me at "
+  }
+}

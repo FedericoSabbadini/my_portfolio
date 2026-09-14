@@ -1,17 +1,26 @@
 {
   "masters": {
     "title": "Master's Degree Courses",
+    "title_it": "Corsi Laurea Magistrale",
     "subtitle": "University of Brescia • 2024-2026 • Current Weighted Average: 28.03/30 (87 CFU)",
+    "subtitle_it": "Università di Brescia • 2024-2026 • Media Ponderata Attuale: 28.03/30 (87 CFU)",
     "courses": [
       {
         "id": "generative-ai-for-media",
         "name": "Generative AI for Media",
+        "name_it": "AI Generativa per i Media",
         "grade": "current",
         "description": "This course introduces the theoretical and practical foundations of generative artificial intelligence for multimedia. It covers signal theory, including Fourier analysis, and the generation of audio, images and videos using generative models.",
+        "description_it": "Il corso introduce le basi teoriche e pratiche dell'intelligenza artificiale generativa per il multimedia. Copre la teoria dei segnali, inclusa l'analisi di Fourier, e la generazione di audio, immagini e video usando modelli generativi.",
         "tags": [
           "Signal Theory",
           "Fourier Analysis",
           "Generative Models"
+        ],
+        "tags_it": [
+          "Teoria dei Segnali",
+          "Analisi di Fourier",
+          "Modelli Generativi"
         ],
         "news": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/1399/insegnamenti/2025/8597_139622_29610/2023/8597?coorte=2024",
@@ -20,10 +29,17 @@
       {
         "id": "digital-transformation",
         "name": "Digital Transformation",
+        "name_it": "Trasformazione Digitale",
         "grade": "current",
         "description": "The use of Large Language Models (LLMs) and methodologies such as Retrieval-Augmented Generation (RAG) for handling unstructured knowledge is examined, together with advanced machine learning techniques including reinforcement learning and LLM-based decision making. Learn how to do research and realize technical relations.",
+        "description_it": "Viene esaminato l'uso di Large Language Models (LLM) e metodologie come Retrieval-Augmented Generation (RAG) per gestire conoscenza non strutturata, insieme a tecniche avanzate di machine learning tra cui reinforcement learning e decision making basato su LLM. Impara come fare ricerca e realizzare relazioni tecniche.",
         "tags": [
           "LLMs",
+          "RAG",
+          "Agentic AI"
+        ],
+        "tags_it": [
+          "LLM",
           "RAG",
           "Agentic AI"
         ],
@@ -34,11 +50,18 @@
       {
         "id": "reinforcement-learning",
         "name": "Reinforcement Learning",
+        "name_it": "Reinforcement Learning",
         "grade": "30/30",
         "description": "Advanced reinforcement learning techniques for decision-making in dynamic environments. Covers Q-learning, policy gradients, actor-critic methods, and multi-agent systems. Implemented with Python and reinforcement learning frameworks like Gymnasium and Stable Baselines3.",
+        "description_it": "Tecniche avanzate di reinforcement learning per il decision-making in ambienti dinamici. Copre Q-learning, policy gradients, metodi actor-critic e sistemi multi-agente. Implementato con Python e framework di reinforcement learning come Gymnasium e Stable Baselines3.",
         "tags": [
           "Reinforcement Learning",
           "Multi-agent Systems",
+          "Deep Reinforcement Learning"
+        ],
+        "tags_it": [
+          "Reinforcement Learning",
+          "Sistemi Multi-agente",
           "Deep Reinforcement Learning"
         ],
         "news": false,
@@ -48,13 +71,21 @@
       {
         "id": "symbolic-ai",
         "name": "Symbolic AI",
+        "name_it": "AI Simbolica",
         "grade": "29/30",
         "description": "Technical AI course focused on state-space search algorithms (BFS, DFS, A*, IDA*, local search), heuristic design, propositional and FOL with resolution and unification, CSP (backtracking, arc-consistency), automated planning using STRIPS/ADL/PDDL and Graphplan and probabilistic reasoning with Bayesian Networks.",
+        "description_it": "Corso tecnico di AI focalizzato su algoritmi di ricerca nello spazio degli stati (BFS, DFS, A*, IDA*, ricerca locale), design euristico, logica proposizionale e FOL con risoluzione e unificazione, CSP (backtracking, arc-consistency), pianificazione automatizzata con STRIPS/ADL/PDDL e Graphplan e ragionamento probabilistico con Reti Bayesiane.",
         "tags": [
           "FOL",
           "CSPs",
           "Automated Reasoning",
           "Planning"
+        ],
+        "tags_it": [
+          "FOL",
+          "CSP",
+          "Ragionamento Automatico",
+          "Pianificazione"
         ],
         "news": true,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2022/86/insegnamenti/2023/8097_114632_799/2011/8097_2528?schemaid=2528",
@@ -63,12 +94,19 @@
       {
         "id": "neural-network-architectures",
         "name": "Neural Network Architectures",
+        "name_it": "Architetture di Reti Neurali",
         "grade": "30L/30",
         "description": "Advanced neural architectures for representation learning and generative modeling. Covers Transformer-based models for NLP (BERT, GPT, Large Language Models), autoencoders and variational autoencoders, GANs and diffusion models for image generation, and Graph Neural Networks with message-passing.",
+        "description_it": "Architetture neurali avanzate per representation learning e generative modeling. Copre modelli basati su Transformer per NLP (BERT, GPT, Large Language Models), autoencoder e variational autoencoder, GAN e modelli di diffusione per generazione di immagini, e Graph Neural Networks con message-passing.",
         "tags": [
           "Neural Architectures",
           "Transformers",
           "Generative Models"
+        ],
+        "tags_it": [
+          "Architetture Neurali",
+          "Transformers",
+          "Modelli Generativi"
         ],
         "news": true,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131043_28250/2011/8595_3260?schemaid=3260",
@@ -77,11 +115,18 @@
       {
         "id": "deep-learning",
         "name": "Deep Learning",
+        "name_it": "Deep Learning",
         "grade": "29/30",
         "description": "Course focused on deep neural network models and training techniques. Covers gradient-based learning and backpropagation, regularization and optimization strategies, convolutional and recurrent neural networks with attention mechanisms. Includes practical implementation for computer vision and NLP.",
+        "description_it": "Corso focalizzato su modelli di deep neural network e tecniche di training. Copre gradient-based learning e backpropagation, strategie di regolarizzazione e ottimizzazione, reti neurali convoluzionali e ricorrenti con meccanismi di attenzione. Include implementazione pratica per computer vision e NLP.",
         "tags": [
           "Deep Learning",
           "Neural Networks",
+          "Keras"
+        ],
+        "tags_it": [
+          "Deep Learning",
+          "Reti Neurali",
           "Keras"
         ],
         "news": false,
@@ -91,12 +136,19 @@
       {
         "id": "advanced-information-systems-big-data",
         "name": "Advanced Information Systems and Big Data",
+        "name_it": "Sistemi Informativi Avanzati e Big Data",
         "grade": "29/30",
         "description": "Modern data architectures and enterprise information systems. Covers design methodologies for data architectures, MES, CPPS for Industry 4.0, Digital Thread and Internet of Production. Big Data technologies include distributed processing with Hadoop, MapReduce, Spark, and many NoSQL databases.",
+        "description_it": "Architetture dati moderne e enterprise information systems. Copre metodologie di design per architetture dati, MES, CPPS per Industry 4.0, Digital Thread e Internet of Production. Tecnologie Big Data includono processing distribuito con Hadoop, MapReduce, Spark e molti database NoSQL.",
         "tags": [
           "NoSQL",
           "Data Architectures",
           "Distributed Systems"
+        ],
+        "tags_it": [
+          "NoSQL",
+          "Architetture Dati",
+          "Sistemi Distribuiti"
         ],
         "news": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2025/8595_131044_21557/2011/8595_3260?schemaid=3260",
@@ -105,13 +157,21 @@
       {
         "id": "network-security",
         "name": "Network Security",
+        "name_it": "Sicurezza delle Reti",
         "grade": "30L/30",
         "description": "Advanced cryptography and network defense course covering symmetric encryption (AES, ChaCha20, 3DES), asymmetric systems (RSA, Diffie-Hellman), hash functions (SHA, HMAC), and digital signatures. Deep dive into IPSec/VPN architectures, SSL/TLS protocols, PKI infrastructure, and wireless security, including mobile network authentication.",
+        "description_it": "Corso avanzato di crittografia e difesa di rete che copre crittografia simmetrica (AES, ChaCha20, 3DES), sistemi asimmetrici (RSA, Diffie-Hellman), funzioni hash (SHA, HMAC) e firme digitali. Approfondimento su architetture IPSec/VPN, protocolli SSL/TLS, infrastruttura PKI e sicurezza wireless, inclusa autenticazione reti mobili.",
         "tags": [
           "Cryptography",
           "VPN/IPSec",
           "PKI",
           "Wireless Security"
+        ],
+        "tags_it": [
+          "Crittografia",
+          "VPN/IPSec",
+          "PKI",
+          "Sicurezza Wireless"
         ],
         "news": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121907_807/2011/8595_3260?schemaid=3260",
@@ -120,12 +180,19 @@
       {
         "id": "business-strategy",
         "name": "Business Strategy",
+        "name_it": "Strategia Aziendale",
         "grade": "30/30",
         "description": "Strategic management course covering competitive analysis frameworks (Porter's Five Forces, SWOT, PESTEL), corporate and business-level strategy formulation, market positioning, and value chain analysis. Studied case studies in strategic decision-making, M&A strategies, and sustainable competitive advantage development.",
+        "description_it": "Corso di strategic management che copre framework di analisi competitiva (Five Forces di Porter, SWOT, PESTEL), formulazione strategia corporate e business-level, posizionamento di mercato e analisi della value chain. Studiati case study su decision-making strategico, strategie M&A e sviluppo vantaggio competitivo sostenibile.",
         "tags": [
           "Strategic Analysis",
           "Porter's Model",
           "Competitive Advantage"
+        ],
+        "tags_it": [
+          "Analisi Strategica",
+          "Modello di Porter",
+          "Vantaggio Competitivo"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_123188_26413/2011/8595_3260?schemaid=3260",
@@ -134,9 +201,16 @@
       {
         "id": "info-systems",
         "name": "Information Systems",
+        "name_it": "Sistemi Informativi",
         "grade": "29/30",
         "description": "Enterprise information systems architecture covering operational systems (OLTP, ERP, CRM) and decision support systems (OLAP, Business Intelligence). Analyzed KPI definition, Critical Success Factors identification, data warehouse design, and digital transformation strategies for modern organizations.",
+        "description_it": "Architettura enterprise information systems che copre sistemi operativi (OLTP, ERP, CRM) e decision support systems (OLAP, Business Intelligence). Analisi definizione KPI, identificazione Critical Success Factors, design data warehouse e strategie digital transformation per organizzazioni moderne.",
         "tags": [
+          "ERP/CRM",
+          "Business Intelligence",
+          "Digital Transformation"
+        ],
+        "tags_it": [
           "ERP/CRM",
           "Business Intelligence",
           "Digital Transformation"
@@ -148,9 +222,16 @@
       {
         "id": "web",
         "name": "Web Agile Programming",
+        "name_it": "Programmazione Web Agile",
         "grade": "29/30",
         "description": "Full-stack web development using modern frameworks and Agile methodologies. Mastered client-side technologies (HTML5, CSS3, JavaScript, jQuery, AJAX), server-side development with PHP/Laravel and Eloquent ORM, RESTful API design, and SOA principles. Hands-on experience with MVC architecture, database integration, and responsive design.",
+        "description_it": "Sviluppo web full-stack usando framework moderni e metodologie Agile. Padronanza tecnologie client-side (HTML5, CSS3, JavaScript, jQuery, AJAX), sviluppo server-side con PHP/Laravel ed Eloquent ORM, design RESTful API e principi SOA. Esperienza hands-on con architettura MVC, integrazione database e responsive design.",
         "tags": [
+          "Laravel",
+          "REST API",
+          "Full Stack"
+        ],
+        "tags_it": [
           "Laravel",
           "REST API",
           "Full Stack"
@@ -162,12 +243,19 @@
       {
         "id": "sys-admin",
         "name": "Systems Administration",
+        "name_it": "Amministrazione di Sistema",
         "grade": "28/30",
         "description": "Cross-platform systems administration covering Windows Server (Active Directory, Group Policy, Kerberos), Linux (BIND, Apache, Sendmail), and macOS environments. Explored virtualization technologies, cloud computing architectures, high-availability clustering, backup strategies, and enterprise infrastructure management best practices.",
+        "description_it": "Amministrazione di sistemi cross-platform che copre Windows Server (Active Directory, Group Policy, Kerberos), Linux (BIND, Apache, Sendmail) e ambienti macOS. Esplorate tecnologie di virtualizzazione, architetture cloud computing, clustering high-availability, strategie di backup e best practice per enterprise infrastructure management.",
         "tags": [
           "Linux Admin",
           "Active Directory",
           "Cloud/Virtualization"
+        ],
+        "tags_it": [
+          "Linux Admin",
+          "Active Directory",
+          "Cloud/Virtualizzazione"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131007_781/2011/8595_3260?schemaid=3260",
@@ -176,12 +264,19 @@
       {
         "id": "machine-learning",
         "name": "Machine Learning",
+        "name_it": "Machine Learning",
         "grade": "27/30",
         "description": "Comprehensive machine learning course covering supervised learning (decision trees, SVM, neural networks, ensemble methods) and unsupervised learning (K-means, DBSCAN, hierarchical clustering). Hands-on Python implementation with scikit-learn, feature engineering, model evaluation, and real-world applications.",
+        "description_it": "Corso completo di machine learning che copre supervised learning (decision trees, SVM, neural networks, ensemble methods) e unsupervised learning (K-means, DBSCAN, hierarchical clustering). Implementazione Python hands-on con scikit-learn, feature engineering, model evaluation e applicazioni real-world.",
         "tags": [
           "Random Forests",
           "Scikit-learn",
           "Unsupervised"
+        ],
+        "tags_it": [
+          "Random Forests",
+          "Scikit-learn",
+          "Non Supervisionato"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121888_10729/2011/8595_3260?schemaid=3260",
@@ -190,12 +285,19 @@
       {
         "id": "modeling-simulation",
         "name": "Modeling and Simulation",
+        "name_it": "Modellistica e Simulazione",
         "grade": "27/30",
         "description": "System dynamics and control engineering course covering linearization techniques, system identification, and model validation. Developed expertise in MATLAB/Simulink for simulating grey-box, black-box, and ARX models. Applied feedback linearization and state-space representations to real-world control system problems.",
+        "description_it": "Corso di dinamica dei sistemi e ingegneria del controllo che copre tecniche di linearizzazione, identificazione di sistemi e validazione modelli. Sviluppata expertise in MATLAB/Simulink per simulare modelli grey-box, black-box e ARX. Applicate linearizzazione per feedback e rappresentazioni state-space a problemi reali di control system.",
         "tags": [
           "MATLAB/Simulink",
           "System Identification",
           "Control Theory"
+        ],
+        "tags_it": [
+          "MATLAB/Simulink",
+          "Identificazione Sistemi",
+          "Teoria del Controllo"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_121913_772/2011/8595_3260?schemaid=3260",
@@ -204,12 +306,19 @@
       {
         "id": "scientific-computing",
         "name": "Scientific Computing",
+        "name_it": "Calcolo Scientifico",
         "grade": "26/30",
         "description": "Numerical methods for scientific computing including iterative solvers for linear/nonlinear systems, polynomial interpolation, numerical quadrature, finite differences, and ODE solvers (Euler, Runge-Kutta). MATLAB implementation of algorithms with focus on numerical stability, convergence analysis, and computational efficiency.",
+        "description_it": "Metodi numerici per calcolo scientifico inclusi solver iterativi per sistemi lineari/non-lineari, interpolazione polinomiale, quadratura numerica, differenze finite e ODE solver (Euler, Runge-Kutta). Implementazione MATLAB di algoritmi con focus su stabilità numerica, analisi convergenza ed efficienza computazionale.",
         "tags": [
           "Numerical Methods",
           "MATLAB",
           "ODE Solvers"
+        ],
+        "tags_it": [
+          "Metodi Numerici",
+          "MATLAB",
+          "ODE Solver"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131010_10569/2011/8595_3260?schemaid=3260",
@@ -218,12 +327,19 @@
       {
         "id": "algorithms-ds",
         "name": "Algorithms & Data Structures",
+        "name_it": "Algoritmi e Strutture Dati",
         "grade": "22/30",
         "description": "Advanced algorithms course covering complexity analysis (Big-O, recurrence relations), sorting algorithms, graph algorithms (BFS, DFS, Dijkstra, Bellman-Ford), dynamic programming, and computational complexity theory. Studied P vs NP, NP-completeness, Turing machines, and reduction techniques for algorithmic problem solving.",
+        "description_it": "Corso avanzato di algoritmi che copre analisi complessità (Big-O, relazioni di ricorrenza), algoritmi di sorting, algoritmi grafo (BFS, DFS, Dijkstra, Bellman-Ford), programmazione dinamica e teoria complessità computazionale. Studiati P vs NP, NP-completezza, macchine di Turing e tecniche di riduzione per problem solving algoritmico.",
         "tags": [
           "Graph Algorithms",
           "Dynamic Programming",
           "Complexity Theory"
+        ],
+        "tags_it": [
+          "Algoritmi Grafo",
+          "Programmazione Dinamica",
+          "Teoria Complessità"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2024/86/insegnamenti/2024/8595_131011_10749/2011/8595_3260?schemaid=3260",
@@ -233,17 +349,26 @@
   },
   "bachelors": {
     "title": "Bachelor's Degree Courses",
+    "title_it": "Corsi Laurea Triennale",
     "subtitle": "University of Brescia • 2021-2024 • Final Grade: 104/110",
+    "subtitle_it": "Università di Brescia • 2021-2024 • Voto Finale: 104/110",
     "courses": [
       {
         "id": "algebra-geometry",
         "name": "Algebra and Geometry",
+        "name_it": "Algebra e Geometria",
         "grade": "30L/30",
         "description": "Linear algebra fundamentals including vector spaces, linear transformations, matrix operations, eigenvalue decomposition, and quadratic forms. Applied concepts to solve systems of linear equations, geometric transformations, and optimization problems in engineering contexts.",
+        "description_it": "Fondamenti di algebra lineare inclusi spazi vettoriali, trasformazioni lineari, operazioni matriciali, decomposizione autovalori e forme quadratiche. Applicati concetti per risolvere sistemi equazioni lineari, trasformazioni geometriche e problemi ottimizzazione in contesti ingegneristici.",
         "tags": [
           "Linear Algebra",
           "Eigenvalues",
           "Vector Spaces"
+        ],
+        "tags_it": [
+          "Algebra Lineare",
+          "Autovalori",
+          "Spazi Vettoriali"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/A000017-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=A000017",
@@ -252,10 +377,17 @@
       {
         "id": "electronics",
         "name": "General Electronics",
+        "name_it": "Elettronica Generale",
         "grade": "30L/30",
         "description": "Semiconductor device physics and analog circuit design covering diodes, BJT and MOSFET transistors, operational amplifiers, comparators, and switching circuits. Analyzed bipolar and CMOS logic families with focus on digital IC design principles and signal conditioning.",
+        "description_it": "Fisica dispositivi semiconduttori e design circuiti analogici coprendo diodi, transistor BJT e MOSFET, amplificatori operazionali, comparatori e circuiti switching. Analizzate famiglie logiche bipolar e CMOS con focus su principi digital IC design e signal conditioning.",
         "tags": [
           "Analog Design",
+          "CMOS/BJT",
+          "Op-Amps"
+        ],
+        "tags_it": [
+          "Design Analogico",
           "CMOS/BJT",
           "Op-Amps"
         ],
@@ -266,12 +398,19 @@
       {
         "id": "electronics-systems",
         "name": "Digital Electronics Systems",
+        "name_it": "Sistemi di Elettronica Digitale",
         "grade": "30L/30",
         "description": "Digital system design covering combinational and sequential logic, finite state machines, programmable logic devices (FPGA, CPLD), and embedded systems development. Hands-on VHDL programming, timing analysis, and Arduino-based prototyping for real-time applications.",
+        "description_it": "Design sistemi digitali coprendo logica combinatoria e sequenziale, macchine a stati finiti, dispositivi logici programmabili (FPGA, CPLD) e sviluppo embedded systems. Programmazione VHDL hands-on, timing analysis e prototipazione Arduino-based per applicazioni real-time.",
         "tags": [
           "VHDL/FPGA",
           "Arduino",
           "FSM Design"
+        ],
+        "tags_it": [
+          "VHDL/FPGA",
+          "Arduino",
+          "Design FSM"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109915_10907/2011/7617?coorte=2021&schemaid=2514",
@@ -280,11 +419,18 @@
       {
         "id": "os-systems",
         "name": "Operating Systems",
+        "name_it": "Sistemi Operativi",
         "grade": "30L/30",
         "description": "Operating system internals covering process management, thread synchronization, CPU scheduling algorithms, memory management (paging, segmentation), file systems, and I/O subsystems. Practical Linux shell programming and system call implementation for resource management.",
+        "description_it": "Interni sistemi operativi coprendo process management, thread synchronization, algoritmi CPU scheduling, memory management (paging, segmentation), file system e sottosistemi I/O. Programmazione Linux shell pratica e implementazione system call per resource management.",
         "tags": [
           "Linux/Unix",
           "Process Mgmt",
+          "Shell Scripting"
+        ],
+        "tags_it": [
+          "Linux/Unix",
+          "Gestione Processi",
           "Shell Scripting"
         ],
         "featured": false,
@@ -294,11 +440,18 @@
       {
         "id": "ii-systems",
         "name": "Computer Systems",
+        "name_it": "Impianti Informatici",
         "grade": "30L/30",
         "description": "Advanced computer architecture covering multiprocessor systems (UMA/NUMA/COMA), client-server architectures, middleware platforms, clustering technologies, and storage systems. Analyzed performance metrics, backup strategies, and enterprise computing infrastructure design. C/S implementation in RabbitMQ (Pika)",
+        "description_it": "Architettura calcolatori avanzata coprendo sistemi multiprocessore (UMA/NUMA/COMA), architetture client-server, piattaforme middleware, tecnologie clustering e storage system. Analizzate metriche performance, strategie backup e design enterprise computing infrastructure. Implementazione C/S in RabbitMQ (Pika)",
         "tags": [
           "Distributed Systems",
           "Multiprocessor",
+          "Enterprise IT"
+        ],
+        "tags_it": [
+          "Sistemi Distribuiti",
+          "Multiprocessore",
           "Enterprise IT"
         ],
         "featured": false,
@@ -308,12 +461,19 @@
       {
         "id": "telecom",
         "name": "Telecommunications",
+        "name_it": "Telecomunicazioni",
         "grade": "30L/30",
         "description": "Signal processing and communication systems fundamentals including Fourier analysis, modulation techniques (AM, FM, QAM), channel coding, and network protocols. Studied Shannon's theorem, bandwidth optimization, and modern telecommunication system architectures.",
+        "description_it": "Fondamenti signal processing e sistemi di comunicazione inclusa analisi di Fourier, tecniche modulazione (AM, FM, QAM), channel coding e network protocol. Studiato teorema di Shannon, ottimizzazione bandwidth e architetture sistemi telecomunicazione moderni.",
         "tags": [
           "Signal Processing",
           "Modulation",
           "Network Protocols"
+        ],
+        "tags_it": [
+          "Elaborazione Segnali",
+          "Modulazione",
+          "Protocolli di Rete"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109916_4553/2011/7617?coorte=2021&schemaid=2514",
@@ -322,12 +482,19 @@
       {
         "id": "physics2",
         "name": "Physics II",
+        "name_it": "Fisica II",
         "grade": "30L/30",
         "description": "Electromagnetism course covering electrostatics, magnetostatics, Maxwell's equations, electromagnetic wave propagation, and optics. Applied theoretical concepts to engineering problems in antenna design, electromagnetic compatibility, and signal transmission.",
+        "description_it": "Corso di elettromagnetismo coprendo elettrostatica, magnetostatica, equazioni di Maxwell, propagazione onde elettromagnetiche e ottica. Applicati concetti teorici a problemi ingegneristici in design antenne, compatibilità elettromagnetica e trasmissione segnali.",
         "tags": [
           "Electromagnetism",
           "Maxwell's Equations",
           "Wave Optics"
+        ],
+        "tags_it": [
+          "Elettromagnetismo",
+          "Equazioni di Maxwell",
+          "Ottica Ondulatoria"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnaments/2022/7617_106023_444/2011/7617?coorte=2021&schemaid=2514",
@@ -336,12 +503,19 @@
       {
         "id": "normativa-tlc",
         "name": "TLC normatives and regulamentation",
+        "name_it": "Normative TLC e Regolamentazione",
         "grade": "30/30",
         "description": "Course on telecommunications regulation covering European and Italian legal frameworks for electronic communications, liberalization processes, universal service, and regulatory authorities. Topics include intellectual property, copyright, standardization bodies (ISO, ITU, IEEE), privacy regulations, and ethical/legal aspects of AI.",
+        "description_it": "Corso su regolamentazione telecomunicazioni coprendo framework legali europei e italiani per comunicazioni elettroniche, processi liberalizzazione, servizio universale e autorità regolatorie. Argomenti includono proprietà intellettuale, copyright, enti standardizzazione (ISO, ITU, IEEE), regolamenti privacy e aspetti etico/legali dell'AI.",
         "tags": [
           "Telecommunications Law",
           "Regulation",
           "Privacy & Standards"
+        ],
+        "tags_it": [
+          "Diritto Telecomunicazioni",
+          "Regolamentazione",
+          "Privacy e Standard"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109905_516/2011/7617_2514?schemaid=2514",
@@ -350,11 +524,18 @@
       {
         "id": "electrical-circuits",
         "name": "Electrical Circuits",
+        "name_it": "Circuiti Elettrici",
         "grade": "30/30",
         "description": "Circuit analysis fundamentals including Kirchhoff's laws, nodal and mesh analysis, transient response of RC/RL/RLC circuits, AC steady-state analysis, and three-phase power systems. PSpice simulation for circuit design verification and frequency response analysis.",
+        "description_it": "Fondamenti analisi circuiti incluse leggi di Kirchhoff, analisi nodale e a maglie, risposta transitoria circuiti RC/RL/RLC, analisi regime permanente AC e sistemi trifase. Simulazione PSpice per verifica design circuiti e analisi risposta in frequenza.",
         "tags": [
           "Circuit Analysis",
           "AC/DC Systems",
+          "PSpice"
+        ],
+        "tags_it": [
+          "Analisi Circuiti",
+          "Sistemi AC/DC",
           "PSpice"
         ],
         "featured": false,
@@ -364,12 +545,19 @@
       {
         "id": "prog-languages",
         "name": "Programming Languages",
+        "name_it": "Linguaggi di Programmazione",
         "grade": "28/30",
         "description": "Comparative study of programming paradigms including functional (Scheme, Haskell), logic (Prolog), and imperative languages. Covered formal language theory (BNF, grammars), operational/denotational semantics, lexical analysis, and interpreter implementation.",
+        "description_it": "Studio comparativo paradigmi programmazione inclusi funzionale (Scheme, Haskell), logico (Prolog) e imperativi. Coperti teoria linguaggi formali (BNF, grammatiche), semantica operazionale/denotazionale, analisi lessicale e implementazione interprete.",
         "tags": [
           "Functional Programming",
           "Prolog",
           "Language Theory"
+        ],
+        "tags_it": [
+          "Programmazione Funzionale",
+          "Prolog",
+          "Teoria Linguaggi"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109911_2779/2011/7617?coorte=2021&schemaid=2514",
@@ -378,12 +566,19 @@
       {
         "id": "databases",
         "name": "Databases",
+        "name_it": "Database",
         "grade": "28/30",
         "description": "Database systems engineering covering conceptual modeling (ER diagrams), relational model theory, normalization (1NF-BCNF), SQL programming, transaction management (ACID), and physical database design. Query optimization and indexing strategies for performance tuning.",
+        "description_it": "Ingegneria sistemi database coprendo modeling concettuale (diagrammi ER), teoria modello relazionale, normalizzazione (1NF-BCNF), programmazione SQL, transaction management (ACID) e physical database design. Ottimizzazione query e strategie indexing per performance tuning.",
         "tags": [
           "SQL",
           "ER Modeling",
           "Query Optimization"
+        ],
+        "tags_it": [
+          "SQL",
+          "Modeling ER",
+          "Ottimizzazione Query"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109907_2775/2011/7617?coorte=2021&schemaid=2514",
@@ -392,12 +587,19 @@
       {
         "id": "language-tech",
         "name": "Artificial Language Technologies",
+        "name_it": "Tecnologie dei Linguaggi Artificiali",
         "grade": "28/30",
         "description": "Compiler construction course covering lexical analysis (Lex), syntax analysis (Yacc), semantic analysis, intermediate code generation (P-code), and machine code generation. Built complete compiler pipeline for custom programming language with optimization phases.",
+        "description_it": "Corso costruzione compilatori coprendo analisi lessicale (Lex), analisi sintattica (Yacc), analisi semantica, generazione codice intermedio (P-code) e generazione codice macchina. Costruita pipeline compilatore completa per linguaggio custom con fasi ottimizzazione.",
         "tags": [
           "Compilers",
           "Lex/Yacc",
           "Code Generation"
+        ],
+        "tags_it": [
+          "Compilatori",
+          "Lex/Yacc",
+          "Generazione Codice"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109932_21535/2011/7617_2514?schemaid=2514",
@@ -406,12 +608,19 @@
       {
         "id": "biology",
         "name": "Elements of Biology",
+        "name_it": "Elementi di Biologia",
         "grade": "28/30",
         "description": "Biomedical engineering fundamentals covering cell biology, biochemistry, human physiology, and biological interfaces. Studied biosensor technologies, microscopy techniques, and biophysical phenomena relevant to medical device design and biomedical signal processing.",
+        "description_it": "Fondamenti ingegneria biomedica coprendo biologia cellulare, biochimica, fisiologia umana e interfacce biologiche. Studiati tecnologie biosensori, tecniche microscopia e fenomeni biofisici rilevanti per design medical device e biomedical signal processing.",
         "tags": [
           "Biosensors",
           "Biophysics",
           "Medical Devices"
+        ],
+        "tags_it": [
+          "Biosensori",
+          "Biofisica",
+          "Dispositivi Medici"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2023/7617_109931_18407/2011/7617_2514?schemaid=2514",
@@ -420,11 +629,18 @@
       {
         "id": "computer-architecture",
         "name": "Computer Architecture",
+        "name_it": "Architettura dei Calcolatori",
         "grade": "28/30",
         "description": "Processor design fundamentals covering MIPS instruction set architecture, assembly programming, datapath design, pipelining, and memory hierarchy. Implemented ALU, register files, and control units with focus on performance optimization and hazard handling.",
+        "description_it": "Fondamenti design processore coprendo architettura instruction set MIPS, programmazione assembly, design datapath, pipelining e gerarchia memoria. Implementati ALU, register file e unità controllo con focus su ottimizzazione performance e gestione hazard.",
         "tags": [
           "MIPS Assembly",
           "CPU Design",
+          "Pipelining"
+        ],
+        "tags_it": [
+          "MIPS Assembly",
+          "Design CPU",
           "Pipelining"
         ],
         "featured": false,
@@ -434,9 +650,16 @@
       {
         "id": "software-engineering",
         "name": "Software Engineering",
+        "name_it": "Ingegneria del Software",
         "grade": "27/30",
         "description": "Software development lifecycle management covering requirements engineering, UML modeling (use cases, class/sequence diagrams), design patterns, testing methodologies, and Agile practices. Applied Petri nets for process modeling and refactoring techniques for code quality improvement.",
+        "description_it": "Gestione lifecycle sviluppo software coprendo requirements engineering, modeling UML (use cases, diagrammi classe/sequenza), design patterns, metodologie testing e pratiche Agile. Applicate reti di Petri per process modeling e tecniche refactoring per miglioramento code quality.",
         "tags": [
+          "UML",
+          "Design Patterns",
+          "Testing/QA"
+        ],
+        "tags_it": [
           "UML",
           "Design Patterns",
           "Testing/QA"
@@ -448,9 +671,16 @@
       {
         "id": "advanced-programming",
         "name": "Advanced Java & C Programming",
+        "name_it": "Programmazione Avanzata Java & C",
         "grade": "26/30",
         "description": "Advanced programming course covering Java (multithreading, networking, GUI development with Swing, MVC architecture) and C (memory management, pointers, dynamic allocation, system programming). Built networked applications and low-level system utilities.",
+        "description_it": "Corso programmazione avanzata coprendo Java (multithreading, networking, GUI development con Swing, architettura MVC) e C (gestione memoria, puntatori, allocazione dinamica, system programming). Realizzate applicazioni networked e utility system low-level.",
         "tags": [
+          "Java",
+          "C",
+          "Multithreading"
+        ],
+        "tags_it": [
           "Java",
           "C",
           "Multithreading"
@@ -462,12 +692,19 @@
       {
         "id": "cs-fundamentals",
         "name": "Computer Science Fundamentals",
+        "name_it": "Fondamenti di Informatica",
         "grade": "27/30",
         "description": "Introduction to programming and computer organization covering C and Java languages, data structures, memory models, CPU architecture, and peripheral interfaces. Built foundation for algorithmic thinking and software development practices.",
+        "description_it": "Introduzione a programmazione e organizzazione calcolatori coprendo linguaggi C e Java, strutture dati, modelli memoria, architettura CPU e interfacce periferiche. Costruite basi per pensiero algoritmico e pratiche sviluppo software.",
         "tags": [
           "C/Java",
           "Data Structures",
           "Programming Basics"
+        ],
+        "tags_it": [
+          "C/Java",
+          "Strutture Dati",
+          "Basi Programmazione"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98448_10889/2011/7617_2514?schemaid=2514",
@@ -476,12 +713,19 @@
       {
         "id": "analysis1",
         "name": "Mathematical Analysis I",
+        "name_it": "Analisi Matematica I",
         "grade": "24/30",
         "description": "Single-variable calculus covering limits, continuity, differentiation, integration techniques, series convergence, and function analysis. Applied mathematical rigor to engineering problem-solving including optimization and rate-of-change applications.",
+        "description_it": "Calcolo a variabile singola coprendo limiti, continuità, derivazione, tecniche integrazione, convergenza serie e analisi funzioni. Applicato rigore matematico a problem-solving ingegneristico inclusa ottimizzazione e applicazioni rate-of-change.",
         "tags": [
           "Calculus",
           "Series",
           "Differential Equations"
+        ],
+        "tags_it": [
+          "Calcolo",
+          "Serie",
+          "Equazioni Differenziali"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/703789-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=703789",
@@ -490,12 +734,19 @@
       {
         "id": "analysis2-or",
         "name": "Mathematical Analysis II",
+        "name_it": "Analisi Matematica II",
         "grade": "23/30",
         "description": "Multivariable calculus and optimization covering metric spaces, partial derivatives, multiple integrals, vector calculus, and calculus of variations. Combined with operations research fundamentals including linear programming and graph theory applications.",
+        "description_it": "Calcolo multivariable e ottimizzazione coprendo spazi metrici, derivate parziali, integrali multipli, calcolo vettoriale e calcolo delle variazioni. Combinato con fondamenti ricerca operativa inclusi linear programming e applicazioni teoria grafi.",
         "tags": [
           "Multivariable Calculus",
           "Optimization",
           "Vector Analysis"
+        ],
+        "tags_it": [
+          "Calcolo Multivariabile",
+          "Ottimizzazione",
+          "Analisi Vettoriale"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106036_2772/2011/7617?coorte=2021&schemaid=2514",
@@ -504,11 +755,18 @@
       {
         "id": "operative-research",
         "name": "Operative Research",
+        "name_it": "Ricerca Operativa",
         "grade": "23/30",
         "description": "Operations research methods covering linear programming (simplex method), integer programming, network optimization, and decision theory. Applied Gurobi solver for real-world optimization problems in scheduling, logistics, and resource allocation.",
+        "description_it": "Metodi ricerca operativa coprendo linear programming (metodo simplexe), integer programming, network optimization e decision theory. Applicato solver Gurobi per problemi ottimizzazione real-world in scheduling, logistica e resource allocation.",
         "tags": [
           "Linear Programming",
           "Simplex Method",
+          "Gurobi"
+        ],
+        "tags_it": [
+          "Programmazione Lineare",
+          "Metodo Simplesso",
           "Gurobi"
         ],
         "featured": false,
@@ -518,12 +776,19 @@
       {
         "id": "physics1",
         "name": "Physics I",
+        "name_it": "Fisica I",
         "grade": "23/30",
         "description": "Classical mechanics course covering kinematics, Newtonian dynamics, work-energy principles, fluid mechanics, gravitational systems, thermodynamics, and wave phenomena. Applied physics principles to engineering analysis and problem-solving.",
+        "description_it": "Corso meccanica classica coprendo cinematica, dinamica newtoniana, principi lavoro-energia, meccanica fluidi, sistemi gravitazionali, termodinamica e fenomeni ondulatori. Applicati principi fisica ad analisi ingegneristica e problem-solving.",
         "tags": [
           "Mechanics",
           "Thermodynamics",
           "Wave Physics"
+        ],
+        "tags_it": [
+          "Meccanica",
+          "Termodinamica",
+          "Fisica Ondulatoria"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98380_442/2011/7617_2514?schemaid=2514",
@@ -532,10 +797,17 @@
       {
         "id": "automatic-control",
         "name": "Automatic Control",
+        "name_it": "Controlli Automatici",
         "grade": "22/30",
         "description": "Control systems engineering covering system modeling, transfer functions, stability analysis (Routh-Hurwitz, Nyquist), frequency domain methods (Bode plots), and controller design (PID tuning). Applied MATLAB for control system simulation and analysis.",
+        "description_it": "Ingegneria sistemi controllo coprendo modellazione sistemi, funzioni di trasferimento, analisi stabilità (Routh-Hurwitz, Nyquist), metodi dominio frequenza (diagrammi Bode) e design controller (PID tuning). Applicato MATLAB per simulazione e analisi control system.",
         "tags": [
           "PID Control",
+          "Bode/Nyquist",
+          "MATLAB"
+        ],
+        "tags_it": [
+          "Controllo PID",
           "Bode/Nyquist",
           "MATLAB"
         ],
@@ -546,40 +818,61 @@
       {
         "id": "economy",
         "name": "Engineering Economics",
+        "name_it": "Economia per l'Ingegneria",
         "grade": "30L/30",
         "description": "Business fundamentals, external accounting & financial statements, internal accounting & break-even analysis, ratios, financial instruments.",
+        "description_it": "Fondamenti business, contabilità esterna e bilanci, contabilità interna e analisi break-even, ratios, strumenti finanziari.",
         "tags": [
           "Accounting",
           "Finance",
+          "Business"
+        ],
+        "tags_it": [
+          "Contabilità",
+          "Finanza",
           "Business"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2022/7617_106033_815/2011/7617_2514?schemaid=2514",
         "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20II/Economia"
       },
-      {
+{
         "id": "probability-stats",
         "name": "Probability and Statistics",
+        "name_it": "Probabilità e Statistica",
         "grade": "30/30",
         "description": "Conditional probability, discrete and continuous distributions, expectation, estimation theory.",
+        "description_it": "Probabilità condizionata, distribuzioni discrete e continue, valore atteso, teoria della stima.",
         "tags": [
           "Probability",
           "Statistics",
           "Distributions"
         ],
+        "tags_it": [
+          "Probabilità",
+          "Statistica",
+          "Distribuzioni"
+        ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/703157-M-Z/2011/7617?coorte=2021&schemaid=2514&adCodFraz=703157",
-        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20I/Probabilità%20E%20Statistica"
+        "hfUrl": "https://huggingface.co/datasets/federicosabbadini/university/tree/main/Anno%20I/Probabilit%C3%A0%20E%20Statistica"
       },
       {
         "id": "chemistry",
         "name": "Chemistry",
+        "name_it": "Chimica",
         "grade": "21/30",
         "description": "General chemistry covering atomic structure, chemical bonding, reaction stoichiometry, thermodynamics, equilibrium, and kinetics. Applied chemistry principles to material science and engineering process understanding.",
+        "description_it": "Chimica generale coprendo struttura atomica, legami chimici, stechiometria reazioni, termodinamica, equilibrio e cinetica. Applicati principi chimica a material science e comprensione processi ingegneristici.",
         "tags": [
           "Chemical Bonds",
           "Thermodynamics",
           "Reaction Kinetics"
+        ],
+        "tags_it": [
+          "Legami Chimici",
+          "Termodinamica",
+          "Cinetica Reazione"
         ],
         "featured": false,
         "url": "https://unibs.coursecatalogue.cineca.it/corsi/2021/89/insegnamenti/2021/7617_98374_169/2011/7617_2514?schemaid=2514",
@@ -589,32 +882,43 @@
   },
   "highschools": {
     "title": "Relevant High School Courses",
+    "title_it": "Corsi Liceali Rilevanti",
     "subtitle": "Salesiani San Bernardino, Chiari (BS) • 2016-2021 • Final Grade: 100/100",
+    "subtitle_it": "Salesiani San Bernardino, Chiari (BS) • 2016-2021 • Voto Finale: 100/100",
     "courses": [
       {
         "id": "philosophy-contemporary",
         "name": "Philosophy III — Modern & Contemporary Thought",
+        "name_it": "Filosofia III — Pensiero Moderno e Contemporaneo",
         "grade": "10/10",
         "description": "Kant, German Idealism, Marx, Schopenhauer, Nietzsche, Kierkegaard, positivism, existentialism, and Freud.",
+        "description_it": "Kant, Idealismo Tedesco, Marx, Schopenhauer, Nietzsche, Kierkegaard, positivismo, esistenzialismo e Freud.",
         "tags": ["German Idealism", "Existentialism", "Psychoanalysis"],
+        "tags_it": ["Idealismo Tedesco", "Esistenzialismo", "Psicoanalisi"],
         "news": false,
         "hfUrl": "https://huggingface.co/datasets/federicosabbadini/highSchool/tree/main/Anno%20V/Filosofia"
       },
       {
         "id": "philosophy-modern",
         "name": "Philosophy II — Early Modern Philosophy",
+        "name_it": "Filosofia II — Filosofia Moderna",
         "grade": "10/10",
         "description": "Rationalism and empiricism from Descartes to Hume, including Locke, Hobbes, and the Scientific Revolution.",
+        "description_it": "Razionalismo ed empirismo da Cartesio a Hume, inclusi Locke, Hobbes e la Rivoluzione Scientifica.",
         "tags": ["Rationalism", "Empiricism", "Political Philosophy"],
+        "tags_it": ["Razionalismo", "Empirismo", "Filosofia Politica"],
         "news": false,
         "hfUrl": "https://huggingface.co/datasets/federicosabbadini/highSchool/tree/main/Anno%20IV/Filosofia"
       },
       {
         "id": "philosophy-ancient",
         "name": "Philosophy I — Ancient & Medieval Thought",
+        "name_it": "Filosofia I — Pensiero Antico e Medievale",
         "grade": "10/10",
         "description": "Presocratic philosophy, Plato, Aristotle, Hellenistic schools, Patristics, and Scholastic philosophy including Aquinas and Ockham.",
+        "description_it": "Filosofia presocratica, Platone, Aristotele, scuole ellenistiche, patristica e filosofia scolastica inclusi Tommaso d'Aquino e Occam.",
         "tags": ["Ancient Philosophy", "Medieval Philosophy", "Metaphysics"],
+        "tags_it": ["Filosofia Antica", "Filosofia Medievale", "Metafisica"],
         "news": false,
         "hfUrl": "https://huggingface.co/datasets/federicosabbadini/highSchool/tree/main/Anno%20III/Filosofia"
       }

@@ -9,6 +9,7 @@ import { BrainRegions } from './brain/brain-regions.js';
 import { createRouter, go } from './router.js';
 import { showRegion, showHome, hideBoot } from './ui/transitions.js';
 import { renderRegion } from './ui/region-view.js';
+import { initI18n, setLocale, getLocale, t, onLocaleChange, localize } from './i18n.js';
 
 // Signals to the inline boot-watchdog in index.html that the ES module graph
 // (three/gsap from the CDN) resolved and this script is executing. If the CDN
@@ -41,6 +42,25 @@ async function boot() {
   state.data = raw;
   state.domains = raw.domains;
 
+  // Initialize i18n
+  await initI18n();
+  applyStaticTranslations();
+  wireLanguageSwitcher();
+  onLocaleChange(() => {
+    applyStaticTranslations();
+    // Re-render current view with new locale
+    if (state.view === 'region') {
+      const hash = location.hash;
+      const match = hash.match(/^#\/region\/(.+)$/);
+      if (match) renderRegion(match[1], state.data, state.domains);
+    } else {
+      // Update home view texts
+      updateHomeView();
+    }
+    // Update document title
+    updateDocumentTitle();
+  });
+
   const vw = window.innerWidth || document.documentElement.clientWidth || 1280;
   // Shares the 1024 breakpoint with brain.css + brain-scene._syncMode so the
   // lighter shader/geometry path matches the full-bleed tablet layout exactly.
@@ -67,6 +87,82 @@ async function boot() {
   requestAnimationFrame(() => setTimeout(hideBoot, state.scene ? 500 : 0));
 
   maybeAutoTour();
+}
+
+function applyStaticTranslations() {
+  // Elements with data-i18n attribute
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+  // Elements with data-i18n-aria-label attribute
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+    const key = el.getAttribute('data-i18n-aria-label');
+    el.setAttribute('aria-label', t(key));
+  });
+  // Elements with data-i18n-title attribute
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    const key = el.getAttribute('data-i18n-title');
+    el.setAttribute('title', t(key));
+  });
+}
+
+function updateHomeView() {
+  // Update home intro
+  const homeIntro = document.getElementById('home-intro');
+  if (homeIntro) homeIntro.textContent = t('home.intro');
+  
+  // Update home lead
+  const leadKicker = document.querySelector('.home-lead__kicker');
+  if (leadKicker) leadKicker.textContent = t('home.leadKicker');
+  const leadTitle = document.querySelector('.home-lead__title');
+  if (leadTitle) leadTitle.textContent = t('home.leadTitle');
+  const leadSub = document.querySelector('.home-lead__sub');
+  if (leadSub) leadSub.textContent = t('home.leadSub');
+  
+  // Update home kicker
+  const homeKicker = document.getElementById('home-kicker');
+  if (homeKicker) homeKicker.textContent = t('home.kicker');
+  
+  // Update callout kicker
+  const calloutKicker = document.getElementById('callout-kicker');
+  if (calloutKicker) calloutKicker.textContent = t('home.calloutKicker');
+}
+
+function updateDocumentTitle() {
+  if (state.view === 'region') {
+    const domain = state.domains.find(d => d.id === location.hash.replace('#/region/', ''));
+    if (domain) {
+      document.title = `${localize(domain, 'label')} — Federico Sabbadini`;
+    }
+  } else {
+    document.title = t('seo.siteTitle');
+  }
+}
+
+function wireLanguageSwitcher() {
+  const switcher = document.getElementById('lang-switcher');
+  if (!switcher) return;
+  
+  switcher.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.lang-btn');
+    if (!btn) return;
+    const lang = btn.dataset.lang;
+    if (lang === getLocale()) return;
+    
+    // Update button states
+    switcher.querySelectorAll('.lang-btn').forEach(b => {
+      b.setAttribute('aria-pressed', b.dataset.lang === lang);
+    });
+    
+    await setLocale(lang);
+  });
+  
+  // Set initial active state
+  const currentLang = getLocale();
+  switcher.querySelectorAll('.lang-btn').forEach(b => {
+    b.setAttribute('aria-pressed', b.dataset.lang === currentLang);
+  });
 }
 
 /* Play one automatic guided-tour lap when the portfolio opens on the home view.
@@ -122,7 +218,7 @@ async function enterRegion(id) {
   await showRegion();
   if (state.scene) state.scene.stop();   // pause the loop while the catalog is up
   state.view = 'region';
-  document.title = `${domain.label} — Federico Sabbadini`;
+  updateDocumentTitle();
   // move keyboard/SR focus to the new page's heading
   const h = document.getElementById('hero-title');
   if (h) h.focus({ preventScroll: true });
@@ -151,7 +247,7 @@ async function enterHome() {
     if (t) t.focus({ preventScroll: true });
   }
   state.view = 'home';
-  document.title = 'Federico Sabbadini — Digital Mind';
+  updateDocumentTitle();
 }
 
 /* ---- chrome ------------------------------------------------------------- */

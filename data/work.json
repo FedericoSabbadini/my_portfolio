@@ -3,6 +3,7 @@
         {
             "id": "modelvault",
             "title": "Founder & Lead AI Engineer",
+            "title_it": "Founder & Lead AI Engineer",
             "company": "ModelVault",
             "location": "Remote · Italy",
             "period": "Ongoing",
@@ -11,11 +12,18 @@
             "url": "https://www.modelvault.it",
             "logo": "assets/images/modelvault.svg",
             "description": "ModelVault is an independent AI-engineering studio building production-grade, bespoke AI for businesses — predictive ML models, LLM agents, RAG systems and automation pipelines. Every solution is engineered end to end on a backend of seven FastAPI microservices hosted on ISO 27001–certified infrastructure in Italy. Quality over quantity: each model, a concrete advantage. It's where I'm turning applied AI into products companies can put into production — the start of my professional path.",
+            "description_it": "ModelVault è uno studio indipendente di AI engineering che costruisce AI su misura, production-grade per aziende — modelli ML predittivi, agenti LLM, sistemi RAG e pipeline automation. Ogni soluzione è ingegnerizzata end-to-end su backend di sette microservizi FastAPI hosted su infrastruttura certificata ISO 27001 in Italia. Quality over quantity: ogni modello, un vantaggio concreto. È dove trasformo AI applicata in prodotti che le aziende mettono in produzione — l'inizio del mio percorso professionale.",
             "responsibilities": [
                 "Custom AI solutions: predictive models, LLM agents, RAG systems and automation pipelines",
                 "Engineered on seven FastAPI microservices — ISO 27001–certified infrastructure in Italy",
                 "End-to-end delivery: discovery, technical design, iterative build, deployment and monitoring",
                 "Client data stays in Italy and is never used to train third-party models"
+            ],
+            "responsibilities_it": [
+                "Soluzioni AI custom: modelli predittivi, agenti LLM, sistemi RAG e pipeline automation",
+                "Ingegnerizzato su sette microservizi FastAPI — infrastruttura certificata ISO 27001 in Italia",
+                "Delivery end-to-end: discovery, technical design, iterative build, deployment e monitoring",
+                "Dati clienti rimangono in Italia e non sono mai usati per trainare modelli third-party"
             ],
             "technologies": ["Python", "FastAPI", "LLMs", "RAG", "Machine Learning", "Microservices"],
             "featured": true,
@@ -24,6 +32,7 @@
         {
             "id": "beretta-internship-thesis",
             "title": "Internship & Master's Thesis",
+            "title_it": "Tirocinio & Tesi Magistrale",
             "company": "Beretta",
             "location": "Gardone Val Trompia, Italy",
             "period": "September 2026 - March 2027",
@@ -32,11 +41,18 @@
             "url": "https://www.beretta.com",
             "logo": "assets/images/beretta.svg",
             "description": "Curricular internship and Master's thesis at Fabbrica d'Armi Pietro Beretta — one of the world's oldest industrial companies — within its technological-innovation efforts. The work centers on applied Artificial Intelligence: Retrieval-Augmented Generation (RAG) over technical knowledge bases and intelligent web-scraping pipelines, with a focus on AI-based innovation for industrial processes.",
+            "description_it": "Tirocinio curriculare e tesi magistrale presso Fabbrica d'Armi Pietro Beretta — una delle aziende industriali più antiche al mondo — nell'ambito dei suoi sforzi di innovazione tecnologica. Il lavoro si concentra su Artificial Intelligence applicata: Retrieval-Augmented Generation (RAG) su knowledge base tecniche e pipeline intelligent web-scraping, con focus su innovazione AI-based per processi industriali.",
             "responsibilities": [
                 "Design and implementation of Retrieval-Augmented Generation (RAG) systems over technical and industrial knowledge bases",
                 "Development of intelligent web-scraping and data-extraction pipelines feeding the AI stack",
                 "Applied research on AI-based technological innovation for industrial workflows",
                 "Master's thesis: design, implementation and experimental evaluation of the proposed AI solution"
+            ],
+            "responsibilities_it": [
+                "Design e implementazione sistemi Retrieval-Augmented Generation (RAG) su knowledge base tecniche e industriali",
+                "Sviluppo pipeline intelligent web-scraping ed estrazione dati che alimentano lo stack AI",
+                "Ricerca applicata su innovazione tecnologica AI-based per workflow industriali",
+                "Tesi magistrale: design, implementazione e valutazione sperimentale soluzione AI proposta"
             ],
             "technologies": ["AI", "RAG", "LLMs", "Web Scraping", "Python"],
             "featured": true,

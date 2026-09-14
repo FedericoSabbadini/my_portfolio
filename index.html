@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Federico Sabbadini — Digital Mind</title>
-  <meta name="description" content="Interactive portfolio of Federico Sabbadini — a 3D mind mapping his education, work, projects and certifications across AI, Cybersecurity, Data and Software Engineering." />
+  <title data-i18n="seo.siteTitle">Federico Sabbadini — Digital Mind</title>
+  <meta name="description" data-i18n="seo.siteDescription" content="Interactive portfolio of Federico Sabbadini — a 3D mind mapping his education, work, projects and certifications across AI, Cybersecurity, Data and Software Engineering." />
   <meta name="theme-color" content="#05060A" />
   <link rel="canonical" href="https://federicosabbadini.github.io/my_portfolio/" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="assets/favicon.svg" />
 
-  <meta property="og:title" content="Federico Sabbadini — Digital Mind" />
-  <meta property="og:description" content="An interactive 3D portfolio: education, work, projects and certifications across AI, Cybersecurity and Data." />
+  <meta property="og:title" data-i18n="seo.ogTitle" content="Federico Sabbadini — Digital Mind" />
+  <meta property="og:description" data-i18n="seo.ogDescription" content="An interactive 3D portfolio: education, work, projects and certifications across AI, Cybersecurity and Data." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://federicosabbadini.github.io/my_portfolio/" />
   <meta property="og:image" content="https://federicosabbadini.github.io/my_portfolio/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Federico Sabbadini — Digital Mind, an interactive 3D portfolio in AI, Data and Cybersecurity." />
+  <meta property="og:image:alt" data-i18n="seo.ogImageAlt" content="Federico Sabbadini — Digital Mind, an interactive 3D portfolio in AI, Data and Cybersecurity." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Federico Sabbadini — Digital Mind" />
-  <meta name="twitter:description" content="An interactive 3D portfolio across AI, Cybersecurity and Data." />
+  <meta name="twitter:title" data-i18n="seo.twitterTitle" content="Federico Sabbadini — Digital Mind" />
+  <meta name="twitter:description" data-i18n="seo.twitterDescription" content="An interactive 3D portfolio across AI, Cybersecurity and Data." />
   <meta name="twitter:image" content="https://federicosabbadini.github.io/my_portfolio/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,7 +47,7 @@
   <!-- Boot loader -->
   <div id="boot" class="boot" aria-hidden="true">
     <div class="boot__pulse"></div>
-    <div class="boot__label">Waking the mind</div>
+    <div class="boot__label" data-i18n="boot.label">Waking the mind</div>
   </div>
 
   <!-- Dive flash: accent bloom that bridges the brain → region transition -->
@@ -70,24 +70,35 @@
         </span>
         <span class="site-header__id-text site-header__id-text--home">
           <span class="site-header__name">Federico Sabbadini</span>
-          <span class="site-header__role">Computer Engineering — AI · Data</span>
+          <span class="site-header__role" data-i18n="header.role">Computer Engineering — AI · Data</span>
         </span>
         <span class="site-header__id-text site-header__id-text--mind">
-          <span class="site-header__name">My Mind</span>
-          <span class="site-header__role">Back to the map</span>
+          <span class="site-header__name" data-i18n="header.mindName">My Mind</span>
+          <span class="site-header__role" data-i18n="header.mindRole">Back to the map</span>
         </span>
       </a>
       <div class="site-header__slot">
         <!-- Home: guided tour -->
-        <button id="tour-btn" class="tour-btn" type="button" aria-label="Guided tour of the mind" title="Guided tour">
+        <button id="tour-btn" class="tour-btn" type="button" data-i18n-aria-label="header.tourAriaLabel" data-i18n-title="header.tourAriaLabel">
           <span class="tour-btn__icon" id="tour-icon"></span>
-          <span id="tour-label">Tour</span>
+          <span id="tour-label" data-i18n="header.tourLabel">Tour</span>
         </button>
+        <!-- Language switcher -->
+        <div class="lang-switcher" id="lang-switcher" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true" title="English">
+            <span class="lang-btn__flag" aria-hidden="true">🇬🇧</span>
+            <span class="lang-btn__code">EN</span>
+          </button>
+          <button type="button" class="lang-btn" data-lang="it" aria-pressed="false" title="Italiano">
+            <span class="lang-btn__flag" aria-hidden="true">🇮🇹</span>
+            <span class="lang-btn__code">IT</span>
+          </button>
+        </div>
       </div>
       <!-- Region: back to the mind (outside slot so it can sit below the ID on desktop) -->
-      <a id="back-to-mind" class="back-link" href="#/" aria-label="Go back to the previous page">
+      <a id="back-to-mind" class="back-link" href="#/" data-i18n-aria-label="header.backAriaLabel">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
-        Back
+        <span data-i18n="header.backLabel">Back</span>
       </a>
     </div>
   </header>
@@ -95,7 +106,7 @@
   <!-- ====== HOME VIEW ====== -->
   <div id="home-view" data-view="home">
     <!-- Document heading for SEO / screen readers (the visual hero is the 3D brain) -->
-    <h1 class="sr-only">Federico Sabbadini — Computer Engineering portfolio: education, work, projects and certifications in AI, Cybersecurity and Data.</h1>
+    <h1 class="sr-only" data-i18n="seo.siteDescription">Federico Sabbadini — Computer Engineering portfolio: education, work, projects and certifications in AI, Cybersecurity and Data.</h1>
 
     <!-- Brain canvas -->
     <canvas id="brain-canvas" class="brain-canvas" aria-hidden="true"></canvas>
@@ -103,17 +114,17 @@
 
     <!-- Left panel: intro + region nav -->
     <div class="home-panel" id="home-panel">
-      <p class="home-panel__intro" id="home-intro">
+      <p class="home-panel__intro" id="home-intro" data-i18n="home.intro">
         An interactive map of everything I've studied and built. Hover a region to explore it — or take the guided tour.
       </p>
       <!-- Mobile-only lead: frames the concept where there's no hover affordance -->
       <div class="home-lead" id="home-lead">
-        <span class="home-lead__kicker">Knowledge Base</span>
-        <p class="home-lead__title">Step inside my digital mind</p>
-        <p class="home-lead__sub">Six regions — everything I've studied and built. Tap one to dive in, or take the tour.</p>
+        <span class="home-lead__kicker" data-i18n="home.leadKicker">Knowledge Base</span>
+        <p class="home-lead__title" data-i18n="home.leadTitle">Step inside my digital mind</p>
+        <p class="home-lead__sub" data-i18n="home.leadSub">Six regions — everything I've studied and built. Tap one to dive in, or take the tour.</p>
       </div>
       <div class="home-panel__nav-wrap">
-        <span class="home-panel__kicker" id="home-kicker">Regions</span>
+        <span class="home-panel__kicker" id="home-kicker" data-i18n="home.kicker">Regions</span>
         <nav id="region-nav" class="region-nav" aria-label="Knowledge regions"></nav>
       </div>
     </div>
@@ -123,7 +134,7 @@
       <div class="callout__inner">
         <div class="callout__head">
           <span class="callout__dot" id="callout-dot"></span>
-          <span class="callout__kicker" id="callout-kicker">Lobe</span>
+          <span class="callout__kicker" id="callout-kicker" data-i18n="home.calloutKicker">Lobe</span>
         </div>
         <div class="callout__title" id="callout-title">Region</div>
         <div class="callout__desc" id="callout-desc">Description</div>
@@ -139,7 +150,7 @@
   <!-- ====== REGION VIEW ====== -->
   <div id="region-view" class="region-view" data-view="region" hidden>
     <!-- Hero section -->
-    <section class="region-hero" id="region-hero">
+    <section class="region-hero" id="region-hero" aria-labelledby="hero-title">
       <div class="region-hero__inner">
         <div class="region-hero__badge">
           <span class="region-hero__dot" id="hero-dot"></span>
@@ -156,7 +167,7 @@
     <!-- Footer: other regions -->
     <footer class="region-footer" id="region-footer">
       <div class="region-footer__inner">
-        <span class="region-footer__label">Other Regions</span>
+        <span class="region-footer__label" data-i18n="region.footerLabel">Other Regions</span>
         <div class="region-footer__links" id="footer-links"></div>
       </div>
     </footer>
@@ -164,11 +175,11 @@
 
   <noscript>
     <div style="max-width:720px;margin:12vh auto;padding:0 24px;color:#E8ECF4;font-family:Inter,system-ui,sans-serif;">
-      <h1 style="font-family:Sora,sans-serif;">Federico Sabbadini</h1>
-      <p>This portfolio requires JavaScript.
+      <h1 style="font-family:Sora,sans-serif;" data-i18n="noscript.title">Federico Sabbadini</h1>
+      <p data-i18n="noscript.message">This portfolio requires JavaScript.
       Reach me at <a style="color:#22D3EE" href="mailto:federicosabbadini@icloud.com">federicosabbadini@icloud.com</a>
-      or on <a style="color:#22D3EE" href="https://github.com/FedericoSabbadini">GitHub</a> and
-      <a style="color:#22D3EE" href="https://linkedin.com/in/federicosabbadini">LinkedIn</a>.</p>
+      or on <a style="color:#22D3EE" href="https://github.com/FedericoSabbadini" data-i18n="noscript.github">GitHub</a> and
+      <a style="color:#22D3EE" href="https://linkedin.com/in/federicosabbadini" data-i18n="noscript.linkedin">LinkedIn</a>.</p>
     </div>
   </noscript>
 
@@ -182,8 +193,8 @@
       if (!boot || boot.classList.contains('is-hidden')) return;
       boot.innerHTML =
         '<div style="max-width:640px;padding:0 24px;text-align:center;color:#B7C0D0;font-family:Inter,system-ui,sans-serif">' +
-        '<h1 style="font-family:Sora,sans-serif;color:#EAEEF6;font-size:1.6rem;margin-bottom:12px">Federico Sabbadini</h1>' +
-        '<p style="line-height:1.6;margin-bottom:16px">The interactive view could not load. Reach me at ' +
+        '<h1 style="font-family:Sora,sans-serif;color:#EAEEF6;font-size:1.6rem;margin-bottom:12px" data-i18n="boot.fallbackTitle">Federico Sabbadini</h1>' +
+        '<p style="line-height:1.6;margin-bottom:16px" data-i18n="boot.fallbackMessage">The interactive view could not load. Reach me at ' +
         '<a style="color:#22D3EE" href="mailto:federicosabbadini@icloud.com">federicosabbadini@icloud.com</a> ' +
         'or on <a style="color:#22D3EE" href="https://github.com/FedericoSabbadini">GitHub</a> and ' +
         '<a style="color:#22D3EE" href="https://linkedin.com/in/federicosabbadini">LinkedIn</a>.</p></div>';

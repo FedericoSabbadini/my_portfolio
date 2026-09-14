@@ -4,9 +4,13 @@
     {
       "id": "about",
       "label": "About",
+      "label_it": "Chi Sono",
       "region": "The self",
+      "region_it": "Il Sé",
       "short": "Get to know me — background, core skills, languages and interests.",
+      "short_it": "Scopri chi sono — background, competenze principali, lingue e interessi.",
       "description": "Background, the skills I lead with, the languages I speak and what drives me beyond code.",
+      "description_it": "Background, le competenze che mi distinguono, le lingue che parlo e cosa mi spinge oltre il codice.",
       "accent": "#EAEEF6",
       "position": [0.0, 0.30, 0.62],
       "size": 1.05
@@ -14,9 +18,13 @@
     {
       "id": "education",
       "label": "Education",
+      "label_it": "Formazione",
       "region": "Prefrontal cortex",
+      "region_it": "Corteccia Prefrontale",
       "short": "My academic background and formal education, from high school to my Master's.",
+      "short_it": "Il mio background accademico e formazione formale, dal liceo alla magistrale.",
       "description": "Formal education in Computer Engineering. Every course links to the official syllabus and to my own study notes.",
+      "description_it": "Formazione formale in Ingegneria Informatica. Ogni corso linka al syllabus ufficiale e ai miei appunti di studio.",
       "accent": "#818CF8",
       "position": [-0.86, 0.40, 0.34],
       "size": 1.18
@@ -24,9 +32,13 @@
     {
       "id": "work",
       "label": "Work",
+      "label_it": "Lavoro",
       "region": "Frontal lobe",
+      "region_it": "Lobo Frontale",
       "short": "Professional experience, technical growth and the roles ahead.",
+      "short_it": "Esperienza professionale, crescita tecnica e ruoli futuri.",
       "description": "My path into industry — building ModelVault, plus the internship and Master's thesis in applied AI that lie ahead.",
+      "description_it": "Il mio percorso nell'industria — costruire ModelVault, più il tirocinio e la tesi magistrale in AI applicata che mi attendono.",
       "accent": "#60A5FA",
       "position": [0.86, 0.40, 0.34],
       "size": 1.0
@@ -34,9 +46,13 @@
     {
       "id": "projects",
       "label": "Projects",
+      "label_it": "Progetti",
       "region": "Parietal · occipital",
+      "region_it": "Parietale · Occipitale",
       "short": "Selected work — research and applied projects across AI, security and data.",
+      "short_it": "Lavori selezionati — ricerca e progetti applicati in AI, security e data.",
       "description": "Research and applied builds, grouped by field: AI & Machine Learning, Cybersecurity, Data, Software and beyond.",
+      "description_it": "Ricerca e build applicati, raggruppati per area: AI & Machine Learning, Cybersecurity, Data, Software e altro.",
       "accent": "#22D3EE",
       "position": [0.58, 0.10, -0.86],
       "size": 1.2
@@ -44,9 +60,13 @@
     {
       "id": "certifications",
       "label": "Certifications",
+      "label_it": "Certificazioni",
       "region": "Temporal lobe",
+      "region_it": "Lobo Temporale",
       "short": "Professional certifications and continuous-learning achievements.",
+      "short_it": "Certificazioni professionali e achievement continuous learning.",
       "description": "Hands-on credentials and continuous learning across security, cloud, AI, software and professional skills.",
+      "description_it": "Credenziali hands-on e continuous learning in security, cloud, AI, software e professional skills.",
       "accent": "#2DD4BF",
       "position": [-0.80, 0.04, -0.72],
       "size": 1.05
@@ -54,9 +74,13 @@
     {
       "id": "contacts",
       "label": "Contacts",
+      "label_it": "Contatti",
       "region": "Brain stem",
+      "region_it": "Tronco Encefalico",
       "short": "Ways to reach me and my presence across the web.",
+      "short_it": "Modi per contattarmi e mia presenza sul web.",
       "description": "My channels and presence across the web, plus my CV, Europass and cover letter ready to download.",
+      "description_it": "I miei canali e presenza sul web, più CV, Europass e cover letter pronti da scaricare.",
       "accent": "#38BDF8",
       "position": [0.0, -0.72, 0.12],
       "size": 0.95

@@ -142,6 +142,43 @@ body.view-region .site-header__id-text--home { display: none; }
 body.view-region .site-header__id-text--mind { display: flex; }
 .site-header__slot { display: flex; align-items: center; gap: 10px; pointer-events: auto; flex: none; }
 
+/* --- Language Switcher --- */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--hairline-2);
+  background: rgba(9,12,19,.6);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+}
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: var(--r-pill-sm);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: .08em;
+  color: var(--ink-mut);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color .2s, background .2s;
+}
+.lang-btn:hover { color: var(--ink-hi); }
+.lang-btn[aria-pressed="true"] {
+  color: var(--ink-hi);
+  background: rgba(34,211,238,.14);
+  box-shadow: inset 0 0 0 1px rgba(34,211,238,.28);
+}
+.lang-btn__flag { font-size: 1em; line-height: 1; }
+.lang-btn__code { text-transform: uppercase; }
+
 /* on a region page, content scrolls beneath the header — a soft scrim lets it
    fade out cleanly under the floating chips (home stays pure glass on the brain) */
 .site-header::before {

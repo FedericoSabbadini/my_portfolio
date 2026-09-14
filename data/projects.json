@@ -4,14 +4,21 @@
       "id": "patch-aliasing-tsf",
       "subject": "ai",
       "title": "Structural Aliasing in Patch-Based Time-Series Models (Chronos)",
+      "title_it": "Aliasing Strutturale in Modelli Time-Series Patch-Based (Chronos)",
       "period": "Apr 2026 - ",
       "badge": "Research",
       "badgeClass": "badge-info",
       "description": "Investigated structural aliasing induced by patch-based tokenisation in time-series foundation models. Formally derived conditions under which phase-locking between signal periodicity and patch grid creates frequency blind spots beyond classical Nyquist limits. Validated hypotheses through controlled synthetic experiments, quantified effects via Bayesian inference, and formalised semantic impact through domain ontologies. Discussed mitigation strategies and agentic AI integration for monitoring and explainability.",
+      "description_it": "Investigato aliasing strutturale indotto da tokenizzazione patch-based in modelli foundation time-series. Derivate formalmente condizioni in cui phase-locking tra periodicità segnale e griglia patch crea punti ciechi frequenziali oltre limiti classici di Nyquist. Validate ipotesi attraverso esperimenti sintetici controllati, quantificati effetti via inferenza bayesiana e formalizzato impatto semantico tramite ontologie di dominio. Discusse strategie mitigazione e integrazione agentic AI per monitoring ed explainability.",
       "tags": [
         "Time-Series",
         "Signal Processing",
         "Bayesian Inference"
+      ],
+      "tags_it": [
+        "Time-Series",
+        "Elaborazione Segnali",
+        "Inferenza Bayesiana"
       ],
       "url": "https://github.com/FedericoSabbadini/patchAliasing",
       "featured": true
@@ -20,14 +27,21 @@
       "id": "temporal-difference",
       "subject": "ai",
       "title": "Temporal Difference Learning",
+      "title_it": "Temporal Difference Learning",
       "period": "May 2025 - Jul 2025",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "I've implemented the core RL algorithms from scratch (no high-level RL library) and compare them across three environments, with sensitivity analyses, explicit failure cases and a DQN ablation study. Following the assignment, the goal is understanding and experimental analysis, not absolute performance. Working on 3 diffeent Gymnasium environments: Acrobot, CartPole and Pong. The repository contains the code, the report and the slides of the presentation.",
+      "description_it": "Implementati algoritmi RL core from scratch (senza librerie RL high-level) e confrontati su tre ambienti, con analisi sensitività, failure cases espliciti e studio ablazione DQN. Obiettivo: understanding e analisi sperimentale, non performance assolute. Lavorato su 3 ambienti Gymnasium: Acrobot, CartPole e Pong. Repository contiene codice, report e slide presentazione.",
       "tags": [
         "Reinforcement Learning",
         "Temporal Difference Learning",
         "Markov Decision Processes"
+      ],
+      "tags_it": [
+        "Reinforcement Learning",
+        "Temporal Difference Learning",
+        "Processi Decisionali Markoviani"
       ],
       "url": "https://github.com/FedericoSabbadini/temporalDifference",
       "featured": true
@@ -36,11 +50,18 @@
       "id": "network-hardening",
       "subject": "security",
       "title": "Network Hardening Planner",
+      "title_it": "Network Hardening Planner",
       "period": "Feb 2026 - Apr 2026",
       "badge": "Security",
       "badgeClass": "badge-warning",
       "description": "Developed an automated planning system using Unified Planning and Fast Downward that models network hardening as a classical planning problem. The system encodes hosts, services and ports with actions like migration and shutdown, then computes cost-optimal remediation plans that enforce security policies while preserving operational continuity constraints.",
+      "description_it": "Sviluppato sistema pianificazione automatica usando Unified Planning e Fast Downward che modella network hardening come problema pianificazione classico. Sistema codifica host, servizi e porte con azioni come migrazione e shutdown, poi calcola piani remediation cost-optimal che enforzano security policies preservando vincoli continuità operativa.",
       "tags": [
+        "AI Planning",
+        "Unified Planning",
+        "FastDownward"
+      ],
+      "tags_it": [
         "AI Planning",
         "Unified Planning",
         "FastDownward"
@@ -52,11 +73,19 @@
       "id": "data-nexus",
       "subject": "data",
       "title": "dataNexus Big Data Engineering",
+      "title_it": "dataNexus Big Data Engineering",
       "period": "Dec 2025 - Jan 2026",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "A hands-on Big Data project showcasing how different database models and distributed computing paradigms are applied to real-world datasets, such as Amazon Food Reviews, LAPD Crime Data and arXiv publications. The repository demonstrates querying, modeling, analytics, and performance comparisons across modern big data technologies.",
+      "description_it": "Progetto hands-on Big Data che mostra come diversi modelli database e paradigmi distributed computing si applicano a dataset real-world, come Amazon Food Reviews, LAPD Crime Data e pubblicazioni arXiv. Repository dimostra querying, modeling, analytics e performance comparison across modern big data technologies.",
       "tags": [
+        "MongoDB",
+        "InfluxDB",
+        "Neo4J",
+        "Map-reduce"
+      ],
+      "tags_it": [
         "MongoDB",
         "InfluxDB",
         "Neo4J",
@@ -69,11 +98,19 @@
       "id": "f1-deepL",
       "subject": "ai",
       "title": "F1 Pit Strategy Predictor",
+      "title_it": "F1 Pit Strategy Predictor",
       "period": "Dec 2025 - Feb 2026",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "Built an end-to-end deep learning pipeline that predicts Formula 1 pit stop timing and tire compound selection using real-world telemetry from the FastF1 API. Achieved 0.78 AUC for pit timing prediction and 78% accuracy on compound choice using Transformers with self-attention mechanisms, handling time-series data across 20+ race weekends.",
+      "description_it": "Costruita pipeline deep learning end-to-end che predice timing pit stop F1 e selezione compound pneumatici usando telemetria real-world da FastF1 API. Raggiunto 0.78 AUC per predizione timing pit e 78% accuracy su scelta compound usando Transformers con meccanismi self-attention, gestendo dati time-series su 20+ weekend gara.",
       "tags": [
+        "LSTM",
+        "FastF1 API",
+        "Transformers",
+        "Time Series"
+      ],
+      "tags_it": [
         "LSTM",
         "FastF1 API",
         "Transformers",
@@ -86,15 +123,23 @@
       "id": "pathfinding",
       "subject": "software",
       "title": "Grid Pathfinding Algorithms",
+      "title_it": "Algoritmi Pathfinding su Griglia",
       "period": "May 2025 - Jul 2025",
       "badge": "Opt",
       "badgeClass": "badge-danger",
       "description": "Implemented and benchmarked advanced pathfinding algorithms for obstacle-rich grid environments. Developed optimized versions of A*, Dijkstra, and JPS (Jump Point Search) with custom heuristics. Analyzed algorithmic complexity, memory usage, and runtime performance across varying grid densities, achieving up to 40% speedup over naive implementations.",
+      "description_it": "Implementati e benchmarkati algoritmi pathfinding avanzati per ambienti griglia ricchi di ostacoli. Sviluppate versioni ottimizzate A*, Dijkstra e JPS (Jump Point Search) con euristiche custom. Analizzata complessità algoritmica, usage memoria e performance runtime su densità griglia variabili, raggiungendo fino 40% speedup su implementazioni naive.",
       "tags": [
         "Algorithms",
         "Graph Theory",
         "A*",
         "Optimization"
+      ],
+      "tags_it": [
+        "Algoritmi",
+        "Teoria Grafo",
+        "A*",
+        "Ottimizzazione"
       ],
       "url": "https://github.com/FedericoSabbadini/CamminiPRJ",
       "featured": false
@@ -103,11 +148,20 @@
       "id": "oracool",
       "subject": "software",
       "title": "Oracool Web Platform",
+      "title_it": "Oracool Web Platform",
       "period": "Apr 2025 - Jul 2025",
       "badge": "SW Development",
       "badgeClass": "badge-success",
       "description": "Designed and developed a full-stack sports prediction platform following Agile/Scrum methodology. Built RESTful APIs with Laravel and Eloquent ORM, implemented user authentication with role-based access control, MySQL database with optimized queries, and responsive Bootstrap UI. Managed complete SDLC from requirements gathering to deployment.",
+      "description_it": "Progettato e sviluppato piattaforma web full-stack predizione sportiva seguendo metodologia Agile/Scrum. Costruite RESTful API con Laravel ed Eloquent ORM, implementata autenticazione utente con role-based access control, database MySQL con query ottimizzate e responsive Bootstrap UI. Gestito SDLC completo da requirements gathering a deployment.",
       "tags": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "REST API",
+        "Bootstrap"
+      ],
+      "tags_it": [
         "Laravel",
         "PHP",
         "MySQL",
@@ -121,11 +175,19 @@
       "id": "talentscope",
       "subject": "ai",
       "title": "TalentScope AI",
+      "title_it": "TalentScope AI",
       "period": "May 2025 - Jun 2025",
       "badge": "AI/ML",
       "badgeClass": "badge-info",
       "description": "Engineered a machine learning pipeline to predict FIFA 2022 player potential using ensemble methods (Random Forest, XGBoost, Gradient Boosting). Implemented advanced feature engineering on 18,000+ player records, hyperparameter tuning via GridSearchCV, and comprehensive model evaluation achieving 89% accuracy. Full MLOps workflow from data preprocessing to model deployment.",
+      "description_it": "Ingegnerizzata pipeline machine learning per predire potenziale giocatori FIFA 2022 usando ensemble methods (Random Forest, XGBoost, Gradient Boosting). Implementato advanced feature engineering su 18.000+ record giocatori, hyperparameter tuning via GridSearchCV e model evaluation completa raggiungendo 89% accuracy. Full MLOps workflow da data preprocessing a model deployment.",
       "tags": [
+        "Python",
+        "Scikit-learn",
+        "XGBoost",
+        "Feature Engineering"
+      ],
+      "tags_it": [
         "Python",
         "Scikit-learn",
         "XGBoost",
@@ -138,11 +200,20 @@
       "id": "openid-thesis",
       "subject": "security",
       "title": "OpenID Connect & Digital Identity",
+      "title_it": "OpenID Connect & Digital Identity",
       "period": "Jun 2024 - Oct 2024",
       "badge": "Research",
       "badgeClass": "badge-primary",
       "description": "Bachelor's thesis exploring modern identity and access management protocols. Conducted in-depth analysis of OAuth 2.0 flows, OpenID Connect authentication mechanisms, and JWT token security. Examined real-world implementations including SPID (Italian Digital Identity) and enterprise SSO solutions, with focus on security vulnerabilities and mitigation strategies.",
+      "description_it": "Tesi triennale su protocolli moderni identity e access management. Condotta analisi approfondita flussi OAuth 2.0, meccanismi autenticazione OpenID Connect e sicurezza JWT token. Esaminate implementazioni real-world inclusi SPID (Identità Digitale Italiana) e soluzioni SSO enterprise, con focus su vulnerabilità sicurezza e strategie mitigazione.",
       "tags": [
+        "OpenID",
+        "OAuth 2.0",
+        "JWT",
+        "IAM",
+        "Security"
+      ],
+      "tags_it": [
         "OpenID",
         "OAuth 2.0",
         "JWT",
@@ -151,16 +222,19 @@
       ],
       "url": "https://drive.google.com/drive/folders/1-16jmzvplBPEBdnElmpONSHFmHeYBXk8",
       "urlLabel": "View Research",
+      "urlLabel_it": "Visualizza Ricerca",
       "featured": false
     },
     {
       "id": "data-hiding",
       "subject": "security",
       "title": "Data Hiding Research",
+      "title_it": "Data Hiding Research",
       "period": "Oct 2024 - Mar 2025",
       "badge": "Research",
       "badgeClass": "badge-primary",
       "description": "Research project investigating cutting-edge steganography techniques using deep learning. Analyzed CNN-based methods for embedding hidden data in images while maintaining visual imperceptibility, and GAN architectures for generating stego-images that evade statistical detection. Published comprehensive research paper comparing classical vs. neural approaches for information hiding.",
+      "description_it": "Progetto ricerca su tecniche steganografia all'avanguardia usando deep learning. Analizzati metodi CNN-based per embedding dati nascosti in immagini mantenendo impercettibilità visiva, e architetture GAN per generare stego-images che evadono detection statistica. Pubblicato research paper completo confrontando approcci classici vs neurali per information hiding.",
       "tags": [
         "Steganography",
         "CNN",
@@ -168,19 +242,36 @@
         "PyTorch",
         "Research"
       ],
+      "tags_it": [
+        "Steganografia",
+        "CNN",
+        "GAN",
+        "PyTorch",
+        "Ricerca"
+      ],
       "url": "https://drive.google.com/drive/folders/1-2rBrcF9CzBdbvVcxDoxeiMTZej-5eDK",
       "urlLabel": "View Research",
+      "urlLabel_it": "Visualizza Ricerca",
       "featured": false
     },
     {
       "id": "work-performance",
       "subject": "software",
       "title": "Work Performance Trading",
+      "title_it": "Work Performance Trading",
       "period": "Jan 2024 - Jun 2024",
       "badge": "SW Development",
       "badgeClass": "badge-success",
       "description": "Architected a Java desktop application for automated resource exchange simulation following clean architecture principles. Implemented MVC pattern with Swing GUI, applied SOLID principles throughout, and utilized design patterns (Factory, Observer, Strategy) for extensibility. Comprehensive unit testing with JUnit and documentation following industry best practices.",
+      "description_it": "Architettata applicazione Java desktop per simulazione scambio risorse automatizzato seguendo clean architecture principles. Implementato pattern MVC con Swing GUI, applicati principi SOLID throughout e utilizzati design pattern (Factory, Observer, Strategy) per estensibilità. Comprehensive unit testing con JUnit e documentazione following industry best practices.",
       "tags": [
+        "Java",
+        "Design Patterns",
+        "MVC",
+        "SOLID",
+        "JUnit"
+      ],
+      "tags_it": [
         "Java",
         "Design Patterns",
         "MVC",
@@ -194,15 +285,23 @@
       "id": "electromagnetic",
       "subject": "software",
       "title": "Electromagnetic Field Analysis",
+      "title_it": "Analisi Campi Elettromagnetici",
       "period": "Apr 2024 - Jul 2024",
       "badge": "Research",
       "badgeClass": "badge-primary",
       "description": "Developed MATLAB simulation tools for quantitative assessment of electromagnetic field exposure from HF radio antennas and ELF power lines. Created 3D visualization of field intensity distributions, calculated SAR (Specific Absorption Rate) values, and evaluated compliance with international exposure limits (ICNIRP guidelines). Applied numerical methods for Maxwell's equations.",
+      "description_it": "Sviluppati tool simulazione MATLAB per assessment quantitativo esposizione campi elettromagnetici da antenne radio HF e linee elettriche ELF. Creato 3D visualization distribuzioni intensità campo, calcolati valori SAR (Specific Absorption Rate) e valutata compliance con limiti esposizione internazionali (linee guida ICNIRP). Applicati metodi numerici per equazioni Maxwell.",
       "tags": [
         "MATLAB",
         "Numerical Analysis",
         "EMF",
         "Simulation"
+      ],
+      "tags_it": [
+        "MATLAB",
+        "Analisi Numerica",
+        "CEM",
+        "Simulazione"
       ],
       "url": "https://github.com/FedericoSabbadini/Elettrosmog",
       "featured": false,
@@ -212,12 +311,20 @@
       "id": "gurobi",
       "subject": "software",
       "title": "Gurobi Optimization",
+      "title_it": "Gurobi Optimization",
       "period": "Jan 2023 - Jun 2023",
       "badge": "Opt",
       "badgeClass": "badge-danger",
       "description": "Solved complex combinatorial optimization problems using Gurobi solver and mathematical programming techniques. Formulated real-world scenarios as Integer Linear Programs (ILP), implemented constraint modeling for scheduling, routing, and resource allocation problems. Achieved optimal solutions for NP-hard instances through branch-and-bound and cutting plane methods.",
+      "description_it": "Risolti problemi ottimizzazione combinatoria complessi usando solver Gurobi e tecniche mathematical programming. Formulati scenari real-world come Integer Linear Programs (ILP), implementato constraint modeling per scheduling, routing e resource allocation. Raggiunte soluzioni ottimali per istanze NP-hard tramite branch-and-bound e cutting plane methods.",
       "tags": [
         "Operations Research",
+        "ILP",
+        "Gurobi",
+        "Python"
+      ],
+      "tags_it": [
+        "Ricerca Operativa",
         "ILP",
         "Gurobi",
         "Python"

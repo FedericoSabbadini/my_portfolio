@@ -4,12 +4,20 @@
       "id": "langchain-langgraph-crash-course",
       "subject": "ai",
       "title": "LangChain and LangGraph Crash Course",
+      "title_it": "LangChain and LangGraph Crash Course",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "June 2026",
       "certId": "UC-2ca35ec1-9fd7-492c-9c13-c176b60bfc9d",
       "description": "Hands-on crash course focused on building Generative AI applications using LangChain and LangGraph with Python and OpenAI models. Covered prompt engineering, chains, agents, memory management, document-based chatbots, and Retrieval-Augmented Generation (RAG).",
+      "description_it": "Crash course hands-on focalizzato su building applicazioni Generative AI usando LangChain e LangGraph con Python e modelli OpenAI. Coperti prompt engineering, chains, agents, memory management, document-based chatbots e Retrieval-Augmented Generation (RAG).",
       "tags": [
+        "LangChain",
+        "LangGraph",
+        "RAG",
+        "LangSmith"
+      ],
+      "tags_it": [
         "LangChain",
         "LangGraph",
         "RAG",
@@ -23,12 +31,22 @@
       "id": "aws-essentials",
       "subject": "software",
       "title": "AWS Essentials - Hands-on Learning ",
+      "title_it": "AWS Essentials - Hands-on Learning",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "May 2026",
       "certId": "UC-296ac15b-d1ef-4fb9-ab3e-daf0c48acc4c",
       "description": "Foundational course on Amazon Web Services covering core cloud infrastructure and platform services. Explored practical usage of EC2, S3, VPC, RDS, and cloud networking concepts through guided labs and demonstrations.",
+      "description_it": "Corso foundational su Amazon Web Services coprendo core cloud infrastructure e platform services. Esplorato usage pratico EC2, S3, VPC, RDS e cloud networking concepts attraverso guided labs e demonstrations.",
       "tags": [
+        "EC2",
+        "S3",
+        "VPC",
+        "RDS/DynamoDB",
+        "SNS/SQS",
+        "Lambda"
+      ],
+      "tags_it": [
         "EC2",
         "S3",
         "VPC",
@@ -44,12 +62,20 @@
       "id": "complete-fastapi-course-oauth-jwt",
       "subject": "software",
       "title": "The Complete FastAPI Course With OAuth & JWT",
+      "title_it": "The Complete FastAPI Course With OAuth & JWT",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "May 2026",
       "certId": "UC-7ed804de-649d-4ccd-a776-5dc3dc386462",
       "description": "Comprehensive introduction to building modern REST APIs using FastAPI and Python. Covers API fundamentals, request handling, Pydantic models, database integration with SQLAlchemy, CRUD operations, relational models, modular routing, authentication with OAuth2, JWT token generation, password hashing, and protected API endpoints.",
+      "description_it": "Introduzione completa a building modern REST APIs usando FastAPI e Python. Copre API fundamentals, request handling, modelli Pydantic, database integration con SQLAlchemy, operazioni CRUD, modelli relazionali, modular routing, autenticazione OAuth2, generazione JWT token, password hashing e protected API endpoints.",
       "tags": [
+        "FastAPI",
+        "SQLAlchemy",
+        "JWT",
+        "REST API"
+      ],
+      "tags_it": [
         "FastAPI",
         "SQLAlchemy",
         "JWT",
@@ -63,12 +89,19 @@
       "id": "git-github-zero-to-hero",
       "subject": "software",
       "title": "Master Git and GitHub",
+      "title_it": "Master Git and GitHub",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "May 2026",
       "certId": "UC-39b94f84-9394-4727-b6b2-d7e614b43b34",
       "description": "Practical introduction to version control using Git and GitHub. Covers core workflows including commits, branching, merging, pull requests, and repository management. Focuses on the most commonly used commands for real-world development and collaboration scenarios.",
+      "description_it": "Introduzione pratica a version control usando Git e GitHub. Copre core workflows inclusi commits, branching, merging, pull requests e repository management. Focus sui comandi più usati per real-world development e collaboration scenarios.",
       "tags": [
+        "Git",
+        "GitHub",
+        "Version Control"
+      ],
+      "tags_it": [
         "Git",
         "GitHub",
         "Version Control"
@@ -81,15 +114,22 @@
       "id": "latex-professional-publications",
       "subject": "business",
       "title": "LaTeX for Professional Publications",
+      "title_it": "LaTeX for Professional Publications",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "May 2026",
       "certId": "UC-f20ad2e8-2e73-4b51-acaO-da77ae9c763a",
       "description": "Fundamentals of LaTeX for creating high-quality technical and academic documents. Includes document structuring, mathematical typesetting, bibliography management, and formatting of figures and tables for professional publications.",
+      "description_it": "Fondamenti LaTeX per creare documenti tecnici e accademici high-quality. Include document structuring, mathematical typesetting, bibliography management e formatting figure e tabelle per professional publications.",
       "tags": [
         "LaTeX",
         "Technical Writing",
         "Documentation"
+      ],
+      "tags_it": [
+        "LaTeX",
+        "Technical Writing",
+        "Documentazione"
       ],
       "featured": false,
       "url": "https://www.udemy.com/certificate/UC-f20ad2e8-2e73-4b51-aca0-da77ae9c763a/",
@@ -99,14 +139,21 @@
       "id": "n8n-automation-master",
       "subject": "ai",
       "title": "Automation Master: n8n, JavaScript and AI Agents",
+      "title_it": "Automation Master: n8n, JavaScript and AI Agents",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "April 2026",
       "certId": "UC-d61c4df0-d289-477c-aed1-e95e8fbb5e50",
       "description": "Hands-on course on automation with n8n, progressing from basics to production-ready systems. Covers workflow design, data handling with JavaScript, and implementation in local/VPS/cloud environments. Includes practical projects, reusable workflows, and API integration with Python.",
+      "description_it": "Corso hands-on su automation con n8n, da basics a production-ready systems. Copre workflow design, data handling con JavaScript e implementation in ambienti local/VPS/cloud. Include practical projects, reusable workflows e API integration con Python.",
       "tags": [
         "n8n",
         "Automation",
+        "Agentic AI"
+      ],
+      "tags_it": [
+        "n8n",
+        "Automazione",
         "Agentic AI"
       ],
       "featured": false,
@@ -117,12 +164,19 @@
       "id": "cct",
       "subject": "security",
       "title": "C|CT Certified Cybersecurity Technician",
+      "title_it": "C|CT Certified Cybersecurity Technician",
       "issuer": "EC-Council",
       "issuerIcon": "ec-council",
       "date": "October 2025",
       "certId": "440746",
       "description": "Industry-recognized entry-level cybersecurity certification from EC-Council, creators of CEH. Validated hands-on skills across network defense, ethical hacking, digital forensics, and security operations through 85+ practical labs on live cyber ranges. Covers incident response, threat intelligence, cryptography, and risk management aligned with NIST NICE Framework.",
+      "description_it": "Certificazione cybersecurity entry-level industry-recognized da EC-Council, creators di CEH. Validate hands-on skills across network defense, ethical hacking, digital forensics e security operations attraverso 85+ practical labs su live cyber ranges. Copre incident response, threat intelligence, crittografia e risk management allineato con NIST NICE Framework.",
       "tags": [
+        "Cybersecurity",
+        "Practical Lab",
+        "ANSI Accredited"
+      ],
+      "tags_it": [
         "Cybersecurity",
         "Practical Lab",
         "ANSI Accredited"
@@ -136,14 +190,22 @@
       "id": "python-data-science-sales",
       "subject": "data",
       "title": "Data Science with Python: Data, Insight and Sell Predictions",
+      "title_it": "Data Science with Python: Data, Insight and Sell Predictions",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "December 2025",
       "certId": "UC-e444b893-baa1-4f06-b75d-3688c79a47b2",
       "description": "Practical data science course using Python focused on real-world retail/e-commerce datasets. Covers full workflow from data cleaning and exploratory data analysis to predictive modeling. Includes NumPy, Pandas, Matplotlib, Seaborn, feature engineering, and machine learning with scikit-learn to build sales forecasting models and extract actionable business insights.",
+      "description_it": "Corso pratico data science con Python focalizzato su dataset real-world retail/e-commerce. Copre full workflow da data cleaning ed exploratory data analysis a predictive modeling. Include NumPy, Pandas, Matplotlib, Seaborn, feature engineering e machine learning con scikit-learn per build sales forecasting models ed estrarre actionable business insights.",
       "tags": [
         "Data Science",
         "Numpy",
+        "Pandas",
+        "Analytics"
+      ],
+      "tags_it": [
+        "Data Science",
+        "NumPy",
         "Pandas",
         "Analytics"
       ],
@@ -155,17 +217,26 @@
       "id": "python-pro",
       "subject": "software",
       "title": "Python Pro - Advanced and Complete Guide to the PL",
+      "title_it": "Python Pro - Advanced and Complete Guide to the PL",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "September 2025",
       "certId": "UC-b68fafc5-e4e1-4222-bcbf-4c66dae5fa3f",
       "description": "Comprehensive Python course covering fundamentals to advanced topics. Includes data structures, control flow, and strong focus on object-oriented programming (classes, inheritance, MRO). Features practical exercises, file handling, virtual environments, and real-world projects with MongoDB and RabbitMQ.",
+      "description_it": "Corso Python completo coprendo fundamentals ad advanced topics. Include data structures, control flow e strong focus su object-oriented programming (classi, inheritance, MRO). Feature practical exercises, file handling, virtual environments e real-world projects con MongoDB e RabbitMQ.",
       "tags": [
         "Python",
         "OOP",
         "Software Development",
         "APIs",
         "Databases"
+      ],
+      "tags_it": [
+        "Python",
+        "OOP",
+        "Software Development",
+        "API",
+        "Database"
       ],
       "featured": false,
       "url": "https://www.udemy.com/certificate/UC-b68fafc5-e4e1-4222-bcbf-4c66dae5fa3f/",
@@ -175,12 +246,19 @@
       "id": "metasploit",
       "subject": "security",
       "title": "Metasploit Penetration Testing",
+      "title_it": "Metasploit Penetration Testing",
       "issuer": "EC-Council",
       "issuerIcon": "ec-council",
       "date": "November 2025",
       "certId": "448767",
       "description": "Specialized certification in offensive security using the Metasploit Framework. Mastered vulnerability assessment workflows, exploit development, payload generation, and post-exploitation techniques. Hands-on experience with msfconsole, auxiliary modules, and automated attack automation for enterprise penetration testing scenarios.",
+      "description_it": "Certificazione specializzata in offensive security usando Metasploit Framework. Mastered vulnerability assessment workflows, exploit development, payload generation e post-exploitation techniques. Hands-on experience con msfconsole, auxiliary modules e automated attack automation per enterprise penetration testing scenarios.",
       "tags": [
+        "Pentesting",
+        "Metasploit",
+        "Exploit Development"
+      ],
+      "tags_it": [
         "Pentesting",
         "Metasploit",
         "Exploit Development"
@@ -193,12 +271,19 @@
       "id": "wireshark",
       "subject": "security",
       "title": "Wireshark Network Troubleshooting",
+      "title_it": "Wireshark Network Troubleshooting",
       "issuer": "EC-Council",
       "issuerIcon": "ec-council",
       "date": "August 2025",
       "certId": "447142",
       "description": "Advanced network analysis certification focused on TCP/IP troubleshooting and packet-level forensics using Wireshark. Developed expertise in deep packet capture (PCAP) inspection, protocol layer analysis, custom display filters, and identifying network performance issues. Skills applicable to security monitoring, incident investigation, and network optimization.",
+      "description_it": "Certificazione advanced network analysis focalizzata su TCP/IP troubleshooting e packet-level forensics usando Wireshark. Sviluppata expertise in deep packet capture (PCAP) inspection, protocol layer analysis, custom display filters e identifying network performance issues. Skills applicabili a security monitoring, incident investigation e network optimization.",
       "tags": [
+        "Wireshark",
+        "Network Forensics",
+        "Protocol Analysis"
+      ],
+      "tags_it": [
         "Wireshark",
         "Network Forensics",
         "Protocol Analysis"
@@ -211,13 +296,20 @@
       "id": "sustainability",
       "subject": "business",
       "title": "Environmental Sustainability & Digital Technologies",
+      "title_it": "Environmental Sustainability & Digital Technologies",
       "issuer": "Politecnico di Milano",
       "issuerIcon": "polimi",
       "date": "September 2025",
       "certId": "N/A",
       "description": "Digital badge from Italy's top technical university covering the intersection of sustainability and technology. Explored UN Sustainable Development Goals (SDGs), ESG frameworks, green IT practices, and the role of digital innovation in environmental protection. Includes systems thinking approaches to corporate sustainability and circular economy principles.",
+      "description_it": "Digital badge da top technical university italiana coprendo intersection sustainability e technology. Esplorati UN Sustainable Development Goals (SDGs), ESG frameworks, green IT practices e ruolo digital innovation in environmental protection. Include systems thinking approaches a corporate sustainability e circular economy principles.",
       "tags": [
         "Sustainability",
+        "ESG",
+        "Green IT"
+      ],
+      "tags_it": [
+        "Sostenibilità",
         "ESG",
         "Green IT"
       ],
@@ -229,12 +321,19 @@
       "id": "blockchain",
       "subject": "software",
       "title": "Blockchain Fundamentals",
+      "title_it": "Blockchain Fundamentals",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "September 2023",
       "certId": "UC-e34daeb8-8deb-421b-945f-93f26139d648ID",
       "description": "Comprehensive course on distributed ledger technologies covering blockchain architecture, consensus mechanisms (PoW, PoS), cryptocurrency fundamentals, and smart contract development. Explored practical applications including DeFi, NFTs, and enterprise blockchain solutions with focus on security considerations and scalability challenges.",
+      "description_it": "Corso completo su distributed ledger technologies coprendo blockchain architecture, consensus mechanisms (PoW, PoS), cryptocurrency fundamentals e smart contract development. Esplorate practical applications inclusi DeFi, NFTs e enterprise blockchain solutions con focus su security considerations e scalability challenges.",
       "tags": [
+        "Blockchain",
+        "Smart Contracts",
+        "DLT"
+      ],
+      "tags_it": [
         "Blockchain",
         "Smart Contracts",
         "DLT"
@@ -247,12 +346,19 @@
       "id": "smm",
       "subject": "business",
       "title": "Social Media Marketing",
+      "title_it": "Social Media Marketing",
       "issuer": "Udemy",
       "issuerIcon": "udemy",
       "date": "November 2022",
       "certId": "UC-6ecfe171-ce58-4fff-9f6e-ee8e1adfff09ID",
       "description": "Professional certification in digital marketing strategies across major social platforms. Covered content strategy development, audience targeting, analytics interpretation, paid advertising campaigns, and ROI measurement. Practical skills in brand building, community engagement, and data-driven marketing optimization.",
+      "description_it": "Certificazione professionale in digital marketing strategies across major social platforms. Coperti content strategy development, audience targeting, analytics interpretation, paid advertising campaigns e ROI measurement. Practical skills in brand building, community engagement e data-driven marketing optimization.",
       "tags": [
+        "Digital Marketing",
+        "Analytics",
+        "Content Strategy"
+      ],
+      "tags_it": [
         "Digital Marketing",
         "Analytics",
         "Content Strategy"
@@ -265,15 +371,22 @@
       "id": "english",
       "subject": "business",
       "title": "English Language B1 Certification",
+      "title_it": "Certificazione Inglese Livello B1",
       "issuer": "CLA Test, Università di Brescia",
       "issuerIcon": "unibs",
       "date": "November 2022",
       "certId": "UC-Me1OpE9VRNuhrL5DsQqTUQID-8deb-421b-945f-93f26139d648ID",
       "description": "CEFR B1 (Intermediate) English language certification validating professional communication competencies. Demonstrated proficiency in technical documentation comprehension, academic writing, professional correspondence, and verbal communication for international academic and business environments.",
+      "description_it": "Certificazione lingua inglese CEFR B1 (Intermedio) validante competenze comunicazione professionale. Dimostrata proficiency in comprensione documentazione tecnica, academic writing, corrispondenza professionale e comunicazione verbale per ambienti accademici e business internazionali.",
       "tags": [
         "English",
         "CEFR B1",
         "Professional"
+      ],
+      "tags_it": [
+        "Inglese",
+        "CEFR B1",
+        "Professionale"
       ],
       "featured": false,
       "url": "https://bestr.it/award/show/Me1OpE9VRNuhrL5DsQqTUQ",
@@ -283,12 +396,19 @@
       "id": "agile",
       "subject": "business",
       "title": "Agile Project Management",
+      "title_it": "Agile Project Management",
       "issuer": "Politecnico di Milano",
       "issuerIcon": "polimi",
       "date": "September 2025",
       "certId": "N/A",
       "description": "Digital badge from Politecnico di Milano's School of Management on Agile methodologies. Covered Scrum framework fundamentals including sprint planning, backlog management, daily standups, and retrospectives. Explored hybrid approaches integrating traditional project management with Agile practices, servant leadership principles, and team accountability dynamics.",
+      "description_it": "Digital badge da Politecnico di Milano School of Management su metodologie Agile. Coperti Scrum framework fundamentals inclusi sprint planning, backlog management, daily standups e retrospectives. Esplorati hybrid approaches integrating traditional project management con Agile practices, servant leadership principles e team accountability dynamics.",
       "tags": [
+        "Agile",
+        "Scrum",
+        "Project Management"
+      ],
+      "tags_it": [
         "Agile",
         "Scrum",
         "Project Management"

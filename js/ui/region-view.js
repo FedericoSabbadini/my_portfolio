@@ -2,8 +2,9 @@
    region-view.js — renders catalog content for a given region.
    ========================================================================= */
 import { groupBySubject } from '../data/taxonomy.js';
+import { t, localize, localizeArray } from '../i18n.js';
 
-const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const esc = (s) => String(s).replace(/&/g,'&').replace(/</g,'<').replace(/>/g,'>').replace(/"/g,'"');
 const cap = (s) => String(s).charAt(0).toUpperCase() + String(s).slice(1);
 
 /* --- Linear icon set (24px grid, currentColor). One visual voice: hairline
@@ -31,12 +32,12 @@ export function renderRegion(regionId, data, domains) {
 
   document.documentElement.style.setProperty('--region-accent', domain.accent);
 
-  // Hero
+  // Hero - use localized domain fields
   document.getElementById('hero-dot').style.background = domain.accent;
   document.getElementById('hero-dot').style.boxShadow = `0 0 14px ${domain.accent}`;
-  document.getElementById('hero-lobe').textContent = domain.region;
-  document.getElementById('hero-title').textContent = domain.label;
-  document.getElementById('hero-intro').textContent = domain.description;
+  document.getElementById('hero-lobe').textContent = localize(domain, 'region');
+  document.getElementById('hero-title').textContent = localize(domain, 'label');
+  document.getElementById('hero-intro').textContent = localize(domain, 'description');
 
   // Main content
   const main = document.getElementById('region-main');
@@ -75,7 +76,7 @@ function wireCollapsibles(main) {
     block.setAttribute('data-collapsed', opening ? 'false' : 'true');
     btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
     const hint = btn.querySelector('.courses-toggle__hint');
-    if (hint) hint.textContent = opening ? 'Hide' : 'Show';
+    if (hint) hint.textContent = opening ? t('education.syllabusLink') : t('education.notesLink');
 
     if (opening) {
       collapse.style.height = inner.offsetHeight + 'px';
@@ -104,41 +105,43 @@ function renderAbout(data) {
   let html = '';
 
   // Bio
-  if (p.bio && p.bio.length) {
-    html += `<section class="about-bio">${p.bio.map((b) => `<p class="about-bio__p">${esc(b)}</p>`).join('')}</section>`;
+  const bio = localizeArray(p, 'bio');
+  if (bio.length) {
+    html += `<section class="about-bio">${bio.map((b) => `<p class="about-bio__p">${esc(b)}</p>`).join('')}</section>`;
   }
 
   // Stats
   if (stats.length) {
-    html += `<h2 class="section-kicker">Key Numbers</h2><div class="stats-grid" style="margin-bottom:48px">`;
+    html += `<h2 class="section-kicker">${esc(t('about.statsLabel'))}</h2><div class="stats-grid" style="margin-bottom:48px">`;
     for (const s of stats) {
-      html += `<div class="stat-card"><div class="stat-card__num">${esc(s.number)}</div><div class="stat-card__lbl">${esc(s.label)}</div>${s.sublabel ? `<div class="stat-card__sub">${esc(s.sublabel)}</div>` : ''}</div>`;
+      html += `<div class="stat-card"><div class="stat-card__num">${esc(s.number)}</div><div class="stat-card__lbl">${esc(localize(s, 'label'))}</div>${s.sublabel ? `<div class="stat-card__sub">${esc(localize(s, 'sublabel'))}</div>` : ''}</div>`;
     }
     html += `</div>`;
   }
 
   // Top skills
-  if (p.topSkills && p.topSkills.length) {
-    html += `<h2 class="section-kicker">Core Skills</h2><div class="skills-wrap" style="margin-bottom:48px">`;
-    for (const sk of p.topSkills) html += `<span class="skill-chip">${esc(sk)}</span>`;
+  const topSkills = localizeArray(p, 'topSkills');
+  if (topSkills.length) {
+    html += `<h2 class="section-kicker">${esc(t('about.skillsLabel'))}</h2><div class="skills-wrap" style="margin-bottom:48px">`;
+    for (const sk of topSkills) html += `<span class="skill-chip">${esc(sk)}</span>`;
     html += `</div>`;
   }
 
   // Languages
   if (languages.length) {
-    html += `<h2 class="section-kicker">Languages</h2><div style="display:flex;flex-direction:column;gap:18px;margin-bottom:48px">`;
+    html += `<h2 class="section-kicker">${esc(t('about.languagesLabel'))}</h2><div style="display:flex;flex-direction:column;gap:18px;margin-bottom:48px">`;
     for (const l of languages) {
       const pct = l.percentage || 50;
-      html += `<div class="lang-item"><span class="lang-flag" aria-hidden="true">${l.flag || ''}</span><div class="lang-info"><div class="lang-row"><span class="lang-name">${esc(l.name)}</span><span class="lang-level">${esc(l.level || '')}</span></div><div class="lang-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(l.name)} proficiency"><div class="lang-bar__fill" style="width:${pct}%"></div></div></div></div>`;
+      html += `<div class="lang-item"><span class="lang-flag" aria-hidden="true">${l.flag || ''}</span><div class="lang-info"><div class="lang-row"><span class="lang-name">${esc(localize(l, 'name'))}</span><span class="lang-level">${esc(localize(l, 'level'))}</span></div><div class="lang-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(localize(l, 'name'))} proficiency"><div class="lang-bar__fill" style="width:${pct}%"></div></div></div></div>`;
     }
     html += `</div>`;
   }
 
   // Interests
   if (interests.length) {
-    html += `<h2 class="section-kicker">Interests</h2><div class="interests-grid">`;
+    html += `<h2 class="section-kicker">${esc(t('about.interestsLabel'))}</h2><div class="interests-grid">`;
     for (const i of interests) {
-      html += `<div class="interest-card"><span class="interest-icon" aria-hidden="true">${icon(i.icon)}</span><div><div class="interest-title">${esc(i.name || i.title || '')}</div>${i.description ? `<div class="interest-desc">${esc(i.description)}</div>` : ''}</div></div>`;
+      html += `<div class="interest-card"><span class="interest-icon" aria-hidden="true">${icon(i.icon)}</span><div><div class="interest-title">${esc(localize(i, 'title'))}</div>${i.description ? `<div class="interest-desc">${esc(localize(i, 'description'))}</div>` : ''}</div></div>`;
     }
     html += `</div>`;
   }
@@ -152,18 +155,18 @@ function renderEducation(data) {
   for (const ed of data.education) {
     html += `<div class="edu-entry">`;
     html += `<div class="edu-degree-head"><span class="edu-accent-bar" aria-hidden="true"></span><div>`;
-    html += `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><h2 class="edu-degree-title">${esc(ed.degree)}</h2>`;
-    if (ed.status === 'current') html += `<span class="edu-badge-current">${esc(ed.statusLabel || 'Current')}</span>`;
+    html += `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><h2 class="edu-degree-title">${esc(localize(ed, 'degree'))}</h2>`;
+    if (ed.status === 'current') html += `<span class="edu-badge-current">${esc(localize(ed, 'statusLabel') || t('education.currentBadge'))}</span>`;
     html += `</div>`;
     html += `<div class="edu-meta">${esc(ed.institution)} · ${esc(ed.period)}</div>`;
-    if (ed.gpa) html += `<div class="edu-gpa"><span class="edu-gpa-label">GPA</span> ${esc(ed.gpa)}</div>`;
+    if (ed.gpa) html += `<div class="edu-gpa"><span class="edu-gpa-label">${esc(t('about.gpaLabel'))}</span> ${esc(ed.gpa)}</div>`;
     html += `</div></div>`;
-    if (ed.description) html += `<p class="edu-desc">${esc(ed.description)}</p>`;
+    if (ed.description) html += `<p class="edu-desc">${esc(localize(ed, 'description'))}</p>`;
 
     // Links
     const links = [];
-    if (ed.url) links.push(`<a class="edu-link" href="${esc(ed.url)}" target="_blank" rel="noopener">Programme ↗</a>`);
-    if (ed.hfUrl) links.push(`<a class="edu-link edu-link--secondary" href="${esc(ed.hfUrl)}" target="_blank" rel="noopener">Study notes ↗</a>`);
+    if (ed.url) links.push(`<a class="edu-link" href="${esc(ed.url)}" target="_blank" rel="noopener">${esc(t('education.programmeLink'))} ↗</a>`);
+    if (ed.hfUrl) links.push(`<a class="edu-link edu-link--secondary" href="${esc(ed.hfUrl)}" target="_blank" rel="noopener">${esc(t('education.studyNotesLink'))} ↗</a>`);
     if (links.length) html += `<div class="edu-links">${links.join('')}</div>`;
 
     // Courses — collapsed by default (a degree can carry many), click to expand
@@ -172,25 +175,26 @@ function renderEducation(data) {
       const cid = `courses-${esc(ed.id || Math.random().toString(36).slice(2))}`;
       html += `<div class="courses-block" data-collapsed="true">
         <button class="courses-toggle" type="button" aria-expanded="false" aria-controls="${cid}">
-          <span class="courses-toggle__label">Courses</span>
+          <span class="courses-toggle__label">${esc(t('education.coursesLabel'))}</span>
           <span class="courses-toggle__count">${courses.length}</span>
-          <span class="courses-toggle__hint">Show</span>
+          <span class="courses-toggle__hint">${esc(t('education.syllabusLink'))}</span>
           <svg class="courses-toggle__chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="courses-collapse"><div class="courses-collapse__inner">
         <div class="courses-grid" id="${cid}">`;
       for (const c of courses) {
         const ongoing = /^current$/i.test(c.grade || '');
-        html += `<div class="course-card"><div class="course-card__head"><h4 class="course-card__name">${esc(c.name)}</h4>`;
-        if (c.grade) html += `<span class="course-card__grade${ongoing ? ' course-card__grade--ongoing' : ''}">${ongoing ? 'In progress' : esc(c.grade)}</span>`;
+        html += `<div class="course-card"><div class="course-card__head"><h4 class="course-card__name">${esc(localize(c, 'name'))}</h4>`;
+        if (c.grade) html += `<span class="course-card__grade${ongoing ? ' course-card__grade--ongoing' : ''}">${ongoing ? esc(t('about.ongoing')) : esc(c.grade)}</span>`;
         html += `</div>`;
-        if (c.description) html += `<p class="course-card__desc">${esc(c.description)}</p>`;
+        if (c.description) html += `<p class="course-card__desc">${esc(localize(c, 'description'))}</p>`;
         if (c.tags && c.tags.length) {
-          html += `<div class="course-card__tags">${c.tags.map((t) => `<span class="course-card__tag">${esc(t)}</span>`).join('')}</div>`;
+          const tags = localizeArray(c, 'tags');
+          html += `<div class="course-card__tags">${tags.map((t) => `<span class="course-card__tag">${esc(t)}</span>`).join('')}</div>`;
         }
         const clinks = [];
-        if (c.url) clinks.push(`<a class="course-link course-link--primary" href="${esc(c.url)}" target="_blank" rel="noopener">Syllabus ↗</a>`);
-        if (c.hfUrl) clinks.push(`<a class="course-link course-link--secondary" href="${esc(c.hfUrl)}" target="_blank" rel="noopener">Notes ↗</a>`);
+        if (c.url) clinks.push(`<a class="course-link course-link--primary" href="${esc(c.url)}" target="_blank" rel="noopener">${esc(t('education.syllabusLink'))} ↗</a>`);
+        if (c.hfUrl) clinks.push(`<a class="course-link course-link--secondary" href="${esc(c.hfUrl)}" target="_blank" rel="noopener">${esc(t('education.notesLink'))} ↗</a>`);
         if (clinks.length) html += `<div class="course-card__links">${clinks.join('')}</div>`;
         html += `</div>`;
       }
@@ -220,25 +224,26 @@ function renderWork(data) {
     html += `<div class="work-item"><div class="work-item__dot" aria-hidden="true"></div>`;
     if (w.type || w.logo) {
       html += `<div class="work-item__head">`;
-      html += w.type ? `<span class="work-item__type">${esc(w.type)}</span>` : `<span></span>`;
+      html += w.type ? `<span class="work-item__type">${esc(localize(w, 'type'))}</span>` : `<span></span>`;
       if (w.logo) {
-        const img = `<img class="work-item__logo" src="${esc(w.logo)}" alt="${esc(w.company || w.title)} logo" loading="lazy" />`;
+        const img = `<img class="work-item__logo" src="${esc(w.logo)}" alt="${esc(localize(w, 'company') || localize(w, 'title'))} logo" loading="lazy" />`;
         const logoHref = w.logoUrl || w.url;
         html += logoHref
-          ? `<a class="work-item__logo-link" href="${esc(logoHref)}" target="_blank" rel="noopener" aria-label="${esc(w.company || w.title)} website">${img}</a>`
+          ? `<a class="work-item__logo-link" href="${esc(logoHref)}" target="_blank" rel="noopener" aria-label="${esc(localize(w, 'company') || localize(w, 'title'))} website">${img}</a>`
           : img;
       }
       html += `</div>`;
     }
-    html += `<h2 class="work-item__title">${esc(w.title)}${w.company ? ` — ${esc(w.company)}` : ''}</h2>`;
+    html += `<h2 class="work-item__title">${esc(localize(w, 'title'))}${w.company ? ` — ${esc(localize(w, 'company'))}` : ''}</h2>`;
     html += `<div class="work-item__meta">${esc(w.period)}${w.location ? ` · ${esc(w.location)}` : ''}</div>`;
     if (w.url) {
       const label = w.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
       html += `<a class="work-item__link" href="${esc(w.url)}" target="_blank" rel="noopener">${esc(label)} <span aria-hidden="true">↗</span></a>`;
     }
-    if (w.description) html += `<p class="work-item__desc">${esc(w.description)}</p>`;
-    if (w.responsibilities && w.responsibilities.length) {
-      html += `<ul class="work-item__resp">${w.responsibilities.map((r) => `<li class="work-resp"><span class="work-resp__mark" aria-hidden="true">→</span><span>${esc(r)}</span></li>`).join('')}</ul>`;
+    if (w.description) html += `<p class="work-item__desc">${esc(localize(w, 'description'))}</p>`;
+    const responsibilities = localizeArray(w, 'responsibilities');
+    if (responsibilities.length) {
+      html += `<ul class="work-item__resp">${responsibilities.map((r) => `<li class="work-resp"><span class="work-resp__mark" aria-hidden="true">→</span><span>${esc(r)}</span></li>`).join('')}</ul>`;
     }
     if (w.technologies && w.technologies.length) {
       html += `<ul class="work-tags">${w.technologies.map((t) => `<li class="work-tag">${esc(t)}</li>`).join('')}</ul>`;
@@ -253,7 +258,7 @@ function renderWork(data) {
 function renderGrouped(items) {
   const groups = groupBySubject(items || []);
   if (!groups.length) {
-    return `<p class="region-empty">Nothing to show here yet — check back soon.</p>`;
+    return `<p class="region-empty">${esc(t('common.notFound'))}</p>`;
   }
   let html = `<div class="group-section">`;
   for (const g of groups) {
@@ -264,16 +269,20 @@ function renderGrouped(items) {
       const tag = item.url ? 'a' : 'div';
       const badge = item.badge || item.issuer;
       html += `<${tag} class="group-card"${href}>`;
-      html += `<div class="group-card__head"><h3 class="group-card__title">${esc(item.title)}</h3>`;
+      html += `<div class="group-card__head"><h3 class="group-card__title">${esc(localize(item, 'title'))}</h3>`;
       if (badge) html += `<span class="group-card__badge">${esc(badge)}</span>`;
       html += `</div>`;
       const meta = item.period || item.date || '';
       if (meta) html += `<div class="group-card__meta">${esc(meta)}</div>`;
-      if (item.description) html += `<p class="group-card__desc">${esc(item.description)}</p>`;
+      if (item.description) html += `<p class="group-card__desc">${esc(localize(item, 'description'))}</p>`;
       if (item.tags && item.tags.length) {
-        html += `<div class="group-card__tags">${item.tags.map((t) => `<span class="group-card__tag">${esc(t)}</span>`).join('')}</div>`;
+        const tags = localizeArray(item, 'tags');
+        html += `<div class="group-card__tags">${tags.map((t) => `<span class="group-card__tag">${esc(t)}</span>`).join('')}</div>`;
       }
-      if (item.url) html += `<span class="group-card__link">${esc(item.urlLabel || 'View')} ↗</span>`;
+      if (item.url) {
+        const linkLabel = localize(item, 'urlLabel') || t('projects.viewLink');
+        html += `<span class="group-card__link">${esc(linkLabel)} ↗</span>`;
+      }
       html += `</${tag}>`;
     }
     html += `</div></section>`;
@@ -291,9 +300,9 @@ function renderContacts(data) {
 
   // Lead: give the page a voice — who I am to reach, why, and one clear action.
   html += `<div class="contacts-lead">
-    <p class="contacts-lead__title">Let's talk.</p>
-    <p class="contacts-lead__text">I am currently completing my Master's thesis and internship at Beretta. For opportunities from spring 2027 in AI, Data &amp; Cybersecurity, email is the surest way to reach me and I reply to every message.</p>
-    ${p.email ? `<a class="contacts-lead__cta" href="mailto:${esc(p.email)}">Write me <span aria-hidden="true">→</span></a>` : ''}
+    <p class="contacts-lead__title">${esc(t('contacts.leadTitle'))}</p>
+    <p class="contacts-lead__text">${esc(t('contacts.leadText'))}</p>
+    ${p.email ? `<a class="contacts-lead__cta" href="mailto:${esc(p.email)}">${esc(t('contacts.ctaLabel'))} <span aria-hidden="true">→</span></a>` : ''}
   </div>`;
 
   html += '<div class="contacts-section">';
@@ -303,13 +312,13 @@ function renderContacts(data) {
   if (p.email) {
     // Display the domain only (e.g. "@icloud.com"); the mailto + title keep the full address.
     const shortEmail = p.email.includes('@') ? `@${p.email.split('@').pop()}` : p.email;
-    primary.push({ label: 'Email', value: shortEmail, title: p.email, href: `mailto:${p.email}`, icon: icon('email'), action: 'Email' });
+    primary.push({ label: t('contacts.emailLabel'), value: shortEmail, title: p.email, href: `mailto:${p.email}`, icon: icon('email'), action: t('contacts.actionEmail') });
   }
   if (p.location) {
     const mapUrl = p.locationUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.location)}`;
-    primary.push({ label: 'Location', value: p.location, title: `Open ${p.location} in Google Maps`, href: mapUrl, icon: icon('pin'), action: 'Map' });
+    primary.push({ label: t('contacts.locationLabel'), value: p.location, title: `Open ${p.location} in Google Maps`, href: mapUrl, icon: icon('pin'), action: t('contacts.actionMap') });
   }
-  if (primary.length) html += contactGroup('Primary', primary);
+  if (primary.length) html += contactGroup(t('contacts.primaryLabel'), primary);
 
   // Classify the rest of the entries into social links and downloadable docs
   const docKeys = new Set(['cv', 'europass', 'coverletter', 'resume', 'worksafetycert']);
@@ -317,16 +326,16 @@ function renderContacts(data) {
   for (const [key, info] of Object.entries(social)) {
     const k = key.toLowerCase();
     if (k === 'email') continue;                 // already shown in Primary
-    const label = info.label || cap(key);
+    const label = localize(info, 'label') || cap(key);
     const iconSvg = icon(info.icon);
     if (docKeys.has(k) && info.url) {
       const downloadable = !/^https?:\/\//i.test(info.url);
       docs.push({
         label,
-        value: info.value || (downloadable ? 'PDF document' : 'Online credential'),
+        value: localize(info, 'value') || (downloadable ? t('contacts.actionDownload') : 'Online credential'),
         href: info.url,
         icon: iconSvg,
-        action: info.action || (downloadable ? 'Download' : 'Verify'),
+        action: info.action || (downloadable ? t('contacts.actionDownload') : t('contacts.actionVerify')),
         download: downloadable,
       });
     } else {
@@ -334,12 +343,12 @@ function renderContacts(data) {
         || (info.address ? `mailto:${info.address}` : '')
         || (info.number ? `tel:${info.number}` : '');
       const value = info.username || info.address || info.number || label;
-      const action = href.startsWith('tel:') ? 'Call' : (href.startsWith('mailto:') ? 'Email' : 'Open');
+      const action = href.startsWith('tel:') ? t('contacts.actionCall') : (href.startsWith('mailto:') ? t('contacts.actionEmail') : t('contacts.actionOpen'));
       links.push({ label, value, href, icon: iconSvg, action });
     }
   }
-  if (links.length) html += contactGroup('Links & Social', links);
-  if (docs.length) html += contactGroup('Documents', docs);
+  if (links.length) html += contactGroup(t('contacts.linksLabel'), links);
+  if (docs.length) html += contactGroup(t('contacts.documentsLabel'), docs);
 
   html += '</div>';
   return html;
@@ -372,6 +381,6 @@ function renderFooter(currentId, domains) {
   const links = document.getElementById('footer-links');
   links.innerHTML = domains
     .filter((d) => d.id !== currentId)
-    .map((d) => `<a class="region-footer__link" href="#/region/${d.id}"><span class="region-footer__link-dot" style="background:${d.accent}" aria-hidden="true"></span>${esc(d.label)}</a>`)
+    .map((d) => `<a class="region-footer__link" href="#/region/${d.id}"><span class="region-footer__link-dot" style="background:${d.accent}" aria-hidden="true"></span>${esc(localize(d, 'label'))}</a>`)
     .join('');
 }

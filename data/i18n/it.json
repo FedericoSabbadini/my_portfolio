@@ -1,0 +1,99 @@
+{
+  "header": {
+    "homeAriaLabel": "Federico Sabbadini — torna alla mente",
+    "role": "Ingegneria Informatica — AI · Data",
+    "mindName": "La mia Mente",
+    "mindRole": "Torna alla mappa",
+    "tourAriaLabel": "Tour guidato della mente",
+    "tourLabel": "Tour",
+    "backAriaLabel": "Torna alla pagina precedente",
+    "backLabel": "Indietro"
+  },
+  "home": {
+    "intro": "Una mappa interattiva di tutto ciò che ho studiato e costruito. Passa sopra una regione per esplorarla — o fai il tour guidato.",
+    "leadKicker": "Base di Conoscenza",
+    "leadTitle": "Entra nella mia mente digitale",
+    "leadSub": "Sei regioni — tutto ciò che ho studiato e costruito. Tocca una per immergerti, o fai il tour.",
+    "kicker": "Regioni",
+    "calloutKicker": "Lobo"
+  },
+  "region": {
+    "footerLabel": "Altre Regioni",
+    "heroAriaLabel": "Dettagli della regione"
+  },
+  "about": {
+    "bioLabel": "Bio",
+    "statsLabel": "Numeri Chiave",
+    "skillsLabel": "Competenze Principali",
+    "languagesLabel": "Lingue",
+    "interestsLabel": "Interessi",
+    "gpaLabel": "Media",
+    "ongoing": "In corso"
+  },
+  "education": {
+    "coursesLabel": "Corsi",
+    "syllabusLink": "Programma",
+    "notesLink": "Appunti",
+    "programmeLink": "Corso di Studio",
+    "studyNotesLink": "Appunti di Studio",
+    "currentBadge": "In corso",
+    "completedBadge": "Completato"
+  },
+  "work": {
+    "responsibilitiesLabel": "Responsabilità",
+    "technologiesLabel": "Tecnologie",
+    "viewLink": "Visualizza"
+  },
+  "projects": {
+    "groupLabel": "Progetti",
+    "featuredBadge": "In evidenza",
+    "viewLink": "Visualizza",
+    "visitLink": "Visita"
+  },
+  "certifications": {
+    "groupLabel": "Certificazioni",
+    "verifyLink": "Verifica",
+    "downloadLink": "Scarica"
+  },
+  "contacts": {
+    "leadTitle": "Parliamone.",
+    "leadText": "Sto completando la tesi magistrale e il tirocinio in Beretta. Per opportunità da primavera 2027 in AI, Data & Cybersecurity, l'email è il modo più sicuro per contattarmi e rispondo a tutti i messaggi.",
+    "ctaLabel": "Scrivimi",
+    "primaryLabel": "Principali",
+    "linksLabel": "Link & Social",
+    "documentsLabel": "Documenti",
+    "emailLabel": "Email",
+    "locationLabel": "Posizione",
+    "actionEmail": "Email",
+    "actionMap": "Mappa",
+    "actionCall": "Chiama",
+    "actionOpen": "Apri",
+    "actionDownload": "Scarica",
+    "actionVerify": "Verifica"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Si è verificato un errore",
+    "notFound": "Non trovato"
+  },
+  "seo": {
+    "siteTitle": "Federico Sabbadini — Mente Digitale",
+    "siteDescription": "Portfolio interattivo di Federico Sabbadini — una mente 3D che mappa la sua formazione, lavoro, progetti e certificazioni in AI, Cybersecurity, Data e Software Engineering.",
+    "ogTitle": "Federico Sabbadini — Mente Digitale",
+    "ogDescription": "Un portfolio 3D interattivo: formazione, lavoro, progetti e certificazioni in AI, Cybersecurity e Data.",
+    "ogImageAlt": "Federico Sabbadini — Mente Digitale, un portfolio 3D interattivo in AI, Data e Cybersecurity.",
+    "twitterTitle": "Federico Sabbadini — Mente Digitale",
+    "twitterDescription": "Un portfolio 3D interattivo in AI, Cybersecurity e Data."
+  },
+  "noscript": {
+    "title": "Federico Sabbadini",
+    "message": "Questo portfolio richiede JavaScript. Contattami su ",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "boot": {
+    "label": "Svegliando la mente",
+    "fallbackTitle": "Federico Sabbadini",
+    "fallbackMessage": "La vista interattiva non è riuscita a caricarsi. Contattami su "
+  }
+}
