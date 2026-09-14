@@ -146,22 +146,22 @@
       "icon": "sports",
       "title": "Sports",
       "title_it": "Sport",
-      "description": "Watching and practicing sport have helped me develop discipline, determination, and teamwork skills.",
-      "description_it": "Guardare e praticare sport mi ha aiutato a sviluppare disciplina, determinazione e capacità di lavoro in team."
+      "description": "Sport is how I switch off. It taught me discipline and how to work in a team — no shortcuts.",
+      "description_it": "Lo sport è il mio modo di staccare la spina. Mi ha insegnato la disciplina e a lavorare in squadra, senza scorciatoie."
     },
     {
       "icon": "book",
       "title": "Continuous Learning",
       "title_it": "Apprendimento Continuo",
-      "description": "Passionate about reading, history, technology trends, and staying updated.",
-      "description_it": "Appassionato di lettura, storia, trend tecnologici e aggiornamento costante."
+      "description": "I read a lot — history, technology, current affairs. I like understanding how things work, not just using them.",
+      "description_it": "Leggo molto — storia, tecnologia, attualità. Mi interessa capire come funzionano le cose, non solo usarle."
     },
     {
       "icon": "globe",
       "title": "Travel & Culture",
       "title_it": "Viaggi e Cultura",
-      "description": "Visiting the world has broadened my cultural perspective and language skills.",
-      "description_it": "Viaggiare per il mondo ha ampliato la mia prospettiva culturale e le competenze linguistiche."
+      "description": "Travel has shown me ways of living different from my own. Every place left me something.",
+      "description_it": "Viaggiare mi ha mostrato modi di vivere diversi dal mio. Ogni posto mi ha lasciato qualcosa."
     }
   ]
 }

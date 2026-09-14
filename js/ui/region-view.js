@@ -75,8 +75,6 @@ function wireCollapsibles(main) {
     const opening = block.getAttribute('data-collapsed') !== 'false';
     block.setAttribute('data-collapsed', opening ? 'false' : 'true');
     btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
-    const hint = btn.querySelector('.courses-toggle__hint');
-    if (hint) hint.textContent = opening ? t('education.syllabusLink') : t('education.notesLink');
 
     if (opening) {
       collapse.style.height = inner.offsetHeight + 'px';
@@ -158,7 +156,7 @@ function renderEducation(data) {
     html += `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><h2 class="edu-degree-title">${esc(localize(ed, 'degree'))}</h2>`;
     if (ed.status === 'current') html += `<span class="edu-badge-current">${esc(localize(ed, 'statusLabel') || t('education.currentBadge'))}</span>`;
     html += `</div>`;
-    html += `<div class="edu-meta">${esc(ed.institution)} · ${esc(ed.period)}</div>`;
+    html += `<div class="edu-meta">${esc(localize(ed, 'institution'))} · ${esc(localize(ed, 'period'))}</div>`;
     if (ed.gpa) html += `<div class="edu-gpa"><span class="edu-gpa-label">${esc(t('about.gpaLabel'))}</span> ${esc(ed.gpa)}</div>`;
     html += `</div></div>`;
     if (ed.description) html += `<p class="edu-desc">${esc(localize(ed, 'description'))}</p>`;
@@ -235,7 +233,7 @@ function renderWork(data) {
       html += `</div>`;
     }
     html += `<h2 class="work-item__title">${esc(localize(w, 'title'))}${w.company ? ` — ${esc(localize(w, 'company'))}` : ''}</h2>`;
-    html += `<div class="work-item__meta">${esc(w.period)}${w.location ? ` · ${esc(w.location)}` : ''}</div>`;
+    html += `<div class="work-item__meta">${esc(localize(w, 'period'))}${w.location ? ` · ${esc(localize(w, 'location'))}` : ''}</div>`;
     if (w.url) {
       const label = w.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
       html += `<a class="work-item__link" href="${esc(w.url)}" target="_blank" rel="noopener">${esc(label)} <span aria-hidden="true">↗</span></a>`;
@@ -262,17 +260,19 @@ function renderGrouped(items) {
   }
   let html = `<div class="group-section">`;
   for (const g of groups) {
-    html += `<section><div class="group-head"><span class="group-head__dot" style="background:var(--region-accent)" aria-hidden="true"></span><h2 class="group-head__label">${esc(g.label)}</h2><span class="group-head__count">${g.items.length}</span></div>`;
+    const groupKey = `subjects.${g.id}`;
+    const groupLabel = t(groupKey) === groupKey ? g.label : t(groupKey);
+    html += `<section><div class="group-head"><span class="group-head__dot" style="background:var(--region-accent)" aria-hidden="true"></span><h2 class="group-head__label">${esc(groupLabel)}</h2><span class="group-head__count">${g.items.length}</span></div>`;
     html += `<div class="group-grid">`;
     for (const item of g.items) {
       const href = item.url ? ` href="${esc(item.url)}" target="_blank" rel="noopener"` : '';
       const tag = item.url ? 'a' : 'div';
-      const badge = item.badge || item.issuer;
+      const badge = localize(item, 'badge') || item.issuer;
       html += `<${tag} class="group-card"${href}>`;
       html += `<div class="group-card__head"><h3 class="group-card__title">${esc(localize(item, 'title'))}</h3>`;
       if (badge) html += `<span class="group-card__badge">${esc(badge)}</span>`;
       html += `</div>`;
-      const meta = item.period || item.date || '';
+      const meta = localize(item, 'period') || localize(item, 'date') || '';
       if (meta) html += `<div class="group-card__meta">${esc(meta)}</div>`;
       if (item.description) html += `<p class="group-card__desc">${esc(localize(item, 'description'))}</p>`;
       if (item.tags && item.tags.length) {

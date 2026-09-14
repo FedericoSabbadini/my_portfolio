@@ -2,7 +2,7 @@
   "header": {
     "homeAriaLabel": "Federico Sabbadini — torna alla mente",
     "role": "Ingegneria Informatica — AI · Data",
-    "mindName": "La mia Mente",
+    "mindName": "My Mind",
     "mindRole": "Torna alla mappa",
     "tourAriaLabel": "Tour guidato della mente",
     "tourLabel": "Tour",
@@ -56,9 +56,16 @@
     "verifyLink": "Verifica",
     "downloadLink": "Scarica"
   },
+  "subjects": {
+    "ai": "AI & Machine Learning",
+    "security": "Cybersecurity",
+    "data": "Data & Big Data",
+    "software": "Software & Ingegneria",
+    "business": "Business & Professionale"
+  },
   "contacts": {
     "leadTitle": "Parliamone.",
-    "leadText": "Sto completando la tesi magistrale e il tirocinio in Beretta. Per opportunità da primavera 2027 in AI, Data & Cybersecurity, l'email è il modo più sicuro per contattarmi e rispondo a tutti i messaggi.",
+    "leadText": "Sto concludendo la tesi magistrale e il tirocinio in Beretta. Da primavera 2027 cerco un ruolo full-time in AI, Data o Cybersecurity — l'email è il modo migliore per contattarmi.",
     "ctaLabel": "Scrivimi",
     "primaryLabel": "Principali",
     "linksLabel": "Link & Social",
