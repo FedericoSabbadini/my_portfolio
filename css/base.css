@@ -81,6 +81,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
      identity chip lines up with the intro + region list at every width. */
   padding: clamp(16px, 2vw, 22px) clamp(20px, 3.4vw, 44px);
   max-width: none; margin: 0;
+  pointer-events: auto;                 /* ensure clicks reach slot children */
 }
 /* Region: the header tracks the centred catalog column (same max-width + inline
    padding as .region-hero / .region-main), so the identity aligns with the title
@@ -153,6 +154,7 @@ body.view-region .site-header__id-text--mind { display: flex; }
   background: rgba(9,12,19,.6);
   backdrop-filter: blur(14px) saturate(1.1);
   -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  pointer-events: auto;                 /* ensure clicks reach buttons despite header's pointer-events:none */
 }
 .lang-btn {
   display: inline-flex;

@@ -142,13 +142,18 @@ function updateDocumentTitle() {
 
 function wireLanguageSwitcher() {
   const switcher = document.getElementById('lang-switcher');
-  if (!switcher) return;
+  if (!switcher) {
+    console.warn('[i18n] lang-switcher not found');
+    return;
+  }
   
   switcher.addEventListener('click', async (e) => {
     const btn = e.target.closest('.lang-btn');
     if (!btn) return;
     const lang = btn.dataset.lang;
     if (lang === getLocale()) return;
+    
+    console.log('[i18n] Switching to', lang);
     
     // Update button states
     switcher.querySelectorAll('.lang-btn').forEach(b => {
@@ -163,6 +168,8 @@ function wireLanguageSwitcher() {
   switcher.querySelectorAll('.lang-btn').forEach(b => {
     b.setAttribute('aria-pressed', b.dataset.lang === currentLang);
   });
+  
+  console.log('[i18n] Language switcher wired, current locale:', currentLang);
 }
 
 /* Play one automatic guided-tour lap when the portfolio opens on the home view.
