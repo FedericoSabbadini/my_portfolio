@@ -6,6 +6,8 @@
    callout + surface marker appear. Click → the camera dives in, then we
    navigate. The tour cycles through the regions on a timer.
    ========================================================================= */
+import { localize, t } from '../../i18n.js';
+
 export class BrainRegions {
   constructor(scene, domains, { onDive } = {}) {
     this.scene = scene;
@@ -40,11 +42,11 @@ export class BrainRegions {
   /* --- Sidebar nav --- */
   _buildNav() {
     this._nav.innerHTML = this.domains.map((d) => `
-      <button class="region-nav__item" data-region="${d.id}" style="--item-accent:${d.accent}" type="button" aria-label="Explore ${d.label}">
+      <button class="region-nav__item" data-region="${d.id}" style="--item-accent:${d.accent}" type="button" aria-label="Explore ${localize(d, 'label')}">
         <span class="region-nav__dot"></span>
         <span class="region-nav__col">
-          <span class="region-nav__label">${d.label}</span>
-          <span class="region-nav__lobe">${d.region}</span>
+          <span class="region-nav__label">${localize(d, 'label')}</span>
+          <span class="region-nav__lobe">${localize(d, 'region')}</span>
         </span>
       </button>`).join('');
 
@@ -85,7 +87,7 @@ export class BrainRegions {
     this._touring = true;
     this._tourBtn.classList.add('is-playing');
     this._tourBtn.setAttribute('aria-pressed', 'true');
-    this._tourLabel.textContent = 'Touring';
+    this._tourLabel.textContent = t('header.touringLabel');
     this._setTourIcon(true);
     document.body.classList.add('is-touring');
     this._tourIdx = -1;
@@ -101,7 +103,7 @@ export class BrainRegions {
     this._touring = false;
     this._tourBtn.classList.remove('is-playing');
     this._tourBtn.setAttribute('aria-pressed', 'false');
-    this._tourLabel.textContent = 'Tour';
+    this._tourLabel.textContent = t('header.tourLabel');
     this._setTourIcon(false);
     document.body.classList.remove('is-touring');
     clearInterval(this._tourTimer);
@@ -184,9 +186,9 @@ export class BrainRegions {
     this._calloutDot.style.background = d.accent;
     this._calloutDot.style.boxShadow = `0 0 10px ${d.accent}`;
     this._calloutKicker.style.color = d.accent;
-    this._calloutKicker.textContent = d.region;
-    this._calloutTitle.textContent = d.label;
-    this._calloutDesc.textContent = d.short;
+    this._calloutKicker.textContent = localize(d, 'region');
+    this._calloutTitle.textContent = localize(d, 'label');
+    this._calloutDesc.textContent = localize(d, 'short');
     this._showCallout = !!showCallout;
   }
 
