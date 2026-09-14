@@ -80,7 +80,10 @@ export function t(key, params) {
     const enDict = translationsCache.get('en') || {};
     val = key.split('.').reduce((o, k) => (o || {})[k], enDict);
   }
-  if (val === undefined) return key;
+  if (val === undefined) {
+    console.warn('[i18n] Translation missing for key:', key, 'locale:', currentLocale);
+    return key;
+  }
   if (params) {
     return Object.entries(params).reduce((s, [k, v]) => s.replace(new RegExp(`\\{\\{${k}\\}\\}`, 'g'), v), val);
   }
