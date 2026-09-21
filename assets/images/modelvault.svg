@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="ModelVault">
-  <!-- Elegant mark: a thin vault arch crowned by a diamond (the "model" as keystone),
-       set in a hairline ring. Monochrome, no gradients — legible at 24px. -->
-  <g fill="none" stroke="#E7ECF5" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="120" cy="120" r="100" stroke-width="5" opacity=".5"/>
-    <path d="M90 156 V116 A30 30 0 0 1 150 116 V156" stroke-width="7"/>
-    <path d="M120 106 L132 120 L120 134 L108 120 Z" stroke-width="5"/>
-  </g>
-</svg>

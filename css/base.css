@@ -178,7 +178,6 @@ body.view-region .site-header__id-text--mind { display: flex; }
   background: rgba(34,211,238,.14);
   box-shadow: inset 0 0 0 1px rgba(34,211,238,.28);
 }
-.lang-btn__flag { font-size: 1em; line-height: 1; }
 .lang-btn__code { text-transform: uppercase; }
 
 /* on a region page, content scrolls beneath the header — a soft scrim lets it
