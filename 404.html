@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Redirecting… — Federico Sabbadini</title>
+  <script>
+    // GitHub Pages SPA fallback: clean deep links (e.g. `/my_portfolio/region/work`)
+    // have no physical file, so refreshes and shared URLs land here. Bounce to
+    // the app shell with the requested path stashed in `?/...`; the
+    // canonicalizer in index.html restores the clean URL before the app boots.
+    (function (l) {
+      var last = l.pathname.split('/').filter(Boolean).pop() || '';
+      if (/\.[a-z0-9]+$/i.test(last)) return; // missing file (asset, doc): stay on the 404
+      var keep = /\.github\.io$/i.test(l.hostname) ? 1 : 0; // project pages nest under /<repo>/
+      var segs = l.pathname.split('/').filter(Boolean);
+      var base = keep ? '/' + segs.slice(0, keep).join('/') + '/' : '/';
+      var rest = segs.slice(keep).join('/').replace(/&/g, '~and~');
+      var query = l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '';
+      l.replace(base + '?/' + rest + query + l.hash);
+    })(window.location);
+  </script>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #05060A; color: #B7C0D0; font-family: Inter, system-ui, sans-serif; }
+    a { color: #22D3EE; }
+  </style>
+</head>
+<body>
+  <p>Redirecting… if nothing happens, <a href="/my_portfolio/">back to the mind</a>.</p>
+</body>
+</html>

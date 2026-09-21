@@ -13,13 +13,15 @@ Certifications and Contacts. Hover (or tour) a region to explore it, click to di
 - **Three.js 0.160** (custom GLSL: wrapped diffuse + fake SSS + fresnel rim, per-pixel
   gyral field with derivative bump-mapping) and **GSAP** for the dive animation — loaded
   via `importmap` from a CDN.
-- Hash router (`#/region/:id`) so it runs on GitHub Pages with no server config.
+- Clean-URL router (`/region/:id`, History API) + `404.html` fallback so it runs on GitHub Pages with no server config.
 - Content is data-driven: JSON files under `data/` are the single source of truth.
 
 ## Structure
 
 ```
 index.html            # shell: header, home (brain) view, region view, boot loader
+404.html              # SPA fallback: deep links bounce back to the shell (clean URLs on GitHub Pages)
+sitemap.xml · robots.txt  # SEO: one entry per clean URL
 css/                  # tokens.css · base.css · brain.css · region.css
 js/
   main.js             # bootstrap + routing orchestration

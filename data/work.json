@@ -12,7 +12,7 @@
             "type": "Startup",
             "status": "current",
             "url": "https://www.modelvault.it",
-            "logo": "assets/images/modelvault.svg",
+            "logo": "assets/images/modelvault.png",
             "description": "ModelVault is an independent AI-engineering studio building production-grade, bespoke AI for businesses — predictive ML models, LLM agents, RAG systems and automation pipelines. Every solution is engineered end to end on a backend of seven FastAPI microservices hosted on ISO 27001–certified infrastructure in Italy. Quality over quantity: each model, a concrete advantage. It's where I'm turning applied AI into products companies can put into production — the start of my professional path.",
             "description_it": "ModelVault è uno studio indipendente di AI engineering che costruisce AI su misura, production-grade per aziende — modelli ML predittivi, agenti LLM, sistemi RAG e pipeline automation. Ogni soluzione è ingegnerizzata end-to-end su backend di sette microservizi FastAPI hosted su infrastruttura certificata ISO 27001 in Italia. Quality over quantity: ogni modello, un vantaggio concreto. È dove trasformo AI applicata in prodotti che le aziende mettono in produzione — l'inizio del mio percorso professionale.",
             "responsibilities": [
@@ -44,7 +44,7 @@
             "type_it": "Tirocinio e Tesi",
             "status": "upcoming",
             "url": "https://www.beretta.com",
-            "logo": "assets/images/beretta.svg",
+            "logo": "assets/images/beretta.png",
             "description": "Curricular internship and Master's thesis at Fabbrica d'Armi Pietro Beretta — one of the world's oldest industrial companies — within its technological-innovation efforts. The work centers on applied Artificial Intelligence: Retrieval-Augmented Generation (RAG) over technical knowledge bases and intelligent web-scraping pipelines, with a focus on AI-based innovation for industrial processes.",
             "description_it": "Tirocinio curriculare e tesi magistrale presso Fabbrica d'Armi Pietro Beretta — una delle aziende industriali più antiche al mondo — nell'ambito dei suoi sforzi di innovazione tecnologica. Il lavoro si concentra su Artificial Intelligence applicata: Retrieval-Augmented Generation (RAG) su knowledge base tecniche e pipeline intelligent web-scraping, con focus su innovazione AI-based per processi industriali.",
             "responsibilities": [

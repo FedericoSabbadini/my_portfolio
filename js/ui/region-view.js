@@ -2,6 +2,7 @@
    region-view.js — renders catalog content for a given region.
    ========================================================================= */
 import { groupBySubject } from '../data/taxonomy.js';
+import { regionPath } from '../router.js';
 import { t, localize, localizeArray } from '../i18n.js';
 
 const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -381,6 +382,6 @@ function renderFooter(currentId, domains) {
   const links = document.getElementById('footer-links');
   links.innerHTML = domains
     .filter((d) => d.id !== currentId)
-    .map((d) => `<a class="region-footer__link" href="#/region/${d.id}"><span class="region-footer__link-dot" style="background:${d.accent}" aria-hidden="true"></span>${esc(localize(d, 'label'))}</a>`)
+    .map((d) => `<a class="region-footer__link" href="${esc(regionPath(d.id))}"><span class="region-footer__link-dot" style="background:${d.accent}" aria-hidden="true"></span>${esc(localize(d, 'label'))}</a>`)
     .join('');
 }

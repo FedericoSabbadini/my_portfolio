@@ -6,7 +6,7 @@
 import { loadAll } from './data/store.js';
 import { BrainScene, webglAvailable } from './brain/brain-scene.js';
 import { BrainRegions } from './brain/brain-regions.js';
-import { createRouter, go } from './router.js';
+import { createRouter, go, homePath, regionPath, absoluteUrl } from './router.js';
 import { showRegion, showHome, hideBoot } from './ui/transitions.js';
 import { renderRegion } from './ui/region-view.js';
 import { initI18n, setLocale, getLocale, t, onLocaleChange, localize } from './i18n.js';
@@ -17,15 +17,15 @@ import { initI18n, setLocale, getLocale, t, onLocaleChange, localize } from './i
 // watchdog swaps the boot loader for a static fallback instead of hanging.
 window.__mindBooted = true;
 
-const state = { view: 'home', scene: null, regions: null, data: null, domains: null };
+const state = { view: 'home', route: { name: 'home' }, scene: null, regions: null, data: null, domains: null };
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Tracks whether we've navigated within the app since load. Lets the "Back"
 // button return to the actual previous page (history.back) when there is in-app
 // history, and fall back to the mind when the region was the entry point (deep
-// link) so Back can never leave the site.
+// link) so Back can never leave the site. Set from the router (any non-initial
+// navigation, push or back/forward, counts as in-app history).
 let navigatedInApp = false;
-window.addEventListener('hashchange', () => { navigatedInApp = true; });
 
 boot();
 
@@ -49,17 +49,15 @@ async function boot() {
   onLocaleChange(() => {
     applyStaticTranslations();
     // Re-render current view with new locale
-    if (state.view === 'region') {
-      const hash = location.hash;
-      const match = hash.match(/^#\/region\/(.+)$/);
-      if (match) renderRegion(match[1], state.data, state.domains);
+    if (state.view === 'region' && state.route.name === 'region') {
+      renderRegion(state.route.id, state.data, state.domains);
     } else {
       // Update home view texts + region nav with the new locale
       updateHomeView();
       if (state.regions) state.regions.rebuildNav();
     }
-    // Update document title
-    updateDocumentTitle();
+    // Update document title (localized)
+    updateRouteMeta();
   });
 
   const vw = window.innerWidth || document.documentElement.clientWidth || 1280;
@@ -130,15 +128,23 @@ function updateHomeView() {
   if (calloutKicker) calloutKicker.textContent = t('home.calloutKicker');
 }
 
-function updateDocumentTitle() {
-  if (state.view === 'region') {
-    const domain = state.domains.find(d => d.id === location.hash.replace('#/region/', ''));
-    if (domain) {
-      document.title = `${localize(domain, 'label')} — Federico Sabbadini`;
-    }
-  } else {
-    document.title = t('seo.siteTitle');
+/* Per-route <title> + canonical/og:url so every clean URL
+   (home and each region) is shareable and SEO-correct. */
+function updateRouteMeta(route) {
+  const r = route || state.route || { name: 'home' };
+  let path = homePath();
+  let title = t('seo.siteTitle');
+  if (r.name === 'region') {
+    const domain = (state.domains || []).find((d) => d.id === r.id);
+    path = regionPath(r.id);
+    if (domain) title = `${localize(domain, 'label')} — Federico Sabbadini`;
   }
+  document.title = title;
+  const abs = absoluteUrl(path);
+  const can = document.querySelector('link[rel="canonical"]');
+  if (can) can.setAttribute('href', abs);
+  const og = document.querySelector('meta[property="og:url"]');
+  if (og) og.setAttribute('content', abs);
 }
 
 function wireLanguageSwitcher() {
@@ -170,8 +176,7 @@ function wireLanguageSwitcher() {
    Respect reduced-motion preferences and let the user control later tours. */
 function maybeAutoTour() {
   if (!state.regions || reducedMotion) return;
-  const onHome = !location.hash || location.hash === '#' || location.hash === '#/';
-  if (!onHome) return;
+  if (state.route && state.route.name !== 'home') return;
   setTimeout(() => {
     if (state.view === 'home' && state.regions) state.regions.autoTour();
   }, 1600);
@@ -186,9 +191,9 @@ function onDive(id) {
     state.scene.zoomTo(id);                    // ~1.15s cinematic plunge
     // the accent bloom peaks late so it veils the brain→catalog swap
     setTimeout(() => playDiveFlash(dom ? dom.accent : '#22d3ee'), 520);
-    setTimeout(() => go(`#/region/${id}`), 1000);
+    setTimeout(() => go(regionPath(id)), 1000);
   } else {
-    go(`#/region/${id}`);
+    go(regionPath(id));
   }
 }
 
@@ -204,14 +209,16 @@ function playDiveFlash(accent) {
 }
 
 /* ---- routing ------------------------------------------------------------ */
-function route(r) {
+function route(r, { initial } = {}) {
+  state.route = r;
+  if (!initial) navigatedInApp = true;
   if (r.name === 'region') return enterRegion(r.id);
   return enterHome();
 }
 
 async function enterRegion(id) {
   const domain = state.domains.find((d) => d.id === id);
-  if (!domain) return go('#/');
+  if (!domain) return go(homePath());
 
   if (state.regions) state.regions.stopTour();
 
@@ -219,7 +226,7 @@ async function enterRegion(id) {
   await showRegion();
   if (state.scene) state.scene.stop();   // pause the loop while the catalog is up
   state.view = 'region';
-  updateDocumentTitle();
+  updateRouteMeta();
   // move keyboard/SR focus to the new page's heading
   const h = document.getElementById('hero-title');
   if (h) h.focus({ preventScroll: true });
@@ -248,26 +255,32 @@ async function enterHome() {
     if (t) t.focus({ preventScroll: true });
   }
   state.view = 'home';
-  updateDocumentTitle();
+  updateRouteMeta();
 }
 
 /* ---- chrome ------------------------------------------------------------- */
 function wireChrome() {
+  // Real hrefs (set below) keep links SEO-/no-JS-friendly; the router
+  // intercepts same-origin clicks so navigation stays client-side.
+  const home = homePath();
+  const backLink = document.getElementById('back-to-mind');
+  backLink.setAttribute('href', home);
+  const headerHome = document.getElementById('header-home');
+  if (headerHome) headerHome.setAttribute('href', home);
   // "Back" → the previous page (region → region, or region → mind). Falls back to
   // the mind when there's no in-app history to step back to (direct deep link).
-  document.getElementById('back-to-mind').addEventListener('click', (e) => {
+  backLink.addEventListener('click', (e) => {
     e.preventDefault();
     if (navigatedInApp && window.history.length > 1) window.history.back();
-    else go('#/');
+    else go(home);
   });
-  const headerHome = document.getElementById('header-home');
   if (headerHome) {
     headerHome.addEventListener('click', (e) => {
       e.preventDefault();
-      go('#/');
+      go(home);
     });
   }
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && state.view === 'region') go('#/');
+    if (e.key === 'Escape' && state.view === 'region') go(home);
   });
 }
