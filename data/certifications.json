@@ -408,6 +408,32 @@
       "hfUrl": ""
     },
     {
+      "id": "work-safety-low-risk",
+      "subject": "business",
+      "title": "Workplace Safety — Low Risk (D.Lgs. 81/08)",
+      "title_it": "Sicurezza nei Luoghi di Lavoro — Basso Rischio (D.Lgs. 81/08)",
+      "issuer": "Università di Brescia",
+      "issuerIcon": "unibs",
+      "date": "September 2026",
+      "date_it": "Settembre 2026",
+      "certId": "az-hFc3TT0GhLYaXjizH_w",
+      "description": "Mandatory workplace safety training under Italian D.Lgs. 81/08 and Accordo Stato Regioni 17/04/2025. 4-hour course covering risk assessment, electrical safety, manual handling, VDT ergonomics, work-related stress, emergency management, and safety signage. Permanent training credit certified via digital badge.",
+      "description_it": "Formazione obbligatoria sicurezza sul lavoro ai sensi D.Lgs. 81/08 e Accordo Stato Regioni 17/04/2025. Corso 4 ore coprendo valutazione rischi, rischio elettrico, movimentazione manuale carichi, ergonomia VDT, stress lavoro-correlato, gestione emergenze e segnaletica di sicurezza. Credito formativo permanente certificato tramite digital badge.",
+      "tags": [
+        "Workplace Safety",
+        "D.Lgs. 81/08",
+        "Low Risk"
+      ],
+      "tags_it": [
+        "Sicurezza Lavoro",
+        "D.Lgs. 81/08",
+        "Basso Rischio"
+      ],
+      "featured": false,
+      "url": "https://openbadges.bestr.it/public/assertions/az-hFc3TT0GhLYaXjizH_w",
+      "hfUrl": ""
+    },
+    {
       "id": "agile",
       "subject": "business",
       "title": "Agile Project Management",
